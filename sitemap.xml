@@ -2,23 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://ittiger.cn/Kotlin-Coroutine-Basic-Knowledge.html</loc>
+    
+    <lastmod>2019-05-09T14:05:09.863Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://ittiger.cn/Kotlin-Coroutine-For-Android-Network.html</loc>
     
-    <lastmod>2019-05-09T14:00:43.111Z</lastmod>
+    <lastmod>2019-05-09T14:05:03.147Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://ittiger.cn/Kotlin-Coroutine-Guide.html</loc>
     
-    <lastmod>2019-05-09T13:59:00.416Z</lastmod>
+    <lastmod>2019-05-09T14:04:49.167Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://ittiger.cn/Kotlin-Coroutine-Basic-Knowledge.html</loc>
+    <loc>http://ittiger.cn/RN-Problem-Record.html</loc>
     
-    <lastmod>2019-05-09T13:58:49.504Z</lastmod>
+    <lastmod>2019-05-09T14:02:44.365Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ittiger.cn/Java-Synchronized-ReentrantLock.html</loc>
+    
+    <lastmod>2019-05-09T14:02:02.040Z</lastmod>
     
   </url>
   
@@ -47,13 +61,6 @@
     <loc>http://ittiger.cn/Flutter-For-Start-Build-Error.html</loc>
     
     <lastmod>2019-05-09T13:47:22.209Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ittiger.cn/Java-Synchronized-ReentrantLock.html</loc>
-    
-    <lastmod>2019-05-09T13:45:30.015Z</lastmod>
     
   </url>
   
@@ -96,13 +103,6 @@
     <loc>http://ittiger.cn/Thinking-Code-Clean.html</loc>
     
     <lastmod>2019-05-09T13:41:58.274Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ittiger.cn/RN-Problem-Record.html</loc>
-    
-    <lastmod>2019-05-09T13:41:18.792Z</lastmod>
     
   </url>
   
@@ -352,14 +352,14 @@
   </url>
   
   <url>
-    <loc>http://ittiger.cn/%E6%B5%85%E8%B0%88JSONP%E8%B7%A8%E5%9F%9F%E8%AF%B7%E6%B1%82.html</loc>
+    <loc>http://ittiger.cn/%E8%AE%A9RecyclerView%E6%9B%B4%E9%80%9A%E7%94%A8.html</loc>
     
     <lastmod>2019-05-09T01:56:40.911Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://ittiger.cn/%E8%AE%A9RecyclerView%E6%9B%B4%E9%80%9A%E7%94%A8.html</loc>
+    <loc>http://ittiger.cn/%E6%B5%85%E8%B0%88JSONP%E8%B7%A8%E5%9F%9F%E8%AF%B7%E6%B1%82.html</loc>
     
     <lastmod>2019-05-09T01:56:40.911Z</lastmod>
     
@@ -394,7 +394,7 @@
   </url>
   
   <url>
-    <loc>http://ittiger.cn/Retrofit2%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E4%B8%8B%E8%BD%BD%E5%8F%8A%E5%85%B6%E8%BF%9B%E5%BA%A6%E6%98%BE%E7%A4%BA.html</loc>
+    <loc>http://ittiger.cn/Retrofit2%E4%BD%BF%E7%94%A8%E4%BB%8B%E7%BB%8D.html</loc>
     
     <lastmod>2019-05-09T01:56:40.906Z</lastmod>
     
@@ -408,7 +408,7 @@
   </url>
   
   <url>
-    <loc>http://ittiger.cn/Retrofit2%E4%BD%BF%E7%94%A8%E4%BB%8B%E7%BB%8D.html</loc>
+    <loc>http://ittiger.cn/Retrofit2%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E4%B8%8B%E8%BD%BD%E5%8F%8A%E5%85%B6%E8%BF%9B%E5%BA%A6%E6%98%BE%E7%A4%BA.html</loc>
     
     <lastmod>2019-05-09T01:56:40.906Z</lastmod>
     
@@ -422,13 +422,6 @@
   </url>
   
   <url>
-    <loc>http://ittiger.cn/RecyclerView%E5%AD%90View%E5%AE%BD%E5%BA%A6%E4%B8%8D%E5%85%85%E6%BB%A1%E7%88%B6%E5%AE%B9%E5%99%A8.html</loc>
-    
-    <lastmod>2019-05-09T01:56:40.905Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://ittiger.cn/RecyclerView%E7%BB%98%E5%88%B6%E5%8E%9F%E7%90%86.html</loc>
     
     <lastmod>2019-05-09T01:56:40.905Z</lastmod>
@@ -436,14 +429,21 @@
   </url>
   
   <url>
-    <loc>http://ittiger.cn/Header-Footer-scroll-hide.html</loc>
+    <loc>http://ittiger.cn/RecyclerView%E5%AD%90View%E5%AE%BD%E5%BA%A6%E4%B8%8D%E5%85%85%E6%BB%A1%E7%88%B6%E5%AE%B9%E5%99%A8.html</loc>
+    
+    <lastmod>2019-05-09T01:56:40.905Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ittiger.cn/Custom-Behavior-to-fast-back.html</loc>
     
     <lastmod>2019-05-09T01:56:40.903Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://ittiger.cn/Custom-Behavior-to-fast-back.html</loc>
+    <loc>http://ittiger.cn/Header-Footer-scroll-hide.html</loc>
     
     <lastmod>2019-05-09T01:56:40.903Z</lastmod>
     
@@ -457,14 +457,14 @@
   </url>
   
   <url>
-    <loc>http://ittiger.cn/Android%E4%B8%ADOkHttp%E7%9A%84%E4%BD%BF%E7%94%A8.html</loc>
+    <loc>http://ittiger.cn/Android%E5%9F%BA%E7%A1%80%E4%B9%8Bshape%E4%BD%BF%E7%94%A8.html</loc>
     
     <lastmod>2019-05-09T01:56:40.900Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://ittiger.cn/Android%E5%9F%BA%E7%A1%80%E4%B9%8Bshape%E4%BD%BF%E7%94%A8.html</loc>
+    <loc>http://ittiger.cn/Android%E4%B8%ADOkHttp%E7%9A%84%E4%BD%BF%E7%94%A8.html</loc>
     
     <lastmod>2019-05-09T01:56:40.900Z</lastmod>
     

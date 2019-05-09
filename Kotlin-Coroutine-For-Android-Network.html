@@ -16,7 +16,7 @@
 <meta property="og:description" content="Kotlin Coroutine(协程)系列：1. Kotlin Coroutine(协程) 简介2. Kotlin Coroutine(协程) 基本知识3. Android中用Kotlin Coroutine(协程)和Retrofit进行网络请求和取消请求    前面两篇文章介绍了协程的一些基本概念和基本知识，这篇则介绍在Android中如何使用协程配合Retrofit发起网络请求，同时介绍在使">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://ittiger.cn/images/og_image.png">
-<meta property="og:updated_time" content="2019-05-09T14:00:43.111Z">
+<meta property="og:updated_time" content="2019-05-09T14:05:03.147Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android中用Kotlin Coroutine(协程)和Retrofit进行网络请求和取消请求">
 <meta name="twitter:description" content="Kotlin Coroutine(协程)系列：1. Kotlin Coroutine(协程) 简介2. Kotlin Coroutine(协程) 基本知识3. Android中用Kotlin Coroutine(协程)和Retrofit进行网络请求和取消请求    前面两篇文章介绍了协程的一些基本概念和基本知识，这篇则介绍在Android中如何使用协程配合Retrofit发起网络请求，同时介绍在使">
@@ -169,7 +169,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    15 分钟 读完 (大约 2240 个字)
+                    15 分钟 读完 (大约 2243 个字)
                 </span>
                 
                 
@@ -187,7 +187,7 @@ var _hmt = _hmt || [];
             
         </h1>
         <div class="content">
-            <p>Kotlin Coroutine(协程)系列：<br><a href="https://blog.csdn.net/huyongl1989/article/details/89287132" target="_blank" rel="noopener">1. Kotlin Coroutine(协程) 简介</a><br><a href="https://blog.csdn.net/huyongl1989/article/details/89298155" target="_blank" rel="noopener">2. Kotlin Coroutine(协程) 基本知识</a><br><a href="https://blog.csdn.net/huyongl1989/article/details/89456753" target="_blank" rel="noopener">3. Android中用Kotlin Coroutine(协程)和Retrofit进行网络请求和取消请求</a>   </p>
+            <p>Kotlin Coroutine(协程)系列：<br><a href="http://ittiger.cn/Kotlin-Coroutine-Guide.html">1. Kotlin Coroutine(协程) 简介</a><br><a href="http://ittiger.cn/Kotlin-Coroutine-Basic-Knowledge.html">2. Kotlin Coroutine(协程) 基本知识</a><br><a href="http://ittiger.cn/Kotlin-Coroutine-For-Android-Network.html">3. Android中用Kotlin Coroutine(协程)和Retrofit进行网络请求和取消请求</a>   </p>
 <p>前面两篇文章介绍了协程的一些基本概念和基本知识，这篇则介绍在<code>Android</code>中如何使用协程配合<code>Retrofit</code>发起网络请求，同时介绍在使用协程时如何优雅的取消已经发起的网络请求。<br><a id="more"></a><br>此篇文章的Demo地址<a href="https://github.com/huyongli/AndroidKotlinCoroutine" target="_blank" rel="noopener">：https://github.com/huyongli/AndroidKotlinCoroutine</a></p>
 <h3 id="创建CoroutineScope"><a href="#创建CoroutineScope" class="headerlink" title="创建CoroutineScope"></a>创建CoroutineScope</h3><p>在前面的文章中我写到<code>CoroutineScope.launch</code>方法是一个很常用的协程构建器。因此使用协程必须先得创建一个<code>CoroutineScope</code>对象，代码如下：<br><figure class="highlight kotlin hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CoroutineScope(Dispatchers.Main + Job())</span><br></pre></td></tr></table></figure></p>
 <p>上面的代码创建了一个<code>CoroutineScope</code>对象，为其协程指定了在主线程中执行，同时分配了一个<code>Job</code>   </p>
@@ -276,13 +276,6 @@ var _hmt = _hmt || [];
 
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
-        
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/Java-Synchronized-ReentrantLock.html">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">多线程之：Synchronized与ReentrantLock</span>
-            </a>
-        </div>
         
         
         <div class="level-end">
@@ -565,19 +558,6 @@ var _hmt = _hmt || [];
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-09T13:44:18.000Z">2019-05-09</time></div>
-                    <a href="/Java-Synchronized-ReentrantLock.html" class="has-link-black-ter is-size-6">多线程之：Synchronized与ReentrantLock</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Java/">Java</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-22T09:25:05.000Z">2019-04-22</time></div>
                     <a href="/Kotlin-Coroutine-For-Android-Network.html" class="has-link-black-ter is-size-6">Android中用Kotlin Coroutine(协程)和Retrofit进行网络请求和取消请求</a>
                     <p class="is-size-7 is-uppercase">
@@ -626,6 +606,19 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-11-05T03:21:17.000Z">2018-11-05</time></div>
+                    <a href="/Flutter-Row-Column-Container.html" class="has-link-black-ter is-size-6">Flutter入门之Row、Column、Container布局</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Flutter/">Flutter</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
     </div>
 </div>
 
@@ -637,17 +630,6 @@ var _hmt = _hmt || [];
             归档
         </h3>
         <ul class="menu-list">
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/05/">
-                <span class="level-start">
-                    <span class="level-item">五月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">1</span>
-                </span>
-            </a>
-        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2019/04/">
@@ -677,7 +659,7 @@ var _hmt = _hmt || [];
                     <span class="level-item">十月 2018</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">1</span>
+                    <span class="level-item tag">2</span>
                 </span>
             </a>
         </li>
@@ -1138,19 +1120,6 @@ var _hmt = _hmt || [];
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-09T13:44:18.000Z">2019-05-09</time></div>
-                    <a href="/Java-Synchronized-ReentrantLock.html" class="has-link-black-ter is-size-6">多线程之：Synchronized与ReentrantLock</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Java/">Java</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-22T09:25:05.000Z">2019-04-22</time></div>
                     <a href="/Kotlin-Coroutine-For-Android-Network.html" class="has-link-black-ter is-size-6">Android中用Kotlin Coroutine(协程)和Retrofit进行网络请求和取消请求</a>
                     <p class="is-size-7 is-uppercase">
@@ -1199,6 +1168,19 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-11-05T03:21:17.000Z">2018-11-05</time></div>
+                    <a href="/Flutter-Row-Column-Container.html" class="has-link-black-ter is-size-6">Flutter入门之Row、Column、Container布局</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Flutter/">Flutter</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
     </div>
 </div>
 
@@ -1210,17 +1192,6 @@ var _hmt = _hmt || [];
             归档
         </h3>
         <ul class="menu-list">
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/05/">
-                <span class="level-start">
-                    <span class="level-item">五月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">1</span>
-                </span>
-            </a>
-        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2019/04/">
@@ -1250,7 +1221,7 @@ var _hmt = _hmt || [];
                     <span class="level-item">十月 2018</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">1</span>
+                    <span class="level-item tag">2</span>
                 </span>
             </a>
         </li>

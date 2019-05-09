@@ -7,19 +7,19 @@
 
 
 
-    <meta name="description" content="最近做了一个RN的项目，RN小白，自然遇到了不少问题，这里记录一下。  命令行下启动IOS版本时出现如下错误：  1xcrun: error: unable to find utility &amp;quot;instruments&amp;quot;, not a developer tool or  这个是装完xcode后模拟器无法识别的问题，解决办法是在终端下执行如下命令：  12345	sudo xcod">
+    <meta name="description" content="最近做了一个RN的项目，RN小白，自然遇到了不少问题，这里记录一下。">
 <meta name="keywords" content="RN">
 <meta property="og:type" content="article">
 <meta property="og:title" content="React Native学习问题记录">
 <meta property="og:url" content="http://ittiger.cn/RN-Problem-Record.html">
 <meta property="og:site_name" content="老胡">
-<meta property="og:description" content="最近做了一个RN的项目，RN小白，自然遇到了不少问题，这里记录一下。  命令行下启动IOS版本时出现如下错误：  1xcrun: error: unable to find utility &amp;quot;instruments&amp;quot;, not a developer tool or  这个是装完xcode后模拟器无法识别的问题，解决办法是在终端下执行如下命令：  12345	sudo xcod">
+<meta property="og:description" content="最近做了一个RN的项目，RN小白，自然遇到了不少问题，这里记录一下。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://ittiger.cn/images/og_image.png">
-<meta property="og:updated_time" content="2019-05-09T13:41:18.792Z">
+<meta property="og:updated_time" content="2019-05-09T14:02:44.365Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React Native学习问题记录">
-<meta name="twitter:description" content="最近做了一个RN的项目，RN小白，自然遇到了不少问题，这里记录一下。  命令行下启动IOS版本时出现如下错误：  1xcrun: error: unable to find utility &amp;quot;instruments&amp;quot;, not a developer tool or  这个是装完xcode后模拟器无法识别的问题，解决办法是在终端下执行如下命令：  12345	sudo xcod">
+<meta name="twitter:description" content="最近做了一个RN的项目，RN小白，自然遇到了不少问题，这里记录一下。">
 <meta name="twitter:image" content="http://ittiger.cn/images/og_image.png">
 
 
@@ -187,12 +187,12 @@ var _hmt = _hmt || [];
             
         </h1>
         <div class="content">
-            <p>最近做了一个RN的项目，RN小白，自然遇到了不少问题，这里记录一下。</p>
+            <p>最近做了一个RN的项目，RN小白，自然遇到了不少问题，这里记录一下。<br><a id="more"></a></p>
 <ol>
 <li><p>命令行下启动IOS版本时出现如下错误：</p>
  <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xcrun: error: unable to find utility &quot;instruments&quot;, not a developer tool or</span><br></pre></td></tr></table></figure>
 <p> 这个是装完xcode后模拟器无法识别的问题，解决办法是在终端下执行如下命令：</p>
- <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">	sudo xcode-select -s /Applications/Xcode.app/Contents/Developer/</span><br><span class="line">	```	</span><br><span class="line">&lt;!--more--&gt;</span><br><span class="line">2. 终端命令启动某个APP时，出现红屏错误，而上面显示的错误信息表明加载代码的路径与当前要运行的代码路径不相符。这个错误应该是你上一次运行了另外一个APP，而当你再次运行第二个不同的APP时没有把上一个APP的终端监听给关掉。此时只需要关闭react-native start的监听终端即可，然后重启APP</span><br><span class="line">3. 在使用`react-devtools`查看APP的布局结构时，出现如下信息而无法链接上APP</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">	sudo xcode-select -s /Applications/Xcode.app/Contents/Developer/</span><br><span class="line">	```	</span><br><span class="line"></span><br><span class="line">2. 终端命令启动某个APP时，出现红屏错误，而上面显示的错误信息表明加载代码的路径与当前要运行的代码路径不相符。这个错误应该是你上一次运行了另外一个APP，而当你再次运行第二个不同的APP时没有把上一个APP的终端监听给关掉。此时只需要关闭react-native start的监听终端即可，然后重启APP</span><br><span class="line">3. 在使用`react-devtools`查看APP的布局结构时，出现如下信息而无法链接上APP</span><br></pre></td></tr></table></figure>
 <p> Waiting for React to connect</p>
  <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在终端下执行如下命令，然后重启`react-devtools`即可</span><br></pre></td></tr></table></figure>
 <p> adb reverse tcp:8097 tcp:8097</p>
@@ -274,9 +274,9 @@ var _hmt = _hmt || [];
     <div class="level post-navigation is-flex-wrap is-mobile">
         
         <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/Flutter-For-Start-Build-Error.html">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/Java-Synchronized-ReentrantLock.html">
                 <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">Flutter入门之Could not find lint-gradle-api.jar</span>
+                <span class="level-item">多线程之：Synchronized与ReentrantLock</span>
             </a>
         </div>
         
@@ -561,19 +561,6 @@ var _hmt = _hmt || [];
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-09T13:44:18.000Z">2019-05-09</time></div>
-                    <a href="/Java-Synchronized-ReentrantLock.html" class="has-link-black-ter is-size-6">多线程之：Synchronized与ReentrantLock</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Java/">Java</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-22T09:25:05.000Z">2019-04-22</time></div>
                     <a href="/Kotlin-Coroutine-For-Android-Network.html" class="has-link-black-ter is-size-6">Android中用Kotlin Coroutine(协程)和Retrofit进行网络请求和取消请求</a>
                     <p class="is-size-7 is-uppercase">
@@ -622,6 +609,19 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-11-05T03:21:17.000Z">2018-11-05</time></div>
+                    <a href="/Flutter-Row-Column-Container.html" class="has-link-black-ter is-size-6">Flutter入门之Row、Column、Container布局</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Flutter/">Flutter</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
     </div>
 </div>
 
@@ -633,17 +633,6 @@ var _hmt = _hmt || [];
             归档
         </h3>
         <ul class="menu-list">
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/05/">
-                <span class="level-start">
-                    <span class="level-item">五月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">1</span>
-                </span>
-            </a>
-        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2019/04/">
@@ -673,7 +662,7 @@ var _hmt = _hmt || [];
                     <span class="level-item">十月 2018</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">1</span>
+                    <span class="level-item tag">2</span>
                 </span>
             </a>
         </li>
@@ -1134,19 +1123,6 @@ var _hmt = _hmt || [];
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-09T13:44:18.000Z">2019-05-09</time></div>
-                    <a href="/Java-Synchronized-ReentrantLock.html" class="has-link-black-ter is-size-6">多线程之：Synchronized与ReentrantLock</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Java/">Java</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-22T09:25:05.000Z">2019-04-22</time></div>
                     <a href="/Kotlin-Coroutine-For-Android-Network.html" class="has-link-black-ter is-size-6">Android中用Kotlin Coroutine(协程)和Retrofit进行网络请求和取消请求</a>
                     <p class="is-size-7 is-uppercase">
@@ -1195,6 +1171,19 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-11-05T03:21:17.000Z">2018-11-05</time></div>
+                    <a href="/Flutter-Row-Column-Container.html" class="has-link-black-ter is-size-6">Flutter入门之Row、Column、Container布局</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Flutter/">Flutter</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
     </div>
 </div>
 
@@ -1206,17 +1195,6 @@ var _hmt = _hmt || [];
             归档
         </h3>
         <ul class="menu-list">
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/05/">
-                <span class="level-start">
-                    <span class="level-item">五月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">1</span>
-                </span>
-            </a>
-        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2019/04/">
@@ -1246,7 +1224,7 @@ var _hmt = _hmt || [];
                     <span class="level-item">十月 2018</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">1</span>
+                    <span class="level-item tag">2</span>
                 </span>
             </a>
         </li>
