@@ -155,60 +155,7 @@ var _hmt = _hmt || [];
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2016-09-22T12:41:09.000Z">2016-09-22</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Blog/">Blog</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    10 分钟 读完 (大约 1532 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/create-hexo-blog.html">Hexo搭建静态博客</a>
-            
-        </h1>
-        <div class="content">
-            <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>前段时间因为我的WordPress博客进入后台非常慢，严重影响操作使用，再加上服务器时间的限制，所以就讲博客从WordPress迁移到了Hexo上，这篇文章记录下我创建Hexo博客的一些流程步骤。</p>
-<h3 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h3><p>Hexo是一个简单地、轻量地、基于NodeJS的一个静态博客框架，可以方便的生成静态网页托管在github或者是国内的coding.net上</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/create-hexo-blog.html#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2016-09-21T12:30:39.000Z">2016-09-21</time>
+                <time class="level-item has-text-grey" datetime="2017-04-30T13:45:04.000Z">2017-04-30</time>
                 
                 <div class="level-item">
                 <a class="has-link-grey -link" href="/categories/Android/">Android</a>
@@ -218,7 +165,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    10 分钟 读完 (大约 1437 个字)
+                    13 分钟 读完 (大约 2007 个字)
                 </span>
                 
                 
@@ -227,290 +174,25 @@ var _hmt = _hmt || [];
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/Retrofit2文件上传下载及其进度显示.html">Retrofit2文件上传下载及其进度显示</a>
+                <a class="has-link-black-ter" href="/MediaBrowserService.html">关于媒体浏览器服务(MediaBrowserService)</a>
             
         </h1>
         <div class="content">
-            <h4 id="序"><a href="#序" class="headerlink" title="序"></a>序</h4><p>前面一篇文章介绍了<a href="http://ittiger.cn/2016/08/29/Retrofit2%E4%BD%BF%E7%94%A8%E4%BB%8B%E7%BB%8D/">Retrofit2的基本使用</a>，这篇文章接着介绍使用Retrofit2实现文件上传和文件下载，以及上传下载过程中如何实现进度的显示。</p>
-<h4 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h4><h5 id="定义接口"><a href="#定义接口" class="headerlink" title="定义接口"></a>定义接口</h5><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">@Multipart</span></span><br><span class="line"><span class="hljs-meta">@POST</span>(<span class="hljs-string">"fileService"</span>)</span><br><span class="line"><span class="hljs-function">Call&lt;User&gt; <span class="hljs-title">uploadFile</span><span class="hljs-params">(@Part MultipartBody.Part file)</span></span>;</span><br></pre></td></tr></table></figure>
-<h5 id="构造请求体上传"><a href="#构造请求体上传" class="headerlink" title="构造请求体上传"></a>构造请求体上传</h5><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">File file = <span class="hljs-keyword">new</span> File(filePath);</span><br><span class="line">RequestBody body = RequestBody.create(MediaType.parse(<span class="hljs-string">"application/otcet-stream"</span>), file);</span><br><span class="line">MultipartBody.Part part = MultipartBody.Part.createFormData(<span class="hljs-string">"file"</span>, file.getName(), body);</span><br><span class="line">Call&lt;User&gt; call = getRetrofitService().uploadOneFile(part);</span><br><span class="line">call.enqueue(callback);</span><br></pre></td></tr></table></figure>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/Retrofit2文件上传下载及其进度显示.html#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2016-08-29T12:50:13.000Z">2016-08-29</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Android/">Android</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    10 分钟 读完 (大约 1485 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/Retrofit2使用介绍.html">Retrofit2使用介绍</a>
-            
-        </h1>
-        <div class="content">
-            <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>对于还不知道Refrofit是什么的同学，我只能说你们太out了，赶紧去Google下，本文是针对Retrofit2.0的使用介绍，当然大家也可以直接去<a href="http://square.github.io/retrofit/" target="_blank" rel="noopener">官网</a>上去看使用介绍</p>
-<h4 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a>添加依赖</h4><p>要使用Retrofit首先得添加gradle依赖<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">compile &apos;com.squareup.retrofit2:retrofit:2.0.2&apos;</span><br><span class="line">compile &apos;com.squareup.retrofit2:converter-gson:2.0.0&apos;</span><br></pre></td></tr></table></figure></p>
-<h4 id="声明服务接口"><a href="#声明服务接口" class="headerlink" title="声明服务接口"></a>声明服务接口</h4><p>依赖添加完成之后，就可以开始撸代码了，首先我们要新建一个Interface，这个接口就是你要请求的接口服务类，就像这个样子</p>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">RetrofitService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-meta">@GET</span>(<span class="hljs-string">"getModelService"</span>)</span><br><span class="line">    <span class="hljs-function">Call&lt;User&gt; <span class="hljs-title">getModelService</span><span class="hljs-params">()</span></span>;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>上面这个接口中暂时只声明了一个方法，而在Retrofit中想这样声明的一个方法就代表了一个具体的Http请求接口。Retrofit中方法上添加<code>@GET</code>注解就表示当前方法代表一个Get请求，我们声明的这个请求方法不带任何参数，且返回结果是User对象。<br><code>@GET</code>注解括号中的值<code>getModelService</code>就代表http请求地址的具体指向，这个值与下面baseUrl中配置的URL一起组成一个完整的请求地址<br>Retrofit就是这么任性，它可以帮我们把http的请求结果自动转换成Javabean对象，这将为我们减少不少编码工作。</p>
-<h4 id="构造Retrofit对象"><a href="#构造Retrofit对象" class="headerlink" title="构造Retrofit对象"></a>构造Retrofit对象</h4><p>接口服务声明完成之后，我们接着需要新建一个Retrofit对象<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Retrofit retrofit = <span class="hljs-keyword">new</span> Retrofit.Builder()</span><br><span class="line">         .baseUrl(<span class="hljs-string">"http://localhost:8080/AndroidService/"</span>)</span><br><span class="line">         .addConverterFactory(GsonConverterFactory.create())</span><br><span class="line">         .build();</span><br><span class="line">RetrofitService service = retrofit.create(RetrofitService.class);</span><br></pre></td></tr></table></figure></p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/Retrofit2使用介绍.html#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2016-07-27T13:48:15.000Z">2016-07-27</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Android/">Android</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    12 分钟 读完 (大约 1775 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/让RecyclerView更通用.html">让RecyclerView更通用</a>
-            
-        </h1>
-        <div class="content">
-            <h3 id="何为通用"><a href="#何为通用" class="headerlink" title="何为通用"></a>何为通用</h3><p>用过<code>RecyclerView</code>的都知道它没有为我们提供像<code>ListView</code>中类似<code>addHeaderView，addFooterView，setOnItemClickListener，setOnItemLongClickListener</code>的接口，另外还有底部自动加载更多，这些都是列表使用中很常见的功能，所以如果我们使用<code>RecyclerView</code>来实现列表的话就需要自己实现这些功能。本文主要介绍这些通用功能的实现方式，使得<code>RecyclerView</code>使用起来和<code>ListView</code>一样方便。</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/让RecyclerView更通用.html#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2016-07-23T13:45:10.000Z">2016-07-23</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Android/">Android</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    2 分钟 读完 (大约 228 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/RecyclerView子View宽度不充满父容器.html">RecyclerView子View宽度不充满父容器</a>
-            
-        </h1>
-        <div class="content">
-            <p>今天用<code>RecyclerView</code>写了简单的例子，使用的是<code>LinearLyaoutManager</code>，子<code>View</code>采用的<code>TextView</code>，准备写个简单的List展示，我的<code>RecyclerView</code>和<code>TextView</code>的宽度布局都采用的是<code>match_parent</code>，结果显示出来之后发现子<code>View</code>的宽度压根就没有充满屏幕。之前也用过<code>RecyclerView</code>，但是没有遇到过这个问题，很不解啊~~~网上查阅之后说是在<code>Adapter</code>的<code>onCreateViewHolder</code>方法中构造<code>View</code>的时候不能用如下方式：<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">View.inflate(mContext, R.layout.item_layout, <span class="hljs-keyword">null</span>);</span><br></pre></td></tr></table></figure></p>
-<p>必须要换成下面的构造方式把parent带进去：<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LayoutInflater.from(mContext).inflate(R.layout.item_layout, parent, <span class="hljs-keyword">false</span>);</span><br></pre></td></tr></table></figure></p>
-<p>而我的<code>Adapter</code>中刚好就使用的是第一种方式，于是立马换成下面的第二种方式实现，运行看效果，果然充满了屏幕~~~这个问题还真是奇葩啊~<br></p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/RecyclerView子View宽度不充满父容器.html#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2016-06-29T13:37:10.000Z">2016-06-29</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Android/">Android</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    11 分钟 读完 (大约 1657 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/RecyclerView下拉刷新上拉加载.html">RecyclerView下拉刷新上拉加载</a>
-            
-        </h1>
-        <div class="content">
-            <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>作为<code>ListView</code>和<code>GridView</code>的替代者， <code>RecyclerView</code>以它的灵活性著称，而且有着更好更完善的缓存处理机制。但是在使用<code>RecyclerVew</code>的过程中有个很明显的问题：<code>RecyclerView</code>没有为开发者提供<code>addHeadView</code>和<code>addFooterView</code>两个接口，这就为<code>RecyclerView</code>的下拉刷新和上拉加载实现增加了难度，本文就为大家介绍<code>RecyclerView</code>的下拉刷新和上拉加载的实现方式。</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/RecyclerView下拉刷新上拉加载.html#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2016-06-24T12:14:18.000Z">2016-06-24</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Android/">Android</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    10 分钟 读完 (大约 1468 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/AndroidStudio使用技巧.html">AndroidStudio使用技巧</a>
-            
-        </h1>
-        <div class="content">
-            <h3 id="AndroidStudio使用技巧"><a href="#AndroidStudio使用技巧" class="headerlink" title="AndroidStudio使用技巧"></a>AndroidStudio使用技巧</h3><p>本文主要是记录从我使用AndroidStudio以来遇到的一些问题和一些技巧。</p>
-<hr>
+            <p>今天说的这个主题与媒体播放有关，尤其是音乐播放，说到音乐播放大家应该都用过音乐App。<br>通常一个音乐App的实现主要涉及如下几点：</p>
 <ol>
-<li>初次使用AndroidStudio，第一次创建Android工程编译时会比较慢，这中间涉及到三个过程：<ol>
-<li>可能会去下载最新的SDK，所以在创建工程之前可以先将SDK更新完成</li>
-<li>AndroidStudio工程会使用gradle构建，因此会联网下载gradle，这个过程比较慢要耐心等待</li>
-<li>下载工程中的一些依赖包，比如junit</li>
+<li>从服务器获取音乐数据</li>
+<li>播放音乐时播放器的各种播放状态以及不同状态下的UI展示</li>
+<li>播放过程中通过UI界面控制播放器的各种状态</li>
+<li>UI控制如何与播放服务进行关联并进行状态同步</li>
+<li>如何保证后台播放过程中播放服务不被杀死</li>
 </ol>
-</li>
-<li>有时候使用AndroidStudio进行rebuild和clean时，会报错如下：<code>Failed to complete gradle execution cause by...</code>，一般此错误可以通过设置gradle的VM参数解决： -Xmx256m<code>(设置方式为：File &gt; Setting &gt; Gradle &gt; Gradle Vm Option)</code>，如果此方法无效，可以选择直接升级AS的版本到最新版本再试，还有其他可能的原因是工程JDK版本与AS设置的JDK版本不同</li>
-<li>设置AndroidStudio的不同主题背景： <code>File &gt; Setting &gt; Appearance&amp;Behavior &gt; Appearance</code> 下的Theme可以选择你要使用的主题</li>
+<p>对于上面的这几点，其实<code>Android</code>已经为我们提供了一套完整的解决方案，它已经很好的将这些操作进行了封装，我们只需要关注数据的获取和歌曲的播放即可。<code>Android</code>提供的这套API在<code>support-v4</code>中提供了兼容版本，因此在使用的过程中最好使用该版本以兼容低版本系统。</p>
+<p>关键类主要有如下几个：</p>
+<ol>
+<li><code>MediaBrowserServiceCompat</code> 媒体浏览器服务</li>
+<li><code>MediaBrowserCompat</code> 媒体浏览器</li>
+<li><code>MediaControllerCompat</code> 媒体控制器</li>
+<li><code>MediaSessionCompat</code> 媒体会话<br>我们一个个来说。</li>
 </ol>
         </div>
         
@@ -518,7 +200,7 @@ var _hmt = _hmt || [];
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/AndroidStudio使用技巧.html#more">阅读更多</a>
+                <a class="button is-size-7 is-light" href="/MediaBrowserService.html#more">阅读更多</a>
                 </div>
             </div>
         </div>
@@ -540,7 +222,168 @@ var _hmt = _hmt || [];
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2016-05-26T12:58:03.000Z">2016-05-26</time>
+                <time class="level-item has-text-grey" datetime="2017-03-30T14:34:05.000Z">2017-03-30</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Material-Design/">Material Design</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    7 分钟 读完 (大约 1076 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/Behavior-UC-Main-Page.html">Behavior-UC-Main-Page</a>
+            
+        </h1>
+        <div class="content">
+            <p>老规矩，还是先上效果图<br><img src="/img/material-design/uc-main-view-behavior.gif" width="360" height="640" alt="图片名称" align="center"></p>
+<p><a href="https://github.com/huyongli/UCMainViewForBehavior" target="_blank" rel="noopener">github地址</a></p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/Behavior-UC-Main-Page.html#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2017-03-09T07:03:31.000Z">2017-03-09</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Material-Design/">Material Design</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    6 分钟 读完 (大约 849 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/Header-Footer-scroll-hide.html">Behavior实现滑动隐藏ToolBar与BottomNavigation</a>
+            
+        </h1>
+        <div class="content">
+            <h4 id="多说无益，先上效果图img-material-design"><a href="#多说无益，先上效果图img-material-design" class="headerlink" title="多说无益，先上效果图img\material-design"></a>多说无益，先上效果图img\material-design</h4><p><img src="/img/material-design/sticky_navigation.gif" width="360" height="640" alt="图片名称" align="center"></p>
+<p>这个效果其实是和<code>SegmentFault</code>的首页效果是一样的。</p>
+<p><a href="https://github.com/huyongli/StickyNavigation" target="_blank" rel="noopener">Demo github地址戳这里</a></p>
+<h3 id="来由"><a href="#来由" class="headerlink" title="来由"></a>来由</h3>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/Header-Footer-scroll-hide.html#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2017-02-28T03:22:00.000Z">2017-02-28</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Material-Design/">Material Design</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    11 分钟 读完 (大约 1666 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/Custom-Behavior-to-fast-back.html">自定义Behavior实现快速返回效果</a>
+            
+        </h1>
+        <div class="content">
+            <p>Behavior是Android Design包中出现的一个概念，Android Design包中很多控件的动画效果都是使用Behavior实现的，所以想要更好的实现Material Design风格的应用就有必要弄清楚Behavior。这篇文章从简单开始，介绍如何自定义Behavior以实现快速返回的效果。</p>
+<p>还是先看下最终实现的效果<br><img src="/img/back-top-behavior.gif" width="360" height="640" alt="图片名称" align="center"></p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/Custom-Behavior-to-fast-back.html#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2016-12-30T04:01:04.000Z">2016-12-30</time>
                 
                 <div class="level-item">
                 <a class="has-link-grey -link" href="/categories/Android/">Android</a>
@@ -550,7 +393,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    14 分钟 读完 (大约 2150 个字)
+                    25 分钟 读完 (大约 3764 个字)
                 </span>
                 
                 
@@ -559,18 +402,301 @@ var _hmt = _hmt || [];
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/UC浏览器首页滑动动画实现.html">UC浏览器首页滑动动画实现</a>
+                <a class="has-link-black-ter" href="/Imitate-WeiXin-contact-view.html">自定义实现微信通讯录效果View</a>
             
         </h1>
         <div class="content">
-            <h3 id="实现效果"><a href="#实现效果" class="headerlink" title="实现效果"></a>实现效果</h3><p><img src="/img/20160526232223237.gif" alt><br></p>
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在使用App过程中，经常会有使用到联系人或城市列表的场景，其实这两种效果是一样的，都是右边有个索引列表，点击索引列表可跳转到指定字母开头的联系人或城市上去，同时向上滑动过程中头部会有个显示当前联系人首字母的界面固定不动。下面我以微信通讯录的效果作为例子，介绍我是如何实现一个这样效果自定义View的思路和过程。</p>
+<h1 id="实现效果"><a href="#实现效果" class="headerlink" title="实现效果"></a>实现效果</h1><p>下面是我实现的最终效果图(GIF录制的不太好)，想看源代码的同学戳这里<a href="https://github.com/huyongli/IndexStickyView" target="_blank" rel="noopener">https://github.com/huyongli/IndexStickyView</a><br><img src="/img/indexStickyView_contact.gif" width="360" height="640" alt></p>
         </div>
         
         
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/UC浏览器首页滑动动画实现.html#more">阅读更多</a>
+                <a class="button is-size-7 is-light" href="/Imitate-WeiXin-contact-view.html#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2016-11-19T07:28:31.000Z">2016-11-19</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Android/">Android</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    1 小时 读完 (大约 10195 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/Android-resources-adapter.html">Android资源应用与适配标准</a>
+            
+        </h1>
+        <div class="content">
+            <p>本文内容来自<code>Android</code>官网对<code>Android</code>开发过程中资源使用、资源适配、资源选择原理的介绍和建议。</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/Android-resources-adapter.html#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2016-11-18T04:30:00.000Z">2016-11-18</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Android/">Android</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    11 分钟 读完 (大约 1717 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/Nine-Patch-Affect-Padding-Principle.html">Android基础之9-Patch(9.PNG)与padding</a>
+            
+        </h1>
+        <div class="content">
+            <p>在上一篇文章<a href="http://ittiger.cn/My-9.png-hold-the-fat-lady-tour.html">记一次9.png的填坑之旅</a>最后，我留了两个个问题：</p>
+<ol>
+<li>为什么使用<code>9.PNG</code>设置背景之后会改变控件的<code>padding</code>属性值</li>
+<li>在我所遇到的问题中<code>9.PNG</code>明明改变的是<code>padding</code>值为什么却产生了<code>margin</code>的效果   </li>
+</ol>
+<p>这篇文章就来解答这两个问题以及<code>9.PNG</code>使用过程中需要注意的地方。</p>
+<p>各位同学如果没看过<a href="http://ittiger.cn/My-9.png-hold-the-fat-lady-tour.html">记一次9.png的填坑之旅</a>这篇文章可以先去看看，因为我下面所讲的内容都是根据这篇文章中的问题来讲的。</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/Nine-Patch-Affect-Padding-Principle.html#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2016-11-05T12:11:52.000Z">2016-11-05</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Android/">Android</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    12 分钟 读完 (大约 1778 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/TextView-SpannableStringBuilder-usage-summary.html">TextView之SpannableStringBuilder使用总结</a>
+            
+        </h1>
+        <div class="content">
+            <p>最近项目中碰到一个<code>TextView</code>的显示问题，想了各种办法之后，最后还是用<code>SpannableStringBuilder</code>解决的。这篇文章就记录下我的问题的解决过程，同时总结下<code>SpannableStringBuilder</code>在<code>TextView</code>中的不同用法。</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/TextView-SpannableStringBuilder-usage-summary.html#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2016-11-05T04:26:42.000Z">2016-11-05</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Android/">Android</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    8 分钟 读完 (大约 1151 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/My-9.png-hold-the-fat-lady-tour.html">记一次9.png的填坑之旅</a>
+            
+        </h1>
+        <div class="content">
+            <p>最近在项目中进行界面调整时遇到了一个<code>9.PNG</code>图引起的<code>View</code>的<code>padding</code>值不正常导致UI显示不符合预期结果的问题。这篇文章就来记录我当时遇到的问题的表现形式，以及如何根据问题找到产生问题的原因，及其最后的解决办法。</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/My-9.png-hold-the-fat-lady-tour.html#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2016-10-27T13:46:42.000Z">2016-10-27</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Android/">Android</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    18 分钟 读完 (大约 2691 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/RxJava-Basic-Use.html">RxJava学习之基本使用</a>
+            
+        </h1>
+        <div class="content">
+            <p><code>RxJava</code>现在在Android开发中越来越流行，作为一个<code>Android</code>开发者我也必须紧跟步伐学习学习<code>RxJava</code>，这篇文章就记录了<code>RxJava</code>中我认为比较常用的一些场景。</p>
+<p>也给大伙推荐篇比较好的<code>RxJava</code>文章</p>
+<ul>
+<li><a href="http://gank.io/post/560e15be2dca930e00da1083" target="_blank" rel="noopener">给 Android 开发者的 RxJava 详解</a></li>
+</ul>
+<h2 id="RxJava基础"><a href="#RxJava基础" class="headerlink" title="RxJava基础"></a>RxJava基础</h2><p>大家都知道<code>JDK</code>中提供了观察者模式的实现，它主要两个重要元素：</p>
+<ul>
+<li>被观察者 <code>Observable</code></li>
+<li>观察者 <code>Observer</code></li>
+</ul>
+<p>至于<code>Java</code>中观察者模式的使用，大家可以自行Google下。</p>
+<p>而<code>RxJava</code>中也有两个重要的元素：</p>
+<ul>
+<li>被观察者(事件源) <code>Observable</code></li>
+<li>观察者(事件订阅者) <code>Subscriber</code></li>
+</ul>
+<p>因此<code>RxJava</code>的设计看起来也有点类似<code>JDK</code>中的观察者模式，都有被观察者和观察者。<br><code>JDK</code>观察者模式中当有操作需要时是由被观察者通知观察者来进行更新操作<br><code>RxJava</code>中是由被观察者<code>Observable</code>发出事件给观察者<code>Subscriber</code>接收，然后观察者<code>Subscriber</code>调用<code>noNext()</code>进行处理，直到调用<code>onComplete)()</code>或<code>onError()</code>结束</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/RxJava-Basic-Use.html#more">阅读更多</a>
                 </div>
             </div>
         </div>
@@ -658,7 +784,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        49
+                        65
                     </p>
                 </div>
             </div>
@@ -668,7 +794,7 @@ var _hmt = _hmt || [];
                         分类
                     </p>
                     <p class="title has-text-weight-normal">
-                        7
+                        11
                     </p>
                 </div>
             </div>
@@ -678,7 +804,7 @@ var _hmt = _hmt || [];
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        22
+                        28
                     </p>
                 </div>
             </div>
@@ -741,12 +867,20 @@ var _hmt = _hmt || [];
                 <span class="level-item tag">3</span>
             </span>
         </a></li><li>
+        <a class="level is-marginless" href="/categories/Flutter/">
+            <span class="level-start">
+                <span class="level-item">Flutter</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">4</span>
+            </span>
+        </a></li><li>
         <a class="level is-marginless" href="/categories/Java/">
             <span class="level-start">
                 <span class="level-item">Java</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">1</span>
+                <span class="level-item tag">8</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/JavaScript/">
@@ -755,6 +889,14 @@ var _hmt = _hmt || [];
             </span>
             <span class="level-end">
                 <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Kotlin/">
+            <span class="level-start">
+                <span class="level-item">Kotlin</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/Linux/">
@@ -771,6 +913,22 @@ var _hmt = _hmt || [];
             </span>
             <span class="level-end">
                 <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Other/">
+            <span class="level-start">
+                <span class="level-item">Other</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/React-Native/">
+            <span class="level-start">
+                <span class="level-item">React Native</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/小程序/">
@@ -831,7 +989,7 @@ var _hmt = _hmt || [];
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/AndroidStudio/" style="font-size: 10px;">AndroidStudio</a> <a href="/tags/Behavior/" style="font-size: 14px;">Behavior</a> <a href="/tags/DB/" style="font-size: 10px;">DB</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IM/" style="font-size: 18px;">IM</a> <a href="/tags/JSONP/" style="font-size: 10px;">JSONP</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/Linux/" style="font-size: 18px;">Linux</a> <a href="/tags/Material-Design/" style="font-size: 14px;">Material Design</a> <a href="/tags/Media/" style="font-size: 10px;">Media</a> <a href="/tags/OkHttp/" style="font-size: 12px;">OkHttp</a> <a href="/tags/RecyclerView/" style="font-size: 16px;">RecyclerView</a> <a href="/tags/Retrofit/" style="font-size: 14px;">Retrofit</a> <a href="/tags/RxJava/" style="font-size: 10px;">RxJava</a> <a href="/tags/Shape/" style="font-size: 10px;">Shape</a> <a href="/tags/SpannableStringBuilder/" style="font-size: 10px;">SpannableStringBuilder</a> <a href="/tags/View/" style="font-size: 12px;">View</a> <a href="/tags/WordPress/" style="font-size: 12px;">WordPress</a> <a href="/tags/小程序/" style="font-size: 14px;">小程序</a> <a href="/tags/百度地图/" style="font-size: 10px;">百度地图</a>
+        <a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/AndroidStudio/" style="font-size: 10px;">AndroidStudio</a> <a href="/tags/Behavior/" style="font-size: 13.33px;">Behavior</a> <a href="/tags/Coroutine/" style="font-size: 13.33px;">Coroutine</a> <a href="/tags/DB/" style="font-size: 10px;">DB</a> <a href="/tags/Flutter/" style="font-size: 15px;">Flutter</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IM/" style="font-size: 16.67px;">IM</a> <a href="/tags/JSONP/" style="font-size: 10px;">JSONP</a> <a href="/tags/Java/" style="font-size: 18.33px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/Kotlin/" style="font-size: 13.33px;">Kotlin</a> <a href="/tags/Linux/" style="font-size: 16.67px;">Linux</a> <a href="/tags/Material-Design/" style="font-size: 13.33px;">Material Design</a> <a href="/tags/Media/" style="font-size: 10px;">Media</a> <a href="/tags/OkHttp/" style="font-size: 11.67px;">OkHttp</a> <a href="/tags/RN/" style="font-size: 10px;">RN</a> <a href="/tags/RecyclerView/" style="font-size: 15px;">RecyclerView</a> <a href="/tags/Retrofit/" style="font-size: 13.33px;">Retrofit</a> <a href="/tags/RxJava/" style="font-size: 10px;">RxJava</a> <a href="/tags/Shape/" style="font-size: 10px;">Shape</a> <a href="/tags/SpannableStringBuilder/" style="font-size: 10px;">SpannableStringBuilder</a> <a href="/tags/Thinking/" style="font-size: 10px;">Thinking</a> <a href="/tags/View/" style="font-size: 11.67px;">View</a> <a href="/tags/WordPress/" style="font-size: 11.67px;">WordPress</a> <a href="/tags/多线程/" style="font-size: 10px;">多线程</a> <a href="/tags/小程序/" style="font-size: 13.33px;">小程序</a> <a href="/tags/百度地图/" style="font-size: 10px;">百度地图</a>
     </div>
 </div>
 
@@ -850,10 +1008,10 @@ var _hmt = _hmt || [];
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-07-17T09:50:02.000Z">2017-07-17</time></div>
-                    <a href="/weixin-xcx-data-binding-and-params-transfer.html" class="has-link-black-ter is-size-6">微信小程序之页面数据绑定及页面跳转传参</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-09T13:44:18.000Z">2019-05-09</time></div>
+                    <a href="/Java-Synchronized-ReentrantLock.html" class="has-link-black-ter is-size-6">多线程之：Synchronized与ReentrantLock</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/小程序/">小程序</a>
+                        <a class="has-link-grey -link" href="/categories/Java/">Java</a>
                     </p>
                 </div>
             </div>
@@ -863,10 +1021,10 @@ var _hmt = _hmt || [];
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-07-17T09:44:58.000Z">2017-07-17</time></div>
-                    <a href="/weixin-xcx-tabbar-switch.html" class="has-link-black-ter is-size-6">微信小程序之Tab切换</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-22T09:25:05.000Z">2019-04-22</time></div>
+                    <a href="/Kotlin-Coroutine-For-Android-Network.html" class="has-link-black-ter is-size-6">Android中用Kotlin Coroutine(协程)和Retrofit进行网络请求和取消请求</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/小程序/">小程序</a>
+                        <a class="has-link-grey -link" href="/categories/Kotlin/">Kotlin</a>
                     </p>
                 </div>
             </div>
@@ -876,10 +1034,10 @@ var _hmt = _hmt || [];
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-07-17T09:40:39.000Z">2017-07-17</time></div>
-                    <a href="/weixin-xcx-first-project.html" class="has-link-black-ter is-size-6">微信小程序之入门项目</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-14T08:41:36.000Z">2019-04-14</time></div>
+                    <a href="/Kotlin-Coroutine-Basic-Knowledge.html" class="has-link-black-ter is-size-6">Kotlin Coroutine(协程) 基本知识</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/小程序/">小程序</a>
+                        <a class="has-link-grey -link" href="/categories/Kotlin/">Kotlin</a>
                     </p>
                 </div>
             </div>
@@ -889,10 +1047,10 @@ var _hmt = _hmt || [];
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-07-12T09:36:51.000Z">2017-07-12</time></div>
-                    <a href="/TextSwitcher-ViewSwitcher.html" class="has-link-black-ter is-size-6">TextSwitcher与ViewSwitcher学习笔记</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-13T11:07:19.000Z">2019-04-13</time></div>
+                    <a href="/Kotlin-Coroutine-Guide.html" class="has-link-black-ter is-size-6">Kotlin Coroutine(协程) 简介</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Android/">Android</a>
+                        <a class="has-link-grey -link" href="/categories/Kotlin/">Kotlin</a>
                     </p>
                 </div>
             </div>
@@ -902,10 +1060,10 @@ var _hmt = _hmt || [];
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-04-30T13:45:04.000Z">2017-04-30</time></div>
-                    <a href="/MediaBrowserService.html" class="has-link-black-ter is-size-6">关于媒体浏览器服务(MediaBrowserService)</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-11-05T07:03:57.000Z">2018-11-05</time></div>
+                    <a href="/Flutter-For-LinearLayout.html" class="has-link-black-ter is-size-6">Flutter实战之封装一个LinearLayout</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Android/">Android</a>
+                        <a class="has-link-grey -link" href="/categories/Flutter/">Flutter</a>
                     </p>
                 </div>
             </div>
@@ -922,6 +1080,72 @@ var _hmt = _hmt || [];
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/11/">
+                <span class="level-start">
+                    <span class="level-item">十一月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/10/">
+                <span class="level-start">
+                    <span class="level-item">十月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/09/">
+                <span class="level-start">
+                    <span class="level-item">九月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/08/">
+                <span class="level-start">
+                    <span class="level-item">八月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">6</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2017/07/">
@@ -1156,9 +1380,23 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/Coroutine/">
+                        <span class="tag">Coroutine</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/DB/">
                         <span class="tag">DB</span>
                         <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Flutter/">
+                        <span class="tag">Flutter</span>
+                        <span class="tag is-grey">4</span>
                     </a>
                 </div>
                 
@@ -1186,7 +1424,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Java/">
                         <span class="tag">Java</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">8</span>
                     </a>
                 </div>
                 
@@ -1194,6 +1432,13 @@ var _hmt = _hmt || [];
                     <a class="tags has-addons" href="/tags/JavaScript/">
                         <span class="tag">JavaScript</span>
                         <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Kotlin/">
+                        <span class="tag">Kotlin</span>
+                        <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
@@ -1222,6 +1467,13 @@ var _hmt = _hmt || [];
                     <a class="tags has-addons" href="/tags/OkHttp/">
                         <span class="tag">OkHttp</span>
                         <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/RN/">
+                        <span class="tag">RN</span>
+                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
@@ -1261,6 +1513,13 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/Thinking/">
+                        <span class="tag">Thinking</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/View/">
                         <span class="tag">View</span>
                         <span class="tag is-grey">2</span>
@@ -1271,6 +1530,13 @@ var _hmt = _hmt || [];
                     <a class="tags has-addons" href="/tags/WordPress/">
                         <span class="tag">WordPress</span>
                         <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/多线程/">
+                        <span class="tag">多线程</span>
+                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
@@ -1315,10 +1581,10 @@ var _hmt = _hmt || [];
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-07-17T09:50:02.000Z">2017-07-17</time></div>
-                    <a href="/weixin-xcx-data-binding-and-params-transfer.html" class="has-link-black-ter is-size-6">微信小程序之页面数据绑定及页面跳转传参</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-09T13:44:18.000Z">2019-05-09</time></div>
+                    <a href="/Java-Synchronized-ReentrantLock.html" class="has-link-black-ter is-size-6">多线程之：Synchronized与ReentrantLock</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/小程序/">小程序</a>
+                        <a class="has-link-grey -link" href="/categories/Java/">Java</a>
                     </p>
                 </div>
             </div>
@@ -1328,10 +1594,10 @@ var _hmt = _hmt || [];
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-07-17T09:44:58.000Z">2017-07-17</time></div>
-                    <a href="/weixin-xcx-tabbar-switch.html" class="has-link-black-ter is-size-6">微信小程序之Tab切换</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-22T09:25:05.000Z">2019-04-22</time></div>
+                    <a href="/Kotlin-Coroutine-For-Android-Network.html" class="has-link-black-ter is-size-6">Android中用Kotlin Coroutine(协程)和Retrofit进行网络请求和取消请求</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/小程序/">小程序</a>
+                        <a class="has-link-grey -link" href="/categories/Kotlin/">Kotlin</a>
                     </p>
                 </div>
             </div>
@@ -1341,10 +1607,10 @@ var _hmt = _hmt || [];
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-07-17T09:40:39.000Z">2017-07-17</time></div>
-                    <a href="/weixin-xcx-first-project.html" class="has-link-black-ter is-size-6">微信小程序之入门项目</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-14T08:41:36.000Z">2019-04-14</time></div>
+                    <a href="/Kotlin-Coroutine-Basic-Knowledge.html" class="has-link-black-ter is-size-6">Kotlin Coroutine(协程) 基本知识</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/小程序/">小程序</a>
+                        <a class="has-link-grey -link" href="/categories/Kotlin/">Kotlin</a>
                     </p>
                 </div>
             </div>
@@ -1354,10 +1620,10 @@ var _hmt = _hmt || [];
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-07-12T09:36:51.000Z">2017-07-12</time></div>
-                    <a href="/TextSwitcher-ViewSwitcher.html" class="has-link-black-ter is-size-6">TextSwitcher与ViewSwitcher学习笔记</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-13T11:07:19.000Z">2019-04-13</time></div>
+                    <a href="/Kotlin-Coroutine-Guide.html" class="has-link-black-ter is-size-6">Kotlin Coroutine(协程) 简介</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Android/">Android</a>
+                        <a class="has-link-grey -link" href="/categories/Kotlin/">Kotlin</a>
                     </p>
                 </div>
             </div>
@@ -1367,10 +1633,10 @@ var _hmt = _hmt || [];
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-04-30T13:45:04.000Z">2017-04-30</time></div>
-                    <a href="/MediaBrowserService.html" class="has-link-black-ter is-size-6">关于媒体浏览器服务(MediaBrowserService)</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-11-05T07:03:57.000Z">2018-11-05</time></div>
+                    <a href="/Flutter-For-LinearLayout.html" class="has-link-black-ter is-size-6">Flutter实战之封装一个LinearLayout</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Android/">Android</a>
+                        <a class="has-link-grey -link" href="/categories/Flutter/">Flutter</a>
                     </p>
                 </div>
             </div>
@@ -1387,6 +1653,72 @@ var _hmt = _hmt || [];
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/11/">
+                <span class="level-start">
+                    <span class="level-item">十一月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/10/">
+                <span class="level-start">
+                    <span class="level-item">十月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/09/">
+                <span class="level-start">
+                    <span class="level-item">九月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/08/">
+                <span class="level-start">
+                    <span class="level-item">八月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">6</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2017/07/">
@@ -1621,9 +1953,23 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/Coroutine/">
+                        <span class="tag">Coroutine</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/DB/">
                         <span class="tag">DB</span>
                         <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Flutter/">
+                        <span class="tag">Flutter</span>
+                        <span class="tag is-grey">4</span>
                     </a>
                 </div>
                 
@@ -1651,7 +1997,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Java/">
                         <span class="tag">Java</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">8</span>
                     </a>
                 </div>
                 
@@ -1659,6 +2005,13 @@ var _hmt = _hmt || [];
                     <a class="tags has-addons" href="/tags/JavaScript/">
                         <span class="tag">JavaScript</span>
                         <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Kotlin/">
+                        <span class="tag">Kotlin</span>
+                        <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
@@ -1687,6 +2040,13 @@ var _hmt = _hmt || [];
                     <a class="tags has-addons" href="/tags/OkHttp/">
                         <span class="tag">OkHttp</span>
                         <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/RN/">
+                        <span class="tag">RN</span>
+                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
@@ -1726,6 +2086,13 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/Thinking/">
+                        <span class="tag">Thinking</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/View/">
                         <span class="tag">View</span>
                         <span class="tag is-grey">2</span>
@@ -1736,6 +2103,13 @@ var _hmt = _hmt || [];
                     <a class="tags has-addons" href="/tags/WordPress/">
                         <span class="tag">WordPress</span>
                         <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/多线程/">
+                        <span class="tag">多线程</span>
+                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
@@ -1790,23 +2164,7 @@ var _hmt = _hmt || [];
                 
                 
                 <p class="control">
-                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
-                        
-                        <i class="fab fa-creative-commons"></i>
-                        
-                    </a>
-                </p>
-                
-                <p class="control">
-                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
-                        
-                        <i class="fab fa-creative-commons-by"></i>
-                        
-                    </a>
-                </p>
-                
-                <p class="control">
-                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/huyongli">
+                    <a class="button is-white is-large" target="_blank" title="laohu&#39;s GitHub" href="https://github.com/huyongli">
                         
                         <i class="fab fa-github"></i>
                         

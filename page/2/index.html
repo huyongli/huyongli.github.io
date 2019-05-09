@@ -155,17 +155,17 @@ var _hmt = _hmt || [];
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2016-12-30T04:01:04.000Z">2016-12-30</time>
+                <time class="level-item has-text-grey" datetime="2018-08-30T09:45:51.000Z">2018-08-30</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Android/">Android</a>
+                <a class="has-link-grey -link" href="/categories/Java/">Java</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    25 分钟 读完 (大约 3764 个字)
+                    18 分钟 读完 (大约 2736 个字)
                 </span>
                 
                 
@@ -174,19 +174,19 @@ var _hmt = _hmt || [];
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/Imitate-WeiXin-contact-view.html">自定义实现微信通讯录效果View</a>
+                <a class="has-link-black-ter" href="/Java-HashMap-Hashtable-TreeMap.html">Hashtable、HashMap、TreeMap</a>
             
         </h1>
         <div class="content">
-            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在使用App过程中，经常会有使用到联系人或城市列表的场景，其实这两种效果是一样的，都是右边有个索引列表，点击索引列表可跳转到指定字母开头的联系人或城市上去，同时向上滑动过程中头部会有个显示当前联系人首字母的界面固定不动。下面我以微信通讯录的效果作为例子，介绍我是如何实现一个这样效果自定义View的思路和过程。</p>
-<h1 id="实现效果"><a href="#实现效果" class="headerlink" title="实现效果"></a>实现效果</h1><p>下面是我实现的最终效果图(GIF录制的不太好)，想看源代码的同学戳这里<a href="https://github.com/huyongli/IndexStickyView" target="_blank" rel="noopener">https://github.com/huyongli/IndexStickyView</a><br><img src="/img/indexStickyView_contact.gif" width="360" height="640" alt></p>
+            <p>Hashtable、HashMap、TreeMap都是比较常见的一些Map实现，它们都是<code>key-value</code>键值对的形式存储和操作数据的容器类，同时他们的元素中不能有重复的key,一个key也只能映射一个value值。</p>
+<p>下面我从不同的维度来分别说说这三个集合，文章中涉及到的源码版本是<code>JDK8</code></p>
         </div>
         
         
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/Imitate-WeiXin-contact-view.html#more">阅读更多</a>
+                <a class="button is-size-7 is-light" href="/Java-HashMap-Hashtable-TreeMap.html#more">阅读更多</a>
                 </div>
             </div>
         </div>
@@ -208,17 +208,17 @@ var _hmt = _hmt || [];
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2016-11-19T07:28:31.000Z">2016-11-19</time>
+                <time class="level-item has-text-grey" datetime="2018-08-30T06:32:24.000Z">2018-08-30</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Android/">Android</a>
+                <a class="has-link-grey -link" href="/categories/Java/">Java</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    1 小时 读完 (大约 10195 个字)
+                    9 分钟 读完 (大约 1361 个字)
                 </span>
                 
                 
@@ -227,18 +227,40 @@ var _hmt = _hmt || [];
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/Android-resources-adapter.html">Android资源应用与适配标准</a>
+                <a class="has-link-black-ter" href="/Java-hash-conflict.html">Hash冲突解决方法</a>
             
         </h1>
         <div class="content">
-            <p>本文内容来自<code>Android</code>官网对<code>Android</code>开发过程中资源使用、资源适配、资源选择原理的介绍和建议。</p>
+            <h2 id="何为Hash冲突"><a href="#何为Hash冲突" class="headerlink" title="何为Hash冲突"></a>何为Hash冲突</h2><p>假设Hash表大小为5(即5个槽位)，现在要把2,5,6,7,8这几个数存储到Hash表中，假设hash函数为<code>hash(num)=num % size</code></p>
+<p>简单计算下，第一个数2的hash值为2所以放到第三个槽中，第二个数5的hash值为0放到第一个槽中，第三个数6的hash值为1放到第二个槽中，如下图所示：</p>
+<table>
+<thead>
+<tr>
+<th>1号槽</th>
+<th>2号槽</th>
+<th>3号槽</th>
+<th>4号槽</th>
+<th>5号槽</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5</td>
+<td>6</td>
+<td>2</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
         </div>
         
         
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/Android-resources-adapter.html#more">阅读更多</a>
+                <a class="button is-size-7 is-light" href="/Java-hash-conflict.html#more">阅读更多</a>
                 </div>
             </div>
         </div>
@@ -260,17 +282,17 @@ var _hmt = _hmt || [];
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2016-11-18T04:30:00.000Z">2016-11-18</time>
+                <time class="level-item has-text-grey" datetime="2018-08-29T08:49:37.000Z">2018-08-29</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Android/">Android</a>
+                <a class="has-link-grey -link" href="/categories/Java/">Java</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    11 分钟 读完 (大约 1717 个字)
+                    5 分钟 读完 (大约 694 个字)
                 </span>
                 
                 
@@ -279,196 +301,30 @@ var _hmt = _hmt || [];
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/Nine-Patch-Affect-Padding-Principle.html">Android基础之9-Patch(9.PNG)与padding</a>
+                <a class="has-link-black-ter" href="/Java-final-finally-finalize.html">final、finally、finalize</a>
             
         </h1>
         <div class="content">
-            <p>在上一篇文章<a href="http://ittiger.cn/My-9.png-hold-the-fat-lady-tour.html">记一次9.png的填坑之旅</a>最后，我留了两个个问题：</p>
-<ol>
-<li>为什么使用<code>9.PNG</code>设置背景之后会改变控件的<code>padding</code>属性值</li>
-<li>在我所遇到的问题中<code>9.PNG</code>明明改变的是<code>padding</code>值为什么却产生了<code>margin</code>的效果   </li>
-</ol>
-<p>这篇文章就来解答这两个问题以及<code>9.PNG</code>使用过程中需要注意的地方。</p>
-<p>各位同学如果没看过<a href="http://ittiger.cn/My-9.png-hold-the-fat-lady-tour.html">记一次9.png的填坑之旅</a>这篇文章可以先去看看，因为我下面所讲的内容都是根据这篇文章中的问题来讲的。</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/Nine-Patch-Affect-Padding-Principle.html#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2016-11-05T12:11:52.000Z">2016-11-05</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Android/">Android</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    12 分钟 读完 (大约 1778 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/TextView-SpannableStringBuilder-usage-summary.html">TextView之SpannableStringBuilder使用总结</a>
-            
-        </h1>
-        <div class="content">
-            <p>最近项目中碰到一个<code>TextView</code>的显示问题，想了各种办法之后，最后还是用<code>SpannableStringBuilder</code>解决的。这篇文章就记录下我的问题的解决过程，同时总结下<code>SpannableStringBuilder</code>在<code>TextView</code>中的不同用法。</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/TextView-SpannableStringBuilder-usage-summary.html#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2016-11-05T04:26:42.000Z">2016-11-05</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Android/">Android</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    8 分钟 读完 (大约 1151 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/My-9.png-hold-the-fat-lady-tour.html">记一次9.png的填坑之旅</a>
-            
-        </h1>
-        <div class="content">
-            <p>最近在项目中进行界面调整时遇到了一个<code>9.PNG</code>图引起的<code>View</code>的<code>padding</code>值不正常导致UI显示不符合预期结果的问题。这篇文章就来记录我当时遇到的问题的表现形式，以及如何根据问题找到产生问题的原因，及其最后的解决办法。</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/My-9.png-hold-the-fat-lady-tour.html#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2016-10-27T13:46:42.000Z">2016-10-27</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Android/">Android</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    18 分钟 读完 (大约 2691 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/RxJava-Basic-Use.html">RxJava学习之基本使用</a>
-            
-        </h1>
-        <div class="content">
-            <p><code>RxJava</code>现在在Android开发中越来越流行，作为一个<code>Android</code>开发者我也必须紧跟步伐学习学习<code>RxJava</code>，这篇文章就记录了<code>RxJava</code>中我认为比较常用的一些场景。</p>
-<p>也给大伙推荐篇比较好的<code>RxJava</code>文章</p>
-<ul>
-<li><a href="http://gank.io/post/560e15be2dca930e00da1083" target="_blank" rel="noopener">给 Android 开发者的 RxJava 详解</a></li>
+            <h2 id="final"><a href="#final" class="headerlink" title="final"></a>final</h2><ol>
+<li>final可以用来修饰类、方法、变量，修饰对象不同所代表的意义也不同<ul>
+<li>修饰类则代表该类不可继承扩展</li>
+<li>修饰方法则代表该方法不可重写</li>
+<li>修饰变量则代表该变量某种程度不可更改。为什么说是某种程度呢，因为这需要根据变量的类型来区分<ul>
+<li>如果修饰的变量是基本类型，则该变量赋值一次之后就无法修改，这是final就是不可变的标志</li>
+<li>如果修饰的变量是引用类型，那么该变量赋值一次之后，就无法修改该变量的引用，但是该引用对象的属性还是可以更改的，比较常见的就是变量引用了一个<code>List</code>,虽说用了final修饰，但是依然可以对该<code>List</code>的元素进行各种操作</li>
 </ul>
-<h2 id="RxJava基础"><a href="#RxJava基础" class="headerlink" title="RxJava基础"></a>RxJava基础</h2><p>大家都知道<code>JDK</code>中提供了观察者模式的实现，它主要两个重要元素：</p>
-<ul>
-<li>被观察者 <code>Observable</code></li>
-<li>观察者 <code>Observer</code></li>
+</li>
 </ul>
-<p>至于<code>Java</code>中观察者模式的使用，大家可以自行Google下。</p>
-<p>而<code>RxJava</code>中也有两个重要的元素：</p>
-<ul>
-<li>被观察者(事件源) <code>Observable</code></li>
-<li>观察者(事件订阅者) <code>Subscriber</code></li>
-</ul>
-<p>因此<code>RxJava</code>的设计看起来也有点类似<code>JDK</code>中的观察者模式，都有被观察者和观察者。<br><code>JDK</code>观察者模式中当有操作需要时是由被观察者通知观察者来进行更新操作<br><code>RxJava</code>中是由被观察者<code>Observable</code>发出事件给观察者<code>Subscriber</code>接收，然后观察者<code>Subscriber</code>调用<code>noNext()</code>进行处理，直到调用<code>onComplete)()</code>或<code>onError()</code>结束</p>
+</li>
+<li>将变量或参数使用final修饰可以清楚的避免意外赋值导致的编码错误</li>
+<li>因为final修饰变量产生了某种程度的不可变的特性，所以它可以保护只读数据，因此在并发编程中使用final修饰变量有利于减少额外的同步开销，也可以省去一些防御性拷贝必要，从而提升性能</li></ol>
         </div>
         
         
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/RxJava-Basic-Use.html#more">阅读更多</a>
+                <a class="button is-size-7 is-light" href="/Java-final-finally-finalize.html#more">阅读更多</a>
                 </div>
             </div>
         </div>
@@ -490,17 +346,17 @@ var _hmt = _hmt || [];
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2016-10-13T08:43:42.000Z">2016-10-13</time>
+                <time class="level-item has-text-grey" datetime="2018-08-29T08:19:09.000Z">2018-08-29</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Android/">Android</a>
+                <a class="has-link-grey -link" href="/categories/Java/">Java</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    43 分钟 读完 (大约 6495 个字)
+                    8 分钟 读完 (大约 1228 个字)
                 </span>
                 
                 
@@ -509,18 +365,20 @@ var _hmt = _hmt || [];
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/Retrofit-Source-Design-Pattern.html">透过Retrofit使用看其源码设计模式</a>
+                <a class="has-link-black-ter" href="/Java-Exception-Error.html">Exception与Error</a>
             
         </h1>
         <div class="content">
-            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这篇文章我将从Retrofit的基本用法出发，透过其使用步骤，一步步的探究Retrofit的实现原理及其源码的设计模式。这篇文章可能会将Retrofit中用到的设计模式和其实现原理穿插着写，所以各位同学也可以选择性的阅读。而对于Retrofit具体使用还不太清楚的同学可以去看的另一篇文章<a href="http://ittiger.cn/2016/08/29/Retrofit2%E4%BD%BF%E7%94%A8%E4%BB%8B%E7%BB%8D/">Retrofit2的使用介绍</a></p>
+            <p><img src="/img/Java-Basic/java-exception-error.png" alt="这里写图片描述"></p>
+<h1 id="相同点"><a href="#相同点" class="headerlink" title="相同点"></a>相同点</h1><p><code>Exception</code>和<code>Error</code>都是继承自<code>Throwable</code>，在Java中只有<code>Throwable</code>的实例才可以被抛(<code>throw</code>)出或捕获(<code>catch</code>)，它是java异常处理机制的基本组成类型。</p>
+<p><code>Exception</code>和<code>Error</code>体现了Java平台设计者对不同异常情况的分类<br></p>
         </div>
         
         
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/Retrofit-Source-Design-Pattern.html#more">阅读更多</a>
+                <a class="button is-size-7 is-light" href="/Java-Exception-Error.html#more">阅读更多</a>
                 </div>
             </div>
         </div>
@@ -542,7 +400,276 @@ var _hmt = _hmt || [];
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2016-09-28T03:56:22.000Z">2016-09-28</time>
+                <time class="level-item has-text-grey" datetime="2018-08-29T06:56:20.000Z">2018-08-29</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Java/">Java</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    7 分钟 读完 (大约 1090 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/Java-Reference.html">强引用、软引用、弱引用、虚引用</a>
+            
+        </h1>
+        <div class="content">
+            <p>在Java语言中，除了基本数据类型外，其他的都是指向各类对象的对象引用；Java中根据其生命周期的长短，将引用分为4类。</p>
+<h2 id="强引用"><a href="#强引用" class="headerlink" title="强引用"></a>强引用</h2><p>特点：我们平常典型编码<code>Object obj = new Object()</code>中的obj就是强引用。</p>
+<p>通过关键字new创建的对象所关联的引用就是强引用。 当JVM内存空间不足，JVM宁愿抛出<code>OutOfMemoryError</code>运行时错误（OOM），使程序异常终止，也不会靠随意回收具有强引用的“存活”对象来解决内存不足的问题。对于一个普通的对象，如果没有其他的引用关系，只要超过了引用的作用域或者显式地将相应（强）引用赋值为 null，就是可以被垃圾收集的了，具体回收时机还是要看垃圾收集策略。</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/Java-Reference.html#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2018-08-29T06:43:07.000Z">2018-08-29</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Java/">Java</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    10 分钟 读完 (大约 1508 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/Java-String-StringBuffer-StringBuilder.html">String、StringBuffer与StringBuilder</a>
+            
+        </h1>
+        <div class="content">
+            <h1 id="String"><a href="#String" class="headerlink" title="String"></a>String</h1><h3 id="String的创建机制"><a href="#String的创建机制" class="headerlink" title="String的创建机制"></a>String的创建机制</h3><p>因为String在Java中使用过于频繁，Java为了避免在系统中产生大量的String对象，引入了字符串常量池的概念。 </p>
+<p>其运行机制是：</p>
+<ul>
+<li>创建一个字符串时，首先检查池中是否有值相同的字符串对象(equals决定)，如果有则不需要创建而是直接从常量池中找到的该字符串对象的引用；</li>
+<li>如果没有则新建一个字符串对象，返回该对象引用，并且将新创建的字符串对象放入池中</li></ul>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/Java-String-StringBuffer-StringBuilder.html#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2017-07-17T09:50:02.000Z">2017-07-17</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/小程序/">小程序</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    7 分钟 读完 (大约 993 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/weixin-xcx-data-binding-and-params-transfer.html">微信小程序之页面数据绑定及页面跳转传参</a>
+            
+        </h1>
+        <div class="content">
+            <p>在写前面的小程序入门项目时，发现有两个很常用而且觉得也算比较重要的知识点，这里记录下：</p>
+<h3 id="页面数据绑定"><a href="#页面数据绑定" class="headerlink" title="页面数据绑定"></a>页面数据绑定</h3><p>比如你的页面需要显示一个<code>Hello</code>字符串，这个这个字符串可能会根据某些情况会动态变化，这个时候就需要进行数据绑定展示了</p>
+<p>在wxml文件布局如下：<br><figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">view</span>&gt;</span>&#123;&#123;message&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/weixin-xcx-data-binding-and-params-transfer.html#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2017-07-17T09:44:58.000Z">2017-07-17</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/小程序/">小程序</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    5 分钟 读完 (大约 812 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/weixin-xcx-tabbar-switch.html">微信小程序之Tab切换</a>
+            
+        </h1>
+        <div class="content">
+            <p>做过<code>android</code>的都知道在<code>android</code>里面实现<code>Tab切换</code>非常简单，使用<code>android</code>提供的<code>TabLayout+ViewPager</code>很容器就实现了<code>Tab切换</code>的效果。</p>
+<p>但是小程序中是没有提供类似可以直接使用的组件，因此想要实现此功能需要我们自己去编码实现。在<a href="http://ittiger.cn/weixin-xcx-first-project.html">上一篇</a>文章中我提到的小程序练手项目就实现了<code>Tab切换</code>效果，具体效果图可以参考文章<a href="http://ittiger.cn/weixin-xcx-first-project.html">微信小程序入门项目</a>。</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/weixin-xcx-tabbar-switch.html#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2017-07-17T09:40:39.000Z">2017-07-17</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/小程序/">小程序</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    1 分钟 读完 (大约 176 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/weixin-xcx-first-project.html">微信小程序之入门项目</a>
+            
+        </h1>
+        <div class="content">
+            <p>最近在学习微信小程序，尝试着写了一个足球视频播放的小程序，先放效果截图吧</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/weixin-xcx-first-project.html#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2017-07-12T09:36:51.000Z">2017-07-12</time>
                 
                 <div class="level-item">
                 <a class="has-link-grey -link" href="/categories/Android/">Android</a>
@@ -552,7 +679,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    3 分钟 读完 (大约 485 个字)
+                    9 分钟 读完 (大约 1302 个字)
                 </span>
                 
                 
@@ -561,26 +688,20 @@ var _hmt = _hmt || [];
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/在线视频播放App的实现.html">在线视频播放App的实现</a>
+                <a class="has-link-black-ter" href="/TextSwitcher-ViewSwitcher.html">TextSwitcher与ViewSwitcher学习笔记</a>
             
         </h1>
         <div class="content">
-            <p>前一段时间在公司项目上做了一个视频播放的功能，当时时间紧，做完之后感觉有些地方处理的不好，所以就基于当时实现的思路进行了一些改进，加上自己平时喜欢看新闻客户端里面的一些短视频，所以就用网易等客户端的视频数据完成了一个独立的视频播放APP，顺便巩固下其他的技术。</p>
-<h2 id="主要使用的开源库"><a href="#主要使用的开源库" class="headerlink" title="主要使用的开源库"></a>主要使用的开源库</h2><p>Mosby(一个MVP框架)、RxJava、Retrofit2、ButterKnife、Glide、Systembartint、TigerDB、Material Design相关控件</p>
-<h2 id="主要功能"><a href="#主要功能" class="headerlink" title="主要功能"></a>主要功能</h2><ol>
-<li>列表中播放视频</li>
-<li>列表滑动时如果正在播放视频，则列表中播放的视频自动切换为小窗口浮动播放</li>
-<li>列表播放切换到全屏播放模式</li>
-<li>视频播放时也添加了完整的暂停、播放等控制操作，也添加了视频播放进度，视频缓冲进度等显示功能</li>
-<li>视频全屏播放时支持左右滑动实现视频的快进和后退，支持右边上下滑动调整播放音量，左边上下滑动调整播放器的亮度等手势控制操作  </li>
-</ol>
+            <p><code>TextSwitcher</code>和<code>ViewSwitcher</code>是什么，有什么用呢？</p>
+<p>其实大家从名字就可以看出来其大概意思，<code>TextSwitcher</code>是用来切换文本显示的，而<code>ViewSwitcher</code>是用来切换视图显示的，实际上他们也的确是用来做这个的，只不过他们在切换视图显示的时候允许添加切换的动画效果。<code>TextSwitcher</code>其实也是<code>ViewSwitcher</code>的子类实现。</p>
+<h3 id="TextSwitcher使用"><a href="#TextSwitcher使用" class="headerlink" title="TextSwitcher使用"></a>TextSwitcher使用</h3><p>我们先来看看<code>TextSwitcher</code>的用法：<br></p>
         </div>
         
         
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/在线视频播放App的实现.html#more">阅读更多</a>
+                <a class="button is-size-7 is-light" href="/TextSwitcher-ViewSwitcher.html#more">阅读更多</a>
                 </div>
             </div>
         </div>
@@ -666,7 +787,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        49
+                        65
                     </p>
                 </div>
             </div>
@@ -676,7 +797,7 @@ var _hmt = _hmt || [];
                         分类
                     </p>
                     <p class="title has-text-weight-normal">
-                        7
+                        11
                     </p>
                 </div>
             </div>
@@ -686,7 +807,7 @@ var _hmt = _hmt || [];
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        22
+                        28
                     </p>
                 </div>
             </div>
@@ -749,12 +870,20 @@ var _hmt = _hmt || [];
                 <span class="level-item tag">3</span>
             </span>
         </a></li><li>
+        <a class="level is-marginless" href="/categories/Flutter/">
+            <span class="level-start">
+                <span class="level-item">Flutter</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">4</span>
+            </span>
+        </a></li><li>
         <a class="level is-marginless" href="/categories/Java/">
             <span class="level-start">
                 <span class="level-item">Java</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">1</span>
+                <span class="level-item tag">8</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/JavaScript/">
@@ -763,6 +892,14 @@ var _hmt = _hmt || [];
             </span>
             <span class="level-end">
                 <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Kotlin/">
+            <span class="level-start">
+                <span class="level-item">Kotlin</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/Linux/">
@@ -779,6 +916,22 @@ var _hmt = _hmt || [];
             </span>
             <span class="level-end">
                 <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Other/">
+            <span class="level-start">
+                <span class="level-item">Other</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/React-Native/">
+            <span class="level-start">
+                <span class="level-item">React Native</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/小程序/">
@@ -839,7 +992,7 @@ var _hmt = _hmt || [];
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/AndroidStudio/" style="font-size: 10px;">AndroidStudio</a> <a href="/tags/Behavior/" style="font-size: 14px;">Behavior</a> <a href="/tags/DB/" style="font-size: 10px;">DB</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IM/" style="font-size: 18px;">IM</a> <a href="/tags/JSONP/" style="font-size: 10px;">JSONP</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/Linux/" style="font-size: 18px;">Linux</a> <a href="/tags/Material-Design/" style="font-size: 14px;">Material Design</a> <a href="/tags/Media/" style="font-size: 10px;">Media</a> <a href="/tags/OkHttp/" style="font-size: 12px;">OkHttp</a> <a href="/tags/RecyclerView/" style="font-size: 16px;">RecyclerView</a> <a href="/tags/Retrofit/" style="font-size: 14px;">Retrofit</a> <a href="/tags/RxJava/" style="font-size: 10px;">RxJava</a> <a href="/tags/Shape/" style="font-size: 10px;">Shape</a> <a href="/tags/SpannableStringBuilder/" style="font-size: 10px;">SpannableStringBuilder</a> <a href="/tags/View/" style="font-size: 12px;">View</a> <a href="/tags/WordPress/" style="font-size: 12px;">WordPress</a> <a href="/tags/小程序/" style="font-size: 14px;">小程序</a> <a href="/tags/百度地图/" style="font-size: 10px;">百度地图</a>
+        <a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/AndroidStudio/" style="font-size: 10px;">AndroidStudio</a> <a href="/tags/Behavior/" style="font-size: 13.33px;">Behavior</a> <a href="/tags/Coroutine/" style="font-size: 13.33px;">Coroutine</a> <a href="/tags/DB/" style="font-size: 10px;">DB</a> <a href="/tags/Flutter/" style="font-size: 15px;">Flutter</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IM/" style="font-size: 16.67px;">IM</a> <a href="/tags/JSONP/" style="font-size: 10px;">JSONP</a> <a href="/tags/Java/" style="font-size: 18.33px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/Kotlin/" style="font-size: 13.33px;">Kotlin</a> <a href="/tags/Linux/" style="font-size: 16.67px;">Linux</a> <a href="/tags/Material-Design/" style="font-size: 13.33px;">Material Design</a> <a href="/tags/Media/" style="font-size: 10px;">Media</a> <a href="/tags/OkHttp/" style="font-size: 11.67px;">OkHttp</a> <a href="/tags/RN/" style="font-size: 10px;">RN</a> <a href="/tags/RecyclerView/" style="font-size: 15px;">RecyclerView</a> <a href="/tags/Retrofit/" style="font-size: 13.33px;">Retrofit</a> <a href="/tags/RxJava/" style="font-size: 10px;">RxJava</a> <a href="/tags/Shape/" style="font-size: 10px;">Shape</a> <a href="/tags/SpannableStringBuilder/" style="font-size: 10px;">SpannableStringBuilder</a> <a href="/tags/Thinking/" style="font-size: 10px;">Thinking</a> <a href="/tags/View/" style="font-size: 11.67px;">View</a> <a href="/tags/WordPress/" style="font-size: 11.67px;">WordPress</a> <a href="/tags/多线程/" style="font-size: 10px;">多线程</a> <a href="/tags/小程序/" style="font-size: 13.33px;">小程序</a> <a href="/tags/百度地图/" style="font-size: 10px;">百度地图</a>
     </div>
 </div>
 
@@ -858,10 +1011,10 @@ var _hmt = _hmt || [];
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-07-17T09:50:02.000Z">2017-07-17</time></div>
-                    <a href="/weixin-xcx-data-binding-and-params-transfer.html" class="has-link-black-ter is-size-6">微信小程序之页面数据绑定及页面跳转传参</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-09T13:44:18.000Z">2019-05-09</time></div>
+                    <a href="/Java-Synchronized-ReentrantLock.html" class="has-link-black-ter is-size-6">多线程之：Synchronized与ReentrantLock</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/小程序/">小程序</a>
+                        <a class="has-link-grey -link" href="/categories/Java/">Java</a>
                     </p>
                 </div>
             </div>
@@ -871,10 +1024,10 @@ var _hmt = _hmt || [];
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-07-17T09:44:58.000Z">2017-07-17</time></div>
-                    <a href="/weixin-xcx-tabbar-switch.html" class="has-link-black-ter is-size-6">微信小程序之Tab切换</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-22T09:25:05.000Z">2019-04-22</time></div>
+                    <a href="/Kotlin-Coroutine-For-Android-Network.html" class="has-link-black-ter is-size-6">Android中用Kotlin Coroutine(协程)和Retrofit进行网络请求和取消请求</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/小程序/">小程序</a>
+                        <a class="has-link-grey -link" href="/categories/Kotlin/">Kotlin</a>
                     </p>
                 </div>
             </div>
@@ -884,10 +1037,10 @@ var _hmt = _hmt || [];
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-07-17T09:40:39.000Z">2017-07-17</time></div>
-                    <a href="/weixin-xcx-first-project.html" class="has-link-black-ter is-size-6">微信小程序之入门项目</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-14T08:41:36.000Z">2019-04-14</time></div>
+                    <a href="/Kotlin-Coroutine-Basic-Knowledge.html" class="has-link-black-ter is-size-6">Kotlin Coroutine(协程) 基本知识</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/小程序/">小程序</a>
+                        <a class="has-link-grey -link" href="/categories/Kotlin/">Kotlin</a>
                     </p>
                 </div>
             </div>
@@ -897,10 +1050,10 @@ var _hmt = _hmt || [];
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-07-12T09:36:51.000Z">2017-07-12</time></div>
-                    <a href="/TextSwitcher-ViewSwitcher.html" class="has-link-black-ter is-size-6">TextSwitcher与ViewSwitcher学习笔记</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-13T11:07:19.000Z">2019-04-13</time></div>
+                    <a href="/Kotlin-Coroutine-Guide.html" class="has-link-black-ter is-size-6">Kotlin Coroutine(协程) 简介</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Android/">Android</a>
+                        <a class="has-link-grey -link" href="/categories/Kotlin/">Kotlin</a>
                     </p>
                 </div>
             </div>
@@ -910,10 +1063,10 @@ var _hmt = _hmt || [];
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-04-30T13:45:04.000Z">2017-04-30</time></div>
-                    <a href="/MediaBrowserService.html" class="has-link-black-ter is-size-6">关于媒体浏览器服务(MediaBrowserService)</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-11-05T07:03:57.000Z">2018-11-05</time></div>
+                    <a href="/Flutter-For-LinearLayout.html" class="has-link-black-ter is-size-6">Flutter实战之封装一个LinearLayout</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Android/">Android</a>
+                        <a class="has-link-grey -link" href="/categories/Flutter/">Flutter</a>
                     </p>
                 </div>
             </div>
@@ -930,6 +1083,72 @@ var _hmt = _hmt || [];
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/11/">
+                <span class="level-start">
+                    <span class="level-item">十一月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/10/">
+                <span class="level-start">
+                    <span class="level-item">十月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/09/">
+                <span class="level-start">
+                    <span class="level-item">九月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/08/">
+                <span class="level-start">
+                    <span class="level-item">八月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">6</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2017/07/">
@@ -1164,9 +1383,23 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/Coroutine/">
+                        <span class="tag">Coroutine</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/DB/">
                         <span class="tag">DB</span>
                         <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Flutter/">
+                        <span class="tag">Flutter</span>
+                        <span class="tag is-grey">4</span>
                     </a>
                 </div>
                 
@@ -1194,7 +1427,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Java/">
                         <span class="tag">Java</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">8</span>
                     </a>
                 </div>
                 
@@ -1202,6 +1435,13 @@ var _hmt = _hmt || [];
                     <a class="tags has-addons" href="/tags/JavaScript/">
                         <span class="tag">JavaScript</span>
                         <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Kotlin/">
+                        <span class="tag">Kotlin</span>
+                        <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
@@ -1230,6 +1470,13 @@ var _hmt = _hmt || [];
                     <a class="tags has-addons" href="/tags/OkHttp/">
                         <span class="tag">OkHttp</span>
                         <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/RN/">
+                        <span class="tag">RN</span>
+                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
@@ -1269,6 +1516,13 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/Thinking/">
+                        <span class="tag">Thinking</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/View/">
                         <span class="tag">View</span>
                         <span class="tag is-grey">2</span>
@@ -1279,6 +1533,13 @@ var _hmt = _hmt || [];
                     <a class="tags has-addons" href="/tags/WordPress/">
                         <span class="tag">WordPress</span>
                         <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/多线程/">
+                        <span class="tag">多线程</span>
+                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
@@ -1323,10 +1584,10 @@ var _hmt = _hmt || [];
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-07-17T09:50:02.000Z">2017-07-17</time></div>
-                    <a href="/weixin-xcx-data-binding-and-params-transfer.html" class="has-link-black-ter is-size-6">微信小程序之页面数据绑定及页面跳转传参</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-09T13:44:18.000Z">2019-05-09</time></div>
+                    <a href="/Java-Synchronized-ReentrantLock.html" class="has-link-black-ter is-size-6">多线程之：Synchronized与ReentrantLock</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/小程序/">小程序</a>
+                        <a class="has-link-grey -link" href="/categories/Java/">Java</a>
                     </p>
                 </div>
             </div>
@@ -1336,10 +1597,10 @@ var _hmt = _hmt || [];
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-07-17T09:44:58.000Z">2017-07-17</time></div>
-                    <a href="/weixin-xcx-tabbar-switch.html" class="has-link-black-ter is-size-6">微信小程序之Tab切换</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-22T09:25:05.000Z">2019-04-22</time></div>
+                    <a href="/Kotlin-Coroutine-For-Android-Network.html" class="has-link-black-ter is-size-6">Android中用Kotlin Coroutine(协程)和Retrofit进行网络请求和取消请求</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/小程序/">小程序</a>
+                        <a class="has-link-grey -link" href="/categories/Kotlin/">Kotlin</a>
                     </p>
                 </div>
             </div>
@@ -1349,10 +1610,10 @@ var _hmt = _hmt || [];
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-07-17T09:40:39.000Z">2017-07-17</time></div>
-                    <a href="/weixin-xcx-first-project.html" class="has-link-black-ter is-size-6">微信小程序之入门项目</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-14T08:41:36.000Z">2019-04-14</time></div>
+                    <a href="/Kotlin-Coroutine-Basic-Knowledge.html" class="has-link-black-ter is-size-6">Kotlin Coroutine(协程) 基本知识</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/小程序/">小程序</a>
+                        <a class="has-link-grey -link" href="/categories/Kotlin/">Kotlin</a>
                     </p>
                 </div>
             </div>
@@ -1362,10 +1623,10 @@ var _hmt = _hmt || [];
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-07-12T09:36:51.000Z">2017-07-12</time></div>
-                    <a href="/TextSwitcher-ViewSwitcher.html" class="has-link-black-ter is-size-6">TextSwitcher与ViewSwitcher学习笔记</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-13T11:07:19.000Z">2019-04-13</time></div>
+                    <a href="/Kotlin-Coroutine-Guide.html" class="has-link-black-ter is-size-6">Kotlin Coroutine(协程) 简介</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Android/">Android</a>
+                        <a class="has-link-grey -link" href="/categories/Kotlin/">Kotlin</a>
                     </p>
                 </div>
             </div>
@@ -1375,10 +1636,10 @@ var _hmt = _hmt || [];
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-04-30T13:45:04.000Z">2017-04-30</time></div>
-                    <a href="/MediaBrowserService.html" class="has-link-black-ter is-size-6">关于媒体浏览器服务(MediaBrowserService)</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-11-05T07:03:57.000Z">2018-11-05</time></div>
+                    <a href="/Flutter-For-LinearLayout.html" class="has-link-black-ter is-size-6">Flutter实战之封装一个LinearLayout</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Android/">Android</a>
+                        <a class="has-link-grey -link" href="/categories/Flutter/">Flutter</a>
                     </p>
                 </div>
             </div>
@@ -1395,6 +1656,72 @@ var _hmt = _hmt || [];
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/11/">
+                <span class="level-start">
+                    <span class="level-item">十一月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/10/">
+                <span class="level-start">
+                    <span class="level-item">十月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/09/">
+                <span class="level-start">
+                    <span class="level-item">九月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/08/">
+                <span class="level-start">
+                    <span class="level-item">八月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">6</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2017/07/">
@@ -1629,9 +1956,23 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/Coroutine/">
+                        <span class="tag">Coroutine</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/DB/">
                         <span class="tag">DB</span>
                         <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Flutter/">
+                        <span class="tag">Flutter</span>
+                        <span class="tag is-grey">4</span>
                     </a>
                 </div>
                 
@@ -1659,7 +2000,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Java/">
                         <span class="tag">Java</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">8</span>
                     </a>
                 </div>
                 
@@ -1667,6 +2008,13 @@ var _hmt = _hmt || [];
                     <a class="tags has-addons" href="/tags/JavaScript/">
                         <span class="tag">JavaScript</span>
                         <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Kotlin/">
+                        <span class="tag">Kotlin</span>
+                        <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
@@ -1695,6 +2043,13 @@ var _hmt = _hmt || [];
                     <a class="tags has-addons" href="/tags/OkHttp/">
                         <span class="tag">OkHttp</span>
                         <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/RN/">
+                        <span class="tag">RN</span>
+                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
@@ -1734,6 +2089,13 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/Thinking/">
+                        <span class="tag">Thinking</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/View/">
                         <span class="tag">View</span>
                         <span class="tag is-grey">2</span>
@@ -1744,6 +2106,13 @@ var _hmt = _hmt || [];
                     <a class="tags has-addons" href="/tags/WordPress/">
                         <span class="tag">WordPress</span>
                         <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/多线程/">
+                        <span class="tag">多线程</span>
+                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
@@ -1798,23 +2167,7 @@ var _hmt = _hmt || [];
                 
                 
                 <p class="control">
-                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
-                        
-                        <i class="fab fa-creative-commons"></i>
-                        
-                    </a>
-                </p>
-                
-                <p class="control">
-                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
-                        
-                        <i class="fab fa-creative-commons-by"></i>
-                        
-                    </a>
-                </p>
-                
-                <p class="control">
-                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/huyongli">
+                    <a class="button is-white is-large" target="_blank" title="laohu&#39;s GitHub" href="https://github.com/huyongli">
                         
                         <i class="fab fa-github"></i>
                         
