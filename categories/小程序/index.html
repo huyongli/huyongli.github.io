@@ -176,7 +176,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    7 分钟 读完 (大约 992 个字)
+                    7 分钟 读完 (大约 993 个字)
                 </span>
                 
                 
@@ -192,32 +192,16 @@ var _hmt = _hmt || [];
             <p>在写前面的小程序入门项目时，发现有两个很常用而且觉得也算比较重要的知识点，这里记录下：</p>
 <h3 id="页面数据绑定"><a href="#页面数据绑定" class="headerlink" title="页面数据绑定"></a>页面数据绑定</h3><p>比如你的页面需要显示一个<code>Hello</code>字符串，这个这个字符串可能会根据某些情况会动态变化，这个时候就需要进行数据绑定展示了</p>
 <p>在wxml文件布局如下：<br><figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">view</span>&gt;</span>&#123;&#123;message&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>在js中设置好变量如下：</p>
-<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Page(&#123;</span><br><span class="line">	data: &#123;</span><br><span class="line">		message: <span class="hljs-string">"Hello"</span>,</span><br><span class="line">		number: <span class="hljs-number">1</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>就这样data里面的message属性就可以通过view组件展示出来了，看了上面的写法，也很容易明白，组件展示数据信息时是通过<br><figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;属性名称&#125;&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这的写法与data里面的属性进行绑定的。</p>
-<p>如果在数据信息展示出来后，后面要更新这个属性信息的展示的话，就不能简单的通过<code>this.data.message=&quot;Hello World&quot;来实现，因为这样是无法达到改变数据信息的目的的。小程序中改变数据信息要求使用函数</code>setData()<code>函数来实现。例如上面我们修改</code>message`的值的话需要进行如下操作：</p>
-<!--mroe-->
-<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">this</span>.setData(&#123;</span><br><span class="line">	message: <span class="hljs-string">"Hello World"</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>通过该函数更新之后，页面上会自动的更新展示，而不需要我们去进行额外的操作，微信将数据的展示与更新进行了分离，只要你使用特定的方法修改属性值，界面就会自动更新，这样的实方式比起android中的手动通知更新要方便很多</p>
-<h3 id="页面跳转参数"><a href="#页面跳转参数" class="headerlink" title="页面跳转参数"></a>页面跳转参数</h3><p>小程序中从一个页面跳转到另外一个页面有几种方式，这里我以<code>wx.navigateTo()</code>跳转进行说明：<br>我从<code>index</code>页面跳转到<code>logs</code>页面，很简单</p>
-<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wx.navigateTo(&#123;</span><br><span class="line">	url: <span class="hljs-string">'../log/logs</span></span><br><span class="line"><span class="hljs-string">&#125;)</span></span><br></pre></td></tr></table></figure>
-<p>那如果我在跳转的同时要向<code>logs</code>页面传递参数该怎么办呢，也很简单，直接在url后拼接相关参数即可(与http中的get请求的传参方式是一样的)</p>
-<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wx.navigateTo(&#123;</span><br><span class="line">	url: <span class="hljs-string">'../video/video?message='</span> + <span class="hljs-keyword">this</span>.data.message + <span class="hljs-string">"&amp;number="</span> + <span class="hljs-keyword">this</span>.data.number</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>参数是传过去了，那在<code>logs</code>页面中该如何获取这些参数呢？其实也很简单：</p>
-<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">onLoad: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">options</span>) </span>&#123;</span><br><span class="line">	<span class="hljs-keyword">var</span> message = options.message;</span><br><span class="line">	<span class="hljs-keyword">var</span> number = options.number;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>如上所示，我们在新页面的<code>onLoad</code>函数中就可以直接获取到传递过来的参数信息。</p>
-<h3 id="点击View传参"><a href="#点击View传参" class="headerlink" title="点击View传参"></a>点击View传参</h3><p>在我前面的文章<a href="http://ittiger.cn/weixin-xcx-first-project.html"> 微信小程序之入门项目</a>中点击视频列表中的某一项跳转到视频播放页面，而在点击列表中的某一项时，需要获取当前项的数据信息，如果我想通过点击事件就将这些数据信息作为参数传递过去该怎么做呢？代码如下：</p>
-<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">wx:for</span>=<span class="hljs-string">"&#123;&#123;tab.videos&#125;&#125;"</span> <span class="hljs-attr">wx:for-item</span>=<span class="hljs-string">"video"</span> <span class="hljs-attr">data-video</span>=<span class="hljs-string">"&#123;&#123;video&#125;&#125;"</span> <span class="hljs-attr">wx:key</span>=<span class="hljs-string">"*this"</span> <span class="hljs-attr">bindtap</span>=<span class="hljs-string">"onItemClick"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>上面的代码通过for循环实现了一个列表，并为每一项绑定了点击事件，而<code>view</code>组件实现中有一个属性是微信没有提供的：<code>data-video</code>，这个属性是我们手动添加上去的，微信中如果要在wxml中传递参数到点击事件中的话则可以通过<code>data-**</code>的形式进行传参(**号即为参数名称)，此处是将每一项数据<code>video</code>作为参数进行传递，同时参数名称为<code>video</code></p>
-<p>接下来再来看看点击事件中如何获取该<code>video</code>信息：</p>
-<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">onItemClick: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">event</span>) </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">var</span> video = event.currentTarget.dataset.video;</span><br><span class="line">    <span class="hljs-keyword">var</span> url = video.url;</span><br><span class="line">    <span class="hljs-keyword">var</span> title = video.title;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<p>没错，就像代码中写的，在点击事件中我们可以通过<code>event.currentTarget.dataset</code>获取传过来的<code>video</code>信息，这个参数在调试的时候也是可以通过event对象看到的</p>
-<hr>
-<p>原创文章，严禁随意转载，如有问题，欢迎添加个人微信交流。<br><img src="/img/weixinCode.jpeg" width="200" height="200" alt></p>
-
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/weixin-xcx-data-binding-and-params-transfer.html#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -246,7 +230,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    5 分钟 读完 (大约 811 个字)
+                    5 分钟 读完 (大约 812 个字)
                 </span>
                 
                 
@@ -261,17 +245,16 @@ var _hmt = _hmt || [];
         <div class="content">
             <p>做过<code>android</code>的都知道在<code>android</code>里面实现<code>Tab切换</code>非常简单，使用<code>android</code>提供的<code>TabLayout+ViewPager</code>很容器就实现了<code>Tab切换</code>的效果。</p>
 <p>但是小程序中是没有提供类似可以直接使用的组件，因此想要实现此功能需要我们自己去编码实现。在<a href="http://ittiger.cn/weixin-xcx-first-project.html">上一篇</a>文章中我提到的小程序练手项目就实现了<code>Tab切换</code>效果，具体效果图可以参考文章<a href="http://ittiger.cn/weixin-xcx-first-project.html">微信小程序入门项目</a>。</p>
-<h3 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h3><p>翻看小程序的文档可以发现，微信为我们提供了一个<code>swiper</code>组件，通过该组件可以实现<code>view</code>的滑动切换，它的功能与<code>android</code>中的<code>ViewPager</code>是类似的。因此实现<code>Tab切换</code>现在只需要实现头部的<code>Tabbar</code>即可，对于该功能我们可以采用多个横向排列的<code>view</code>组件构成一个<code>Tabbar</code>，每个<code>view</code>组件作为一个<code>Tab</code>项，然后再将其点击事件与<code>swiper</code>进行关联即可实现<code>Tab</code>的点击和滑动切换功能。而对于<code>Tabbar</code>的当前<code>Tab</code>项下面的指示器我们可以采用<code>border-bottom</code>样式实现，也可以单独使用一个<code>view</code>组件作为指示器，我这里采用的是第二种方式实现指示器。</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p>实现代码如下：</p>
-<h4 id="页面布局代码"><a href="#页面布局代码" class="headerlink" title="页面布局代码"></a>页面布局代码</h4><figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"page"</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"navbar"</span>&gt;</span></span><br><span class="line">      <span class="hljs-tag">&lt;<span class="hljs-name">block</span> <span class="hljs-attr">wx:for</span>=<span class="hljs-string">"&#123;&#123;tabs&#125;&#125;"</span> <span class="hljs-attr">wx:key</span>=<span class="hljs-string">"*this"</span>&gt;</span></span><br><span class="line">          <span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"&#123;&#123;index&#125;&#125;"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"navbar__item &#123;&#123;activeIndex == index ? 'navbar__item_on' : ''&#125;&#125;"</span> <span class="hljs-attr">bindtap</span>=<span class="hljs-string">"navTabClick"</span>&gt;</span></span><br><span class="line">            <span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"navbar__title"</span>&gt;</span>&#123;&#123;item.name&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span></span><br><span class="line">          <span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span></span><br><span class="line">      <span class="hljs-tag">&lt;/<span class="hljs-name">block</span>&gt;</span></span><br><span class="line">      <span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"navbar__slider"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"width: &#123;&#123;sliderWidth&#125;&#125;px; transform: translateX(&#123;&#123;sliderOffset&#125;&#125;px); -webkit-transform: translateX(&#123;&#123;sliderOffset&#125;&#125;px);"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"position: absolute;top: 68rpx;width: 100%;height:&#123;&#123;contentHeight&#125;&#125;px"</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">swiper</span> <span class="hljs-attr">current</span>=<span class="hljs-string">"&#123;&#123;activeIndex&#125;&#125;"</span> <span class="hljs-attr">duration</span>=<span class="hljs-string">"300"</span> <span class="hljs-attr">bindchange</span>=<span class="hljs-string">"bindChange"</span>&gt;</span></span><br><span class="line">      <span class="hljs-tag">&lt;<span class="hljs-name">swiper-item</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">view</span>&gt;</span>热门视频<span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span></span><br><span class="line">      <span class="hljs-tag">&lt;/<span class="hljs-name">swiper-item</span>&gt;</span></span><br><span class="line">      <span class="hljs-tag">&lt;<span class="hljs-name">swiper-item</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">view</span>&gt;</span>比赛集锦<span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span></span><br><span class="line">      <span class="hljs-tag">&lt;/<span class="hljs-name">swiper-item</span>&gt;</span></span><br><span class="line">      <span class="hljs-tag">&lt;<span class="hljs-name">swiper-item</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">view</span>&gt;</span>你懂专栏<span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span></span><br><span class="line">      <span class="hljs-tag">&lt;/<span class="hljs-name">swiper-item</span>&gt;</span></span><br><span class="line">      <span class="hljs-tag">&lt;<span class="hljs-name">swiper-item</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">view</span>&gt;</span>天下足球<span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span></span><br><span class="line">      <span class="hljs-tag">&lt;/<span class="hljs-name">swiper-item</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;/<span class="hljs-name">swiper</span>&gt;</span> </span><br><span class="line">  <span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h4 id="布局样式代码"><a href="#布局样式代码" class="headerlink" title="布局样式代码"></a>布局样式代码</h4><figure class="highlight css hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-tag">view</span> , <span class="hljs-selector-tag">page</span> &#123;</span><br><span class="line">  <span class="hljs-attribute">padding</span>: <span class="hljs-number">0px</span>;</span><br><span class="line">  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-selector-class">.page</span> &#123;</span><br><span class="line">  <span class="hljs-attribute">height</span>: <span class="hljs-number">100%</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-selector-class">.navbar</span> &#123;</span><br><span class="line">    <span class="hljs-attribute">display</span>: flex;</span><br><span class="line">    <span class="hljs-attribute">position</span>: absolute;</span><br><span class="line">    <span class="hljs-attribute">z-index</span>: <span class="hljs-number">500</span>;</span><br><span class="line">    <span class="hljs-attribute">top</span>: <span class="hljs-number">0</span>;</span><br><span class="line">    <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-selector-class">.navbar__item</span> &#123;</span><br><span class="line">    <span class="hljs-attribute">position</span>: relative;</span><br><span class="line">    <span class="hljs-attribute">display</span>: block;</span><br><span class="line">    <span class="hljs-attribute">flex</span>: <span class="hljs-number">1</span>;</span><br><span class="line">    <span class="hljs-attribute">padding</span>: <span class="hljs-number">10</span>rpx <span class="hljs-number">0</span>;</span><br><span class="line">    <span class="hljs-attribute">text-align</span>: center;</span><br><span class="line">    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">0</span>;</span><br><span class="line">    <span class="hljs-attribute">height</span>: <span class="hljs-number">48</span>rpx;</span><br><span class="line">    <span class="hljs-attribute">line-height</span>: <span class="hljs-number">48</span>rpx;</span><br><span class="line">    &lt;!-- NavBar的总高度为：height + padding-top + padding-bottom = 68rpx --&gt;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-selector-class">.navbar__item_on</span> &#123;</span><br><span class="line">    <span class="hljs-attribute">color</span>: <span class="hljs-number">#16B13A</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-selector-class">.navbar__slider</span> &#123;</span><br><span class="line">    <span class="hljs-attribute">position</span>: absolute;</span><br><span class="line">    <span class="hljs-attribute">display</span>: block;</span><br><span class="line">    <span class="hljs-attribute">content</span>: <span class="hljs-string">" "</span>;</span><br><span class="line">    <span class="hljs-attribute">left</span>: <span class="hljs-number">0</span>;</span><br><span class="line">    <span class="hljs-attribute">bottom</span>: <span class="hljs-number">0</span>;</span><br><span class="line">    <span class="hljs-attribute">height</span>: <span class="hljs-number">3px</span>;</span><br><span class="line">    <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#16B13A</span>;</span><br><span class="line">    <span class="hljs-attribute">transition</span>: transform .<span class="hljs-number">3s</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-selector-class">.navbar__title</span>&#123;</span><br><span class="line">    <span class="hljs-attribute">display</span>: inline-block;</span><br><span class="line">    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">15px</span>;</span><br><span class="line">    <span class="hljs-attribute">max-width</span>: <span class="hljs-number">8em</span>;</span><br><span class="line">    <span class="hljs-attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-selector-tag">swiper</span> &#123;</span><br><span class="line">  <span class="hljs-attribute">height</span>: <span class="hljs-number">100%</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-selector-tag">swiper-item</span>&#123;</span><br><span class="line">  <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;</span><br><span class="line">  <span class="hljs-attribute">padding-top</span>: <span class="hljs-number">20</span>rpx;</span><br><span class="line">  <span class="hljs-attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="js代码"><a href="#js代码" class="headerlink" title="js代码"></a>js代码</h4><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> tabs = [</span><br><span class="line">  &#123;</span><br><span class="line">    name: <span class="hljs-string">"热门视频"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    name: <span class="hljs-string">"比赛集锦"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    name: <span class="hljs-string">"你懂专栏"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    name: <span class="hljs-string">"天下足球"</span></span><br><span class="line">  &#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line">Page(&#123;</span><br><span class="line"></span><br><span class="line">  <span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">   * 页面的初始数据</span></span><br><span class="line"><span class="hljs-comment">   */</span></span><br><span class="line">  data: &#123;</span><br><span class="line">    tabs: tabs,     <span class="hljs-comment">//展示的数据</span></span><br><span class="line">    slideOffset: <span class="hljs-number">0</span>,<span class="hljs-comment">//指示器每次移动的距离</span></span><br><span class="line">    activeIndex: <span class="hljs-number">0</span>,<span class="hljs-comment">//当前展示的Tab项索引</span></span><br><span class="line">    sliderWidth: <span class="hljs-number">96</span>,<span class="hljs-comment">//指示器的宽度,计算得到</span></span><br><span class="line">    contentHeight: <span class="hljs-number">0</span><span class="hljs-comment">//页面除去头部Tabbar后，内容区的总高度，计算得到</span></span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">   * 生命周期函数--监听页面加载</span></span><br><span class="line"><span class="hljs-comment">   */</span></span><br><span class="line">  onLoad: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">options</span>) </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">var</span> that = <span class="hljs-keyword">this</span>;</span><br><span class="line">    wx.getSystemInfo(&#123;</span><br><span class="line">      success: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">res</span>) </span>&#123;</span><br><span class="line">        that.setData(&#123;</span><br><span class="line">        <span class="hljs-comment">//计算相关宽度</span></span><br><span class="line">          sliderWidth: res.windowWidth / that.data.tabs.length,</span><br><span class="line">          sliderOffset: res.windowWidth / that.data.tabs.length * that.data.activeIndex,</span><br><span class="line">          contentHeight: res.windowHeight - res.windowWidth / <span class="hljs-number">750</span> * <span class="hljs-number">68</span><span class="hljs-comment">//计算内容区高度，rpx -&gt; px计算</span></span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  bindChange: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">var</span> current = e.detail.current;</span><br><span class="line">    <span class="hljs-keyword">this</span>.setData(&#123;</span><br><span class="line">      activeIndex: current,</span><br><span class="line">      sliderOffset: <span class="hljs-keyword">this</span>.data.sliderWidth * current</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"bindChange:"</span> + current);</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  navTabClick: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">this</span>.setData(&#123;</span><br><span class="line">      sliderOffset: e.currentTarget.offsetLeft,</span><br><span class="line">      activeIndex: e.currentTarget.id</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"navTabClick:"</span> + e.currentTarget.id);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>上面的布局代码和js代码其实写起来都不难，关键在于css样式的编写，对于不熟悉CSS的人来说调样式太痛苦了。这个效果也是我调了好半天，参考了好多代码之后写出来的，真o(╯□╰)o，看来想写好小程序还得好好学学CSS样式。</p>
-<hr>
-<p>原创文章，严禁随意转载，如有问题，欢迎添加个人微信交流。<br><img src="/img/weixinCode.jpeg" width="200" height="200" alt></p>
-
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/weixin-xcx-tabbar-switch.html#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -300,7 +283,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    1 分钟 读完 (大约 175 个字)
+                    1 分钟 读完 (大约 176 个字)
                 </span>
                 
                 
@@ -314,18 +297,16 @@ var _hmt = _hmt || [];
         </h1>
         <div class="content">
             <p>最近在学习微信小程序，尝试着写了一个足球视频播放的小程序，先放效果截图吧</p>
-<p><img src="/img/weixin-xcx/1.jpg" width="400"></p>
-<p><img src="/img/weixin-xcx/2.jpg" width="400"></p>
-<p><img src="/img/weixin-xcx/3.jpg" width="400"></p>
-<hr>
-<p>通过这个小程序的练习熟悉小程序中网络加载，页面编写和配置，页面跳转及传参，页面展示时的数据绑定以及独立模块的引用等知识点。</p>
-<p>当然写小程序最重要的一点是必须要熟悉CSS样式的编写，对于我这种对CSS不熟的人来说真是太困难了。一个界面效果都需要调上半天。</p>
-<p>项目代码地址如下：<br><a href="https://github.com/huyongli/WXSoccerVideo" target="_blank" rel="noopener">https://github.com/huyongli/WXSoccerVideo</a></p>
-<hr>
-<p>原创文章，严禁随意转载，如有问题，欢迎添加个人微信交流。<br><img src="/img/weixinCode.jpeg" width="200" height="200" alt></p>
-
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/weixin-xcx-first-project.html#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -393,7 +374,7 @@ var _hmt = _hmt || [];
                         分类
                     </p>
                     <p class="title has-text-weight-normal">
-                        8
+                        7
                     </p>
                 </div>
             </div>
@@ -455,7 +436,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">Android</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">34</span>
+                <span class="level-item tag">35</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/Blog/">
@@ -496,14 +477,6 @@ var _hmt = _hmt || [];
             </span>
             <span class="level-end">
                 <span class="level-item tag">3</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/Media-Apps/">
-            <span class="level-start">
-                <span class="level-item">Media Apps</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/小程序/">
@@ -638,7 +611,7 @@ var _hmt = _hmt || [];
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-04-30T13:45:04.000Z">2017-04-30</time></div>
                     <a href="/MediaBrowserService.html" class="has-link-black-ter is-size-6">关于媒体浏览器服务(MediaBrowserService)</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Media-Apps/">Media Apps</a>
+                        <a class="has-link-grey -link" href="/categories/Android/">Android</a>
                     </p>
                 </div>
             </div>
@@ -1103,7 +1076,7 @@ var _hmt = _hmt || [];
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-04-30T13:45:04.000Z">2017-04-30</time></div>
                     <a href="/MediaBrowserService.html" class="has-link-black-ter is-size-6">关于媒体浏览器服务(MediaBrowserService)</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Media-Apps/">Media Apps</a>
+                        <a class="has-link-grey -link" href="/categories/Android/">Android</a>
                     </p>
                 </div>
             </div>

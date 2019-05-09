@@ -16,7 +16,7 @@
 <meta property="og:description" content="TextSwitcher和ViewSwitcher是什么，有什么用呢？ 其实大家从名字就可以看出来其大概意思，TextSwitcher是用来切换文本显示的，而ViewSwitcher是用来切换视图显示的，实际上他们也的确是用来做这个的，只不过他们在切换视图显示的时候允许添加切换的动画效果。TextSwitcher其实也是ViewSwitcher的子类实现。 TextSwitcher使用我们先来看看">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://ittiger.cn/images/og_image.png">
-<meta property="og:updated_time" content="2019-05-09T09:12:53.203Z">
+<meta property="og:updated_time" content="2019-05-09T09:56:24.964Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TextSwitcher与ViewSwitcher学习笔记">
 <meta name="twitter:description" content="TextSwitcher和ViewSwitcher是什么，有什么用呢？ 其实大家从名字就可以看出来其大概意思，TextSwitcher是用来切换文本显示的，而ViewSwitcher是用来切换视图显示的，实际上他们也的确是用来做这个的，只不过他们在切换视图显示的时候允许添加切换的动画效果。TextSwitcher其实也是ViewSwitcher的子类实现。 TextSwitcher使用我们先来看看">
@@ -169,7 +169,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    9 分钟 读完 (大约 1301 个字)
+                    9 分钟 读完 (大约 1302 个字)
                 </span>
                 
                 
@@ -189,8 +189,7 @@ var _hmt = _hmt || [];
         <div class="content">
             <p><code>TextSwitcher</code>和<code>ViewSwitcher</code>是什么，有什么用呢？</p>
 <p>其实大家从名字就可以看出来其大概意思，<code>TextSwitcher</code>是用来切换文本显示的，而<code>ViewSwitcher</code>是用来切换视图显示的，实际上他们也的确是用来做这个的，只不过他们在切换视图显示的时候允许添加切换的动画效果。<code>TextSwitcher</code>其实也是<code>ViewSwitcher</code>的子类实现。</p>
-<h3 id="TextSwitcher使用"><a href="#TextSwitcher使用" class="headerlink" title="TextSwitcher使用"></a>TextSwitcher使用</h3><p>我们先来看看<code>TextSwitcher</code>的用法：</p>
-<p>关键布局代码如下：<br><figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">Button</span></span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/button"</span></span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"wrap_content"</span></span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"wrap_content"</span></span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">android:text</span>=<span class="hljs-string">"change"</span>/&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">TextSwitcher</span></span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/switcher"</span></span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span></span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"wrap_content"</span>/&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="TextSwitcher使用"><a href="#TextSwitcher使用" class="headerlink" title="TextSwitcher使用"></a>TextSwitcher使用</h3><p>我们先来看看<code>TextSwitcher</code>的用法：<br><a id="more"></a><br>关键布局代码如下：<br><figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">Button</span></span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/button"</span></span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"wrap_content"</span></span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"wrap_content"</span></span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">android:text</span>=<span class="hljs-string">"change"</span>/&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">TextSwitcher</span></span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/switcher"</span></span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span></span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"wrap_content"</span>/&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>Java代码如下：</p>
 <figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">//设置显示Text文本的View创建工厂</span></span><br><span class="line"><span class="hljs-comment">//这是通过代码的方式创建显示文本的视图，也可以直接在布局中设置显示文本的视图，这个在讲ViewSwitcher的用法的时候再说</span></span><br><span class="line">mTextSwitcher.setFactory(<span class="hljs-keyword">new</span> ViewSwitcher.ViewFactory() &#123;</span><br><span class="line">     <span class="hljs-meta">@Override</span></span><br><span class="line">     <span class="hljs-function"><span class="hljs-keyword">public</span> View <span class="hljs-title">makeView</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">         TextView t = <span class="hljs-keyword">new</span> TextView(TextSwitcherActivity.<span class="hljs-keyword">this</span>);</span><br><span class="line">         t.setGravity(Gravity.TOP | Gravity.CENTER_HORIZONTAL);</span><br><span class="line">         t.setTextAppearance(TextSwitcherActivity.<span class="hljs-keyword">this</span>, android.R.style.TextAppearance_Large);</span><br><span class="line">         <span class="hljs-keyword">return</span> t;</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;);</span><br><span class="line"> Animation in = AnimationUtils.loadAnimation(<span class="hljs-keyword">this</span>,</span><br><span class="line">         android.R.anim.fade_in);</span><br><span class="line"> Animation out = AnimationUtils.loadAnimation(<span class="hljs-keyword">this</span>,</span><br><span class="line">         android.R.anim.fade_out);</span><br><span class="line"> mTextSwitcher.setInAnimation(in);<span class="hljs-comment">//设置文本出现动画</span></span><br><span class="line"> mTextSwitcher.setOutAnimation(out);<span class="hljs-comment">//设置文本消失动画</span></span><br><span class="line"> mTextSwitcher.setCurrentText(String.valueOf(mCount));<span class="hljs-comment">//设置初始值，初始值不显示动画</span></span><br><span class="line"> </span><br><span class="line"> <span class="hljs-keyword">int</span> mCount = <span class="hljs-number">0</span>;</span><br><span class="line"> mButton.setOnClickListener(<span class="hljs-keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">  <span class="hljs-meta">@Override</span></span><br><span class="line">     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onClick</span><span class="hljs-params">(View v)</span> </span>&#123;</span><br><span class="line">	    mCount++;</span><br><span class="line">		mTextSwitcher.setText(String.valueOf(mCount));<span class="hljs-comment">//更新文本显示值，会出现动画     </span></span><br><span class="line">     &#125;</span><br><span class="line"> &#125;);</span><br></pre></td></tr></table></figure>
 <p>当你点击界面上的按钮的时候，会不断的更新<code>TextSwitcher</code>的显示值，而在更新过程中文本会出现一个淡入淡出的效果，这个效果就是通过动画产生的。</p>
@@ -354,7 +353,7 @@ var _hmt = _hmt || [];
                         分类
                     </p>
                     <p class="title has-text-weight-normal">
-                        8
+                        7
                     </p>
                 </div>
             </div>
@@ -416,7 +415,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">Android</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">34</span>
+                <span class="level-item tag">35</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/Blog/">
@@ -457,14 +456,6 @@ var _hmt = _hmt || [];
             </span>
             <span class="level-end">
                 <span class="level-item tag">3</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/Media-Apps/">
-            <span class="level-start">
-                <span class="level-item">Media Apps</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/小程序/">
@@ -599,7 +590,7 @@ var _hmt = _hmt || [];
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-04-30T13:45:04.000Z">2017-04-30</time></div>
                     <a href="/MediaBrowserService.html" class="has-link-black-ter is-size-6">关于媒体浏览器服务(MediaBrowserService)</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Media-Apps/">Media Apps</a>
+                        <a class="has-link-grey -link" href="/categories/Android/">Android</a>
                     </p>
                 </div>
             </div>
@@ -1064,7 +1055,7 @@ var _hmt = _hmt || [];
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-04-30T13:45:04.000Z">2017-04-30</time></div>
                     <a href="/MediaBrowserService.html" class="has-link-black-ter is-size-6">关于媒体浏览器服务(MediaBrowserService)</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Media-Apps/">Media Apps</a>
+                        <a class="has-link-grey -link" href="/categories/Android/">Android</a>
                     </p>
                 </div>
             </div>

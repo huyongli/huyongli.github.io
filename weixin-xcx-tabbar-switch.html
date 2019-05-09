@@ -7,19 +7,19 @@
 
 
 
-    <meta name="description" content="做过android的都知道在android里面实现Tab切换非常简单，使用android提供的TabLayout+ViewPager很容器就实现了Tab切换的效果。 但是小程序中是没有提供类似可以直接使用的组件，因此想要实现此功能需要我们自己去编码实现。在上一篇文章中我提到的小程序练手项目就实现了Tab切换效果，具体效果图可以参考文章微信小程序入门项目。 实现思路翻看小程序的文档可以发现，微信为我">
+    <meta name="description" content="做过android的都知道在android里面实现Tab切换非常简单，使用android提供的TabLayout+ViewPager很容器就实现了Tab切换的效果。 但是小程序中是没有提供类似可以直接使用的组件，因此想要实现此功能需要我们自己去编码实现。在上一篇文章中我提到的小程序练手项目就实现了Tab切换效果，具体效果图可以参考文章微信小程序入门项目。">
 <meta name="keywords" content="小程序">
 <meta property="og:type" content="article">
 <meta property="og:title" content="微信小程序之Tab切换">
 <meta property="og:url" content="http://ittiger.cn/weixin-xcx-tabbar-switch.html">
 <meta property="og:site_name" content="老胡">
-<meta property="og:description" content="做过android的都知道在android里面实现Tab切换非常简单，使用android提供的TabLayout+ViewPager很容器就实现了Tab切换的效果。 但是小程序中是没有提供类似可以直接使用的组件，因此想要实现此功能需要我们自己去编码实现。在上一篇文章中我提到的小程序练手项目就实现了Tab切换效果，具体效果图可以参考文章微信小程序入门项目。 实现思路翻看小程序的文档可以发现，微信为我">
+<meta property="og:description" content="做过android的都知道在android里面实现Tab切换非常简单，使用android提供的TabLayout+ViewPager很容器就实现了Tab切换的效果。 但是小程序中是没有提供类似可以直接使用的组件，因此想要实现此功能需要我们自己去编码实现。在上一篇文章中我提到的小程序练手项目就实现了Tab切换效果，具体效果图可以参考文章微信小程序入门项目。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://ittiger.cn/images/og_image.png">
-<meta property="og:updated_time" content="2019-05-09T09:13:53.473Z">
+<meta property="og:updated_time" content="2019-05-09T09:55:45.295Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="微信小程序之Tab切换">
-<meta name="twitter:description" content="做过android的都知道在android里面实现Tab切换非常简单，使用android提供的TabLayout+ViewPager很容器就实现了Tab切换的效果。 但是小程序中是没有提供类似可以直接使用的组件，因此想要实现此功能需要我们自己去编码实现。在上一篇文章中我提到的小程序练手项目就实现了Tab切换效果，具体效果图可以参考文章微信小程序入门项目。 实现思路翻看小程序的文档可以发现，微信为我">
+<meta name="twitter:description" content="做过android的都知道在android里面实现Tab切换非常简单，使用android提供的TabLayout+ViewPager很容器就实现了Tab切换的效果。 但是小程序中是没有提供类似可以直接使用的组件，因此想要实现此功能需要我们自己去编码实现。在上一篇文章中我提到的小程序练手项目就实现了Tab切换效果，具体效果图可以参考文章微信小程序入门项目。">
 <meta name="twitter:image" content="http://ittiger.cn/images/og_image.png">
 
 
@@ -169,7 +169,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    5 分钟 读完 (大约 811 个字)
+                    5 分钟 读完 (大约 812 个字)
                 </span>
                 
                 
@@ -189,6 +189,7 @@ var _hmt = _hmt || [];
         <div class="content">
             <p>做过<code>android</code>的都知道在<code>android</code>里面实现<code>Tab切换</code>非常简单，使用<code>android</code>提供的<code>TabLayout+ViewPager</code>很容器就实现了<code>Tab切换</code>的效果。</p>
 <p>但是小程序中是没有提供类似可以直接使用的组件，因此想要实现此功能需要我们自己去编码实现。在<a href="http://ittiger.cn/weixin-xcx-first-project.html">上一篇</a>文章中我提到的小程序练手项目就实现了<code>Tab切换</code>效果，具体效果图可以参考文章<a href="http://ittiger.cn/weixin-xcx-first-project.html">微信小程序入门项目</a>。</p>
+<a id="more"></a>
 <h3 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h3><p>翻看小程序的文档可以发现，微信为我们提供了一个<code>swiper</code>组件，通过该组件可以实现<code>view</code>的滑动切换，它的功能与<code>android</code>中的<code>ViewPager</code>是类似的。因此实现<code>Tab切换</code>现在只需要实现头部的<code>Tabbar</code>即可，对于该功能我们可以采用多个横向排列的<code>view</code>组件构成一个<code>Tabbar</code>，每个<code>view</code>组件作为一个<code>Tab</code>项，然后再将其点击事件与<code>swiper</code>进行关联即可实现<code>Tab</code>的点击和滑动切换功能。而对于<code>Tabbar</code>的当前<code>Tab</code>项下面的指示器我们可以采用<code>border-bottom</code>样式实现，也可以单独使用一个<code>view</code>组件作为指示器，我这里采用的是第二种方式实现指示器。</p>
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p>实现代码如下：</p>
 <h4 id="页面布局代码"><a href="#页面布局代码" class="headerlink" title="页面布局代码"></a>页面布局代码</h4><figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"page"</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"navbar"</span>&gt;</span></span><br><span class="line">      <span class="hljs-tag">&lt;<span class="hljs-name">block</span> <span class="hljs-attr">wx:for</span>=<span class="hljs-string">"&#123;&#123;tabs&#125;&#125;"</span> <span class="hljs-attr">wx:key</span>=<span class="hljs-string">"*this"</span>&gt;</span></span><br><span class="line">          <span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"&#123;&#123;index&#125;&#125;"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"navbar__item &#123;&#123;activeIndex == index ? 'navbar__item_on' : ''&#125;&#125;"</span> <span class="hljs-attr">bindtap</span>=<span class="hljs-string">"navTabClick"</span>&gt;</span></span><br><span class="line">            <span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"navbar__title"</span>&gt;</span>&#123;&#123;item.name&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span></span><br><span class="line">          <span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span></span><br><span class="line">      <span class="hljs-tag">&lt;/<span class="hljs-name">block</span>&gt;</span></span><br><span class="line">      <span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"navbar__slider"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"width: &#123;&#123;sliderWidth&#125;&#125;px; transform: translateX(&#123;&#123;sliderOffset&#125;&#125;px); -webkit-transform: translateX(&#123;&#123;sliderOffset&#125;&#125;px);"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"position: absolute;top: 68rpx;width: 100%;height:&#123;&#123;contentHeight&#125;&#125;px"</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">swiper</span> <span class="hljs-attr">current</span>=<span class="hljs-string">"&#123;&#123;activeIndex&#125;&#125;"</span> <span class="hljs-attr">duration</span>=<span class="hljs-string">"300"</span> <span class="hljs-attr">bindchange</span>=<span class="hljs-string">"bindChange"</span>&gt;</span></span><br><span class="line">      <span class="hljs-tag">&lt;<span class="hljs-name">swiper-item</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">view</span>&gt;</span>热门视频<span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span></span><br><span class="line">      <span class="hljs-tag">&lt;/<span class="hljs-name">swiper-item</span>&gt;</span></span><br><span class="line">      <span class="hljs-tag">&lt;<span class="hljs-name">swiper-item</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">view</span>&gt;</span>比赛集锦<span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span></span><br><span class="line">      <span class="hljs-tag">&lt;/<span class="hljs-name">swiper-item</span>&gt;</span></span><br><span class="line">      <span class="hljs-tag">&lt;<span class="hljs-name">swiper-item</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">view</span>&gt;</span>你懂专栏<span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span></span><br><span class="line">      <span class="hljs-tag">&lt;/<span class="hljs-name">swiper-item</span>&gt;</span></span><br><span class="line">      <span class="hljs-tag">&lt;<span class="hljs-name">swiper-item</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">view</span>&gt;</span>天下足球<span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span></span><br><span class="line">      <span class="hljs-tag">&lt;/<span class="hljs-name">swiper-item</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;/<span class="hljs-name">swiper</span>&gt;</span> </span><br><span class="line">  <span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -334,7 +335,7 @@ var _hmt = _hmt || [];
                         分类
                     </p>
                     <p class="title has-text-weight-normal">
-                        8
+                        7
                     </p>
                 </div>
             </div>
@@ -396,7 +397,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">Android</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">34</span>
+                <span class="level-item tag">35</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/Blog/">
@@ -437,14 +438,6 @@ var _hmt = _hmt || [];
             </span>
             <span class="level-end">
                 <span class="level-item tag">3</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/Media-Apps/">
-            <span class="level-start">
-                <span class="level-item">Media Apps</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/小程序/">
@@ -579,7 +572,7 @@ var _hmt = _hmt || [];
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-04-30T13:45:04.000Z">2017-04-30</time></div>
                     <a href="/MediaBrowserService.html" class="has-link-black-ter is-size-6">关于媒体浏览器服务(MediaBrowserService)</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Media-Apps/">Media Apps</a>
+                        <a class="has-link-grey -link" href="/categories/Android/">Android</a>
                     </p>
                 </div>
             </div>
@@ -1044,7 +1037,7 @@ var _hmt = _hmt || [];
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-04-30T13:45:04.000Z">2017-04-30</time></div>
                     <a href="/MediaBrowserService.html" class="has-link-black-ter is-size-6">关于媒体浏览器服务(MediaBrowserService)</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Media-Apps/">Media Apps</a>
+                        <a class="has-link-grey -link" href="/categories/Android/">Android</a>
                     </p>
                 </div>
             </div>

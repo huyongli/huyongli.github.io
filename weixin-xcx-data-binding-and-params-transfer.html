@@ -7,19 +7,19 @@
 
 
 
-    <meta name="description" content="在写前面的小程序入门项目时，发现有两个很常用而且觉得也算比较重要的知识点，这里记录下： 页面数据绑定比如你的页面需要显示一个Hello字符串，这个这个字符串可能会根据某些情况会动态变化，这个时候就需要进行数据绑定展示了 在wxml文件布局如下：1&amp;lt;view&amp;gt;&amp;#123;&amp;#123;message&amp;#125;&amp;#125;&amp;lt;/view&amp;gt; 在js中设置好变量如下： 123456P">
+    <meta name="description" content="在写前面的小程序入门项目时，发现有两个很常用而且觉得也算比较重要的知识点，这里记录下： 页面数据绑定比如你的页面需要显示一个Hello字符串，这个这个字符串可能会根据某些情况会动态变化，这个时候就需要进行数据绑定展示了 在wxml文件布局如下：1&amp;lt;view&amp;gt;&amp;#123;&amp;#123;message&amp;#125;&amp;#125;&amp;lt;/view&amp;gt;">
 <meta name="keywords" content="小程序">
 <meta property="og:type" content="article">
 <meta property="og:title" content="微信小程序之页面数据绑定及页面跳转传参">
 <meta property="og:url" content="http://ittiger.cn/weixin-xcx-data-binding-and-params-transfer.html">
 <meta property="og:site_name" content="老胡">
-<meta property="og:description" content="在写前面的小程序入门项目时，发现有两个很常用而且觉得也算比较重要的知识点，这里记录下： 页面数据绑定比如你的页面需要显示一个Hello字符串，这个这个字符串可能会根据某些情况会动态变化，这个时候就需要进行数据绑定展示了 在wxml文件布局如下：1&amp;lt;view&amp;gt;&amp;#123;&amp;#123;message&amp;#125;&amp;#125;&amp;lt;/view&amp;gt; 在js中设置好变量如下： 123456P">
+<meta property="og:description" content="在写前面的小程序入门项目时，发现有两个很常用而且觉得也算比较重要的知识点，这里记录下： 页面数据绑定比如你的页面需要显示一个Hello字符串，这个这个字符串可能会根据某些情况会动态变化，这个时候就需要进行数据绑定展示了 在wxml文件布局如下：1&amp;lt;view&amp;gt;&amp;#123;&amp;#123;message&amp;#125;&amp;#125;&amp;lt;/view&amp;gt;">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://ittiger.cn/images/og_image.png">
-<meta property="og:updated_time" content="2019-05-09T09:13:29.874Z">
+<meta property="og:updated_time" content="2019-05-09T09:49:25.862Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="微信小程序之页面数据绑定及页面跳转传参">
-<meta name="twitter:description" content="在写前面的小程序入门项目时，发现有两个很常用而且觉得也算比较重要的知识点，这里记录下： 页面数据绑定比如你的页面需要显示一个Hello字符串，这个这个字符串可能会根据某些情况会动态变化，这个时候就需要进行数据绑定展示了 在wxml文件布局如下：1&amp;lt;view&amp;gt;&amp;#123;&amp;#123;message&amp;#125;&amp;#125;&amp;lt;/view&amp;gt; 在js中设置好变量如下： 123456P">
+<meta name="twitter:description" content="在写前面的小程序入门项目时，发现有两个很常用而且觉得也算比较重要的知识点，这里记录下： 页面数据绑定比如你的页面需要显示一个Hello字符串，这个这个字符串可能会根据某些情况会动态变化，这个时候就需要进行数据绑定展示了 在wxml文件布局如下：1&amp;lt;view&amp;gt;&amp;#123;&amp;#123;message&amp;#125;&amp;#125;&amp;lt;/view&amp;gt;">
 <meta name="twitter:image" content="http://ittiger.cn/images/og_image.png">
 
 
@@ -169,7 +169,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    7 分钟 读完 (大约 992 个字)
+                    7 分钟 读完 (大约 993 个字)
                 </span>
                 
                 
@@ -190,6 +190,7 @@ var _hmt = _hmt || [];
             <p>在写前面的小程序入门项目时，发现有两个很常用而且觉得也算比较重要的知识点，这里记录下：</p>
 <h3 id="页面数据绑定"><a href="#页面数据绑定" class="headerlink" title="页面数据绑定"></a>页面数据绑定</h3><p>比如你的页面需要显示一个<code>Hello</code>字符串，这个这个字符串可能会根据某些情况会动态变化，这个时候就需要进行数据绑定展示了</p>
 <p>在wxml文件布局如下：<br><figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">view</span>&gt;</span>&#123;&#123;message&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
 <p>在js中设置好变量如下：</p>
 <figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Page(&#123;</span><br><span class="line">	data: &#123;</span><br><span class="line">		message: <span class="hljs-string">"Hello"</span>,</span><br><span class="line">		number: <span class="hljs-number">1</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>就这样data里面的message属性就可以通过view组件展示出来了，看了上面的写法，也很容易明白，组件展示数据信息时是通过<br><figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;属性名称&#125;&#125;</span><br></pre></td></tr></table></figure></p>
@@ -343,7 +344,7 @@ var _hmt = _hmt || [];
                         分类
                     </p>
                     <p class="title has-text-weight-normal">
-                        8
+                        7
                     </p>
                 </div>
             </div>
@@ -405,7 +406,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">Android</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">34</span>
+                <span class="level-item tag">35</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/Blog/">
@@ -446,14 +447,6 @@ var _hmt = _hmt || [];
             </span>
             <span class="level-end">
                 <span class="level-item tag">3</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/Media-Apps/">
-            <span class="level-start">
-                <span class="level-item">Media Apps</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/小程序/">
@@ -588,7 +581,7 @@ var _hmt = _hmt || [];
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-04-30T13:45:04.000Z">2017-04-30</time></div>
                     <a href="/MediaBrowserService.html" class="has-link-black-ter is-size-6">关于媒体浏览器服务(MediaBrowserService)</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Media-Apps/">Media Apps</a>
+                        <a class="has-link-grey -link" href="/categories/Android/">Android</a>
                     </p>
                 </div>
             </div>
@@ -1053,7 +1046,7 @@ var _hmt = _hmt || [];
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-04-30T13:45:04.000Z">2017-04-30</time></div>
                     <a href="/MediaBrowserService.html" class="has-link-black-ter is-size-6">关于媒体浏览器服务(MediaBrowserService)</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Media-Apps/">Media Apps</a>
+                        <a class="has-link-grey -link" href="/categories/Android/">Android</a>
                     </p>
                 </div>
             </div>

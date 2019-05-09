@@ -2,14 +2,14 @@
 <html lang="zh">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>分类: Media Apps - 老胡</title>
+<title>分类: Android - 老胡</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
     <meta property="og:type" content="website">
 <meta property="og:title" content="老胡">
-<meta property="og:url" content="http://ittiger.cn/categories/Media-Apps/index.html">
+<meta property="og:url" content="http://ittiger.cn/categories/Android/page/5/index.html">
 <meta property="og:site_name" content="老胡">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://ittiger.cn/images/og_image.png">
@@ -154,7 +154,7 @@ var _hmt = _hmt || [];
         <ul>
             <li><a href="/categories">分类</a></li>
             
-            <li class="is-active"><a href="#" aria-current="page">Media Apps</a></li>
+            <li class="is-active"><a href="#" aria-current="page">Android</a></li>
         </ul>
         </nav>
     </div>
@@ -166,17 +166,17 @@ var _hmt = _hmt || [];
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2017-04-30T13:45:04.000Z">2017-04-30</time>
+                <time class="level-item has-text-grey" datetime="2015-09-26T13:44:09.000Z">2015-09-26</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Media-Apps/">Media Apps</a>
+                <a class="has-link-grey -link" href="/categories/Android/">Android</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    13 分钟 读完 (大约 2007 个字)
+                    9 分钟 读完 (大约 1408 个字)
                 </span>
                 
                 
@@ -185,33 +185,19 @@ var _hmt = _hmt || [];
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/MediaBrowserService.html">关于媒体浏览器服务(MediaBrowserService)</a>
+                <a class="has-link-black-ter" href="/Android调用相机无法执行onActivityResult或data为null.html">Android调用相机无法执行onActivityResult或data为null</a>
             
         </h1>
         <div class="content">
-            <p>今天说的这个主题与媒体播放有关，尤其是音乐播放，说到音乐播放大家应该都用过音乐App。<br>通常一个音乐App的实现主要涉及如下几点：</p>
-<ol>
-<li>从服务器获取音乐数据</li>
-<li>播放音乐时播放器的各种播放状态以及不同状态下的UI展示</li>
-<li>播放过程中通过UI界面控制播放器的各种状态</li>
-<li>UI控制如何与播放服务进行关联并进行状态同步</li>
-<li>如何保证后台播放过程中播放服务不被杀死</li>
-</ol>
-<p>对于上面的这几点，其实<code>Android</code>已经为我们提供了一套完整的解决方案，它已经很好的将这些操作进行了封装，我们只需要关注数据的获取和歌曲的播放即可。<code>Android</code>提供的这套API在<code>support-v4</code>中提供了兼容版本，因此在使用的过程中最好使用该版本以兼容低版本系统。</p>
-<p>关键类主要有如下几个：</p>
-<ol>
-<li><code>MediaBrowserServiceCompat</code> 媒体浏览器服务</li>
-<li><code>MediaBrowserCompat</code> 媒体浏览器</li>
-<li><code>MediaControllerCompat</code> 媒体控制器</li>
-<li><code>MediaSessionCompat</code> 媒体会话<br>我们一个个来说。</li>
-</ol>
+            <p>最近项目中调用系统相机时遇到了这么个问题：红米手机无法执行onActivityResult回调，部分华为手机无法获取到照片数据，最后各种分析，各种网上搜索资料折腾了好久，最后终于把问题解决，当看到问题的最终原因时，我也是醉了，简直就是坑爹坑大发了。</p>
+<p>最开始用红米手机调用系统相机的时，当我拍照完成点击那个勾勾始终无法返回到前面的界面上，也就是无法调用onActivityResult函数取到拍照的照片，在网上搜索了一圈，没找到解决办法，都说是红米的系统问题，无法解决，项目比较紧张，刚好客户的手机全部是统一型号的华为荣耀6Plus，这个问题丢着暂时没管了。<br>后来现场同事批量测试机器时，发现有3台手机可以拍照，但是在onActivityResult回调中获取到的照片数据为null，但是其他的同型号手机又没这个问题，这问题看着真是坑爹啊。</p>
         </div>
         
         
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/MediaBrowserService.html#more">阅读更多</a>
+                <a class="button is-size-7 is-light" href="/Android调用相机无法执行onActivityResult或data为null.html#more">阅读更多</a>
                 </div>
             </div>
         </div>
@@ -227,6 +213,134 @@ var _hmt = _hmt || [];
 
 
 
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2015-09-26T13:34:09.000Z">2015-09-26</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Android/">Android</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    4 分钟 读完 (大约 541 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/Android基础之解压zip中文乱码处理.html">Android基础之解压zip中文乱码处理</a>
+            
+        </h1>
+        <div class="content">
+            <p>####乱码原因分析<br>一般我们使用的Windows系统外部文件默认都是GBK编码方式，Mac系统默认的好像是UTF-8(同事的电脑就是，不知道其他人的是不是)，Linux的没验证过，这里我讨论的是Windows下打包的zip文件。   </p>
+<p>Java中自带的ZipEntry解压缩的编码方式是UTF-8，而且没有可以自定义编码方式的接口，所以当我们使用UTF-8编码去解压缩GBK编码的文件的时，解压缩出来的中文部分当然是乱码，所以Mac上打包的zip用Java的自带解压缩接口解压出来是没有问题的。</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/Android基础之解压zip中文乱码处理.html#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2015-09-26T06:17:42.000Z">2015-09-26</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Android/">Android</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    3 分钟 读完 (大约 506 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/Android基础之shape使用.html">Android基础之shape使用</a>
+            
+        </h1>
+        <div class="content">
+            <p>Android中的shape标签用于描述形状，可以在布局文件layout和选择器selector中使用，它有6个子标签，具体如下：</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/Android基础之shape使用.html#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+    
+<div class="card card-transparent">
+    <nav class="pagination is-centered" role="navigation" aria-label="pagination">
+        <div class="pagination-previous">
+            <a class="is-flex-grow has-text-black-ter" href="/categories/Android/page/4/">上一页</a>
+        </div>
+        <div class="pagination-next is-invisible is-hidden-mobile">
+            <a class="is-flex-grow has-text-black-ter" href="/categories/Android/page/6/">下一页</a>
+        </div>
+        <ul class="pagination-list is-hidden-mobile">
+            
+            <li><a class="pagination-link has-text-black-ter" href="/categories/Android/">1</a></li>
+            
+            <li><span class="pagination-ellipsis has-text-black-ter">&hellip;</span></li>
+            
+            <li><a class="pagination-link has-text-black-ter" href="/categories/Android/page/4/">4</a></li>
+            
+            <li><a class="pagination-link is-current" href="/categories/Android/page/5/">5</a></li>
+            
+        </ul>
+    </nav>
+</div>
 </div>
                 
 
@@ -282,7 +396,7 @@ var _hmt = _hmt || [];
                         分类
                     </p>
                     <p class="title has-text-weight-normal">
-                        8
+                        7
                     </p>
                 </div>
             </div>
@@ -344,7 +458,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">Android</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">34</span>
+                <span class="level-item tag">35</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/Blog/">
@@ -385,14 +499,6 @@ var _hmt = _hmt || [];
             </span>
             <span class="level-end">
                 <span class="level-item tag">3</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/Media-Apps/">
-            <span class="level-start">
-                <span class="level-item">Media Apps</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/小程序/">
@@ -527,7 +633,7 @@ var _hmt = _hmt || [];
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-04-30T13:45:04.000Z">2017-04-30</time></div>
                     <a href="/MediaBrowserService.html" class="has-link-black-ter is-size-6">关于媒体浏览器服务(MediaBrowserService)</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Media-Apps/">Media Apps</a>
+                        <a class="has-link-grey -link" href="/categories/Android/">Android</a>
                     </p>
                 </div>
             </div>
@@ -992,7 +1098,7 @@ var _hmt = _hmt || [];
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-04-30T13:45:04.000Z">2017-04-30</time></div>
                     <a href="/MediaBrowserService.html" class="has-link-black-ter is-size-6">关于媒体浏览器服务(MediaBrowserService)</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Media-Apps/">Media Apps</a>
+                        <a class="has-link-grey -link" href="/categories/Android/">Android</a>
                     </p>
                 </div>
             </div>

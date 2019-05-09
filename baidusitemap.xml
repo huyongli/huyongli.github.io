@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://ittiger.cn/TextSwitcher-ViewSwitcher.html</loc>
+    <lastmod>2019-05-09</lastmod>
+  </url>  <url>
+    <loc>http://ittiger.cn/weixin-xcx-tabbar-switch.html</loc>
+    <lastmod>2019-05-09</lastmod>
+  </url>  <url>
+    <loc>http://ittiger.cn/weixin-xcx-first-project.html</loc>
+    <lastmod>2019-05-09</lastmod>
+  </url>  <url>
+    <loc>http://ittiger.cn/weixin-xcx-data-binding-and-params-transfer.html</loc>
+    <lastmod>2019-05-09</lastmod>
+  </url>  <url>
+    <loc>http://ittiger.cn/MediaBrowserService.html</loc>
+    <lastmod>2019-05-09</lastmod>
+  </url>  <url>
     <loc>http://ittiger.cn/%E7%AE%80%E5%8D%95%E5%AE%9E%E7%94%A8%E7%9A%84Android-ORM%E6%A1%86%E6%9E%B6TigerDB.html</loc>
     <lastmod>2019-05-09</lastmod>
   </url>  <url>
@@ -49,28 +64,13 @@
     <loc>http://ittiger.cn/WordPress%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6%E6%8F%90%E7%A4%BA%E6%97%A0%E6%B3%95%E5%88%9B%E5%BB%BA%E7%9B%AE%E5%BD%95.html</loc>
     <lastmod>2019-05-09</lastmod>
   </url>  <url>
-    <loc>http://ittiger.cn/weixin-xcx-tabbar-switch.html</loc>
-    <lastmod>2019-05-09</lastmod>
-  </url>  <url>
-    <loc>http://ittiger.cn/weixin-xcx-first-project.html</loc>
-    <lastmod>2019-05-09</lastmod>
-  </url>  <url>
-    <loc>http://ittiger.cn/weixin-xcx-data-binding-and-params-transfer.html</loc>
-    <lastmod>2019-05-09</lastmod>
-  </url>  <url>
     <loc>http://ittiger.cn/TextView-SpannableStringBuilder-usage-summary.html</loc>
-    <lastmod>2019-05-09</lastmod>
-  </url>  <url>
-    <loc>http://ittiger.cn/TextSwitcher-ViewSwitcher.html</loc>
     <lastmod>2019-05-09</lastmod>
   </url>  <url>
     <loc>http://ittiger.cn/Nine-Patch-Affect-Padding-Principle.html</loc>
     <lastmod>2019-05-09</lastmod>
   </url>  <url>
     <loc>http://ittiger.cn/My-9.png-hold-the-fat-lady-tour.html</loc>
-    <lastmod>2019-05-09</lastmod>
-  </url>  <url>
-    <loc>http://ittiger.cn/MediaBrowserService.html</loc>
     <lastmod>2019-05-09</lastmod>
   </url>  <url>
     <loc>http://ittiger.cn/Imitate-WeiXin-contact-view.html</loc>
@@ -94,10 +94,10 @@
     <loc>http://ittiger.cn/Android-resources-adapter.html</loc>
     <lastmod>2019-05-09</lastmod>
   </url>  <url>
-    <loc>http://ittiger.cn/%E6%B5%85%E8%B0%88JSONP%E8%B7%A8%E5%9F%9F%E8%AF%B7%E6%B1%82.html</loc>
+    <loc>http://ittiger.cn/%E8%AE%A9RecyclerView%E6%9B%B4%E9%80%9A%E7%94%A8.html</loc>
     <lastmod>2019-05-09</lastmod>
   </url>  <url>
-    <loc>http://ittiger.cn/%E8%AE%A9RecyclerView%E6%9B%B4%E9%80%9A%E7%94%A8.html</loc>
+    <loc>http://ittiger.cn/%E6%B5%85%E8%B0%88JSONP%E8%B7%A8%E5%9F%9F%E8%AF%B7%E6%B1%82.html</loc>
     <lastmod>2019-05-09</lastmod>
   </url>  <url>
     <loc>http://ittiger.cn/%E5%9C%A8%E7%BA%BF%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BEApp%E7%9A%84%E5%AE%9E%E7%8E%B0.html</loc>
@@ -106,10 +106,10 @@
     <loc>http://ittiger.cn/create-hexo-blog.html</loc>
     <lastmod>2019-05-09</lastmod>
   </url>  <url>
-    <loc>http://ittiger.cn/UC%E6%B5%8F%E8%A7%88%E5%99%A8%E9%A6%96%E9%A1%B5%E6%BB%91%E5%8A%A8%E5%8A%A8%E7%94%BB%E5%AE%9E%E7%8E%B0.html</loc>
+    <loc>http://ittiger.cn/RxJava-Basic-Use.html</loc>
     <lastmod>2019-05-09</lastmod>
   </url>  <url>
-    <loc>http://ittiger.cn/RxJava-Basic-Use.html</loc>
+    <loc>http://ittiger.cn/UC%E6%B5%8F%E8%A7%88%E5%99%A8%E9%A6%96%E9%A1%B5%E6%BB%91%E5%8A%A8%E5%8A%A8%E7%94%BB%E5%AE%9E%E7%8E%B0.html</loc>
     <lastmod>2019-05-09</lastmod>
   </url>  <url>
     <loc>http://ittiger.cn/Retrofit2%E4%BD%BF%E7%94%A8%E4%BB%8B%E7%BB%8D.html</loc>
@@ -121,13 +121,13 @@
     <loc>http://ittiger.cn/Retrofit-Source-Design-Pattern.html</loc>
     <lastmod>2019-05-09</lastmod>
   </url>  <url>
-    <loc>http://ittiger.cn/RecyclerView%E5%AD%90View%E5%AE%BD%E5%BA%A6%E4%B8%8D%E5%85%85%E6%BB%A1%E7%88%B6%E5%AE%B9%E5%99%A8.html</loc>
-    <lastmod>2019-05-09</lastmod>
-  </url>  <url>
     <loc>http://ittiger.cn/RecyclerView%E4%B8%8B%E6%8B%89%E5%88%B7%E6%96%B0%E4%B8%8A%E6%8B%89%E5%8A%A0%E8%BD%BD.html</loc>
     <lastmod>2019-05-09</lastmod>
   </url>  <url>
     <loc>http://ittiger.cn/RecyclerView%E7%BB%98%E5%88%B6%E5%8E%9F%E7%90%86.html</loc>
+    <lastmod>2019-05-09</lastmod>
+  </url>  <url>
+    <loc>http://ittiger.cn/RecyclerView%E5%AD%90View%E5%AE%BD%E5%BA%A6%E4%B8%8D%E5%85%85%E6%BB%A1%E7%88%B6%E5%AE%B9%E5%99%A8.html</loc>
     <lastmod>2019-05-09</lastmod>
   </url>  <url>
     <loc>http://ittiger.cn/Custom-Behavior-to-fast-back.html</loc>
