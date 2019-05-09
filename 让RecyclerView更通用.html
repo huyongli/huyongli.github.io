@@ -2,9 +2,11 @@
 <html lang="zh">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    
-    <title>让RecyclerView更通用 | 老胡</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>让RecyclerView更通用 - 老胡</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
     <meta name="description" content="何为通用用过RecyclerView的都知道它没有为我们提供像ListView中类似addHeaderView，addFooterView，setOnItemClickListener，setOnItemLongClickListener的接口，另外还有底部自动加载更多，这些都是列表使用中很常见的功能，所以如果我们使用RecyclerView来实现列表的话就需要自己实现这些功能。本文主要介绍这些通">
 <meta name="keywords" content="Android,RecyclerView">
 <meta property="og:type" content="article">
@@ -13,36 +15,61 @@
 <meta property="og:site_name" content="老胡">
 <meta property="og:description" content="何为通用用过RecyclerView的都知道它没有为我们提供像ListView中类似addHeaderView，addFooterView，setOnItemClickListener，setOnItemLongClickListener的接口，另外还有底部自动加载更多，这些都是列表使用中很常见的功能，所以如果我们使用RecyclerView来实现列表的话就需要自己实现这些功能。本文主要介绍这些通">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://ittiger.cn/images/og_image.png">
 <meta property="og:updated_time" content="2019-05-09T01:56:40.911Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="让RecyclerView更通用">
 <meta name="twitter:description" content="何为通用用过RecyclerView的都知道它没有为我们提供像ListView中类似addHeaderView，addFooterView，setOnItemClickListener，setOnItemLongClickListener的接口，另外还有底部自动加载更多，这些都是列表使用中很常见的功能，所以如果我们使用RecyclerView来实现列表的话就需要自己实现这些功能。本文主要介绍这些通">
+<meta name="twitter:image" content="http://ittiger.cn/images/og_image.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/football.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/darcula.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
     
 
     
-        <link rel="alternate" href="atom.xml" title="老胡" type="application/atom+xml">
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
     
 
     
+    
 
-    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/libs/open-sans/styles.css">
-    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
 
-    <link rel="stylesheet" href="/css/style.css">
 
-    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
-    
-    
-        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
-    
-    
-        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
     
     
     
     
-        <script>
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+
+    
+    
+<script>
 var _hmt = _hmt || [];
 (function() {
     var hm = document.createElement("script");
@@ -53,209 +80,116 @@ var _hmt = _hmt || [];
 </script>
 
     
+    
+
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+
+    
+    
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+
+    
 
 
+<link rel="stylesheet" href="/css/style.css">
 </head>
-</html>
-<body>
-    <div id="container">
-        <header id="header">
-    <div id="header-main" class="header-inner">
-        <div class="outer">
-            <a href="/" id="logo">
-                <i class="logo"></i>
-                <span class="site-title">老胡</span>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/football.svg" alt="让RecyclerView更通用" height="28">
+            
             </a>
-            <nav id="main-nav">
-                
-                    <a class="main-nav-link" href="/.">主页</a>
-                
-                    <a class="main-nav-link" href="/archives">归档</a>
-                
-                    <a class="main-nav-link" href="/categories">分类</a>
-                
-                    <a class="main-nav-link" href="/tags">标签</a>
-                
-                    <a class="main-nav-link" href="/about">关于</a>
-                
-            </nav>
+        </div>
+        <div class="navbar-menu">
             
+            <div class="navbar-start">
                 
-                <nav id="sub-nav">
-                    <div class="profile" id="profile-nav">
-                        <a id="profile-anchor" href="javascript:;">
-                            <img class="avatar" src="/css/images/avatar.png">
-                            <i class="fa fa-caret-down"></i>
-                        </a>
-                    </div>
-                </nav>
-            
-            <div id="search-form-wrap">
-
-    <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="搜索">
-        <button type="submit" class="search-form-submit"></button>
-    </form>
-    <div class="ins-search">
-    <div class="ins-search-mask"></div>
-    <div class="ins-search-container">
-        <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="想要查找什么...">
-            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
-        </div>
-        <div class="ins-section-wrapper">
-            <div class="ins-section-container"></div>
-        </div>
-    </div>
-</div>
-<script>
-(function (window) {
-    var INSIGHT_CONFIG = {
-        TRANSLATION: {
-            POSTS: '文章',
-            PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
-            UNTITLED: '(未命名)',
-        },
-        ROOT_URL: '/',
-        CONTENT_URL: '/content.json',
-    };
-    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
-})(window);
-</script>
-<script src="/js/insight.js"></script>
-
-</div>
-        </div>
-    </div>
-    <div id="main-nav-mobile" class="header-sub header-inner">
-        <table class="menu outer">
-            <tr>
+                <a class="navbar-item" href="/">主页</a>
                 
-                    <td><a class="main-nav-link" href="/.">主页</a></td>
+                <a class="navbar-item" href="/archives">归档</a>
                 
-                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                <a class="navbar-item" href="/categories">分类</a>
                 
-                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                <a class="navbar-item" href="/tags">标签</a>
                 
-                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                <a class="navbar-item" href="/about">关于</a>
                 
-                    <td><a class="main-nav-link" href="/about">关于</a></td>
-                
-                <td>
-                    
-    <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="搜索">
-    </div>
-
-                </td>
-            </tr>
-        </table>
-    </div>
-</header>
-
-        <div class="outer">
-            
-                
-
-<aside id="profile">
-    <div class="inner profile-inner">
-        <div class="base-info profile-block">
-            <img id="avatar" src="/css/images/avatar.png">
-            <h2 id="name">老胡</h2>
-            <h3 id="title">Android Developer</h3>
-            <span id="location"><i class="fa fa-map-marker"></i>WuHan, China</span>
-            <a id="follow" target="_blank" href="https://github.com/huyongli/">关注我</a>
-        </div>
-        <div class="article-info profile-block">
-            <div class="article-info-block">
-                49
-                <span>文章</span>
             </div>
-            <div class="article-info-block">
-                47
-                <span>标签</span>
+            
+            <div class="navbar-end">
+                
+                    
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="https://github.com/huyongli">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
             </div>
         </div>
-        
-        <div class="profile-block social-links">
-            <table>
-                <tr>
-                    
-                    
-                    <td>
-                        <a href="http://github.com/huyongli" target="_blank" title="github" class="tooltip">
-                            <i class="fa fa-github"></i>
-                        </a>
-                    </td>
-                    
-                    <td>
-                        <a href="http://weibo.com/aclaohu" target="_blank" title="weibo" class="tooltip">
-                            <i class="fa fa-weibo"></i>
-                        </a>
-                    </td>
-                    
-                    <td>
-                        <a href="/atom.xml" target="_blank" title="rss" class="tooltip">
-                            <i class="fa fa-rss"></i>
-                        </a>
-                    </td>
-                    
-                </tr>
-            </table>
-        </div>
-        
     </div>
-</aside>
-
-            
-            <section id="main"><article id="post-让RecyclerView更通用" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
+</nav>
     
-        <h1 class="article-title" itemprop="name">
-            让RecyclerView更通用
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2016-07-27T13:48:15.000Z">2016-07-27</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Android/">Android</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    12 分钟 读完 (大约 1775 个字)
+                </span>
+                
+                
+                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_page_pv">0</span>次访问
+                </span>
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                让RecyclerView更通用
+            
         </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/让RecyclerView更通用.html">
-            <time datetime="2016-07-27T13:48:15.000Z" itemprop="datePublished">2016-07-27</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Android/">Android</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Android/">Android</a>, <a class="tag-link" href="/tags/RecyclerView/">RecyclerView</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
+        <div class="content">
             <h3 id="何为通用"><a href="#何为通用" class="headerlink" title="何为通用"></a>何为通用</h3><p>用过<code>RecyclerView</code>的都知道它没有为我们提供像<code>ListView</code>中类似<code>addHeaderView，addFooterView，setOnItemClickListener，setOnItemLongClickListener</code>的接口，另外还有底部自动加载更多，这些都是列表使用中很常见的功能，所以如果我们使用<code>RecyclerView</code>来实现列表的话就需要自己实现这些功能。本文主要介绍这些通用功能的实现方式，使得<code>RecyclerView</code>使用起来和<code>ListView</code>一样方便。</p>
 <a id="more"></a>
-<h3 id="点击事件"><a href="#点击事件" class="headerlink" title="点击事件"></a>点击事件</h3><h4 id="setOnItemClickListener，setOnItemLongClickListener"><a href="#setOnItemClickListener，setOnItemLongClickListener" class="headerlink" title="setOnItemClickListener，setOnItemLongClickListener"></a>setOnItemClickListener，setOnItemLongClickListener</h4><p><code>RecyclerView</code>中虽然没有提供上面这两个接口，但是给我们提供了另外一个接口：<code>OnItemTouchListener</code>看这个接口的文档描述我们知道此接口可以对<code>RecyclerView</code>中的手势进行监听处理，因此我们可以采用<code>OnItemTouchListener+GestureDetector</code>来实现<code>RecyclerView</code>的<code>OnItemClick</code>和<code>OnItemLongClick</code>。实现方式也比较简单，还是上代码吧…<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> OnItemClickListener mOnItemClickListener;</span><br><span class="line"><span class="keyword">private</span> OnItemLongClickListener mItemLongClickListener;</span><br><span class="line"> </span><br><span class="line">mGestureDetector = <span class="keyword">new</span> GestureDetector(context, <span class="keyword">new</span> GestureDetector.SimpleOnGestureListener() &#123;</span><br><span class="line"> </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onLongPress</span><span class="params">(MotionEvent e)</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">super</span>.onLongPress(e);</span><br><span class="line">        <span class="keyword">if</span>(mItemLongClickListener != <span class="keyword">null</span>) &#123;</span><br><span class="line">            View childView = findChildViewUnder(e.getX(), e.getY());</span><br><span class="line">            <span class="keyword">if</span>(childView != <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">int</span> position = getChildLayoutPosition(childView);</span><br><span class="line">                mItemLongClickListener.onItemLongClick(position, childView);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onSingleTapUp</span><span class="params">(MotionEvent e)</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">if</span>(mOnItemClickListener != <span class="keyword">null</span>) &#123;</span><br><span class="line">            View childView = findChildViewUnder(e.getX(),e.getY());</span><br><span class="line">            <span class="keyword">if</span>(childView != <span class="keyword">null</span>)&#123;</span><br><span class="line">                <span class="keyword">int</span> position = getChildLayoutPosition(childView);</span><br><span class="line">                mOnItemClickListener.onItemClick(position, childView);</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">super</span>.onSingleTapUp(e);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"> </span><br><span class="line">addOnItemTouchListener(<span class="keyword">new</span> SimpleOnItemTouchListener() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onInterceptTouchEvent</span><span class="params">(RecyclerView rv, MotionEvent e)</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">if</span> (mGestureDetector.onTouchEvent(e)) &#123;<span class="comment">//交由手势处理</span></span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Item项点击事件</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">OnItemClickListener</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">onItemClick</span><span class="params">(<span class="keyword">int</span> position, View itemView)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Item项长按点击事件</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">OnItemLongClickListener</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">onItemLongClick</span><span class="params">(<span class="keyword">int</span> position, View itemView)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="点击事件"><a href="#点击事件" class="headerlink" title="点击事件"></a>点击事件</h3><h4 id="setOnItemClickListener，setOnItemLongClickListener"><a href="#setOnItemClickListener，setOnItemLongClickListener" class="headerlink" title="setOnItemClickListener，setOnItemLongClickListener"></a>setOnItemClickListener，setOnItemLongClickListener</h4><p><code>RecyclerView</code>中虽然没有提供上面这两个接口，但是给我们提供了另外一个接口：<code>OnItemTouchListener</code>看这个接口的文档描述我们知道此接口可以对<code>RecyclerView</code>中的手势进行监听处理，因此我们可以采用<code>OnItemTouchListener+GestureDetector</code>来实现<code>RecyclerView</code>的<code>OnItemClick</code>和<code>OnItemLongClick</code>。实现方式也比较简单，还是上代码吧…<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">private</span> OnItemClickListener mOnItemClickListener;</span><br><span class="line"><span class="hljs-keyword">private</span> OnItemLongClickListener mItemLongClickListener;</span><br><span class="line"> </span><br><span class="line">mGestureDetector = <span class="hljs-keyword">new</span> GestureDetector(context, <span class="hljs-keyword">new</span> GestureDetector.SimpleOnGestureListener() &#123;</span><br><span class="line"> </span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onLongPress</span><span class="hljs-params">(MotionEvent e)</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">        <span class="hljs-keyword">super</span>.onLongPress(e);</span><br><span class="line">        <span class="hljs-keyword">if</span>(mItemLongClickListener != <span class="hljs-keyword">null</span>) &#123;</span><br><span class="line">            View childView = findChildViewUnder(e.getX(), e.getY());</span><br><span class="line">            <span class="hljs-keyword">if</span>(childView != <span class="hljs-keyword">null</span>) &#123;</span><br><span class="line">                <span class="hljs-keyword">int</span> position = getChildLayoutPosition(childView);</span><br><span class="line">                mItemLongClickListener.onItemLongClick(position, childView);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">onSingleTapUp</span><span class="hljs-params">(MotionEvent e)</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">        <span class="hljs-keyword">if</span>(mOnItemClickListener != <span class="hljs-keyword">null</span>) &#123;</span><br><span class="line">            View childView = findChildViewUnder(e.getX(),e.getY());</span><br><span class="line">            <span class="hljs-keyword">if</span>(childView != <span class="hljs-keyword">null</span>)&#123;</span><br><span class="line">                <span class="hljs-keyword">int</span> position = getChildLayoutPosition(childView);</span><br><span class="line">                mOnItemClickListener.onItemClick(position, childView);</span><br><span class="line">                <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">super</span>.onSingleTapUp(e);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"> </span><br><span class="line">addOnItemTouchListener(<span class="hljs-keyword">new</span> SimpleOnItemTouchListener() &#123;</span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">onInterceptTouchEvent</span><span class="hljs-params">(RecyclerView rv, MotionEvent e)</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">        <span class="hljs-keyword">if</span> (mGestureDetector.onTouchEvent(e)) &#123;<span class="hljs-comment">//交由手势处理</span></span><br><span class="line">            <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment"> * Item项点击事件</span></span><br><span class="line"><span class="hljs-comment"> */</span></span><br><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">OnItemClickListener</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onItemClick</span><span class="hljs-params">(<span class="hljs-keyword">int</span> position, View itemView)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment"> * Item项长按点击事件</span></span><br><span class="line"><span class="hljs-comment"> */</span></span><br><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">OnItemLongClickListener</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onItemLongClick</span><span class="hljs-params">(<span class="hljs-keyword">int</span> position, View itemView)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h3 id="addHeaderView，addFooterView"><a href="#addHeaderView，addFooterView" class="headerlink" title="addHeaderView，addFooterView"></a>addHeaderView，addFooterView</h3><h4 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h4><p>前面写过一篇文章<code>RecyclerView</code>下拉刷新上拉加载 介绍过<code>RecyclerView</code>的上拉加载的实现方式，里面的上拉加载进度条其实也是<code>RecyclerView</code>的一个<code>FooterView</code>，其实现方式就是为<code>LoadMoreView</code>设置了一个特殊的<code>ItemViewType</code>来进行区分展示，因此我这里的<code>HeaderView</code>和<code>FooterView</code>也是通过为它们设置不同的<code>ItemViewType</code>来进行区分展示。</p>
 <p>我们知道<code>ListView</code>中的<code>addHeaderView</code>和<code>addFooterView</code>都是可以添加多个View的，也就是说<code>RecyclerView</code>中也会出现添加多个完全不同的<code>HeaderView</code>或<code>FooterView</code>，所以我们必须为添加的每个<code>HeaderView</code>和<code>FooterView</code>都设置一个<code>ItemViewType</code>从而达到添加多个不同的<code>HeaderView</code>或<code>FooterView</code>的目的(如果所有的<code>HeaderView</code>或<code>FooterView</code>都设置同一个<code>ItemViewType</code>的话只能显示一种<code>View</code>的<code>HeaderView</code>或<code>FooterView</code>)。</p>
 <h4 id="实现步骤"><a href="#实现步骤" class="headerlink" title="实现步骤"></a>实现步骤</h4><p>知道了实现原理，我们再来理一下实现步骤：</p>
@@ -265,403 +199,1469 @@ var _hmt = _hmt || [];
 <li>自定义一个<code>Adapter</code>继承自<code>RecyclerView.Adapter</code>，重写里面的几个方法：<code>onCreateViewHolder，onBindViewHolder，getItemViewType，getItemCount</code></li>
 <li><code>getItemCount</code>方法中返回的数据总数显然是：<code>HeaderView总数</code>+<code>FooterView总数</code>+<code>List列表展示的数据总数</code></li>
 <li>重写<code>onBindViewHolder</code>，<code>getItemViewType</code>这两个方法时，显然需要根据<code>position</code>判断当前位置是否为<code>HeaderView</code>或是<code>FooterView</code>，而根据展示顺序来看当<code>0&lt;=position&lt;HeaderView总数</code>  时是<code>HeaderView</code>，而当<code>position&gt;=(HeaderView总数+List总数)</code>时则是<code>FooterView</code>，其余位置则是<code>List</code>数据对应的<code>View</code></li>
-<li>而重写<code>onCreateViewHolder</code>方法时，则可用直接根据其方法参数<code>viewType</code>在SparseArray映射中查找是否存在该类型的<code>HeaderView</code>或是<code>FooterView</code>，有则返回，没有则返回List数据展示的<code>View</code><h3 id="关键代码"><a href="#关键代码" class="headerlink" title="关键代码"></a>关键代码</h3>分析完实现的步骤开始撸代码，下面是我实现的关键代码：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//HeaderView的ItemViewType的生成基准值，生成规则为基准值+当前HeaderView的个数</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> TYPE_HEADER = <span class="number">100000</span>;</span><br><span class="line"><span class="comment">//FooterView的ItemViewType的生成基准值，生成规则为基准值+当前的FooterView的个数</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> TYPE_FOOTER = <span class="number">200000</span>;</span><br><span class="line"> </span><br><span class="line"><span class="comment">//存储HeaderView，key值作为对应HeaderView的ItemViewType</span></span><br><span class="line"><span class="keyword">private</span> SparseArray&lt;View&gt; mHeaderViews = <span class="keyword">new</span> SparseArray&lt;&gt;(<span class="number">0</span>);</span><br><span class="line"><span class="comment">//存储FooterView，key值作为对应HeaderView的ItemViewType</span></span><br><span class="line"><span class="keyword">private</span> SparseArray&lt;View&gt; mFooterViews = <span class="keyword">new</span> SparseArray&lt;&gt;(<span class="number">0</span>);</span><br><span class="line"> </span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> ViewHolder <span class="title">onCreateViewHolder</span><span class="params">(ViewGroup parent, <span class="keyword">int</span> viewType)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(isHeaderViewEnable() &amp;&amp; mHeaderViews.get(viewType) != <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ViewHolder(mHeaderViews.get(viewType));</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span>(isFooterViewEnable() &amp;&amp; mFooterViews.get(viewType) != <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ViewHolder(mFooterViews.get(viewType));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> onCreateItemViewHolder(parent, viewType);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">onBindViewHolder</span><span class="params">(ViewHolder holder, <span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(isFooterView(position) || isHeaderView(position)) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    T item = getItem(position - getHeaderViewCount());</span><br><span class="line">    onBindItemViewHolder(holder, position, item);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">getItemViewType</span><span class="params">(<span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">if</span>(isHeaderView(position)) &#123;<span class="comment">//FooterView</span></span><br><span class="line">        <span class="keyword">return</span> mHeaderViews.keyAt(position);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(isFooterView(position))&#123;<span class="comment">//HeaderView</span></span><br><span class="line">        <span class="keyword">return</span> mFooterViews.keyAt(position - getHeaderViewCount() - getItemDataCount());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> getItemViewTypeForData(position);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 展示的总数据数(包括HeaderView和FooterView)</span></span><br><span class="line"><span class="comment">*</span></span><br><span class="line"><span class="comment">* <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">getItemCount</span><span class="params">()</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//从写此方法，数据总数需要包括HeaderView总数和FooterView总数</span></span><br><span class="line">    <span class="keyword">return</span> getItemDataCount() + getHeaderViewCount() + getFooterViewCount();</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 要展示的有效数据数(不包括HeaderView和FooterView)</span></span><br><span class="line"><span class="comment">*</span></span><br><span class="line"><span class="comment">* <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getItemDataCount</span><span class="params">()</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">return</span> mList == <span class="keyword">null</span> ? <span class="number">0</span> : mList.size();</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 获取HeaderView的总数</span></span><br><span class="line"><span class="comment">*</span></span><br><span class="line"><span class="comment">* <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getHeaderViewCount</span><span class="params">()</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">return</span> isHeaderViewEnable() ? mHeaderViews.size() : <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 获取FooterView的总数</span></span><br><span class="line"><span class="comment">*</span></span><br><span class="line"><span class="comment">* <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getFooterViewCount</span><span class="params">()</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">return</span> isFooterViewEnable() ? mFooterViews.size() : <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 判断position位置是否为FooterView</span></span><br><span class="line"><span class="comment">*</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> position</span></span><br><span class="line"><span class="comment">* <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isFooterView</span><span class="params">(<span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">return</span> isFooterViewEnable() &amp;&amp; isFooterViewPosition(position);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 判断position位置是否为HeaderView</span></span><br><span class="line"><span class="comment">*</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> position</span></span><br><span class="line"><span class="comment">* <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isHeaderView</span><span class="params">(<span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">return</span> isHeaderViewEnable() &amp;&amp; isHeaderViewPosition(position);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 判断position位置是否为FooterView的索引</span></span><br><span class="line"><span class="comment">*</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> position</span></span><br><span class="line"><span class="comment">* <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isFooterViewPosition</span><span class="params">(<span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">return</span> position &gt;= getItemDataCount() + getHeaderViewCount();</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 判断position位置是否为HeaderView的索引</span></span><br><span class="line"><span class="comment">*</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> position</span></span><br><span class="line"><span class="comment">* <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isHeaderViewPosition</span><span class="params">(<span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">return</span> position &lt; getHeaderViewCount();</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 添加一个HeaderView</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> headerView</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addHeaderView</span><span class="params">(View headerView)</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">if</span>(headerView == <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> NullPointerException(<span class="string">"headerView is null"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    mHeaderViews.put(TYPE_HEADER + getHeaderViewCount(), headerView);</span><br><span class="line">    notifyItemInserted(getHeaderViewCount() - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 添加一个FooterView</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> footerView</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addFooterView</span><span class="params">(View footerView)</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">if</span>(footerView == <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> NullPointerException(<span class="string">"footerView is null"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    mFooterViews.put(TYPE_FOOTER + getFooterViewCount(), footerView);</span><br><span class="line">    notifyItemInserted(getHeaderViewCount() + getItemDataCount() + getFooterViewCount() - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li>而重写<code>onCreateViewHolder</code>方法时，则可用直接根据其方法参数<code>viewType</code>在SparseArray映射中查找是否存在该类型的<code>HeaderView</code>或是<code>FooterView</code>，有则返回，没有则返回List数据展示的<code>View</code><h3 id="关键代码"><a href="#关键代码" class="headerlink" title="关键代码"></a>关键代码</h3>分析完实现的步骤开始撸代码，下面是我实现的关键代码：<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">//HeaderView的ItemViewType的生成基准值，生成规则为基准值+当前HeaderView的个数</span></span><br><span class="line"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> TYPE_HEADER = <span class="hljs-number">100000</span>;</span><br><span class="line"><span class="hljs-comment">//FooterView的ItemViewType的生成基准值，生成规则为基准值+当前的FooterView的个数</span></span><br><span class="line"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> TYPE_FOOTER = <span class="hljs-number">200000</span>;</span><br><span class="line"> </span><br><span class="line"><span class="hljs-comment">//存储HeaderView，key值作为对应HeaderView的ItemViewType</span></span><br><span class="line"><span class="hljs-keyword">private</span> SparseArray&lt;View&gt; mHeaderViews = <span class="hljs-keyword">new</span> SparseArray&lt;&gt;(<span class="hljs-number">0</span>);</span><br><span class="line"><span class="hljs-comment">//存储FooterView，key值作为对应HeaderView的ItemViewType</span></span><br><span class="line"><span class="hljs-keyword">private</span> SparseArray&lt;View&gt; mFooterViews = <span class="hljs-keyword">new</span> SparseArray&lt;&gt;(<span class="hljs-number">0</span>);</span><br><span class="line"> </span><br><span class="line"><span class="hljs-meta">@Override</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> ViewHolder <span class="hljs-title">onCreateViewHolder</span><span class="hljs-params">(ViewGroup parent, <span class="hljs-keyword">int</span> viewType)</span> </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">if</span>(isHeaderViewEnable() &amp;&amp; mHeaderViews.get(viewType) != <span class="hljs-keyword">null</span>) &#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> ViewHolder(mHeaderViews.get(viewType));</span><br><span class="line">    &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(isFooterViewEnable() &amp;&amp; mFooterViews.get(viewType) != <span class="hljs-keyword">null</span>) &#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> ViewHolder(mFooterViews.get(viewType));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">return</span> onCreateItemViewHolder(parent, viewType);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="hljs-meta">@Override</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onBindViewHolder</span><span class="hljs-params">(ViewHolder holder, <span class="hljs-keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">if</span>(isFooterView(position) || isHeaderView(position)) &#123;</span><br><span class="line">        <span class="hljs-keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    T item = getItem(position - getHeaderViewCount());</span><br><span class="line">    onBindItemViewHolder(holder, position, item);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="hljs-meta">@Override</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getItemViewType</span><span class="hljs-params">(<span class="hljs-keyword">int</span> position)</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="hljs-keyword">if</span>(isHeaderView(position)) &#123;<span class="hljs-comment">//FooterView</span></span><br><span class="line">        <span class="hljs-keyword">return</span> mHeaderViews.keyAt(position);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">if</span>(isFooterView(position))&#123;<span class="hljs-comment">//HeaderView</span></span><br><span class="line">        <span class="hljs-keyword">return</span> mFooterViews.keyAt(position - getHeaderViewCount() - getItemDataCount());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">return</span> getItemViewTypeForData(position);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">* 展示的总数据数(包括HeaderView和FooterView)</span></span><br><span class="line"><span class="hljs-comment">*</span></span><br><span class="line"><span class="hljs-comment">* <span class="hljs-doctag">@return</span></span></span><br><span class="line"><span class="hljs-comment">*/</span></span><br><span class="line"><span class="hljs-meta">@Override</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getItemCount</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="hljs-comment">//从写此方法，数据总数需要包括HeaderView总数和FooterView总数</span></span><br><span class="line">    <span class="hljs-keyword">return</span> getItemDataCount() + getHeaderViewCount() + getFooterViewCount();</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">* 要展示的有效数据数(不包括HeaderView和FooterView)</span></span><br><span class="line"><span class="hljs-comment">*</span></span><br><span class="line"><span class="hljs-comment">* <span class="hljs-doctag">@return</span></span></span><br><span class="line"><span class="hljs-comment">*/</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getItemDataCount</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="hljs-keyword">return</span> mList == <span class="hljs-keyword">null</span> ? <span class="hljs-number">0</span> : mList.size();</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">* 获取HeaderView的总数</span></span><br><span class="line"><span class="hljs-comment">*</span></span><br><span class="line"><span class="hljs-comment">* <span class="hljs-doctag">@return</span></span></span><br><span class="line"><span class="hljs-comment">*/</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getHeaderViewCount</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="hljs-keyword">return</span> isHeaderViewEnable() ? mHeaderViews.size() : <span class="hljs-number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">* 获取FooterView的总数</span></span><br><span class="line"><span class="hljs-comment">*</span></span><br><span class="line"><span class="hljs-comment">* <span class="hljs-doctag">@return</span></span></span><br><span class="line"><span class="hljs-comment">*/</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getFooterViewCount</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="hljs-keyword">return</span> isFooterViewEnable() ? mFooterViews.size() : <span class="hljs-number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">* 判断position位置是否为FooterView</span></span><br><span class="line"><span class="hljs-comment">*</span></span><br><span class="line"><span class="hljs-comment">* <span class="hljs-doctag">@param</span> position</span></span><br><span class="line"><span class="hljs-comment">* <span class="hljs-doctag">@return</span></span></span><br><span class="line"><span class="hljs-comment">*/</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isFooterView</span><span class="hljs-params">(<span class="hljs-keyword">int</span> position)</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="hljs-keyword">return</span> isFooterViewEnable() &amp;&amp; isFooterViewPosition(position);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">* 判断position位置是否为HeaderView</span></span><br><span class="line"><span class="hljs-comment">*</span></span><br><span class="line"><span class="hljs-comment">* <span class="hljs-doctag">@param</span> position</span></span><br><span class="line"><span class="hljs-comment">* <span class="hljs-doctag">@return</span></span></span><br><span class="line"><span class="hljs-comment">*/</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isHeaderView</span><span class="hljs-params">(<span class="hljs-keyword">int</span> position)</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="hljs-keyword">return</span> isHeaderViewEnable() &amp;&amp; isHeaderViewPosition(position);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">* 判断position位置是否为FooterView的索引</span></span><br><span class="line"><span class="hljs-comment">*</span></span><br><span class="line"><span class="hljs-comment">* <span class="hljs-doctag">@param</span> position</span></span><br><span class="line"><span class="hljs-comment">* <span class="hljs-doctag">@return</span></span></span><br><span class="line"><span class="hljs-comment">*/</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isFooterViewPosition</span><span class="hljs-params">(<span class="hljs-keyword">int</span> position)</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="hljs-keyword">return</span> position &gt;= getItemDataCount() + getHeaderViewCount();</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">* 判断position位置是否为HeaderView的索引</span></span><br><span class="line"><span class="hljs-comment">*</span></span><br><span class="line"><span class="hljs-comment">* <span class="hljs-doctag">@param</span> position</span></span><br><span class="line"><span class="hljs-comment">* <span class="hljs-doctag">@return</span></span></span><br><span class="line"><span class="hljs-comment">*/</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isHeaderViewPosition</span><span class="hljs-params">(<span class="hljs-keyword">int</span> position)</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="hljs-keyword">return</span> position &lt; getHeaderViewCount();</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment"> * 添加一个HeaderView</span></span><br><span class="line"><span class="hljs-comment"> *</span></span><br><span class="line"><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> headerView</span></span><br><span class="line"><span class="hljs-comment"> */</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">addHeaderView</span><span class="hljs-params">(View headerView)</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="hljs-keyword">if</span>(headerView == <span class="hljs-keyword">null</span>) &#123;</span><br><span class="line">        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> NullPointerException(<span class="hljs-string">"headerView is null"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    mHeaderViews.put(TYPE_HEADER + getHeaderViewCount(), headerView);</span><br><span class="line">    notifyItemInserted(getHeaderViewCount() - <span class="hljs-number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment"> * 添加一个FooterView</span></span><br><span class="line"><span class="hljs-comment"> *</span></span><br><span class="line"><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> footerView</span></span><br><span class="line"><span class="hljs-comment"> */</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">addFooterView</span><span class="hljs-params">(View footerView)</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="hljs-keyword">if</span>(footerView == <span class="hljs-keyword">null</span>) &#123;</span><br><span class="line">        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> NullPointerException(<span class="hljs-string">"footerView is null"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    mFooterViews.put(TYPE_FOOTER + getFooterViewCount(), footerView);</span><br><span class="line">    notifyItemInserted(getHeaderViewCount() + getItemDataCount() + getFooterViewCount() - <span class="hljs-number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <h3 id="RecyclerView使用注意"><a href="#RecyclerView使用注意" class="headerlink" title="RecyclerView使用注意"></a>RecyclerView使用注意</h3><ol>
 <li><p>这里需要注明一点<code>RecyclerView</code>使用中的坑，如果<code>RecyclerView</code>为<code>LinearLayoutManager</code>时在<code>onCreatViewHolder</code>中生成的View都必须关联上其<code>parent</code>，也就是关联到<code>RecyclerView</code>本身。我前面的一片文章记录了我遇到的这个问题<code>RecyclerView</code>子<code>View</code>宽度不充满父容器，所以在<code>addHeaderView</code>和<code>addFooterView</code>时也需要注意这个问题</p>
 </li>
 <li><p>如果你的<code>RecyclerView</code>的<code>LayoutManager</code>是<code>GridLayoutManager</code>或<code>StaggeredGridLayoutManager</code>时，如果就这样添加<code>HeaderView</code>或<code>FooterView</code>，会发现<code>HeaderView</code>或<code>FooterView</code>不会独立的占据一行。这是因为设置了<code>SpanSize</code>的缘故，所以我们需要针对这两种<code>LayoutManager</code>进行处理，处理方式如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAttachedToRecyclerView</span><span class="params">(RecyclerView recyclerView)</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">super</span>.onAttachedToRecyclerView(recyclerView);</span><br><span class="line">    <span class="keyword">final</span> RecyclerView.LayoutManager layoutManager = recyclerView.getLayoutManager();</span><br><span class="line">    <span class="keyword">if</span>(layoutManager <span class="keyword">instanceof</span> GridLayoutManager) &#123;</span><br><span class="line">        ((GridLayoutManager) layoutManager).setSpanSizeLookup(<span class="keyword">new</span> GridLayoutManager.SpanSizeLookup() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getSpanSize</span><span class="params">(<span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">                <span class="keyword">return</span> getNewSpanSize(((GridLayoutManager) layoutManager).getSpanCount(), position);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onViewAttachedToWindow</span><span class="params">(ViewHolder holder)</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">super</span>.onViewAttachedToWindow(holder);</span><br><span class="line">    <span class="keyword">int</span> position = holder.getLayoutPosition();</span><br><span class="line">    <span class="keyword">if</span>(isHeaderView(position) || isFooterView(position)) &#123;</span><br><span class="line">        <span class="keyword">final</span> ViewGroup.LayoutParams layoutParams = holder.itemView.getLayoutParams();</span><br><span class="line">        <span class="keyword">if</span>(layoutParams != <span class="keyword">null</span> &amp;&amp; layoutParams <span class="keyword">instanceof</span> StaggeredGridLayoutManager.LayoutParams) &#123;</span><br><span class="line">            StaggeredGridLayoutManager.LayoutParams lp = (StaggeredGridLayoutManager.LayoutParams) layoutParams;</span><br><span class="line">            lp.setFullSpan(<span class="keyword">true</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">getNewSpanSize</span><span class="params">(<span class="keyword">int</span> spanCount, <span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">if</span>(isHeaderView(position) || isFooterView(position)) &#123;</span><br><span class="line">        <span class="keyword">return</span> spanCount;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">@Override</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onAttachedToRecyclerView</span><span class="hljs-params">(RecyclerView recyclerView)</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="hljs-keyword">super</span>.onAttachedToRecyclerView(recyclerView);</span><br><span class="line">    <span class="hljs-keyword">final</span> RecyclerView.LayoutManager layoutManager = recyclerView.getLayoutManager();</span><br><span class="line">    <span class="hljs-keyword">if</span>(layoutManager <span class="hljs-keyword">instanceof</span> GridLayoutManager) &#123;</span><br><span class="line">        ((GridLayoutManager) layoutManager).setSpanSizeLookup(<span class="hljs-keyword">new</span> GridLayoutManager.SpanSizeLookup() &#123;</span><br><span class="line">            <span class="hljs-meta">@Override</span></span><br><span class="line">            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getSpanSize</span><span class="hljs-params">(<span class="hljs-keyword">int</span> position)</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">                <span class="hljs-keyword">return</span> getNewSpanSize(((GridLayoutManager) layoutManager).getSpanCount(), position);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="hljs-meta">@Override</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onViewAttachedToWindow</span><span class="hljs-params">(ViewHolder holder)</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="hljs-keyword">super</span>.onViewAttachedToWindow(holder);</span><br><span class="line">    <span class="hljs-keyword">int</span> position = holder.getLayoutPosition();</span><br><span class="line">    <span class="hljs-keyword">if</span>(isHeaderView(position) || isFooterView(position)) &#123;</span><br><span class="line">        <span class="hljs-keyword">final</span> ViewGroup.LayoutParams layoutParams = holder.itemView.getLayoutParams();</span><br><span class="line">        <span class="hljs-keyword">if</span>(layoutParams != <span class="hljs-keyword">null</span> &amp;&amp; layoutParams <span class="hljs-keyword">instanceof</span> StaggeredGridLayoutManager.LayoutParams) &#123;</span><br><span class="line">            StaggeredGridLayoutManager.LayoutParams lp = (StaggeredGridLayoutManager.LayoutParams) layoutParams;</span><br><span class="line">            lp.setFullSpan(<span class="hljs-keyword">true</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getNewSpanSize</span><span class="hljs-params">(<span class="hljs-keyword">int</span> spanCount, <span class="hljs-keyword">int</span> position)</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="hljs-keyword">if</span>(isHeaderView(position) || isFooterView(position)) &#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> spanCount;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h3 id="自动加载更多"><a href="#自动加载更多" class="headerlink" title="自动加载更多"></a>自动加载更多</h3><p>自动加载更多也是列表显示中比较常见的一个功能，我们可以为<code>RecyclerView</code>设置<code>ScrollListener</code>监听来进行实现，具体实现的关键代码如下；<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">super</span>.setOnScrollListener(<span class="keyword">new</span> OnScrollListener() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onScrollStateChanged</span><span class="params">(RecyclerView recyclerView, <span class="keyword">int</span> newState)</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">super</span>.onScrollStateChanged(recyclerView, newState);</span><br><span class="line">        <span class="keyword">if</span>(newState == SCROLL_STATE_IDLE &amp;&amp; mIsAutoLoadMore &amp;&amp; mLoadMoreListener != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span>(mLastVisiblePosition + <span class="number">1</span> == getAdapter().getItemCount()) &#123;</span><br><span class="line">                mLoadMoreListener.onLoadMore();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(mOnScrollListener != <span class="keyword">null</span>) &#123;</span><br><span class="line">            mOnScrollListener.onScrollStateChanged(recyclerView, newState);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onScrolled</span><span class="params">(RecyclerView recyclerView, <span class="keyword">int</span> dx, <span class="keyword">int</span> dy)</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">super</span>.onScrolled(recyclerView, dx, dy);</span><br><span class="line">        <span class="keyword">if</span>(mIsAutoLoadMore &amp;&amp; mLoadMoreListener != <span class="keyword">null</span>) &#123;</span><br><span class="line">            mLastVisiblePosition = getLastVisiblePosition();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(mOnScrollListener != <span class="keyword">null</span>) &#123;</span><br><span class="line">            mOnScrollListener.onScrolled(recyclerView, dx, dy);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<h3 id="自动加载更多"><a href="#自动加载更多" class="headerlink" title="自动加载更多"></a>自动加载更多</h3><p>自动加载更多也是列表显示中比较常见的一个功能，我们可以为<code>RecyclerView</code>设置<code>ScrollListener</code>监听来进行实现，具体实现的关键代码如下；<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">super</span>.setOnScrollListener(<span class="hljs-keyword">new</span> OnScrollListener() &#123;</span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onScrollStateChanged</span><span class="hljs-params">(RecyclerView recyclerView, <span class="hljs-keyword">int</span> newState)</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">        <span class="hljs-keyword">super</span>.onScrollStateChanged(recyclerView, newState);</span><br><span class="line">        <span class="hljs-keyword">if</span>(newState == SCROLL_STATE_IDLE &amp;&amp; mIsAutoLoadMore &amp;&amp; mLoadMoreListener != <span class="hljs-keyword">null</span>) &#123;</span><br><span class="line">            <span class="hljs-keyword">if</span>(mLastVisiblePosition + <span class="hljs-number">1</span> == getAdapter().getItemCount()) &#123;</span><br><span class="line">                mLoadMoreListener.onLoadMore();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">if</span>(mOnScrollListener != <span class="hljs-keyword">null</span>) &#123;</span><br><span class="line">            mOnScrollListener.onScrollStateChanged(recyclerView, newState);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onScrolled</span><span class="hljs-params">(RecyclerView recyclerView, <span class="hljs-keyword">int</span> dx, <span class="hljs-keyword">int</span> dy)</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">        <span class="hljs-keyword">super</span>.onScrolled(recyclerView, dx, dy);</span><br><span class="line">        <span class="hljs-keyword">if</span>(mIsAutoLoadMore &amp;&amp; mLoadMoreListener != <span class="hljs-keyword">null</span>) &#123;</span><br><span class="line">            mLastVisiblePosition = getLastVisiblePosition();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">if</span>(mOnScrollListener != <span class="hljs-keyword">null</span>) &#123;</span><br><span class="line">            mOnScrollListener.onScrolled(recyclerView, dx, dy);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
 <p>文章相关的完整代码和Demo：<a href="https://github.com/huyongli/AndroidDemo" target="_blank" rel="noopener">https://github.com/huyongli/AndroidDemo</a></p>
 <hr>
-<p>原创文章，严禁随意转载，如有问题，欢迎添加个人微信交流。</p>
+<p>原创文章，严禁随意转载，如有问题，欢迎添加个人微信交流。<br><img src="/img/weixinCode.jpeg" width="200" height="200" alt></p>
 
-        
         </div>
-
-        <!-- 打赏 -->
         
-            
-              <!-- css -->
-              <style type="text/css">
-                  .center {
-                      text-align: center;
-                  }
-                  .hidden {
-                      display: none;
-                  }
-                .donate_bar a.btn_donate{
-                  display: inline-block;
-                  width: 82px;
-                  height: 82px;
-                  background: url("http://7xsl28.com1.z0.glb.clouddn.com/btn_reward.gif") no-repeat;
-                  _background: url("http://7xsl28.com1.z0.glb.clouddn.com/btn_reward.gif") no-repeat;
-
-                  <!-- http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif
-                       因为本 hexo 生成的博客所用的 theme 的 a:hover 带动画效果，
-                     为了在让打赏按钮显示效果正常 而 添加了以下几行 css，
-                     嵌入其它博客时不一定要它们。 -->
-                  -webkit-transition: background 0s;
-                  -moz-transition: background 0s;
-                  -o-transition: background 0s;
-                  -ms-transition: background 0s;
-                  transition: background 0s;
-                  <!-- /让打赏按钮的效果显示正常 而 添加的几行 css 到此结束 -->
-                }
-
-                .donate_bar a.btn_donate:hover{ background-position: 0px -82px;}
-                .donate_bar .donate_txt {
-                  display: block;
-                  color: #9d9d9d;
-                  font: 14px/2 "Microsoft Yahei";
-                }
-                .bold{ font-weight: bold; }
-              </style>
-              <!-- /css -->
-
-                <!-- Donate Module -->
-                <div id="donate_module">
-
-              <!-- btn_donate & tips -->
-              <div id="donate_board" class="donate_bar center">
-                  <br>
-                  <br>
-                <a id="btn_donate" class="btn_donate" target="_self" href="javascript:;" title="Donate 打赏"></a>
-                <span class="donate_txt">
-                  对你有帮助？求鼓励，求支持！
-                </span>
-                  
-                
-              </div>
-              <!-- /btn_donate & tips -->
-
-              <!-- donate guide -->
-                
-              <div id="donate_guide" class="donate_bar center hidden">
-                    <br>
-                  <br>
-
-                <a href="http://ittiger.cn/img/weixinpay.png" title="用微信扫一扫哦~" class="fancybox" rel="article0">
-                  <img src="http://ittiger.cn/img/weixinpay.png" title="微信打赏 Colin" height="200px" width="auto">
-                </a>
-                    
-                      
-
-                <a href="http://ittiger.cn/img/alipay.png" title="用支付宝扫一扫即可~" class="fancybox" rel="article0">
-                  <img src="http://ittiger.cn/img/alipay.png" title="支付宝打赏 Colin" height="200px" width="auto">
-                </a>
-
-                <span class="donate_txt">
-                  对你有帮助？求鼓励，求支持！
-                </span>
-
-              </div>
-              <!-- /donate guide -->
-
-              <!-- donate script -->
-              <script type="text/javascript">
-                document.getElementById('btn_donate').onclick = function() {
-                  $('#donate_board').addClass('hidden');
-                  $('#donate_guide').removeClass('hidden');
-                }
-
-                function donate_on_web(){
-                  $('#donate').submit();
-                    }
-
-                var original_window_onload = window.onload;
-                    window.onload = function () {
-                        if (original_window_onload) {
-                            original_window_onload();
-                        }
-                        document.getElementById('donate_board_wdg').className = 'hidden';
-                }
-              </script>
-              <!-- /donate script -->
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/Android/">Android</a>, <a class="has-link-grey -link" href="/tags/RecyclerView/">RecyclerView</a>
+                </div>
             </div>
-            <br>
-                  <br>
-            <!-- /Donate Module -->
-               
+        </div>
         
-        <!-- 打赏 -->
-
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-    <div class="bdsharebuttonbox">
-    <a href="#" class="bds_more" data-cmd="more">分享到：</a>
-    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间">QQ空间</a>
-    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博">新浪微博</a>
-    <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博">腾讯微博</a>
-    <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网">人人网</a>
-    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信">微信</a>
+        
+        
+        <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+    <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
 </div>
+<script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "2", "bdPic": "", "bdStyle": "0", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];</script>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="/img/alipay.png" alt="支付宝"></div>
+</a>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/img/weixinpay.png" alt="微信"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/Retrofit2使用介绍.html">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">Retrofit2使用介绍</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/RecyclerView子View宽度不充满父容器.html">
+                <span class="level-item">RecyclerView子View宽度不充满父容器</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        
+<div id="comment-container"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
-window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{"bdSize":16}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+	var gitment = new Gitment({
+		id: '让RecyclerView更通用.html',
+		owner: 'huyongli',
+		repo: 'https://github.com/huyongli',
+		oauth: {
+			client_id: '5bf9c83de6ecf6d7cccd',
+			client_secret: 'f69660d95e7a6ab733d85d2331a563e3855b2b50',
+		},
+	})
+	gitment.render('comment-container')
 </script>
-<style>
-    .bdshare_popup_box {
-        border-radius: 4px;
-        border: #e1e1e1 solid 1px;
-    }
-    .bdshare-button-style0-16 a,
-    .bdshare-button-style0-16 .bds_more {
-        padding-left: 20px;
-        margin: 6px 10px 6px 0;
-    }
-    .bdshare_dialog_list a,
-    .bdshare_popup_list a,
-    .bdshare_popup_bottom a {
-        font-family: 'Microsoft Yahei';
-    }
-    .bdshare_popup_top {
-        display: none;
-    }
-    .bdshare_popup_bottom {
-        height: auto;
-        padding: 5px;
-    }
-</style>
+
+    </div>
+</div>
+</div>
+                
 
 
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    
+                        <figure class="image is-128x128 has-mb-6">
+                            <img class="is-rounded" src="/images/avatar.png" alt="老胡">
+                        </figure>
+                    
+                    
+                    <p class="is-size-4 is-block">
+                        老胡
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        Android | Java
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>WuHan, China</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        49
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分类
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        8
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        22
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/huyongli" target="_blank">
+                关注我</a>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Github" href="https://github.com/huyongli">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Weibo" href="http://weibo.com/aclaohu">
+                
+                <i class="fab fa-weibo"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="RSS" href="/atom.xml">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                分类
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/Android/">
+            <span class="level-start">
+                <span class="level-item">Android</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">34</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Blog/">
+            <span class="level-start">
+                <span class="level-item">Blog</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Java/">
+            <span class="level-start">
+                <span class="level-item">Java</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/JavaScript/">
+            <span class="level-start">
+                <span class="level-item">JavaScript</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Linux/">
+            <span class="level-start">
+                <span class="level-item">Linux</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Material-Design/">
+            <span class="level-start">
+                <span class="level-item">Material Design</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Media-Apps/">
+            <span class="level-start">
+                <span class="level-item">Media Apps</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/小程序/">
+            <span class="level-start">
+                <span class="level-item">小程序</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        
+
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            链接
+        </h3>
+        <ul class="menu-list">
+        
+            <li>
+                <a class="level is-mobile" href="https://blog.csdn.net/huyongl1989" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">CSDN</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">blog.csdn.net</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://juejin.im/user/5cb449ae5188251b0351f391" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">掘金</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">juejin.im</span>
+                    </span>
+                </a>
+            </li>
+        
+        </ul>
+        </div>
+    </div>
 </div>
 
-            
-    
-        <a href="http://ittiger.cn/让RecyclerView更通用.html#comments" class="article-comment-link ds-thread-count" data-thread-key="http://ittiger.cn/让RecyclerView更通用.html">评论</a>
-    
 
-        </footer>
-    </div>
     
         
-<nav id="article-nav">
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            标签云
+        </h3>
+        <a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/AndroidStudio/" style="font-size: 10px;">AndroidStudio</a> <a href="/tags/Behavior/" style="font-size: 14px;">Behavior</a> <a href="/tags/DB/" style="font-size: 10px;">DB</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IM/" style="font-size: 18px;">IM</a> <a href="/tags/JSONP/" style="font-size: 10px;">JSONP</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/Linux/" style="font-size: 18px;">Linux</a> <a href="/tags/Material-Design/" style="font-size: 14px;">Material Design</a> <a href="/tags/Media/" style="font-size: 10px;">Media</a> <a href="/tags/OkHttp/" style="font-size: 12px;">OkHttp</a> <a href="/tags/RecyclerView/" style="font-size: 16px;">RecyclerView</a> <a href="/tags/Retrofit/" style="font-size: 14px;">Retrofit</a> <a href="/tags/RxJava/" style="font-size: 10px;">RxJava</a> <a href="/tags/Shape/" style="font-size: 10px;">Shape</a> <a href="/tags/SpannableStringBuilder/" style="font-size: 10px;">SpannableStringBuilder</a> <a href="/tags/View/" style="font-size: 12px;">View</a> <a href="/tags/WordPress/" style="font-size: 12px;">WordPress</a> <a href="/tags/小程序/" style="font-size: 14px;">小程序</a> <a href="/tags/百度地图/" style="font-size: 10px;">百度地图</a>
+    </div>
+</div>
+
     
-        <a href="/Retrofit2使用介绍.html" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">上一篇</strong>
-            <div class="article-nav-title">
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-07-17T09:50:02.000Z">2017-07-17</time></div>
+                    <a href="/weixin-xcx-data-binding-and-params-transfer.html" class="has-link-black-ter is-size-6">微信小程序之页面数据绑定及页面跳转传参</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/小程序/">小程序</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-07-17T09:44:58.000Z">2017-07-17</time></div>
+                    <a href="/weixin-xcx-tabbar-switch.html" class="has-link-black-ter is-size-6">微信小程序之Tab切换</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/小程序/">小程序</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-07-17T09:40:39.000Z">2017-07-17</time></div>
+                    <a href="/weixin-xcx-first-project.html" class="has-link-black-ter is-size-6">微信小程序之入门项目</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/小程序/">小程序</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-07-12T09:36:51.000Z">2017-07-12</time></div>
+                    <a href="/TextSwitcher-ViewSwitcher.html" class="has-link-black-ter is-size-6">TextSwitcher与ViewSwitcher学习笔记</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Android/">Android</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-04-30T13:45:04.000Z">2017-04-30</time></div>
+                    <a href="/MediaBrowserService.html" class="has-link-black-ter is-size-6">关于媒体浏览器服务(MediaBrowserService)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Media-Apps/">Media Apps</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2017/07/">
+                <span class="level-start">
+                    <span class="level-item">七月 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2017/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2017/03/">
+                <span class="level-start">
+                    <span class="level-item">三月 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2017/02/">
+                <span class="level-start">
+                    <span class="level-item">二月 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2016/12/">
+                <span class="level-start">
+                    <span class="level-item">十二月 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2016/11/">
+                <span class="level-start">
+                    <span class="level-item">十一月 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2016/10/">
+                <span class="level-start">
+                    <span class="level-item">十月 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2016/09/">
+                <span class="level-start">
+                    <span class="level-item">九月 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2016/08/">
+                <span class="level-start">
+                    <span class="level-item">八月 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2016/07/">
+                <span class="level-start">
+                    <span class="level-item">七月 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2016/06/">
+                <span class="level-start">
+                    <span class="level-item">六月 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2016/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2016/01/">
+                <span class="level-start">
+                    <span class="level-item">一月 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2015/11/">
+                <span class="level-start">
+                    <span class="level-item">十一月 2015</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2015/10/">
+                <span class="level-start">
+                    <span class="level-item">十月 2015</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">10</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2015/09/">
+                <span class="level-start">
+                    <span class="level-item">九月 2015</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">9</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2015/03/">
+                <span class="level-start">
+                    <span class="level-item">三月 2015</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2014/12/">
+                <span class="level-start">
+                    <span class="level-item">十二月 2014</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
                 
-                    Retrofit2使用介绍
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Android/">
+                        <span class="tag">Android</span>
+                        <span class="tag is-grey">37</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/AndroidStudio/">
+                        <span class="tag">AndroidStudio</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Behavior/">
+                        <span class="tag">Behavior</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/DB/">
+                        <span class="tag">DB</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Hexo/">
+                        <span class="tag">Hexo</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/IM/">
+                        <span class="tag">IM</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/JSONP/">
+                        <span class="tag">JSONP</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Java/">
+                        <span class="tag">Java</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/JavaScript/">
+                        <span class="tag">JavaScript</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Linux/">
+                        <span class="tag">Linux</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Material-Design/">
+                        <span class="tag">Material Design</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Media/">
+                        <span class="tag">Media</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/OkHttp/">
+                        <span class="tag">OkHttp</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/RecyclerView/">
+                        <span class="tag">RecyclerView</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Retrofit/">
+                        <span class="tag">Retrofit</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/RxJava/">
+                        <span class="tag">RxJava</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Shape/">
+                        <span class="tag">Shape</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/SpannableStringBuilder/">
+                        <span class="tag">SpannableStringBuilder</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/View/">
+                        <span class="tag">View</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/WordPress/">
+                        <span class="tag">WordPress</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/小程序/">
+                        <span class="tag">小程序</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/百度地图/">
+                        <span class="tag">百度地图</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
                 
             </div>
-        </a>
+        </div>
+    </div>
+</div>
+        
+        </div>
     
-    
-        <a href="/RecyclerView子View宽度不充满父容器.html" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">RecyclerView子View宽度不充满父容器</div>
-        </a>
-    
-</nav>
+</div>
+
+                
 
 
-    
-</article>
 
 
-    
-    <section id="comments">
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
     
         
-    <div class="ds-thread" data-thread-key="让RecyclerView更通用.html" data-title="让RecyclerView更通用" data-url="http://ittiger.cn/让RecyclerView更通用.html"></div>
-    <style>
-        #ds-thread #ds-reset .ds-textarea-wrapper {
-            background: none;
-        }
-        #ds-reset .ds-avatar img {
-            box-shadow: none;
-        }
-        #ds-reset .ds-gradient-bg {
-            background: #f7f7f7;
-        }
-        #ds-thread #ds-reset li.ds-tab a {
-            border-radius: 3px;
-        }
-        #ds-thread #ds-reset .ds-post-button {
-            color: white;
-            border: none;
-            box-shadow: none;
-            background: #d32;
-            text-shadow: none;
-            font-weight: normal;
-            font-family: 'Microsoft Yahei';
-        }
-        #ds-thread #ds-reset .ds-post-button:hover {
-            color: white;
-            background: #DE594C;
-        }
-        #ds-thread #ds-reset .ds-post-button:active {
-            background: #d32;
-        }
-        #ds-smilies-tooltip ul.ds-smilies-tabs li a.ds-current {
-            color: white;
-            background: #d32;
-            box-shadow: none;
-            text-shadow: none;
-            font-weight: normal;
-        }
-    </style>
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-07-17T09:50:02.000Z">2017-07-17</time></div>
+                    <a href="/weixin-xcx-data-binding-and-params-transfer.html" class="has-link-black-ter is-size-6">微信小程序之页面数据绑定及页面跳转传参</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/小程序/">小程序</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-07-17T09:44:58.000Z">2017-07-17</time></div>
+                    <a href="/weixin-xcx-tabbar-switch.html" class="has-link-black-ter is-size-6">微信小程序之Tab切换</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/小程序/">小程序</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-07-17T09:40:39.000Z">2017-07-17</time></div>
+                    <a href="/weixin-xcx-first-project.html" class="has-link-black-ter is-size-6">微信小程序之入门项目</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/小程序/">小程序</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-07-12T09:36:51.000Z">2017-07-12</time></div>
+                    <a href="/TextSwitcher-ViewSwitcher.html" class="has-link-black-ter is-size-6">TextSwitcher与ViewSwitcher学习笔记</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Android/">Android</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2017-04-30T13:45:04.000Z">2017-04-30</time></div>
+                    <a href="/MediaBrowserService.html" class="has-link-black-ter is-size-6">关于媒体浏览器服务(MediaBrowserService)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Media-Apps/">Media Apps</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
 
     
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2017/07/">
+                <span class="level-start">
+                    <span class="level-item">七月 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2017/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2017/03/">
+                <span class="level-start">
+                    <span class="level-item">三月 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2017/02/">
+                <span class="level-start">
+                    <span class="level-item">二月 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2016/12/">
+                <span class="level-start">
+                    <span class="level-item">十二月 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2016/11/">
+                <span class="level-start">
+                    <span class="level-item">十一月 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2016/10/">
+                <span class="level-start">
+                    <span class="level-item">十月 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2016/09/">
+                <span class="level-start">
+                    <span class="level-item">九月 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2016/08/">
+                <span class="level-start">
+                    <span class="level-item">八月 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2016/07/">
+                <span class="level-start">
+                    <span class="level-item">七月 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2016/06/">
+                <span class="level-start">
+                    <span class="level-item">六月 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2016/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2016/01/">
+                <span class="level-start">
+                    <span class="level-item">一月 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2015/11/">
+                <span class="level-start">
+                    <span class="level-item">十一月 2015</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2015/10/">
+                <span class="level-start">
+                    <span class="level-item">十月 2015</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">10</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2015/09/">
+                <span class="level-start">
+                    <span class="level-item">九月 2015</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">9</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2015/03/">
+                <span class="level-start">
+                    <span class="level-item">三月 2015</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2014/12/">
+                <span class="level-start">
+                    <span class="level-item">十二月 2014</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Android/">
+                        <span class="tag">Android</span>
+                        <span class="tag is-grey">37</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/AndroidStudio/">
+                        <span class="tag">AndroidStudio</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Behavior/">
+                        <span class="tag">Behavior</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/DB/">
+                        <span class="tag">DB</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Hexo/">
+                        <span class="tag">Hexo</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/IM/">
+                        <span class="tag">IM</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/JSONP/">
+                        <span class="tag">JSONP</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Java/">
+                        <span class="tag">Java</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/JavaScript/">
+                        <span class="tag">JavaScript</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Linux/">
+                        <span class="tag">Linux</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Material-Design/">
+                        <span class="tag">Material Design</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Media/">
+                        <span class="tag">Media</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/OkHttp/">
+                        <span class="tag">OkHttp</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/RecyclerView/">
+                        <span class="tag">RecyclerView</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Retrofit/">
+                        <span class="tag">Retrofit</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/RxJava/">
+                        <span class="tag">RxJava</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Shape/">
+                        <span class="tag">Shape</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/SpannableStringBuilder/">
+                        <span class="tag">SpannableStringBuilder</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/View/">
+                        <span class="tag">View</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/WordPress/">
+                        <span class="tag">WordPress</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/小程序/">
+                        <span class="tag">小程序</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/百度地图/">
+                        <span class="tag">百度地图</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
     </section>
-
-</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/football.svg" alt="让RecyclerView更通用" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 老胡&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                <br>
+                <span id="busuanzi_container_site_uv">
+                共<span id="busuanzi_value_site_uv">0</span>个访客
+                </span>
+                
+                </p>
+            </div>
+            <div class="level-end">
             
-                <aside id="sidebar">
-   
-        
-    <div class="widget-wrap">
-        <h3 class="widget-title">最新文章</h3>
-        <div class="widget">
-            <ul id="recent-post" class="no-thumbnail">
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
                 
-                    <li>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
                         
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/小程序/">小程序</a></p>
-                            <p class="item-title"><a href="/weixin-xcx-data-binding-and-params-transfer.html" class="title">微信小程序之页面数据绑定及页面跳转传参</a></p>
-                            <p class="item-date"><time datetime="2017-07-17T09:50:02.000Z" itemprop="datePublished">2017-07-17</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
+                        <i class="fab fa-creative-commons"></i>
                         
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/小程序/">小程序</a></p>
-                            <p class="item-title"><a href="/weixin-xcx-tabbar-switch.html" class="title">微信小程序之Tab切换</a></p>
-                            <p class="item-date"><time datetime="2017-07-17T09:44:58.000Z" itemprop="datePublished">2017-07-17</time></p>
-                        </div>
-                    </li>
+                    </a>
+                </p>
                 
-                    <li>
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
                         
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/小程序/">小程序</a></p>
-                            <p class="item-title"><a href="/weixin-xcx-first-project.html" class="title">微信小程序之入门项目</a></p>
-                            <p class="item-date"><time datetime="2017-07-17T09:40:39.000Z" itemprop="datePublished">2017-07-17</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
+                        <i class="fab fa-creative-commons-by"></i>
                         
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Android/">Android</a></p>
-                            <p class="item-title"><a href="/TextSwitcher-ViewSwitcher.html" class="title">TextSwitcher与ViewSwitcher学习笔记</a></p>
-                            <p class="item-date"><time datetime="2017-07-12T09:36:51.000Z" itemprop="datePublished">2017-07-12</time></p>
-                        </div>
-                    </li>
+                    </a>
+                </p>
                 
-                    <li>
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/huyongli">
                         
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Media-Apps/">Media Apps</a></p>
-                            <p class="item-title"><a href="/MediaBrowserService.html" class="title">关于媒体浏览器服务(MediaBrowserService)</a></p>
-                            <p class="item-date"><time datetime="2017-04-30T13:45:04.000Z" itemprop="datePublished">2017-04-30</time></p>
-                        </div>
-                    </li>
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
                 
-            </ul>
-        </div>
-    </div>
-
-    
-        
-    <div class="widget-wrap">
-        <h3 class="widget-title">分类</h3>
-        <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">34</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Blog/">Blog</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Material-Design/">Material Design</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Media-Apps/">Media Apps</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/小程序/">小程序</a><span class="category-list-count">3</span></li></ul>
-        </div>
-    </div>
-
-    
-        
-    <div class="widget-wrap">
-        <h3 class="widget-title">归档</h3>
-        <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">九月 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">1</span></li></ul>
-        </div>
-    </div>
-
-    
-        
-    <div class="widget-wrap">
-        <h3 class="widget-title">标签云</h3>
-        <div class="widget tagcloud">
-            <a href="/tags/9-png/" style="font-size: 12px;">9.png</a> <a href="/tags/Activity/" style="font-size: 10px;">Activity</a> <a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/AndroidStudio/" style="font-size: 10px;">AndroidStudio</a> <a href="/tags/Apache/" style="font-size: 10px;">Apache</a> <a href="/tags/Behavior/" style="font-size: 14px;">Behavior</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IM/" style="font-size: 18px;">IM</a> <a href="/tags/IndexStickyView/" style="font-size: 10px;">IndexStickyView</a> <a href="/tags/JSONP/" style="font-size: 10px;">JSONP</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/Linux/" style="font-size: 18px;">Linux</a> <a href="/tags/Lucene/" style="font-size: 10px;">Lucene</a> <a href="/tags/Material-Design/" style="font-size: 14px;">Material Design</a> <a href="/tags/MediaBrowserService/" style="font-size: 10px;">MediaBrowserService</a> <a href="/tags/MediaControllerCompat/" style="font-size: 10px;">MediaControllerCompat</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/ORM/" style="font-size: 10px;">ORM</a> <a href="/tags/OkHttp/" style="font-size: 12px;">OkHttp</a> <a href="/tags/Openfire/" style="font-size: 18px;">Openfire</a> <a href="/tags/RecyclerView/" style="font-size: 16px;">RecyclerView</a> <a href="/tags/Retrofit/" style="font-size: 14px;">Retrofit</a> <a href="/tags/RxJava/" style="font-size: 10px;">RxJava</a> <a href="/tags/SQLite/" style="font-size: 10px;">SQLite</a> <a href="/tags/Shape/" style="font-size: 10px;">Shape</a> <a href="/tags/SpannableStringBuilder/" style="font-size: 10px;">SpannableStringBuilder</a> <a href="/tags/TableLayout/" style="font-size: 10px;">TableLayout</a> <a href="/tags/TextSwitcher/" style="font-size: 10px;">TextSwitcher</a> <a href="/tags/TextView/" style="font-size: 10px;">TextView</a> <a href="/tags/TigerDB/" style="font-size: 10px;">TigerDB</a> <a href="/tags/TigerOkHttp/" style="font-size: 10px;">TigerOkHttp</a> <a href="/tags/Tips/" style="font-size: 10px;">Tips</a> <a href="/tags/ViewSwitcher/" style="font-size: 10px;">ViewSwitcher</a> <a href="/tags/WordPress/" style="font-size: 18px;">WordPress</a> <a href="/tags/Zip解压/" style="font-size: 10px;">Zip解压</a> <a href="/tags/smack/" style="font-size: 18px;">smack</a> <a href="/tags/vsftpd/" style="font-size: 10px;">vsftpd</a> <a href="/tags/导航/" style="font-size: 10px;">导航</a> <a href="/tags/小程序/" style="font-size: 14px;">小程序</a> <a href="/tags/崩溃/" style="font-size: 10px;">崩溃</a> <a href="/tags/生命周期/" style="font-size: 10px;">生命周期</a> <a href="/tags/百度地图/" style="font-size: 10px;">百度地图</a> <a href="/tags/相机/" style="font-size: 12px;">相机</a> <a href="/tags/资源适配/" style="font-size: 10px;">资源适配</a> <a href="/tags/退出App/" style="font-size: 10px;">退出App</a> <a href="/tags/阿里云/" style="font-size: 18px;">阿里云</a>
-        </div>
-    </div>
-
-    
-        
-    <div class="widget-wrap widget-list">
-        <h3 class="widget-title">链接</h3>
-        <div class="widget">
-            <ul>
-                
-                    <li>
-                        <a href="https://ashui.site/" rel="external nofollow">番羽土啬</a>
-                    </li>
-                
-            </ul>
-        </div>
-    </div>
-
-
-    
-    <div id="toTop" class="fa fa-angle-up"></div>
-</aside>
+                </div>
             
-        </div>
-        <footer id="footer">
-    <div class="outer">
-        <div id="footer-info" class="inner">
-            &copy; 2019 老胡<br>
-            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+            </div>
         </div>
     </div>
 </footer>
-        
-    
-    <script type="text/javascript">
-    var duoshuoQuery = {short_name:'ittiger'};
-    (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0]
-    || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-    </script>
-
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
 
 
     
-        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
     
     
-        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="回到顶端" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+    <script src="/js/clipboard.js" defer></script>
+    
+
+    
+    
+    
+
     
 
 
+<script src="/js/main.js" defer></script>
 
-<!-- Custom Scripts -->
-<script src="/js/main.js"></script>
-
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
     </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
 </body>
 </html>
