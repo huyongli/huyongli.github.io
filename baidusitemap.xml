@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://ittiger.cn/Java-Synchronized-ReentrantLock.html</loc>
+    <lastmod>2019-05-09</lastmod>
+  </url>  <url>
     <loc>http://ittiger.cn/Kotlin-Coroutine-Basic-Knowledge.html</loc>
     <lastmod>2019-05-09</lastmod>
   </url>  <url>
@@ -11,9 +14,6 @@
     <lastmod>2019-05-09</lastmod>
   </url>  <url>
     <loc>http://ittiger.cn/RN-Problem-Record.html</loc>
-    <lastmod>2019-05-09</lastmod>
-  </url>  <url>
-    <loc>http://ittiger.cn/Java-Synchronized-ReentrantLock.html</loc>
     <lastmod>2019-05-09</lastmod>
   </url>  <url>
     <loc>http://ittiger.cn/Flutter-For-LinearLayout.html</loc>
@@ -163,10 +163,10 @@
     <loc>http://ittiger.cn/Retrofit2%E4%BD%BF%E7%94%A8%E4%BB%8B%E7%BB%8D.html</loc>
     <lastmod>2019-05-09</lastmod>
   </url>  <url>
-    <loc>http://ittiger.cn/Retrofit-Source-Design-Pattern.html</loc>
+    <loc>http://ittiger.cn/Retrofit2%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E4%B8%8B%E8%BD%BD%E5%8F%8A%E5%85%B6%E8%BF%9B%E5%BA%A6%E6%98%BE%E7%A4%BA.html</loc>
     <lastmod>2019-05-09</lastmod>
   </url>  <url>
-    <loc>http://ittiger.cn/Retrofit2%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E4%B8%8B%E8%BD%BD%E5%8F%8A%E5%85%B6%E8%BF%9B%E5%BA%A6%E6%98%BE%E7%A4%BA.html</loc>
+    <loc>http://ittiger.cn/Retrofit-Source-Design-Pattern.html</loc>
     <lastmod>2019-05-09</lastmod>
   </url>  <url>
     <loc>http://ittiger.cn/RecyclerView%E4%B8%8B%E6%8B%89%E5%88%B7%E6%96%B0%E4%B8%8A%E6%8B%89%E5%8A%A0%E8%BD%BD.html</loc>
