@@ -2,24 +2,24 @@
 <html lang="zh">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>浅谈JSONP跨域请求 - 老胡</title>
+<title>Android基础之TableLayout中TextView文本无法自动换行 - 老胡</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta name="description" content="第一次听说JSONP跨域请求还是去年刚入职实习的时候，也借那个机会在网上好好了解了下用法，但是对于其如何实现还是不太明白。昨天一同事问我当时对JSONP的使用情况，突然发现一年多没用，对于这个跨域请求技术又忘的差不多了，刚好不知道这个星期该写篇什么方面的文章，那就趁这个机会再把JSONP琢磨琢磨顺便把过程记录下来，免得下次不记得了又得到网上到处找资源查阅。 OK，进入正题！！！！ 先看JSONP定">
-<meta name="keywords" content="JavaScript,JSONP">
+    <meta name="description" content="最近项目中用到了TableLayout布局，发现该布局下的TextView控件的内容无法达到自动换行的效果，布局代码如下：">
+<meta name="keywords" content="Android,View">
 <meta property="og:type" content="article">
-<meta property="og:title" content="浅谈JSONP跨域请求">
-<meta property="og:url" content="http://ittiger.cn/浅谈JSONP跨域请求.html">
+<meta property="og:title" content="Android基础之TableLayout中TextView文本无法自动换行">
+<meta property="og:url" content="http://ittiger.cn/android-textview-unable-to-switch-lines-automatically-in-tableLayout.html">
 <meta property="og:site_name" content="老胡">
-<meta property="og:description" content="第一次听说JSONP跨域请求还是去年刚入职实习的时候，也借那个机会在网上好好了解了下用法，但是对于其如何实现还是不太明白。昨天一同事问我当时对JSONP的使用情况，突然发现一年多没用，对于这个跨域请求技术又忘的差不多了，刚好不知道这个星期该写篇什么方面的文章，那就趁这个机会再把JSONP琢磨琢磨顺便把过程记录下来，免得下次不记得了又得到网上到处找资源查阅。 OK，进入正题！！！！ 先看JSONP定">
+<meta property="og:description" content="最近项目中用到了TableLayout布局，发现该布局下的TextView控件的内容无法达到自动换行的效果，布局代码如下：">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://ittiger.cn/images/og_image.png">
-<meta property="og:updated_time" content="2019-05-09T01:56:40.911Z">
+<meta property="og:updated_time" content="2019-05-10T13:27:14.447Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="浅谈JSONP跨域请求">
-<meta name="twitter:description" content="第一次听说JSONP跨域请求还是去年刚入职实习的时候，也借那个机会在网上好好了解了下用法，但是对于其如何实现还是不太明白。昨天一同事问我当时对JSONP的使用情况，突然发现一年多没用，对于这个跨域请求技术又忘的差不多了，刚好不知道这个星期该写篇什么方面的文章，那就趁这个机会再把JSONP琢磨琢磨顺便把过程记录下来，免得下次不记得了又得到网上到处找资源查阅。 OK，进入正题！！！！ 先看JSONP定">
+<meta name="twitter:title" content="Android基础之TableLayout中TextView文本无法自动换行">
+<meta name="twitter:description" content="最近项目中用到了TableLayout布局，发现该布局下的TextView控件的内容无法达到自动换行的效果，布局代码如下：">
 <meta name="twitter:image" content="http://ittiger.cn/images/og_image.png">
 
 
@@ -108,7 +108,7 @@ var _hmt = _hmt || [];
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/football.svg" alt="浅谈JSONP跨域请求" height="28">
+                <img src="/images/football.svg" alt="Android基础之TableLayout中TextView文本无法自动换行" height="28">
             
             </a>
         </div>
@@ -159,17 +159,17 @@ var _hmt = _hmt || [];
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2015-03-20T05:47:20.000Z">2015-03-20</time>
+                <time class="level-item has-text-grey" datetime="2015-10-22T14:43:39.000Z">2015-10-22</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/JavaScript/">JavaScript</a>
+                <a class="has-link-grey -link" href="/categories/Android/">Android</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    18 分钟 读完 (大约 2754 个字)
+                    2 分钟 读完 (大约 344 个字)
                 </span>
                 
                 
@@ -183,46 +183,21 @@ var _hmt = _hmt || [];
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                浅谈JSONP跨域请求
+                Android基础之TableLayout中TextView文本无法自动换行
             
         </h1>
         <div class="content">
-            <p>第一次听说JSONP跨域请求还是去年刚入职实习的时候，也借那个机会在网上好好了解了下用法，但是对于其如何实现还是不太明白。昨天一同事问我当时对JSONP的使用情况，突然发现一年多没用，对于这个跨域请求技术又忘的差不多了，刚好不知道这个星期该写篇什么方面的文章，那就趁这个机会再把JSONP琢磨琢磨顺便把过程记录下来，免得下次不记得了又得到网上到处找资源查阅。</p>
-<p>OK，进入正题！！！！</p>
-<p>先看JSONP定义</p>
-<p><code>JSONP(JSON with Padding)</code>是JSON的一种“使用模式”，可用于解决主流浏览器的跨域数据访问的问题。由于同源策略，一般来说位于 <code>server1.example.com</code>的网页无法与不是 <code>server1.example.com</code>的服务器沟通，而 HTML 的<code>&lt;script&gt;</code> 元素是一个例外。利用 <code>&lt;script&gt;</code> 元素的这个开放策略，网页可以得到从其他来源动态产生的 JSON 资料，而这种使用模式就是所谓的 JSONP。用 JSONP 抓到的资料并不是 JSON，而是任意的JavaScript，用 JavaScript 直译器执行而不是用 JSON 解析器解析。<br>JSONP它是一个非官方的协议，它允许在服务器端集成Script tags返回至客户端，通过javascript callback的形式实现跨域访问（这仅仅是JSONP简单的实现形式）。<br>——来自百度</p>
-<p>同源策略</p>
-<p>同源策略是一种约定，也是浏览器本身最核心最基本的一个安全功能。<br>所谓同源是指协议、域名、端口相同，也就是说同源策略不允许一个站点的某个文档或脚本加载请求另一个站点的文档或脚本，具体看下如下实验：</p>
+            <p>最近项目中用到了TableLayout布局，发现该布局下的TextView控件的内容无法达到自动换行的效果，布局代码如下：</p>
 <a id="more"></a>
-<p>我新建一个站点作为本地站点，端口号为8080，如下：<br><img src="/img/2016072811.png" alt><br>再建一个站点作为远程站点，端口号为8085，如下：<br><img src="/img/2016072812.png" alt><br>我在本地站点中添加两个按钮，一个请求远程站点文档，一个请求本地站点文档，我们来看看效果如何<br>请求代码如下：<br><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">//请求远程站点文档</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">remoteBtnClick</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">    $.<span class="hljs-keyword">get</span>("http://localhost:8085/Remote/jslib/jquery-1.7.2.js",</span><br><span class="line">            function(data)&#123;</span><br><span class="line">                <span class="hljs-built_in">console</span>.log(data);</span><br><span class="line">            &#125;</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-comment">//请求本地站点文档</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">localBtnClick</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">    $.<span class="hljs-keyword">get</span>("http://localhost:8080/Local/jslib/jquery-1.7.2.js",</span><br><span class="line">            function(data)&#123;</span><br><span class="line">                <span class="hljs-built_in">console</span>.log(data);</span><br><span class="line">            &#125;</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>请求响应结果如下：<br><img src="/img/2016072813.png" alt><br>正如前面说的，根据同源策略浏览器不允许本地站点直接通过Http请求读取另外一个远程站点的资源信息。</p>
-<p>看到这，相信大家很快会想到一种情况———引入外部js类库<code>&lt;script type=&quot;text/javascript&quot; src=&quot;http://api.map.baidu.com/api?v=2.0&quot;&gt;&lt;/script&gt;</code>比如这个引入百度地图JS类库的代码，很明显，这个地图JS类库和我们自己的站点明显不是在同一个域内，对于这种情况我也写一个测试程序验证一下。<br>我在本地站点8080的页面中添加这样一行代码<code>&lt;script type=&quot;text/javascript&quot; src=&quot;http://localhost:8085/Remote/jslib/remote.js&quot;&gt;&lt;/script&gt;</code>以希望在本地页面加载的时候同时加载远程站点8085里的remote.js文件，remote.js文件中的内容如下：<br><img src="/img/2016072814.png" alt><br>运行代码之后的效果图如下：<br><img src="/img/2016072815.png" alt><br>很显然，通过这种方式是完全可以读取远程站点的文档信息的，也就是说像这种src属性的加载方式是不受同源策略所约束可以访问任何站点的文档信息，另外像大家用的很多的图片加载标签，也经常通过其src属性加载网络图片。</p>
-<p>实现基本的跨域请求</p>
-<p>看了上面的例子和JSONP的定义相信大家已经明白了JSONP跨域请求的基本原理，利用script的这种加载方式我们就可以实现跨域请求。</p>
-<p>我在本地站点中动态构造一个script标签，然后将其src的url指向远程站点的文档，最后将这个script标签添加到页面dom中，先写个例子看这种方式能不能行得通。<br><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">//远程站点8085上remote.js中的内容依然和上面一样，不做任何改变</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">remoteBtnClick</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">    $(<span class="hljs-string">"&lt;script&gt;&lt;//script&gt;"</span>).attr(<span class="hljs-string">"src"</span>, <span class="hljs-string">"http://localhost:8085/Remote/jslib/remote.js"</span>).appendTo(<span class="hljs-string">"body"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>运行之后的结果和上面直接通过<code>&lt;script type=&quot;text/javascript&quot; src=&quot;http://localhost:8085/Remote/jslib/remote.js&quot;&gt;&lt;/script&gt;</code>加载的效果是一样，这里就不继续贴图，因为原理是一样，很显然结果必然相同，而且也没必要动态写这么麻烦，直接加载岂不是更直接。</p>
-<p>接着我们来另外一个情况，既然JSONP定义中说了JSONP拿到的是JSON数据，那我们将远程站点请求文件remote.js换成一个JSON数据文件<code>remote.json({&quot;data&quot;:&quot;来自远程站点的数据&quot;,&quot;time&quot;:&quot;2014-12-20&quot;})</code>再试试。<br><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">remoteBtnClick</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">    $(<span class="hljs-string">"&lt;script&gt;&lt;//script&gt;"</span>).attr(<span class="hljs-string">"src"</span>, <span class="hljs-string">"http://localhost:8085/Remote/remote.json"</span>).appendTo(<span class="hljs-string">"body"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>图1：<br><img src="/img/2016072816.png" alt>   </p>
-<p>图2：<br><img src="/img/2016072817.png" alt></p>
-<p>看图1中的请求响应结果，很明显，这个json数据已经从远程站点请求成功并且拿到了本地站点下。通过图2我们发现这里有个javascript的语法错误，因为我们是通过javascript标签的方式加载的，而这个标签是将文档加载完成后会立即把其当做js执行，而这个json数据很明显不是一个合法的js语句。既然这样，那我们就想办法让这个json数据变成一个合法的js语句，最简单的方法就是将这个json数据当做一个函数的参数给塞进去，例如：<code>callbackHandler({&quot;data&quot;:&quot;来自远程站点的数据&quot;,&quot;time&quot;:&quot;2014-12-20&quot;})</code>，如果本地站点中有一个callbackHandler函数，那么远程站点返回的这个数据就是一个合法的js函数，很显然这个时候单纯的通过js客户端来验证这个例子是无法实现的，因为在远程站点8085中无论是json文件还是js文件中都无法直接构造<code>callbackHandler({&quot;data&quot;:&quot;来自远程站点的数据&quot;,&quot;time&quot;:&quot;2014-12-20&quot;})</code>这么一段代码(语法不正确)给本地站点8080去远程调用。<br><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">callbackHandler</span>(<span class="hljs-params">json</span>) </span>&#123;</span><br><span class="line">    <span class="hljs-built_in">console</span>.log(json)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这个时候就需要远程站点的服务端进行配合，由于远程站点后端服务不知道本地客户端的回调函数名是callbackHandler，所以，我们需要在远程调用的时候告诉服务端本地的回调函数名是callbackHandler，此时的本地站点8080上的请求方式则换这样：<br><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="hljs-string">"&lt;script&gt;&lt;//script&gt;"</span>).attr(<span class="hljs-string">"src"</span>, <span class="hljs-string">"http://localhost:8085/Remote/JSONPServlet?callback=callbackHandler"</span>).appendTo(<span class="hljs-string">"body"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">callbackHandler</span>(<span class="hljs-params">data</span>) </span>&#123;</span><br><span class="line">    <span class="hljs-built_in">console</span>.log(data);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>远程站点8085上服务端代码如下：   </p>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">doPost</span><span class="hljs-params">(HttpServletRequest request, HttpServletResponse response)</span></span></span><br><span class="line"><span class="hljs-function">        <span class="hljs-keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">    String callback = request.getParameter(<span class="hljs-string">"callback"</span>);</span><br><span class="line">    response.setContentType(<span class="hljs-string">"text/html"</span>);</span><br><span class="line">    PrintWriter out = response.getWriter();</span><br><span class="line">    out.println(callback + <span class="hljs-string">"(&#123;'data':'The data from remote','time':'2014-12-20'&#125;)"</span>);</span><br><span class="line">    out.flush();</span><br><span class="line">    out.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>服务端通过参数解析知道本地站点客户端的回调函数名是callbackHandler，远程服务端构造一段<code>callbackHandler({&quot;data&quot;:&quot;The data from remote&quot;,&quot;time&quot;:&quot;2014-12-20&quot;})</code>返回即可，这样在script标签加载完成后会直接将取得的json数据当做参数传入该回调函数中执行，这样整个跨域请求(请求服务端)就完成了。JSONP的跨域请求差不多就这样实现了，但是<br>运行效果如下：<br><img src="/img/2016072818.png" alt><br>运行结果正如我们所想，通过script方式加载远程服务返回<code>javascript tags</code>可以顺利实现跨域访问，这里我也继续试验下直接通过ajax方式访问远程后端服务，将<code>remoteBtnClick()</code>实现改为如下方式：<br><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$.<span class="hljs-keyword">get</span>("http://localhost:8085/Remote/JSONPServlet?callback=callbackHandler",</span><br><span class="line">            function(data)&#123;</span><br><span class="line">                <span class="hljs-built_in">console</span>.log(data);</span><br><span class="line">            &#125;</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>请求结果如下：<br><img src="/img/2016072819.png" alt><br>显然，请求的结果和前面的请求远程站点客户端文档信息是一样，因为同源策略而无法访问。</p>
-<p>OK，JSONP的实现方式和相关验证基本上就爱完成了，现在也知道了JSONP的实现原理和实现方式，但是上面这种实现方式有点麻烦，既要自己添加script标签，同时还要自己定义一个回调函数，感觉略显麻烦，其实jQuery中已经直接提供类似的JSONP请求方式，我们只需要按照其定义好调用方式即可进行Http的跨域请求。现在我将<code>remoteBtnClick()</code>实现方式修改为如下，远程服务端代码不修改：<br><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">remoteBtnClick</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">     $.ajax(&#123;</span><br><span class="line">            url: <span class="hljs-string">'http://localhost:8085/Remote/JSONPServlet'</span>,</span><br><span class="line">            dataType: <span class="hljs-string">"jsonp"</span>,</span><br><span class="line">            jsonp: <span class="hljs-string">"callback"</span>,</span><br><span class="line">            jsonpCallback: <span class="hljs-string">"callbackHandler"</span>,</span><br><span class="line">            success: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data</span>) </span>&#123;</span><br><span class="line">                <span class="hljs-built_in">console</span>.log(data);</span><br><span class="line">                <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"success"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">     &#125;);</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-comment">//客户端回调</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">callbackHandler</span>(<span class="hljs-params">json</span>) </span>&#123;</span><br><span class="line">    <span class="hljs-built_in">console</span>.log(json);</span><br><span class="line">    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"callbackHandler"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>请求结果如下：<br><img src="/img/2016072820.png" alt></p>
-<p>可以看到，现在直接通过ajax请求远程站点服务也成功实现了跨域请求，这个是jQuery自己已经帮我们封装好的功能。对于ajax请求中的几个参数我简单说描述下作用：</p>
-<ol>
-<li><code>dataType:’jsonp’</code>，这个是代表当前Http请求为jsonp的请求方式；</li>
-<li><code>jsonp：’callback’</code>,这个代表的是远程服务端接收客户端回调函数名的参数名，即：<code>String callback = request.getParameter(&quot;callback&quot;)</code>这个参数，ajax请求中jsonp参数的默认值就是callback，这个也可以自己随便更换；</li>
-<li><code>jsonpCallback:’callbackHandler’</code>,这个代表远程服务调用结束后的本地回调函数名，比如上面的代码中的那个客户端回调函数名，这个jsonpCallback的参数值也是可以自己随便定义的，也可以不给这个jsonpCallback参数，其实jQuery会自动为我们生成一个函数和函数名，从上面的结果图中我们可以看到，远程服务调用成功后，既执行了SUCCESS这个回调函数，也执行我们自己定义的callbackHandler这个回调函数，所以我们完全可以使用jQuery给我们生成的回调函数，在调用结束后在SUCCESS回调中做相应的处理即可，如下是不加该参数的调用方式：<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">        url: <span class="hljs-string">'http://localhost:8085/Remote/JSONPServlet'</span>,</span><br><span class="line">        dataType: <span class="hljs-string">"jsonp"</span>,</span><br><span class="line">        jsonp: <span class="hljs-string">"callback"</span>,</span><br><span class="line">        success: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data</span>) </span>&#123;</span><br><span class="line">            <span class="hljs-built_in">console</span>.log(data);</span><br><span class="line">        &#125;</span><br><span class="line"> &#125;);</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p><img src="/img/2016072821.png" alt></p>
-<p>上面结果图中的圈中部分就是jQuery为我们自动生成的回调函数名。</p>
-<p>OK，JSONP的实现方式及实现原理基本上介绍演示完了，至于jQuery中对于JSONP的实现封装方式等我有时间研究下了再继续吧<del>~</del><del>~</del></p>
-<p>write by laohu<br>2015年3月20日</p>
+<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">LinearLayout</span> <span class="hljs-attr">xmlns:android</span>=<span class="hljs-string">"http://schemas.android.com/apk/res/android"</span></span></span><br><span class="line"><span class="hljs-tag">     <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"fill_parent"</span></span></span><br><span class="line"><span class="hljs-tag">     <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"fill_parent"</span></span></span><br><span class="line"><span class="hljs-tag">     <span class="hljs-attr">android:background</span>=<span class="hljs-string">"@drawable/sys_shade_bg_color"</span></span></span><br><span class="line"><span class="hljs-tag">     <span class="hljs-attr">android:orientation</span>=<span class="hljs-string">"vertical"</span></span></span><br><span class="line"><span class="hljs-tag">     <span class="hljs-attr">android:paddingLeft</span>=<span class="hljs-string">"@dimen/gap_20"</span></span></span><br><span class="line"><span class="hljs-tag">     <span class="hljs-attr">android:paddingTop</span>=<span class="hljs-string">"@dimen/gap_30"</span> </span></span><br><span class="line"><span class="hljs-tag">     <span class="hljs-attr">android:paddingRight</span>=<span class="hljs-string">"@dimen/gap_20"</span>&gt;</span></span><br><span class="line">     <span class="hljs-tag">&lt;<span class="hljs-name">TableLayout</span></span></span><br><span class="line"><span class="hljs-tag">         <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span></span></span><br><span class="line"><span class="hljs-tag">         <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"wrap_content"</span></span></span><br><span class="line"><span class="hljs-tag">         <span class="hljs-attr">android:layout_marginTop</span>=<span class="hljs-string">"40dp"</span>&gt;</span></span><br><span class="line">         <span class="hljs-tag">&lt;<span class="hljs-name">TableRow</span></span></span><br><span class="line"><span class="hljs-tag">             <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"wrap_content"</span></span></span><br><span class="line"><span class="hljs-tag">             <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"wrap_content"</span></span></span><br><span class="line"><span class="hljs-tag">             <span class="hljs-attr">android:paddingBottom</span>=<span class="hljs-string">"10dp"</span> &gt;</span></span><br><span class="line">                  <span class="hljs-tag">&lt;<span class="hljs-name">TextView</span></span></span><br><span class="line"><span class="hljs-tag">                     <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"wrap_content"</span></span></span><br><span class="line"><span class="hljs-tag">                     <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"wrap_content"</span></span></span><br><span class="line"><span class="hljs-tag">                     <span class="hljs-attr">android:gravity</span>=<span class="hljs-string">"right"</span></span></span><br><span class="line"><span class="hljs-tag">                     <span class="hljs-attr">android:text</span>=<span class="hljs-string">"@string/about_company_address"</span></span></span><br><span class="line"><span class="hljs-tag">                     <span class="hljs-attr">android:textColor</span>=<span class="hljs-string">"@color/white"</span> /&gt;</span></span><br><span class="line">                  <span class="hljs-tag">&lt;<span class="hljs-name">TextView</span></span></span><br><span class="line"><span class="hljs-tag">                     <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"wrap_content"</span></span></span><br><span class="line"><span class="hljs-tag">                     <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"wrap_content"</span></span></span><br><span class="line"><span class="hljs-tag">                     <span class="hljs-attr">android:singleLine</span>=<span class="hljs-string">"false"</span></span></span><br><span class="line"><span class="hljs-tag">                     <span class="hljs-attr">android:text</span>=<span class="hljs-string">"公司地址1公司地址2公司地址3公司地址4公司地址5公司地址6"</span></span></span><br><span class="line"><span class="hljs-tag">                     <span class="hljs-attr">android:textColor</span>=<span class="hljs-string">"@color/white"</span> /&gt;</span></span><br><span class="line">         <span class="hljs-tag">&lt;/<span class="hljs-name">TableRow</span>&gt;</span></span><br><span class="line">         <span class="hljs-tag">&lt;<span class="hljs-name">TableRow</span></span></span><br><span class="line"><span class="hljs-tag">             <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"wrap_content"</span></span></span><br><span class="line"><span class="hljs-tag">             <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"wrap_content"</span></span></span><br><span class="line"><span class="hljs-tag">             <span class="hljs-attr">android:paddingBottom</span>=<span class="hljs-string">"@dimen/gap_10"</span> &gt;</span></span><br><span class="line">                 <span class="hljs-tag">&lt;<span class="hljs-name">TextView</span></span></span><br><span class="line"><span class="hljs-tag">                     <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"wrap_content"</span></span></span><br><span class="line"><span class="hljs-tag">                     <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"wrap_content"</span></span></span><br><span class="line"><span class="hljs-tag">                     <span class="hljs-attr">android:gravity</span>=<span class="hljs-string">"right"</span></span></span><br><span class="line"><span class="hljs-tag">                     <span class="hljs-attr">android:text</span>=<span class="hljs-string">"@string/about_company_phone"</span></span></span><br><span class="line"><span class="hljs-tag">                     <span class="hljs-attr">android:textColor</span>=<span class="hljs-string">"@color/white"</span> /&gt;</span></span><br><span class="line">                <span class="hljs-tag">&lt;<span class="hljs-name">TextView</span></span></span><br><span class="line"><span class="hljs-tag">                     <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"wrap_content"</span></span></span><br><span class="line"><span class="hljs-tag">                     <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"wrap_content"</span></span></span><br><span class="line"><span class="hljs-tag">                     <span class="hljs-attr">android:text</span>=<span class="hljs-string">"XXX-XXXXXXX"</span></span></span><br><span class="line"><span class="hljs-tag">                     <span class="hljs-attr">android:textColor</span>=<span class="hljs-string">"@color/white"</span> /&gt;</span></span><br><span class="line">           <span class="hljs-tag">&lt;/<span class="hljs-name">TableRow</span>&gt;</span></span><br><span class="line">      <span class="hljs-tag">&lt;/<span class="hljs-name">TableLayout</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">LinearLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这样布局后，理所当然的认为没问题，毕竟我的TextView中添加了singline属性为false，结果发现效果不是我</p>
+<p>想要的</p>
+<p><img src="/img/2016072834.png" alt></p>
+<p>查看布局效果，发现跟我预期的不一样，公司地址的文本虽然换行了，但是有部分字被隐藏了没有显示出来，而且可以明显的看到展示公司地址文本的TextView的宽度已经超出了屏幕，很显然这就是导致部分文字没显示出来的原因。</p>
+<p>既然子布局TextView的宽度超出了TableLayout的宽度，那就想办法让子布局的宽度根据容器的宽度进行收缩，而TableLayout刚好有个属性shrinkColumns可以设置其子布局的宽度收缩以适应容器的大小。</p>
+<p>我设置<code>TableLayout</code>的属性<code>android:shrinkColumns=”1″</code>后，立马就达到了我想要的效果。</p>
+<p>另外<code>TableLayout</code>还有个属性<code>stretchColumns</code>是用来设置子布局的宽度进行拉伸适应容器大小的</p>
+<p>这两个属性的具体用法，大家自行去补脑吧。</p>
 <hr>
 <p>原创文章，严禁随意转载。欢迎大家添加个人微信讨论交流，添加时请备注：博客。<br><img src="/img/weixinCode.jpeg" width="200" height="200" alt></p>
 
@@ -232,7 +207,7 @@ var _hmt = _hmt || [];
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/JSONP/">JSONP</a>, <a class="has-link-grey -link" href="/tags/JavaScript/">JavaScript</a>
+                    <a class="has-link-grey -link" href="/tags/Android/">Android</a>, <a class="has-link-grey -link" href="/tags/View/">View</a>
                 </div>
             </div>
         </div>
@@ -289,16 +264,16 @@ var _hmt = _hmt || [];
     <div class="level post-navigation is-flex-wrap is-mobile">
         
         <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/Android基础之shape使用.html">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/红米Note调用系统相机拍照后应用崩溃问题分析解决.html">
                 <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">Android基础之shape使用</span>
+                <span class="level-item">红米Note调用系统相机拍照后应用崩溃问题分析解决</span>
             </a>
         </div>
         
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/Lucene近实时搜索应用总结.html">
-                <span class="level-item">Lucene近实时搜索应用总结</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/Android-Activity-LifeCycle.html">
+                <span class="level-item">Android基础之Activity生命周期</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -352,7 +327,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        65
+                        66
                     </p>
                 </div>
             </div>
@@ -424,7 +399,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">Android</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">35</span>
+                <span class="level-item tag">36</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/Blog/">
@@ -576,6 +551,19 @@ var _hmt = _hmt || [];
             
             <div class="media-content">
                 <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-10T13:16:13.000Z">2019-05-10</time></div>
+                    <a href="/android-module-develop-config.html" class="has-link-black-ter is-size-6">Android模块化开发配置</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Android/">Android</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-22T09:25:05.000Z">2019-04-22</time></div>
                     <a href="/Kotlin-Coroutine-For-Android-Network.html" class="has-link-black-ter is-size-6">Android中用Kotlin Coroutine(协程)和Retrofit进行网络请求和取消请求</a>
                     <p class="is-size-7 is-uppercase">
@@ -624,19 +612,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-11-05T03:21:17.000Z">2018-11-05</time></div>
-                    <a href="/Flutter-Row-Column-Container.html" class="has-link-black-ter is-size-6">Flutter入门之Row、Column、Container布局</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Flutter/">Flutter</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -648,6 +623,17 @@ var _hmt = _hmt || [];
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2019/04/">
@@ -918,7 +904,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Android/">
                         <span class="tag">Android</span>
-                        <span class="tag is-grey">37</span>
+                        <span class="tag is-grey">38</span>
                     </a>
                 </div>
                 
@@ -1138,6 +1124,19 @@ var _hmt = _hmt || [];
             
             <div class="media-content">
                 <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-10T13:16:13.000Z">2019-05-10</time></div>
+                    <a href="/android-module-develop-config.html" class="has-link-black-ter is-size-6">Android模块化开发配置</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Android/">Android</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-22T09:25:05.000Z">2019-04-22</time></div>
                     <a href="/Kotlin-Coroutine-For-Android-Network.html" class="has-link-black-ter is-size-6">Android中用Kotlin Coroutine(协程)和Retrofit进行网络请求和取消请求</a>
                     <p class="is-size-7 is-uppercase">
@@ -1186,19 +1185,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-11-05T03:21:17.000Z">2018-11-05</time></div>
-                    <a href="/Flutter-Row-Column-Container.html" class="has-link-black-ter is-size-6">Flutter入门之Row、Column、Container布局</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Flutter/">Flutter</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1210,6 +1196,17 @@ var _hmt = _hmt || [];
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2019/04/">
@@ -1480,7 +1477,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Android/">
                         <span class="tag">Android</span>
-                        <span class="tag is-grey">37</span>
+                        <span class="tag is-grey">38</span>
                     </a>
                 </div>
                 
@@ -1690,7 +1687,7 @@ var _hmt = _hmt || [];
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/football.svg" alt="浅谈JSONP跨域请求" height="28">
+                    <img src="/images/football.svg" alt="Android基础之TableLayout中TextView文本无法自动换行" height="28">
                 
                 </a>
                 <p class="is-size-7">

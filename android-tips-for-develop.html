@@ -2,24 +2,24 @@
 <html lang="zh">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>Android中OkHttp的使用 - 老胡</title>
+<title>Android开发问题汇总–持续更新 - 老胡</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta name="description" content="前段时间研究了下Android里面非常火爆的网络请求库OkHttp，这篇文章主要来介绍下OkHttp的常用请求的使用方式，后面一篇文章会介绍本人基于OkHttp封装的一个操作更简单、更适用于项目的网络请求库TigerOkHttp，其源码及Demo地址为：https://github.com/huyongli/TigerOkHttp 一、说明对于OkHttp的基本介绍，以及为什么要使用OkHttp而">
-<meta name="keywords" content="Android,OkHttp">
+    <meta name="description" content="Android开发中遇到的小问题汇总，会持续更新。 提供网上一个Android开放问题汇总贴：https://github.com/JohnTsaiAndroid/AndroidTips">
+<meta name="keywords" content="Android">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android中OkHttp的使用">
-<meta property="og:url" content="http://ittiger.cn/Android中OkHttp的使用.html">
+<meta property="og:title" content="Android开发问题汇总–持续更新">
+<meta property="og:url" content="http://ittiger.cn/android-tips-for-develop.html">
 <meta property="og:site_name" content="老胡">
-<meta property="og:description" content="前段时间研究了下Android里面非常火爆的网络请求库OkHttp，这篇文章主要来介绍下OkHttp的常用请求的使用方式，后面一篇文章会介绍本人基于OkHttp封装的一个操作更简单、更适用于项目的网络请求库TigerOkHttp，其源码及Demo地址为：https://github.com/huyongli/TigerOkHttp 一、说明对于OkHttp的基本介绍，以及为什么要使用OkHttp而">
+<meta property="og:description" content="Android开发中遇到的小问题汇总，会持续更新。 提供网上一个Android开放问题汇总贴：https://github.com/JohnTsaiAndroid/AndroidTips">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://ittiger.cn/images/og_image.png">
-<meta property="og:updated_time" content="2019-05-09T01:56:40.900Z">
+<meta property="og:updated_time" content="2019-05-10T13:28:38.336Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android中OkHttp的使用">
-<meta name="twitter:description" content="前段时间研究了下Android里面非常火爆的网络请求库OkHttp，这篇文章主要来介绍下OkHttp的常用请求的使用方式，后面一篇文章会介绍本人基于OkHttp封装的一个操作更简单、更适用于项目的网络请求库TigerOkHttp，其源码及Demo地址为：https://github.com/huyongli/TigerOkHttp 一、说明对于OkHttp的基本介绍，以及为什么要使用OkHttp而">
+<meta name="twitter:title" content="Android开发问题汇总–持续更新">
+<meta name="twitter:description" content="Android开发中遇到的小问题汇总，会持续更新。 提供网上一个Android开放问题汇总贴：https://github.com/JohnTsaiAndroid/AndroidTips">
 <meta name="twitter:image" content="http://ittiger.cn/images/og_image.png">
 
 
@@ -108,7 +108,7 @@ var _hmt = _hmt || [];
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/football.svg" alt="Android中OkHttp的使用" height="28">
+                <img src="/images/football.svg" alt="Android开发问题汇总–持续更新" height="28">
             
             </a>
         </div>
@@ -159,7 +159,7 @@ var _hmt = _hmt || [];
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2016-01-05T05:51:25.000Z">2016-01-05</time>
+                <time class="level-item has-text-grey" datetime="2015-10-23T14:50:44.000Z">2015-10-23</time>
                 
                 <div class="level-item">
                 <a class="has-link-grey -link" href="/categories/Android/">Android</a>
@@ -169,7 +169,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    13 分钟 读完 (大约 1962 个字)
+                    7 分钟 读完 (大约 1064 个字)
                 </span>
                 
                 
@@ -183,71 +183,44 @@ var _hmt = _hmt || [];
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                Android中OkHttp的使用
+                Android开发问题汇总–持续更新
             
         </h1>
         <div class="content">
-            <p>前段时间研究了下Android里面非常火爆的网络请求库OkHttp，这篇文章主要来介绍下OkHttp的常用请求的使用方式，后面一篇文章会介绍本人基于OkHttp封装的一个操作更简单、更适用于项目的网络请求库TigerOkHttp，其源码及Demo地址为：<a href="https://github.com/huyongli/TigerOkHttp" target="_blank" rel="noopener">https://github.com/huyongli/TigerOkHttp</a></p>
-<h3 id="一、说明"><a href="#一、说明" class="headerlink" title="一、说明"></a>一、说明</h3><p>对于OkHttp的基本介绍，以及为什么要使用OkHttp而不再使用HttpURLConnection或者是HttpClient，各位自己找度娘去，我这里就不再废话了。</p>
-<p>使用OkHttp之前，需要先下载OkHttp.jar包，大家可以在<a href="https://github.com/square/okhttp去下载OkHttp的最新jar包以及源码，" target="_blank" rel="noopener">https://github.com/square/okhttp去下载OkHttp的最新jar包以及源码，</a></p>
-<p>同时因为OkHttp内部依赖okio，所以大家还要自行下载okio.jar包，下载地址在这里<a href="https://github.com/square/okio" target="_blank" rel="noopener">https://github.com/square/okio</a></p>
+            <p>Android开发中遇到的小问题汇总，会持续更新。</p>
+<p>提供网上一个Android开放问题汇总贴：<a href="https://github.com/JohnTsaiAndroid/AndroidTips" target="_blank" rel="noopener">https://github.com/JohnTsaiAndroid/AndroidTips</a></p>
 <a id="more"></a>
-<h3 id="二、使用教程"><a href="#二、使用教程" class="headerlink" title="二、使用教程"></a>二、使用教程</h3><h4 id="1-Get请求"><a href="#1-Get请求" class="headerlink" title="1.Get请求"></a>1.Get请求</h4><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">//创建OkHttpClient对象，用于稍后发起请求</span></span><br><span class="line">OkHttpClient client = <span class="hljs-keyword">new</span> OkHttpClient();</span><br><span class="line"><span class="hljs-comment">//根据请求URL创建一个Request对象</span></span><br><span class="line">Request request = <span class="hljs-keyword">new</span> Request.Builder().url(<span class="hljs-string">"https://github.com/huyongli/TigerOkHttp"</span>).build();</span><br><span class="line"> </span><br><span class="line"><span class="hljs-comment">//根据Request对象发起Get同步Http请求</span></span><br><span class="line">Response response = client.newCall(request).execute();</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="hljs-comment">//根据Request对象发起Get异步Http请求，并添加请求回调</span></span><br><span class="line">client.newCall(request).enqueue(<span class="hljs-keyword">new</span> Callback() &#123;</span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onResponse</span><span class="hljs-params">(<span class="hljs-keyword">final</span> Response response)</span> <span class="hljs-keyword">throws</span> IOException </span>&#123;</span><br><span class="line">       <span class="hljs-comment">//请求成功，此处对请求结果进行处理</span></span><br><span class="line">       <span class="hljs-comment">//String result = response.body().string();</span></span><br><span class="line">       <span class="hljs-comment">//InputStream is = response.body().byteStream();</span></span><br><span class="line">       <span class="hljs-comment">//byte[] bytes = response.body().bytes();</span></span><br><span class="line">    &#125;</span><br><span class="line">			</span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onFailure</span><span class="hljs-params">(Request request, IOException e)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-comment">//请求失败</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>上面的代码示例演示了OkHttp中一个普通的Http  get请求是如何实现的，对于上面的代码，作一下简单的说明</p>
 <ol>
-<li><p>既然是get请求，当然得先构造好你要请求的URL</p>
-</li>
-<li><p>有了请求URL，紧接着就是需要通过这个URL构造一个请求对象Request</p>
-</li>
-<li><p>当然有时候可能你需要对这个Http请求添加一些自定义的请求头信息header，这时你在构造Request对象之前通过<code>Request.Builder builder = new Request.Builder()</code>创建的builder 对象来添加自己需要添加的请求头信息<code>builder.addHeader(key, value)</code></p>
-</li>
-<li><p>OkHttp是自带请求缓存控制策略的，如果你想改变某个请求的缓存控制策略，你也可以通过builder对象来修改缓存策略<code>builder.cacheControl()</code></p>
-</li>
-<li><p>通过上述步骤构造好请求对象Request之后，通过OkHttpClient创建一个Call任务对象，这个对象有execute()和cancel()等方法对Call任务对象进行执行和取消</p>
-</li>
-<li><p>如果是同步阻塞请求的话，直接执行Call对象的<code>execute()</code>方法即可得到请求结果。</p>
-</li>
-<li><p>如果是异步请求的话，就需要执行Call对象的<code>enqueue(new Callback(){})</code>方法，将任务对象添加到任务请求调度队列中，同时添加请求回调接口。</p>
-</li>
-<li><p>请求成功之后，可以得到一个Response对象，如果想获得返回的字符串结果则可以通过<code>response.body().string()</code>，如果想获得返回结果的二进制数据的话可以通过<code>response.body().bytes()</code>，如果想获得返回的InputStream的话可以通过<code>response.body().byteStream()</code></p>
-</li>
-<li><p>通过上面我们可以发现在Response对象中我们可以获取InputStream对象，所以从此处我们可以看出在异步请求<code>onResponse(Response response)</code>回调方法中我们可以通过IO方式来进行写文件，所以在此回调中我们可以进行大文件的下载处理，同时也说明此回调并不是在UI线程中执行的，所以此处如果要进行UI操作的话各位需要自行处理下。</p>
+<li><p>TextView控件中给文本添加下划线的几种方式:</p>
+<p> 1.资源文件中用HTML标签<u>把文本包起来即可</u></p>
+<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">resources</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"hello"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">u</span>&gt;</span>hello<span class="hljs-tag">&lt;/<span class="hljs-name">u</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">resources</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h4 id="2-Post请求"><a href="#2-Post请求" class="headerlink" title="2.Post请求"></a>2.Post请求</h4><p>上面对OkHttp的Get请求分析完之后，OkHttp的整个请求流程和处理流程就清晰，Post请求和Get请求的流程都是一样，区别只是在于Request对象构造上有区别。<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">//创建OkHttpClient对象</span></span><br><span class="line">OkHttpClient client = <span class="hljs-keyword">new</span> OkHttpClient();</span><br><span class="line"><span class="hljs-comment">//通过FormEncodingBuilder对象添加多个请求参数键值对</span></span><br><span class="line">FormEncodingBuilder builder = <span class="hljs-keyword">new</span> FormEncodingBuilder();</span><br><span class="line">builder.add(<span class="hljs-string">"method"</span>, <span class="hljs-string">"post"</span>).add(<span class="hljs-string">"param"</span>, value);</span><br><span class="line"><span class="hljs-comment">//通过FormEncodingBuilder对象构造Post请求体</span></span><br><span class="line">RequestBody body = builder.build();</span><br><span class="line"><span class="hljs-comment">//通过请求地址和请求体构造Post请求对象Request</span></span><br><span class="line">Request request = <span class="hljs-keyword">new</span> Request.Builder().url(url).post(body).build();</span><br></pre></td></tr></table></figure></p>
-<p>上面的代码演示了如何构造普通Post请求(不包含文件上传)的请求体和请求对象，请求对象构造成功之后，后面的请求过程和处理流程就和Get请求是一样的了。</p>
-<h4 id="3-文件上传"><a href="#3-文件上传" class="headerlink" title="3.文件上传"></a>3.文件上传</h4><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">//多个图片文件列表 </span></span><br><span class="line">List&lt;File&gt; list = <span class="hljs-keyword">new</span> ArrayList&lt;File&gt;();</span><br><span class="line"><span class="hljs-comment">//多文件表单上传构造器</span></span><br><span class="line">MultipartBuilder multipartBuilder = <span class="hljs-keyword">new</span> MultipartBuilder().type(MultipartBuilder.FORM);</span><br><span class="line"><span class="hljs-comment">//添加一个文本表单参数</span></span><br><span class="line">multipartBuilder.addFormDataPart(<span class="hljs-string">"method"</span>, <span class="hljs-string">"upload上传"</span>);</span><br><span class="line"><span class="hljs-keyword">for</span>(File file : list) &#123;</span><br><span class="line">    <span class="hljs-keyword">if</span>(file.exists()) &#123;</span><br><span class="line">        multipartBuilder.addFormDataPart(file.getName(), file.getName(), RequestBody.create(MediaType.parse(<span class="hljs-string">"image/png"</span>), file));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-comment">//构造文件上传时的请求对象Request</span></span><br><span class="line">Request request = <span class="hljs-keyword">new</span> Request.Builder().url(url).post(multipartBuilder.build()).build();</span><br></pre></td></tr></table></figure>
-<p>文件上传时的重点是通过<code>MultipartBuilder</code>构造器添加要上传的文件和表单参数，OkHttp中文件上传时，没有可以直接实现上传进度显示的接口，这个需要手动对OkHttp中的请求体进行扩展，这篇文章中就不写了，在下篇文章介绍<code>TigerOkHttp</code>时我会进行介绍。</p>
-<h4 id="4-文件下载"><a href="#4-文件下载" class="headerlink" title="4.文件下载"></a>4.文件下载</h4><p>文件下载功能在第一点Get请求的几点说明中已经介绍过了，无论你是通过Get请求还是Post请求，只需要从请求结果对象Response中获取到结果输入流InputStream，然后通过IO操作进行写文件即可实现文件下载功能。在通过IO操作写文件时，也可以自行实现下载进度显示的功能。</p>
-<h4 id="5-编码问题"><a href="#5-编码问题" class="headerlink" title="5.编码问题"></a>5.编码问题</h4><p>在OkHttp中，无论是Get请求还是Post请求所有参数的编码方式都是默认采用UTF-8的编码方式进行编码。</p>
-<p>所以在进行Get请求或Post请求时，文本参数都不需要我们进行手动编码，但是在服务端进行参数解析时，需要做简单的处理，这里我只说明tomcat下运行的Java后台服务的处理方式：</p>
-<ol>
-<li><p>针对Get请求，我们只需要在tomcat的server.xml文件中设置默认编码方式<code>(URIEncoding=”UTF-8″ )</code>为UTF-8即可，注意此编码设置只对Get请求有效。</p>
-</li>
-<li><p>针对Post请求，我们在解析获取参数值之前需要手动设置请求的编码方式为UTF-8，如：<code>req.setCharacterEncoding(“UTF-8”);</code></p>
+<p>Java代码中可以这样处理：<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">TextView textView = (TextView)findViewById(R.id.tv_test); </span><br><span class="line">textView.setText(Html.fromHtml(<span class="hljs-string">"&lt;u&gt;"</span>+<span class="hljs-string">"hello"</span>+<span class="hljs-string">"&lt;/u&gt;"</span>));</span><br><span class="line"><span class="hljs-comment">//或者这样处理</span></span><br><span class="line">textView .getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG ); <span class="hljs-comment">//下划线</span></span><br></pre></td></tr></table></figure></p>
+<ol start="2">
+<li>当将一个Android工程设置为Library之后，在另外一个Android工程中如果通过Configure build Path –&gt; Java Build Path –&gt; Project选项 –&gt; Add刚刚设置的library工程的话，是无法识别library工程中的资源文件的(引用资源文件编译不通过)。应该这样设置Configure build Path –&gt; Android –&gt; library选项 –&gt; Add刚刚设置的library工程。</li>
+</ol>
+<ol start="3">
+<li>Java中三目运算符如果和自动拆箱一起用会出现空指针异常，如下代码：<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;String, Boolean&gt; map = <span class="hljs-keyword">new</span> HashMap&lt;String, Boolean&gt;();</span><br><span class="line">Boolean b = (map != <span class="hljs-keyword">null</span> ? map.get(<span class="hljs-string">"test"</span>) : <span class="hljs-keyword">false</span>);</span><br><span class="line">System.out.println(b);</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h3 id="OkHttp封装框架–TigerOkHttp"><a href="#OkHttp封装框架–TigerOkHttp" class="headerlink" title="OkHttp封装框架–TigerOkHttp"></a>OkHttp封装框架–TigerOkHttp</h3><p>以上就是OkHttp最基本的用法，下篇文章我会介绍我自己基于OkHttp更进一步封装的网络请求库TigerOkHttp，它主要包含了如下功能特点：</p>
-<ol>
-<li><p>一般的get同步阻塞请求和异步请求</p>
-</li>
-<li><p>一般的post同步阻塞请求和异步请求</p>
-</li>
-<li><p>实现了文件上传功能（包含文件上传进度回调显示）</p>
-</li>
-<li><p>实现了大文件下载功能，只需要指定文件下载路径即可，也包含了下载进度的回调显示</p>
-</li>
-<li><p>实现了请求结果的自动解析，用户也可以根据需求扩展自定义结果解析类</p>
-</li>
-<li><p>对所有请求都支持直接将结果解析转换为JavaBean对象或集合</p>
-</li>
-<li><p>支持对返回结果结构的自定义，例如设置返回结果结构为：{flag：1|0，error：错误信息，result：请求结果}，结果解析的时候会按照此结构进行结果解析</p>
-</li>
-<li><p>支持取消某个请求</p>
+<p>出现空指针的原因是因为Java三目运算符中第二、三位操作数为基本类型和对象时，会自动将对象拆箱为基本类型数据进行运算(大家可以自己去看官方文档)，上述代码中刚好符合这种情况(第二位为对象，第三位为基本类型)，map.get(“test”)在实际执行中是这样执行的：((Boolean)map.get(“test”)).booleanValue()，将map中取得的Boolean对象自动拆箱为基本类型，而这个地方map.get(“test”)取出的值为null，自动拆箱的时候就会出现空指针了。如果这个地方一定要用三目运算符，只需要保证第二、三位操作数均为对象即可<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;String, Boolean&gt; map = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">Boolean b = (map != <span class="hljs-keyword">null</span> ? map.get(<span class="hljs-string">"test"</span>) : Boolean.valueOf(<span class="hljs-keyword">false</span>));</span><br><span class="line">System.out.println(b);</span><br></pre></td></tr></table></figure></p>
+<ol start="4">
+<li>Activity中两个Fragment进行切换时，例如：有FragmentA和FragmentB，进入Activity的时候，默认显示FragmentA，我点击FragmentA中的某个按钮切换到FragmentB，同时调用addToBackStack加入到返回栈，当我在FragmentB中点击返回按钮回到FragmentA时，FragmentA中的onResume方法却不执行。遇到这个问题的话可以看看在Activity中是否还保持了对FragmentB的引用，比如加入到了某个集合中或是声明成了Activity的成员变量，都会引发此问题。</li>
+</ol>
+<ol start="5">
+<li>Android中内部类就算实现了Serializable接口，也不能通过Intent进行序列化传参。如果传递的参数为序列化对象，该对象类不能是某个类里面的内部类。</li>
+</ol>
+<ol start="6">
+<li><code>java.lang.IllegalStateException: Can not perform this action after onSaveInstanceState。</code>出现问题的时机：我在进行Activity跳转时，会调用super.onBackPressed()方法手动finish掉当前的Activity（继承自android.support.v4.app.FragmentActivity），当屏幕处于竖屏状态时没有任何问题，但是当我设置为横屏在进行跳转操作时，会出现上述异常。 异常信息如下：<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">java.lang.IllegalStateException: Can not perform <span class="hljs-keyword">this</span> action after onSaveInstanceState</span><br><span class="line">	</span><br><span class="line">at android.support.v4.app.FragmentManagerImpl.checkStateLoss(FragmentManager.java:<span class="hljs-number">1343</span>)</span><br><span class="line">	</span><br><span class="line">at android.support.v4.app.FragmentManagerImpl.popBackStackImmediate(FragmentManager.java:<span class="hljs-number">486</span>)</span><br><span class="line">	</span><br><span class="line">at android.support.v4.app.FragmentActivity.onBackPressed(FragmentActivity.java:<span class="hljs-number">179</span>)</span><br><span class="line">	</span><br><span class="line">at com.emap.base.BaseActivity.finishActivity(BaseActivity.java:<span class="hljs-number">360</span>)</span><br><span class="line">	</span><br><span class="line">at com.emap.air.activity.IndexActivity$<span class="hljs-number">1</span>.handleMessage(IndexActivity.java:<span class="hljs-number">128</span>)</span><br><span class="line">	</span><br><span class="line">at android.os.Handler.dispatchMessage(Handler.java:<span class="hljs-number">99</span>)</span><br><span class="line">	</span><br><span class="line">at android.os.Looper.loop(Looper.java:<span class="hljs-number">137</span>)</span><br><span class="line">	</span><br><span class="line">at android.app.ActivityThread.main(ActivityThread.java:<span class="hljs-number">5119</span>)</span><br><span class="line">	</span><br><span class="line">at java.lang.reflect.Method.invokeNative(Native Method)</span><br><span class="line">	</span><br><span class="line">at java.lang.reflect.Method.invoke(Method.java:<span class="hljs-number">511</span>)</span><br><span class="line">	</span><br><span class="line">at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:<span class="hljs-number">834</span>)</span><br><span class="line">	</span><br><span class="line">at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:<span class="hljs-number">601</span>)</span><br><span class="line">	</span><br><span class="line">at dalvik.system.NativeStart.main(Native Method)</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>write by laohu</p>
-<p>2016-1-5 </p>
+<p>通过上述异常可以看出错误出现的原因并不是我自己写的代码导致的，猜测的话可能跟系统版本有关。</p>
+<p>解决办法：将super.onBackPressed()替换成finish()方法来结束当前Activity即可。</p>
+<p>参考文章：<a href="http://zhiweiofli.iteye.com/blog/1539467" target="_blank" rel="noopener">http://zhiweiofli.iteye.com/blog/1539467</a></p>
+<ol start="7">
+<li>TextView通过代码设置字体大小要使用如下方式<code>textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimensionPixelSize(R.dimen.dp_10));</code>必须要使用该方法设置单位类型，否则设置的字体效果会和你预期的不一样</li>
+</ol>
 <hr>
 <p>原创文章，严禁随意转载。欢迎大家添加个人微信讨论交流，添加时请备注：博客。<br><img src="/img/weixinCode.jpeg" width="200" height="200" alt></p>
 
@@ -257,7 +230,7 @@ var _hmt = _hmt || [];
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/Android/">Android</a>, <a class="has-link-grey -link" href="/tags/OkHttp/">OkHttp</a>
+                    <a class="has-link-grey -link" href="/tags/Android/">Android</a>
                 </div>
             </div>
         </div>
@@ -314,16 +287,16 @@ var _hmt = _hmt || [];
     <div class="level post-navigation is-flex-wrap is-mobile">
         
         <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/基于OkHttp的封装库TigerOkHttp的使用.html">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/基于openfire-smack开发Android即时聊天应用-一-—openfire安装部署.html">
                 <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">基于OkHttp的封装库TigerOkHttp的使用</span>
+                <span class="level-item">基于openfire+smack开发Android即时聊天应用[一]—openfire安装部署</span>
             </a>
         </div>
         
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/Android百度地图导航功能的那些坑.html">
-                <span class="level-item">Android百度地图导航功能的那些坑</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/红米Note调用系统相机拍照后应用崩溃问题分析解决.html">
+                <span class="level-item">红米Note调用系统相机拍照后应用崩溃问题分析解决</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -377,7 +350,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        65
+                        66
                     </p>
                 </div>
             </div>
@@ -449,7 +422,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">Android</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">35</span>
+                <span class="level-item tag">36</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/Blog/">
@@ -601,6 +574,19 @@ var _hmt = _hmt || [];
             
             <div class="media-content">
                 <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-10T13:16:13.000Z">2019-05-10</time></div>
+                    <a href="/android-module-develop-config.html" class="has-link-black-ter is-size-6">Android模块化开发配置</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Android/">Android</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-22T09:25:05.000Z">2019-04-22</time></div>
                     <a href="/Kotlin-Coroutine-For-Android-Network.html" class="has-link-black-ter is-size-6">Android中用Kotlin Coroutine(协程)和Retrofit进行网络请求和取消请求</a>
                     <p class="is-size-7 is-uppercase">
@@ -649,19 +635,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-11-05T03:21:17.000Z">2018-11-05</time></div>
-                    <a href="/Flutter-Row-Column-Container.html" class="has-link-black-ter is-size-6">Flutter入门之Row、Column、Container布局</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Flutter/">Flutter</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -673,6 +646,17 @@ var _hmt = _hmt || [];
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2019/04/">
@@ -943,7 +927,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Android/">
                         <span class="tag">Android</span>
-                        <span class="tag is-grey">37</span>
+                        <span class="tag is-grey">38</span>
                     </a>
                 </div>
                 
@@ -1163,6 +1147,19 @@ var _hmt = _hmt || [];
             
             <div class="media-content">
                 <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-10T13:16:13.000Z">2019-05-10</time></div>
+                    <a href="/android-module-develop-config.html" class="has-link-black-ter is-size-6">Android模块化开发配置</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Android/">Android</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-22T09:25:05.000Z">2019-04-22</time></div>
                     <a href="/Kotlin-Coroutine-For-Android-Network.html" class="has-link-black-ter is-size-6">Android中用Kotlin Coroutine(协程)和Retrofit进行网络请求和取消请求</a>
                     <p class="is-size-7 is-uppercase">
@@ -1211,19 +1208,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-11-05T03:21:17.000Z">2018-11-05</time></div>
-                    <a href="/Flutter-Row-Column-Container.html" class="has-link-black-ter is-size-6">Flutter入门之Row、Column、Container布局</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Flutter/">Flutter</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1235,6 +1219,17 @@ var _hmt = _hmt || [];
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2019/04/">
@@ -1505,7 +1500,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Android/">
                         <span class="tag">Android</span>
-                        <span class="tag is-grey">37</span>
+                        <span class="tag is-grey">38</span>
                     </a>
                 </div>
                 
@@ -1715,7 +1710,7 @@ var _hmt = _hmt || [];
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/football.svg" alt="Android中OkHttp的使用" height="28">
+                    <img src="/images/football.svg" alt="Android开发问题汇总–持续更新" height="28">
                 
                 </a>
                 <p class="is-size-7">

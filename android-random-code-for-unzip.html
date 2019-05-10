@@ -11,12 +11,12 @@
 <meta name="keywords" content="Android">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android基础之解压zip中文乱码处理">
-<meta property="og:url" content="http://ittiger.cn/Android基础之解压zip中文乱码处理.html">
+<meta property="og:url" content="http://ittiger.cn/android-random-code-for-unzip.html">
 <meta property="og:site_name" content="老胡">
 <meta property="og:description" content="####乱码原因分析一般我们使用的Windows系统外部文件默认都是GBK编码方式，Mac系统默认的好像是UTF-8(同事的电脑就是，不知道其他人的是不是)，Linux的没验证过，这里我讨论的是Windows下打包的zip文件。    Java中自带的ZipEntry解压缩的编码方式是UTF-8，而且没有可以自定义编码方式的接口，所以当我们使用UTF-8编码去解压缩GBK编码的文件的时，解压缩出来">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://ittiger.cn/images/og_image.png">
-<meta property="og:updated_time" content="2019-05-09T09:09:10.270Z">
+<meta property="og:updated_time" content="2019-05-10T13:28:18.415Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android基础之解压zip中文乱码处理">
 <meta name="twitter:description" content="####乱码原因分析一般我们使用的Windows系统外部文件默认都是GBK编码方式，Mac系统默认的好像是UTF-8(同事的电脑就是，不知道其他人的是不是)，Linux的没验证过，这里我讨论的是Windows下打包的zip文件。    Java中自带的ZipEntry解压缩的编码方式是UTF-8，而且没有可以自定义编码方式的接口，所以当我们使用UTF-8编码去解压缩GBK编码的文件的时，解压缩出来">
@@ -261,7 +261,7 @@ var _hmt = _hmt || [];
     <div class="level post-navigation is-flex-wrap is-mobile">
         
         <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/Android调用相机无法执行onActivityResult或data为null.html">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/android-camera-result-null.html">
                 <i class="level-item fas fa-chevron-left"></i>
                 <span class="level-item">Android调用相机无法执行onActivityResult或data为null</span>
             </a>
@@ -269,7 +269,7 @@ var _hmt = _hmt || [];
         
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/Android基础之shape使用.html">
+            <a class="level level-item has-link-grey  article-nav-next" href="/android-for-shape.html">
                 <span class="level-item">Android基础之shape使用</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
@@ -324,7 +324,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        65
+                        66
                     </p>
                 </div>
             </div>
@@ -396,7 +396,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">Android</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">35</span>
+                <span class="level-item tag">36</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/Blog/">
@@ -548,6 +548,19 @@ var _hmt = _hmt || [];
             
             <div class="media-content">
                 <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-10T13:16:13.000Z">2019-05-10</time></div>
+                    <a href="/android-module-develop-config.html" class="has-link-black-ter is-size-6">Android模块化开发配置</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Android/">Android</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-22T09:25:05.000Z">2019-04-22</time></div>
                     <a href="/Kotlin-Coroutine-For-Android-Network.html" class="has-link-black-ter is-size-6">Android中用Kotlin Coroutine(协程)和Retrofit进行网络请求和取消请求</a>
                     <p class="is-size-7 is-uppercase">
@@ -596,19 +609,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-11-05T03:21:17.000Z">2018-11-05</time></div>
-                    <a href="/Flutter-Row-Column-Container.html" class="has-link-black-ter is-size-6">Flutter入门之Row、Column、Container布局</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Flutter/">Flutter</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -620,6 +620,17 @@ var _hmt = _hmt || [];
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2019/04/">
@@ -890,7 +901,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Android/">
                         <span class="tag">Android</span>
-                        <span class="tag is-grey">37</span>
+                        <span class="tag is-grey">38</span>
                     </a>
                 </div>
                 
@@ -1110,6 +1121,19 @@ var _hmt = _hmt || [];
             
             <div class="media-content">
                 <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-10T13:16:13.000Z">2019-05-10</time></div>
+                    <a href="/android-module-develop-config.html" class="has-link-black-ter is-size-6">Android模块化开发配置</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Android/">Android</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-22T09:25:05.000Z">2019-04-22</time></div>
                     <a href="/Kotlin-Coroutine-For-Android-Network.html" class="has-link-black-ter is-size-6">Android中用Kotlin Coroutine(协程)和Retrofit进行网络请求和取消请求</a>
                     <p class="is-size-7 is-uppercase">
@@ -1158,19 +1182,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-11-05T03:21:17.000Z">2018-11-05</time></div>
-                    <a href="/Flutter-Row-Column-Container.html" class="has-link-black-ter is-size-6">Flutter入门之Row、Column、Container布局</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Flutter/">Flutter</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1182,6 +1193,17 @@ var _hmt = _hmt || [];
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2019/04/">
@@ -1452,7 +1474,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Android/">
                         <span class="tag">Android</span>
-                        <span class="tag is-grey">37</span>
+                        <span class="tag is-grey">38</span>
                     </a>
                 </div>
                 

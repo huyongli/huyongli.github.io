@@ -2,24 +2,24 @@
 <html lang="zh">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>RecyclerView子View宽度不充满父容器 - 老胡</title>
+<title>Android基础之点击两次返回键退出程序 - 老胡</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta name="description" content="今天用RecyclerView写了简单的例子，使用的是LinearLyaoutManager，子View采用的TextView，准备写个简单的List展示，我的RecyclerView和TextView的宽度布局都采用的是match_parent，结果显示出来之后发现子View的宽度压根就没有充满屏幕。之前也用过RecyclerView，但是没有遇到过这个问题，很不解啊~~~网上查阅之后说是在Ad">
-<meta name="keywords" content="Android,RecyclerView">
+    <meta name="description" content="Android应用中退出应用程序通常有两种做法，一种是使用选择对话框询问用户是否退出应用程序，另外一种是快速点击返回按钮两次然后退出应用。其中第二种实现方式较为普遍，而且我个人认为这种方式用户体验性要好点。下面，我介绍两种常用的点击两次返回退出应用的实现方式。">
+<meta name="keywords" content="Android">
 <meta property="og:type" content="article">
-<meta property="og:title" content="RecyclerView子View宽度不充满父容器">
-<meta property="og:url" content="http://ittiger.cn/RecyclerView子View宽度不充满父容器.html">
+<meta property="og:title" content="Android基础之点击两次返回键退出程序">
+<meta property="og:url" content="http://ittiger.cn/android-exit-app-for-double-click.html">
 <meta property="og:site_name" content="老胡">
-<meta property="og:description" content="今天用RecyclerView写了简单的例子，使用的是LinearLyaoutManager，子View采用的TextView，准备写个简单的List展示，我的RecyclerView和TextView的宽度布局都采用的是match_parent，结果显示出来之后发现子View的宽度压根就没有充满屏幕。之前也用过RecyclerView，但是没有遇到过这个问题，很不解啊~~~网上查阅之后说是在Ad">
+<meta property="og:description" content="Android应用中退出应用程序通常有两种做法，一种是使用选择对话框询问用户是否退出应用程序，另外一种是快速点击返回按钮两次然后退出应用。其中第二种实现方式较为普遍，而且我个人认为这种方式用户体验性要好点。下面，我介绍两种常用的点击两次返回退出应用的实现方式。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://ittiger.cn/images/og_image.png">
-<meta property="og:updated_time" content="2019-05-09T01:56:40.905Z">
+<meta property="og:updated_time" content="2019-05-10T13:27:42.903Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="RecyclerView子View宽度不充满父容器">
-<meta name="twitter:description" content="今天用RecyclerView写了简单的例子，使用的是LinearLyaoutManager，子View采用的TextView，准备写个简单的List展示，我的RecyclerView和TextView的宽度布局都采用的是match_parent，结果显示出来之后发现子View的宽度压根就没有充满屏幕。之前也用过RecyclerView，但是没有遇到过这个问题，很不解啊~~~网上查阅之后说是在Ad">
+<meta name="twitter:title" content="Android基础之点击两次返回键退出程序">
+<meta name="twitter:description" content="Android应用中退出应用程序通常有两种做法，一种是使用选择对话框询问用户是否退出应用程序，另外一种是快速点击返回按钮两次然后退出应用。其中第二种实现方式较为普遍，而且我个人认为这种方式用户体验性要好点。下面，我介绍两种常用的点击两次返回退出应用的实现方式。">
 <meta name="twitter:image" content="http://ittiger.cn/images/og_image.png">
 
 
@@ -108,7 +108,7 @@ var _hmt = _hmt || [];
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/football.svg" alt="RecyclerView子View宽度不充满父容器" height="28">
+                <img src="/images/football.svg" alt="Android基础之点击两次返回键退出程序" height="28">
             
             </a>
         </div>
@@ -159,7 +159,7 @@ var _hmt = _hmt || [];
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2016-07-23T13:45:10.000Z">2016-07-23</time>
+                <time class="level-item has-text-grey" datetime="2015-09-27T10:40:05.000Z">2015-09-27</time>
                 
                 <div class="level-item">
                 <a class="has-link-grey -link" href="/categories/Android/">Android</a>
@@ -169,7 +169,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    2 分钟 读完 (大约 228 个字)
+                    4 分钟 读完 (大约 614 个字)
                 </span>
                 
                 
@@ -183,13 +183,21 @@ var _hmt = _hmt || [];
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                RecyclerView子View宽度不充满父容器
+                Android基础之点击两次返回键退出程序
             
         </h1>
         <div class="content">
-            <p>今天用<code>RecyclerView</code>写了简单的例子，使用的是<code>LinearLyaoutManager</code>，子<code>View</code>采用的<code>TextView</code>，准备写个简单的List展示，我的<code>RecyclerView</code>和<code>TextView</code>的宽度布局都采用的是<code>match_parent</code>，结果显示出来之后发现子<code>View</code>的宽度压根就没有充满屏幕。之前也用过<code>RecyclerView</code>，但是没有遇到过这个问题，很不解啊~~~网上查阅之后说是在<code>Adapter</code>的<code>onCreateViewHolder</code>方法中构造<code>View</code>的时候不能用如下方式：<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">View.inflate(mContext, R.layout.item_layout, <span class="hljs-keyword">null</span>);</span><br></pre></td></tr></table></figure></p>
-<p>必须要换成下面的构造方式把parent带进去：<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LayoutInflater.from(mContext).inflate(R.layout.item_layout, parent, <span class="hljs-keyword">false</span>);</span><br></pre></td></tr></table></figure></p>
-<p>而我的<code>Adapter</code>中刚好就使用的是第一种方式，于是立马换成下面的第二种方式实现，运行看效果，果然充满了屏幕~~~这个问题还真是奇葩啊~<br><a id="more"></a></p>
+            <p>Android应用中退出应用程序通常有两种做法，一种是使用选择对话框询问用户是否退出应用程序，另外一种是快速点击返回按钮两次然后退出应用。其中第二种实现方式较为普遍，而且我个人认为这种方式用户体验性要好点。下面，我介绍两种常用的点击两次返回退出应用的实现方式。</p>
+<a id="more"></a>
+<ul>
+<li><p>通过标识变量进行控制。首先定义一个布尔变量，赋初始值false。然后监听手机返回按钮，当点击返回按钮时，如果该布尔变量值为false，则把这个变量置为true；如果该变量为true，则退出程序。最后定义一个时间任务，2秒执行一次，如果布尔变量为true，则重置为false。这里定义一个循环周期为2秒的任务是为了达到快速点击两次的效果。<br>这样，在第一次点击返回按钮时，仅仅改变布尔值变量，而不会退出，第二次点击才会退出。如果用户点击了一次，那么2秒之后布尔变量又被重置为false，只有2秒内的两次点击才会退出程序。代码如下：</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> Boolean isQuit = <span class="hljs-keyword">false</span>;</span><br><span class="line"><span class="hljs-keyword">private</span> Timer timer = <span class="hljs-keyword">new</span> Timer();</span><br><span class="line"><span class="hljs-meta">@Override</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onBackPressed</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">if</span> (isQuit == <span class="hljs-keyword">false</span>) &#123;</span><br><span class="line">        isQuit = <span class="hljs-keyword">true</span>;</span><br><span class="line">        Toast.makeText(getBaseContext(), <span class="hljs-string">"再按一次返回键退出程序"</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">        TimerTask task = <span class="hljs-keyword">null</span>;</span><br><span class="line">        task = <span class="hljs-keyword">new</span> TimerTask() &#123;</span><br><span class="line">            <span class="hljs-meta">@Override</span></span><br><span class="line">            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">                isQuit = <span class="hljs-keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        timer.schedule(task, <span class="hljs-number">2000</span>);</span><br><span class="line">    &#125; <span class="hljs-keyword">else</span> &#123;</span><br><span class="line">        finish();</span><br><span class="line">        System.exit(<span class="hljs-number">0</span>);</span><br><span class="line">        android.os.Process.killProcess(android.os.Process.myPid());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>通过两次点击返回按钮时的时间间隔进行判断。这种实现方式主要是用第二次点击返回按钮时的时间减去第一次点击的返回按钮时的时间，看这个时间差是否大于2秒，如果大于2秒则提示需要再点击一次才能退出，如果时间差小于等于2秒，则退出应用，实现代码如下：</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">private</span> <span class="hljs-keyword">long</span> exitTime = <span class="hljs-number">0</span>;</span><br><span class="line"><span class="hljs-meta">@Override</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onBackPressed</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">if</span>(System.currentTimeMillis() - exitTime &gt; <span class="hljs-number">2000</span>) &#123;</span><br><span class="line">        Toast.makeText(<span class="hljs-keyword">this</span>, <span class="hljs-string">"再按一次退出程序"</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">        exitTime = System.currentTimeMillis();</span><br><span class="line">   &#125; <span class="hljs-keyword">else</span> &#123;</span><br><span class="line">       finish();</span><br><span class="line">       System.exit(<span class="hljs-number">0</span>);</span><br><span class="line">       android.os.Process.killProcess(android.os.Process.myPid());    </span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>我个人认为第二种实现方式更简单，更好理解，推荐使用这种实现方式。</p>
 <hr>
 <p>原创文章，严禁随意转载。欢迎大家添加个人微信讨论交流，添加时请备注：博客。<br><img src="/img/weixinCode.jpeg" width="200" height="200" alt></p>
 
@@ -199,7 +207,7 @@ var _hmt = _hmt || [];
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/Android/">Android</a>, <a class="has-link-grey -link" href="/tags/RecyclerView/">RecyclerView</a>
+                    <a class="has-link-grey -link" href="/tags/Android/">Android</a>
                 </div>
             </div>
         </div>
@@ -256,16 +264,16 @@ var _hmt = _hmt || [];
     <div class="level post-navigation is-flex-wrap is-mobile">
         
         <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/让RecyclerView更通用.html">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/阿里云服务器安装Apache.html">
                 <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">让RecyclerView更通用</span>
+                <span class="level-item">阿里云服务器安装Apache</span>
             </a>
         </div>
         
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/RecyclerView下拉刷新上拉加载.html">
-                <span class="level-item">RecyclerView下拉刷新上拉加载</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/android-camera-result-null.html">
+                <span class="level-item">Android调用相机无法执行onActivityResult或data为null</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -319,7 +327,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        65
+                        66
                     </p>
                 </div>
             </div>
@@ -391,7 +399,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">Android</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">35</span>
+                <span class="level-item tag">36</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/Blog/">
@@ -543,6 +551,19 @@ var _hmt = _hmt || [];
             
             <div class="media-content">
                 <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-10T13:16:13.000Z">2019-05-10</time></div>
+                    <a href="/android-module-develop-config.html" class="has-link-black-ter is-size-6">Android模块化开发配置</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Android/">Android</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-22T09:25:05.000Z">2019-04-22</time></div>
                     <a href="/Kotlin-Coroutine-For-Android-Network.html" class="has-link-black-ter is-size-6">Android中用Kotlin Coroutine(协程)和Retrofit进行网络请求和取消请求</a>
                     <p class="is-size-7 is-uppercase">
@@ -591,19 +612,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-11-05T03:21:17.000Z">2018-11-05</time></div>
-                    <a href="/Flutter-Row-Column-Container.html" class="has-link-black-ter is-size-6">Flutter入门之Row、Column、Container布局</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Flutter/">Flutter</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -615,6 +623,17 @@ var _hmt = _hmt || [];
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2019/04/">
@@ -885,7 +904,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Android/">
                         <span class="tag">Android</span>
-                        <span class="tag is-grey">37</span>
+                        <span class="tag is-grey">38</span>
                     </a>
                 </div>
                 
@@ -1105,6 +1124,19 @@ var _hmt = _hmt || [];
             
             <div class="media-content">
                 <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-10T13:16:13.000Z">2019-05-10</time></div>
+                    <a href="/android-module-develop-config.html" class="has-link-black-ter is-size-6">Android模块化开发配置</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Android/">Android</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-22T09:25:05.000Z">2019-04-22</time></div>
                     <a href="/Kotlin-Coroutine-For-Android-Network.html" class="has-link-black-ter is-size-6">Android中用Kotlin Coroutine(协程)和Retrofit进行网络请求和取消请求</a>
                     <p class="is-size-7 is-uppercase">
@@ -1153,19 +1185,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-11-05T03:21:17.000Z">2018-11-05</time></div>
-                    <a href="/Flutter-Row-Column-Container.html" class="has-link-black-ter is-size-6">Flutter入门之Row、Column、Container布局</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Flutter/">Flutter</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1177,6 +1196,17 @@ var _hmt = _hmt || [];
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2019/04/">
@@ -1447,7 +1477,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Android/">
                         <span class="tag">Android</span>
-                        <span class="tag is-grey">37</span>
+                        <span class="tag is-grey">38</span>
                     </a>
                 </div>
                 
@@ -1657,7 +1687,7 @@ var _hmt = _hmt || [];
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/football.svg" alt="RecyclerView子View宽度不充满父容器" height="28">
+                    <img src="/images/football.svg" alt="Android基础之点击两次返回键退出程序" height="28">
                 
                 </a>
                 <p class="is-size-7">

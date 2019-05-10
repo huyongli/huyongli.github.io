@@ -2,19 +2,24 @@
 <html lang="zh">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>归档: 2015 - 老胡</title>
+<title>Android基础之shape使用 - 老胡</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="老胡">
-<meta property="og:url" content="http://ittiger.cn/archives/2015/page/2/index.html">
+    <meta name="description" content="Android中的shape标签用于描述形状，可以在布局文件layout和选择器selector中使用，它有6个子标签，具体如下：">
+<meta name="keywords" content="Android,Shape">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android基础之shape使用">
+<meta property="og:url" content="http://ittiger.cn/android-for-shape.html">
 <meta property="og:site_name" content="老胡">
+<meta property="og:description" content="Android中的shape标签用于描述形状，可以在布局文件layout和选择器selector中使用，它有6个子标签，具体如下：">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://ittiger.cn/images/og_image.png">
+<meta property="og:updated_time" content="2019-05-10T13:25:52.747Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="老胡">
+<meta name="twitter:title" content="Android基础之shape使用">
+<meta name="twitter:description" content="Android中的shape标签用于描述形状，可以在布局文件layout和选择器selector中使用，它有6个子标签，具体如下：">
 <meta name="twitter:image" content="http://ittiger.cn/images/og_image.png">
 
 
@@ -103,7 +108,7 @@ var _hmt = _hmt || [];
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/football.svg" alt="老胡" height="28">
+                <img src="/images/football.svg" alt="Android基础之shape使用" height="28">
             
             </a>
         </div>
@@ -148,231 +153,163 @@ var _hmt = _hmt || [];
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
-<div class="card widget">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2015-09-26T06:17:42.000Z">2015-09-26</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Android/">Android</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    3 分钟 读完 (大约 506 个字)
+                </span>
+                
+                
+                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_page_pv">0</span>次访问
+                </span>
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                Android基础之shape使用
+            
+        </h1>
+        <div class="content">
+            <p>Android中的shape标签用于描述形状，可以在布局文件layout和选择器selector中使用，它有6个子标签，具体如下：</p>
+<a id="more"></a>
+<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">shape</span> <span class="hljs-attr">xmlns:android</span>=<span class="hljs-string">"http://schemas.android.com/apk/res/android"</span> &gt;</span></span><br><span class="line">    <span class="hljs-comment">&lt;!-- 设置圆角效果 --&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">corners</span> </span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">android:radius</span>=<span class="hljs-string">"5dp"</span>/&gt;</span>                   </span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">&lt;!-- 设置背景渐变色 --&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">gradient</span> </span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">android:startColor</span>=<span class="hljs-string">"@color/red"</span>         </span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">android:endColor</span>=<span class="hljs-string">"@color/black"</span></span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">android:centerColor</span>=<span class="hljs-string">"@color/white"</span></span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">android:angle</span>=<span class="hljs-string">"-90"</span></span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">android:gradientRadius</span>=<span class="hljs-string">"90"</span>/&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="hljs-comment">&lt;!-- 边距间隔 --&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">padding</span> </span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">android:left</span>=<span class="hljs-string">"10dp"</span></span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">android:top</span>=<span class="hljs-string">"10dp"</span></span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">android:right</span>=<span class="hljs-string">"10dp"</span></span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">android:bottom</span>=<span class="hljs-string">"10dp"</span>/&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="hljs-comment">&lt;!-- 大小 --&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">size</span> </span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">android:width</span>=<span class="hljs-string">"20dp"</span></span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">android:height</span>=<span class="hljs-string">"20dp"</span>/&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="hljs-comment">&lt;!-- 背景填充色 --&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">solid</span> </span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">android:color</span>=<span class="hljs-string">"@color/red"</span>/&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="hljs-comment">&lt;!--边框线 --&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">stroke</span> </span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">android:color</span>=<span class="hljs-string">"@color/black"</span></span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">android:width</span>=<span class="hljs-string">"2dp"</span>/&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">shape</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li><code>shape</code>：根节点 <shape>有一个shape属性，可以设置不同的形状<ol start="2">
+<li><code>android:shape=&quot;line&quot;</code>：设置shape为线形（包括实线、虚线）</li>
+<li><code>android:shape=&quot;rectangle&quot;</code>：设置shape为矩形</li>
+<li><code>android:shape=&quot;oval&quot;</code>：设置shape为椭圆形</li>
+<li><code>android:shape=&quot;ring&quot;</code>：设置shape为环形</li>
+</ol>
+</shape></li>
+<li><code>corners子节点</code>：设置圆角效果<ol start="7">
+<li><code>android:radius</code>：圆角的半径</li>
+</ol>
+</li>
+<li><code>gradient子节点</code>：背景渐变色<ol start="9">
+<li><code>android:startColor</code>：渐变起始色</li>
+<li><code>android:endColor</code>：渐变结束色</li>
+<li><code>android:centerColor</code>:渐变过程中中间的颜色</li>
+<li><code>android:angle</code>:渐变的角度朝向(45的倍数)，默认朝向为从左至右，每增加45度，则逆时针转动45度开始渐变</li>
+<li><code>android:gradientRadius</code>:这个属性还不知道是什么意思</li>
+</ol>
+</li>
+<li><code>padding子节点</code>：边距，该标签的几个属性就比较常用比较简单了，就不描述了</li>
+<li><code>size子节点</code>：大小，这个标签的属性也比较简单</li>
+<li><code>solid子节点</code>：背景填充色<ol start="17">
+<li><code>android:color</code>:背景颜色，设置该标签属性之后，gradient标签将不会起作用</li>
+</ol>
+</li>
+<li><code>stroke子节点</code>：线（可以设置控件的边框，也可以设置一条实线或虚线）<ol start="19">
+<li><code>android:color</code>：线的颜色</li>
+<li><code>android:width</code>：线的宽度</li>
+<li><code>android:dashGap</code>：虚线间的间距</li>
+<li><code>android:dashWidth</code>：每个虚线段的长度（当设置为虚线的时候，最好不要设置android:width属性）</li>
+</ol>
+</li>
+</ol>
+<p>一般比较常用的是边线，填充色，背景色这三个标签</p>
+<p>如果要为某个控件设置背景边框、渐变色、填充色或者是通过View设置控件间的分割线，都可以使用shape配合selector来进行实现</p>
+<hr>
+<p>原创文章，严禁随意转载。欢迎大家添加个人微信讨论交流，添加时请备注：博客。<br><img src="/img/weixinCode.jpeg" width="200" height="200" alt></p>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/Android/">Android</a>, <a class="has-link-grey -link" href="/tags/Shape/">Shape</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+    <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+</div>
+<script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "2", "bdPic": "", "bdStyle": "0", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];</script>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
     <div class="card-content">
-        <h3 class="tag is-link">
-        2015
-        </h3>
-        <div class="timeline">
-        
-            <article class="media">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2015-10-01T10:16:48.000Z">2015-10-01</time>
-                        <a href="/简单实用的Android-ORM框架TigerDB.html" class="has-link-black-ter is-size-6">简单实用的Android ORM框架TigerDB</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/Android/">Android</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="/img/alipay.png" alt="支付宝"></div>
+</a>
+
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2015-09-30T14:05:53.000Z">2015-09-30</time>
-                        <a href="/WordPress安装插件提示无法定位WordPress内容目录（wp-content）.html" class="has-link-black-ter is-size-6">WordPress安装插件提示无法定位WordPress内容目录（wp-content）</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/Blog/">Blog</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2015-09-29T12:05:53.000Z">2015-09-29</time>
-                        <a href="/WordPress安装插件提示无法创建目录.html" class="has-link-black-ter is-size-6">WordPress安装插件提示无法创建目录</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/Blog/">Blog</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/img/weixinpay.png" alt="微信"></div>
+</a>
+
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2015-09-28T14:01:48.000Z">2015-09-28</time>
-                        <a href="/阿里云服务器安装vsftpd.html" class="has-link-black-ter is-size-6">阿里云服务器安装vsftpd</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/Linux/">Linux</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
-                
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2015-09-28T13:55:23.000Z">2015-09-28</time>
-                        <a href="/阿里云服务器安装MySQL.html" class="has-link-black-ter is-size-6">阿里云服务器安装MySQL</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/Linux/">Linux</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
-                
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2015-09-27T13:51:04.000Z">2015-09-27</time>
-                        <a href="/阿里云服务器安装Apache.html" class="has-link-black-ter is-size-6">阿里云服务器安装Apache</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/Linux/">Linux</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
-                
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2015-09-27T10:40:05.000Z">2015-09-27</time>
-                        <a href="/android-exit-app-for-double-click.html" class="has-link-black-ter is-size-6">Android基础之点击两次返回键退出程序</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/Android/">Android</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
-                
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2015-09-26T13:44:09.000Z">2015-09-26</time>
-                        <a href="/android-camera-result-null.html" class="has-link-black-ter is-size-6">Android调用相机无法执行onActivityResult或data为null</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/Android/">Android</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
-                
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2015-09-26T13:34:09.000Z">2015-09-26</time>
-                        <a href="/android-random-code-for-unzip.html" class="has-link-black-ter is-size-6">Android基础之解压zip中文乱码处理</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/Android/">Android</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
-                
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2015-09-26T06:17:42.000Z">2015-09-26</time>
-                        <a href="/android-for-shape.html" class="has-link-black-ter is-size-6">Android基础之shape使用</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/Android/">Android</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
         </div>
     </div>
 </div>
 
 
 
-
-    
 <div class="card card-transparent">
-    <nav class="pagination is-centered" role="navigation" aria-label="pagination">
-        <div class="pagination-previous">
-            <a class="is-flex-grow has-text-black-ter" href="/archives/2015/">上一页</a>
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/android-random-code-for-unzip.html">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">Android基础之解压zip中文乱码处理</span>
+            </a>
         </div>
-        <div class="pagination-next">
-            <a class="is-flex-grow has-text-black-ter" href="/archives/2015/page/3/">下一页</a>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/talk-jsonp-cross-domain-request.html">
+                <span class="level-item">浅谈JSONP跨域请求</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
         </div>
-        <ul class="pagination-list is-hidden-mobile">
-            
-            <li><a class="pagination-link has-text-black-ter" href="/archives/2015/">1</a></li>
-            
-            <li><a class="pagination-link is-current" href="/archives/2015/page/2/">2</a></li>
-            
-            <li><a class="pagination-link has-text-black-ter" href="/archives/2015/page/3/">3</a></li>
-            
-        </ul>
-    </nav>
+        
+    </div>
 </div>
+
+
 </div>
                 
 
@@ -1778,7 +1715,7 @@ var _hmt = _hmt || [];
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/football.svg" alt="老胡" height="28">
+                    <img src="/images/football.svg" alt="Android基础之shape使用" height="28">
                 
                 </a>
                 <p class="is-size-7">

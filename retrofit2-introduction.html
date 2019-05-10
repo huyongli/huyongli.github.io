@@ -2,24 +2,24 @@
 <html lang="zh">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>Android基础之shape使用 - 老胡</title>
+<title>Retrofit2使用介绍 - 老胡</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta name="description" content="Android中的shape标签用于描述形状，可以在布局文件layout和选择器selector中使用，它有6个子标签，具体如下：">
-<meta name="keywords" content="Android,Shape">
+    <meta name="description" content="前言对于还不知道Refrofit是什么的同学，我只能说你们太out了，赶紧去Google下，本文是针对Retrofit2.0的使用介绍，当然大家也可以直接去官网上去看使用介绍 添加依赖要使用Retrofit首先得添加gradle依赖12compile &amp;apos;com.squareup.retrofit2:retrofit:2.0.2&amp;apos;compile &amp;apos;com.squareu">
+<meta name="keywords" content="Android,Retrofit">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android基础之shape使用">
-<meta property="og:url" content="http://ittiger.cn/Android基础之shape使用.html">
+<meta property="og:title" content="Retrofit2使用介绍">
+<meta property="og:url" content="http://ittiger.cn/retrofit2-introduction.html">
 <meta property="og:site_name" content="老胡">
-<meta property="og:description" content="Android中的shape标签用于描述形状，可以在布局文件layout和选择器selector中使用，它有6个子标签，具体如下：">
+<meta property="og:description" content="前言对于还不知道Refrofit是什么的同学，我只能说你们太out了，赶紧去Google下，本文是针对Retrofit2.0的使用介绍，当然大家也可以直接去官网上去看使用介绍 添加依赖要使用Retrofit首先得添加gradle依赖12compile &amp;apos;com.squareup.retrofit2:retrofit:2.0.2&amp;apos;compile &amp;apos;com.squareu">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://ittiger.cn/images/og_image.png">
-<meta property="og:updated_time" content="2019-05-09T01:56:40.900Z">
+<meta property="og:updated_time" content="2019-05-10T13:34:58.299Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android基础之shape使用">
-<meta name="twitter:description" content="Android中的shape标签用于描述形状，可以在布局文件layout和选择器selector中使用，它有6个子标签，具体如下：">
+<meta name="twitter:title" content="Retrofit2使用介绍">
+<meta name="twitter:description" content="前言对于还不知道Refrofit是什么的同学，我只能说你们太out了，赶紧去Google下，本文是针对Retrofit2.0的使用介绍，当然大家也可以直接去官网上去看使用介绍 添加依赖要使用Retrofit首先得添加gradle依赖12compile &amp;apos;com.squareup.retrofit2:retrofit:2.0.2&amp;apos;compile &amp;apos;com.squareu">
 <meta name="twitter:image" content="http://ittiger.cn/images/og_image.png">
 
 
@@ -108,7 +108,7 @@ var _hmt = _hmt || [];
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/football.svg" alt="Android基础之shape使用" height="28">
+                <img src="/images/football.svg" alt="Retrofit2使用介绍" height="28">
             
             </a>
         </div>
@@ -159,7 +159,7 @@ var _hmt = _hmt || [];
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2015-09-26T06:17:42.000Z">2015-09-26</time>
+                <time class="level-item has-text-grey" datetime="2016-08-29T12:50:13.000Z">2016-08-29</time>
                 
                 <div class="level-item">
                 <a class="has-link-grey -link" href="/categories/Android/">Android</a>
@@ -169,7 +169,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    3 分钟 读完 (大约 506 个字)
+                    10 分钟 读完 (大约 1485 个字)
                 </span>
                 
                 
@@ -183,49 +183,41 @@ var _hmt = _hmt || [];
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                Android基础之shape使用
+                Retrofit2使用介绍
             
         </h1>
         <div class="content">
-            <p>Android中的shape标签用于描述形状，可以在布局文件layout和选择器selector中使用，它有6个子标签，具体如下：</p>
+            <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>对于还不知道Refrofit是什么的同学，我只能说你们太out了，赶紧去Google下，本文是针对Retrofit2.0的使用介绍，当然大家也可以直接去<a href="http://square.github.io/retrofit/" target="_blank" rel="noopener">官网</a>上去看使用介绍</p>
+<h4 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a>添加依赖</h4><p>要使用Retrofit首先得添加gradle依赖<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">compile &apos;com.squareup.retrofit2:retrofit:2.0.2&apos;</span><br><span class="line">compile &apos;com.squareup.retrofit2:converter-gson:2.0.0&apos;</span><br></pre></td></tr></table></figure></p>
+<h4 id="声明服务接口"><a href="#声明服务接口" class="headerlink" title="声明服务接口"></a>声明服务接口</h4><p>依赖添加完成之后，就可以开始撸代码了，首先我们要新建一个Interface，这个接口就是你要请求的接口服务类，就像这个样子</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">RetrofitService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-meta">@GET</span>(<span class="hljs-string">"getModelService"</span>)</span><br><span class="line">    <span class="hljs-function">Call&lt;User&gt; <span class="hljs-title">getModelService</span><span class="hljs-params">()</span></span>;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面这个接口中暂时只声明了一个方法，而在Retrofit中想这样声明的一个方法就代表了一个具体的Http请求接口。Retrofit中方法上添加<code>@GET</code>注解就表示当前方法代表一个Get请求，我们声明的这个请求方法不带任何参数，且返回结果是User对象。<br><code>@GET</code>注解括号中的值<code>getModelService</code>就代表http请求地址的具体指向，这个值与下面baseUrl中配置的URL一起组成一个完整的请求地址<br>Retrofit就是这么任性，它可以帮我们把http的请求结果自动转换成Javabean对象，这将为我们减少不少编码工作。</p>
+<h4 id="构造Retrofit对象"><a href="#构造Retrofit对象" class="headerlink" title="构造Retrofit对象"></a>构造Retrofit对象</h4><p>接口服务声明完成之后，我们接着需要新建一个Retrofit对象<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Retrofit retrofit = <span class="hljs-keyword">new</span> Retrofit.Builder()</span><br><span class="line">         .baseUrl(<span class="hljs-string">"http://localhost:8080/AndroidService/"</span>)</span><br><span class="line">         .addConverterFactory(GsonConverterFactory.create())</span><br><span class="line">         .build();</span><br><span class="line">RetrofitService service = retrofit.create(RetrofitService.class);</span><br></pre></td></tr></table></figure></p>
 <a id="more"></a>
-<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">shape</span> <span class="hljs-attr">xmlns:android</span>=<span class="hljs-string">"http://schemas.android.com/apk/res/android"</span> &gt;</span></span><br><span class="line">    <span class="hljs-comment">&lt;!-- 设置圆角效果 --&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">corners</span> </span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">android:radius</span>=<span class="hljs-string">"5dp"</span>/&gt;</span>                   </span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">&lt;!-- 设置背景渐变色 --&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">gradient</span> </span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">android:startColor</span>=<span class="hljs-string">"@color/red"</span>         </span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">android:endColor</span>=<span class="hljs-string">"@color/black"</span></span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">android:centerColor</span>=<span class="hljs-string">"@color/white"</span></span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">android:angle</span>=<span class="hljs-string">"-90"</span></span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">android:gradientRadius</span>=<span class="hljs-string">"90"</span>/&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="hljs-comment">&lt;!-- 边距间隔 --&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">padding</span> </span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">android:left</span>=<span class="hljs-string">"10dp"</span></span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">android:top</span>=<span class="hljs-string">"10dp"</span></span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">android:right</span>=<span class="hljs-string">"10dp"</span></span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">android:bottom</span>=<span class="hljs-string">"10dp"</span>/&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="hljs-comment">&lt;!-- 大小 --&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">size</span> </span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">android:width</span>=<span class="hljs-string">"20dp"</span></span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">android:height</span>=<span class="hljs-string">"20dp"</span>/&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="hljs-comment">&lt;!-- 背景填充色 --&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">solid</span> </span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">android:color</span>=<span class="hljs-string">"@color/red"</span>/&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="hljs-comment">&lt;!--边框线 --&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">stroke</span> </span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">android:color</span>=<span class="hljs-string">"@color/black"</span></span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">android:width</span>=<span class="hljs-string">"2dp"</span>/&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">shape</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>通过上面的代码我们就创建了一个Retrofit对象，同时通过这个Retrofit对象将我们前面声明的服务接口进行了实例化，有了这个服务接口实例化对象，我们就可以调用接口里面声明的方法进行http请求了。</p>
 <ol>
-<li><code>shape</code>：根节点 <shape>有一个shape属性，可以设置不同的形状<ol start="2">
-<li><code>android:shape=&quot;line&quot;</code>：设置shape为线形（包括实线、虚线）</li>
-<li><code>android:shape=&quot;rectangle&quot;</code>：设置shape为矩形</li>
-<li><code>android:shape=&quot;oval&quot;</code>：设置shape为椭圆形</li>
-<li><code>android:shape=&quot;ring&quot;</code>：设置shape为环形</li>
-</ol>
-</shape></li>
-<li><code>corners子节点</code>：设置圆角效果<ol start="7">
-<li><code>android:radius</code>：圆角的半径</li>
-</ol>
-</li>
-<li><code>gradient子节点</code>：背景渐变色<ol start="9">
-<li><code>android:startColor</code>：渐变起始色</li>
-<li><code>android:endColor</code>：渐变结束色</li>
-<li><code>android:centerColor</code>:渐变过程中中间的颜色</li>
-<li><code>android:angle</code>:渐变的角度朝向(45的倍数)，默认朝向为从左至右，每增加45度，则逆时针转动45度开始渐变</li>
-<li><code>android:gradientRadius</code>:这个属性还不知道是什么意思</li>
-</ol>
-</li>
-<li><code>padding子节点</code>：边距，该标签的几个属性就比较常用比较简单了，就不描述了</li>
-<li><code>size子节点</code>：大小，这个标签的属性也比较简单</li>
-<li><code>solid子节点</code>：背景填充色<ol start="17">
-<li><code>android:color</code>:背景颜色，设置该标签属性之后，gradient标签将不会起作用</li>
-</ol>
-</li>
-<li><code>stroke子节点</code>：线（可以设置控件的边框，也可以设置一条实线或虚线）<ol start="19">
-<li><code>android:color</code>：线的颜色</li>
-<li><code>android:width</code>：线的宽度</li>
-<li><code>android:dashGap</code>：虚线间的间距</li>
-<li><code>android:dashWidth</code>：每个虚线段的长度（当设置为虚线的时候，最好不要设置android:width属性）</li>
-</ol>
+<li>另外需要说明是我们在设置baseUrl的时候一般在都是以/结尾，而不是在接口方法中的url以/开头</li>
+<li>前面说的Retrofit会将请求结果自动转换成Javabean对象，其实这个是需要配置结果转换器的，就像上面我配置的<code>addConverterFactory(GsonConverterFactory.create())</code>，配置了这个转换器工厂之后，就会将请求得到的JSON数据自动转换成Javabean对象。同样如果请求得到的数据是xml类型的话，转换成Javabean对象则需要配置成其他类型的转换器</li>
+<li>Retrofit其实已经为我们提供了多种转换器供我们选择：<blockquote>
+<p>Gson: com.squareup.retrofit2:converter-gson<br>Jackson: com.squareup.retrofit2:converter-jackson<br>Moshi: com.squareup.retrofit2:converter-moshi<br>Protobuf: com.squareup.retrofit2:converter-protobuf<br>Wire: com.squareup.retrofit2:converter-wire<br>Simple XML: com.squareup.retrofit2:converter-simplexml<br>Scalars (primitives, boxed, and String): com.squareup.retrofit2:converter-scalars</p>
+</blockquote>
 </li>
 </ol>
-<p>一般比较常用的是边线，填充色，背景色这三个标签</p>
-<p>如果要为某个控件设置背景边框、渐变色、填充色或者是通过View设置控件间的分割线，都可以使用shape配合selector来进行实现</p>
+<h4 id="同步请求"><a href="#同步请求" class="headerlink" title="同步请求"></a>同步请求</h4><p>前面准备工作都完成了，ok，可以开始发起请求了<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Call&lt;User&gt; call = service.getModelServiceSync();</span><br><span class="line">Response&lt;User&gt; response = call.execute();</span><br><span class="line"><span class="hljs-keyword">if</span>(response.isSuccessful()) &#123;</span><br><span class="line">    User user = response.body();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这就是Retrofit的基本使用流程：添加依赖–&gt;声明接口–&gt;创建Retrofit和接口对象–&gt;选择执行同步异步请求</p>
+<h4 id="异步请求"><a href="#异步请求" class="headerlink" title="异步请求"></a>异步请求</h4><p>同步请求执行<code>call.execute()</code>即可，异步请求则是这样：<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">call.enqueue(<span class="hljs-keyword">new</span> Callback&lt;User&gt;() &#123;</span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onResponse</span><span class="hljs-params">(Call&lt;User&gt; call, Response&lt;User&gt; response)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">if</span>(response.isSuccessful()) &#123;</span><br><span class="line">            User user = response.body();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onFailure</span><span class="hljs-params">(Call&lt;User&gt; call, Throwable t)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<h4 id="带参Get请求"><a href="#带参Get请求" class="headerlink" title="带参Get请求"></a>带参Get请求</h4><p>如果要实现带参数的Get请求，则需要将我们上面的方法声明改成如下形式<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">@GET</span>(<span class="hljs-string">"getModelService"</span>)</span><br><span class="line"><span class="hljs-function">Call&lt;User&gt; <span class="hljs-title">getModelService</span><span class="hljs-params">(@Query(<span class="hljs-string">"param1"</span>)</span> <span class="hljs-keyword">boolean</span> param1, @<span class="hljs-title">Query</span><span class="hljs-params">(<span class="hljs-string">"param2"</span>)</span> <span class="hljs-keyword">boolean</span> param2)</span>;</span><br></pre></td></tr></table></figure></p>
+<p>Retrofit中我们只需要将要传输到服务端的参数添加<code>@Query</code>注解即可，而<code>@Query</code>注解括号中的值<code>param1</code>和<code>param2</code>则是对应的参数名</p>
+<p>Retrofit也为我们提供了另外一种形式，使用<code>@QueryMap</code>注解来声明一个集合作为请求参数<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">@GET</span>(<span class="hljs-string">"getModelService"</span>)</span><br><span class="line"><span class="hljs-function">Call&lt;User&gt; <span class="hljs-title">getModelService</span><span class="hljs-params">(@QueryMap Map&lt;String, String&gt; parmas)</span></span>;</span><br></pre></td></tr></table></figure></p>
+<h4 id="动态URL"><a href="#动态URL" class="headerlink" title="动态URL"></a>动态URL</h4><p>如果我们有两个这样的请求地址<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http:<span class="hljs-comment">//localhost:8080/AndroidService/user/zhangsan</span></span><br><span class="line">http:<span class="hljs-comment">//localhost:8080/AndroidService/user/lisi</span></span><br></pre></td></tr></table></figure></p>
+<p>这两个请求地址很明显，除了最后的一段不一样其他的都一样。因此如果按照上面的做法的话，我们要请求这两个服务就需要声明两个接口方法，如果这两个请求地址没有其他参数的话声明两个接口方法不是感觉很累赘，所以Retrofit为我们提供了动态构造URL的方式来声明类似请求地址的接口方法。<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">@GET</span>(<span class="hljs-string">"user/&#123;path&#125;"</span>)</span><br><span class="line"><span class="hljs-function">Call&lt;User&gt; <span class="hljs-title">getModelService</span><span class="hljs-params">(@Path(path)</span> String path, @<span class="hljs-title">Query</span><span class="hljs-params">(<span class="hljs-string">"param1"</span>)</span> <span class="hljs-keyword">boolean</span> param1, @<span class="hljs-title">Query</span><span class="hljs-params">(<span class="hljs-string">"param2"</span>)</span> <span class="hljs-keyword">boolean</span> param2)</span>;</span><br></pre></td></tr></table></figure></p>
+<p>上面的方法中，<code>@GET</code>注解中<code>{path}</code>就代表URL可以动态变化的那一部分，<code>@Path</code>注解则表示该方法参数的值就是<code>{path}</code>中的动态值</p>
+<h4 id="Post请求"><a href="#Post请求" class="headerlink" title="Post请求"></a>Post请求</h4><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">@FormUrlEncoded</span></span><br><span class="line"><span class="hljs-meta">@POST</span>(<span class="hljs-string">"postService"</span>)</span><br><span class="line"><span class="hljs-function">Call&lt;String&gt; <span class="hljs-title">postModelService</span><span class="hljs-params">(@Field(<span class="hljs-string">"msg"</span>)</span> String msg, @<span class="hljs-title">Field</span><span class="hljs-params">(<span class="hljs-string">"string"</span>)</span> <span class="hljs-keyword">boolean</span> isString)</span>;</span><br></pre></td></tr></table></figure>
+<p>Retrofit中的Post请求则需要将前面的<code>@GET</code>注解换成<code>@POST</code>注解，而Post请求的文本参数则用注解<code>@Field</code>来声明，同时还必须给方法添加注解<code>@FormUrlEncoded</code>来告知Retrofit参数为表单参数，如果只为参数增加<code>@Field</code>注解，而不给方法添加<code>@FormUrlEncoded</code>注解运行时会抛异常。</p>
+<p>如果Post请求有很多参数同样也可以使用集合的方式进行声明<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">@FormUrlEncoded</span></span><br><span class="line"><span class="hljs-meta">@POST</span>(<span class="hljs-string">"&#123;path&#125;"</span>)</span><br><span class="line"><span class="hljs-function">Call&lt;User&gt; <span class="hljs-title">postModelService</span><span class="hljs-params">(@Path(<span class="hljs-string">"path"</span>)</span> String path, @FieldMap Map&lt;String, String&gt; map)</span>;</span><br></pre></td></tr></table></figure></p>
+<p>Retrofit中提供了注解<code>@FieldMap</code>用来声明一个Map类型的集合作为Post请求的表单参数</p>
+<p>Post请求的服务接口声明完成之后，讲得到的<code>Call</code>对象调用<code>execute</code>或者<code>enqueue</code>即可发起同步或异步的Post请求</p>
+<p>以上就是Retrofit2的基本使用，下一篇文章我讲接着介绍Retrofit2中的文件上传和文件下载，以及如何实现文件上传和下载过程中的进度条</p>
 <hr>
 <p>原创文章，严禁随意转载。欢迎大家添加个人微信讨论交流，添加时请备注：博客。<br><img src="/img/weixinCode.jpeg" width="200" height="200" alt></p>
 
@@ -235,7 +227,7 @@ var _hmt = _hmt || [];
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/Android/">Android</a>, <a class="has-link-grey -link" href="/tags/Shape/">Shape</a>
+                    <a class="has-link-grey -link" href="/tags/Android/">Android</a>, <a class="has-link-grey -link" href="/tags/Retrofit/">Retrofit</a>
                 </div>
             </div>
         </div>
@@ -292,16 +284,16 @@ var _hmt = _hmt || [];
     <div class="level post-navigation is-flex-wrap is-mobile">
         
         <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/Android基础之解压zip中文乱码处理.html">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/retrofit2-upload-download-progress.html">
                 <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">Android基础之解压zip中文乱码处理</span>
+                <span class="level-item">Retrofit2文件上传下载及其进度显示</span>
             </a>
         </div>
         
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/浅谈JSONP跨域请求.html">
-                <span class="level-item">浅谈JSONP跨域请求</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/让RecyclerView更通用.html">
+                <span class="level-item">让RecyclerView更通用</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -355,7 +347,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        65
+                        66
                     </p>
                 </div>
             </div>
@@ -427,7 +419,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">Android</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">35</span>
+                <span class="level-item tag">36</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/Blog/">
@@ -579,6 +571,19 @@ var _hmt = _hmt || [];
             
             <div class="media-content">
                 <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-10T13:16:13.000Z">2019-05-10</time></div>
+                    <a href="/android-module-develop-config.html" class="has-link-black-ter is-size-6">Android模块化开发配置</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Android/">Android</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-22T09:25:05.000Z">2019-04-22</time></div>
                     <a href="/Kotlin-Coroutine-For-Android-Network.html" class="has-link-black-ter is-size-6">Android中用Kotlin Coroutine(协程)和Retrofit进行网络请求和取消请求</a>
                     <p class="is-size-7 is-uppercase">
@@ -627,19 +632,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-11-05T03:21:17.000Z">2018-11-05</time></div>
-                    <a href="/Flutter-Row-Column-Container.html" class="has-link-black-ter is-size-6">Flutter入门之Row、Column、Container布局</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Flutter/">Flutter</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -651,6 +643,17 @@ var _hmt = _hmt || [];
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2019/04/">
@@ -921,7 +924,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Android/">
                         <span class="tag">Android</span>
-                        <span class="tag is-grey">37</span>
+                        <span class="tag is-grey">38</span>
                     </a>
                 </div>
                 
@@ -1141,6 +1144,19 @@ var _hmt = _hmt || [];
             
             <div class="media-content">
                 <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-10T13:16:13.000Z">2019-05-10</time></div>
+                    <a href="/android-module-develop-config.html" class="has-link-black-ter is-size-6">Android模块化开发配置</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Android/">Android</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-22T09:25:05.000Z">2019-04-22</time></div>
                     <a href="/Kotlin-Coroutine-For-Android-Network.html" class="has-link-black-ter is-size-6">Android中用Kotlin Coroutine(协程)和Retrofit进行网络请求和取消请求</a>
                     <p class="is-size-7 is-uppercase">
@@ -1189,19 +1205,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-11-05T03:21:17.000Z">2018-11-05</time></div>
-                    <a href="/Flutter-Row-Column-Container.html" class="has-link-black-ter is-size-6">Flutter入门之Row、Column、Container布局</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Flutter/">Flutter</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1213,6 +1216,17 @@ var _hmt = _hmt || [];
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2019/04/">
@@ -1483,7 +1497,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Android/">
                         <span class="tag">Android</span>
-                        <span class="tag is-grey">37</span>
+                        <span class="tag is-grey">38</span>
                     </a>
                 </div>
                 
@@ -1693,7 +1707,7 @@ var _hmt = _hmt || [];
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/football.svg" alt="Android基础之shape使用" height="28">
+                    <img src="/images/football.svg" alt="Retrofit2使用介绍" height="28">
                 
                 </a>
                 <p class="is-size-7">

@@ -2,24 +2,24 @@
 <html lang="zh">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>Android调用相机无法执行onActivityResult或data为null - 老胡</title>
+<title>Android模块化开发配置 - 老胡</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta name="description" content="最近项目中调用系统相机时遇到了这么个问题：红米手机无法执行onActivityResult回调，部分华为手机无法获取到照片数据，最后各种分析，各种网上搜索资料折腾了好久，最后终于把问题解决，当看到问题的最终原因时，我也是醉了，简直就是坑爹坑大发了。 最开始用红米手机调用系统相机的时，当我拍照完成点击那个勾勾始终无法返回到前面的界面上，也就是无法调用onActivityResult函数取到拍照的照片">
+    <meta name="description" content="模块化 项目由多个模块组成 每个模块都是一个独立的Feature或组件 业务模块间解耦不相互直接依赖 业务模块与公共组件模块通过aar依赖 每个模块独立开发，独立运行调试  模块化的好处当一个项目越来越大，越来越复杂后，代码量就会变得越来大，难以阅读难以维护，业务之间出现耦合的可能性也会越来越大，同时整个APP编译调试的时间也会越来越长。 而使用模块化开发则可以解决以上问题：  项目代码结构清晰，">
 <meta name="keywords" content="Android">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android调用相机无法执行onActivityResult或data为null">
-<meta property="og:url" content="http://ittiger.cn/Android调用相机无法执行onActivityResult或data为null.html">
+<meta property="og:title" content="Android模块化开发配置">
+<meta property="og:url" content="http://ittiger.cn/android-module-develop-config.html">
 <meta property="og:site_name" content="老胡">
-<meta property="og:description" content="最近项目中调用系统相机时遇到了这么个问题：红米手机无法执行onActivityResult回调，部分华为手机无法获取到照片数据，最后各种分析，各种网上搜索资料折腾了好久，最后终于把问题解决，当看到问题的最终原因时，我也是醉了，简直就是坑爹坑大发了。 最开始用红米手机调用系统相机的时，当我拍照完成点击那个勾勾始终无法返回到前面的界面上，也就是无法调用onActivityResult函数取到拍照的照片">
+<meta property="og:description" content="模块化 项目由多个模块组成 每个模块都是一个独立的Feature或组件 业务模块间解耦不相互直接依赖 业务模块与公共组件模块通过aar依赖 每个模块独立开发，独立运行调试  模块化的好处当一个项目越来越大，越来越复杂后，代码量就会变得越来大，难以阅读难以维护，业务之间出现耦合的可能性也会越来越大，同时整个APP编译调试的时间也会越来越长。 而使用模块化开发则可以解决以上问题：  项目代码结构清晰，">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://ittiger.cn/images/og_image.png">
-<meta property="og:updated_time" content="2019-05-09T09:09:39.397Z">
+<meta property="og:updated_time" content="2019-05-10T13:21:27.613Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android调用相机无法执行onActivityResult或data为null">
-<meta name="twitter:description" content="最近项目中调用系统相机时遇到了这么个问题：红米手机无法执行onActivityResult回调，部分华为手机无法获取到照片数据，最后各种分析，各种网上搜索资料折腾了好久，最后终于把问题解决，当看到问题的最终原因时，我也是醉了，简直就是坑爹坑大发了。 最开始用红米手机调用系统相机的时，当我拍照完成点击那个勾勾始终无法返回到前面的界面上，也就是无法调用onActivityResult函数取到拍照的照片">
+<meta name="twitter:title" content="Android模块化开发配置">
+<meta name="twitter:description" content="模块化 项目由多个模块组成 每个模块都是一个独立的Feature或组件 业务模块间解耦不相互直接依赖 业务模块与公共组件模块通过aar依赖 每个模块独立开发，独立运行调试  模块化的好处当一个项目越来越大，越来越复杂后，代码量就会变得越来大，难以阅读难以维护，业务之间出现耦合的可能性也会越来越大，同时整个APP编译调试的时间也会越来越长。 而使用模块化开发则可以解决以上问题：  项目代码结构清晰，">
 <meta name="twitter:image" content="http://ittiger.cn/images/og_image.png">
 
 
@@ -108,7 +108,7 @@ var _hmt = _hmt || [];
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/football.svg" alt="Android调用相机无法执行onActivityResult或data为null" height="28">
+                <img src="/images/football.svg" alt="Android模块化开发配置" height="28">
             
             </a>
         </div>
@@ -159,7 +159,7 @@ var _hmt = _hmt || [];
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2015-09-26T13:44:09.000Z">2015-09-26</time>
+                <time class="level-item has-text-grey" datetime="2019-05-10T13:16:13.000Z">2019-05-10</time>
                 
                 <div class="level-item">
                 <a class="has-link-grey -link" href="/categories/Android/">Android</a>
@@ -169,7 +169,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    9 分钟 读完 (大约 1408 个字)
+                    14 分钟 读完 (大约 2056 个字)
                 </span>
                 
                 
@@ -183,24 +183,52 @@ var _hmt = _hmt || [];
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                Android调用相机无法执行onActivityResult或data为null
+                Android模块化开发配置
             
         </h1>
         <div class="content">
-            <p>最近项目中调用系统相机时遇到了这么个问题：红米手机无法执行onActivityResult回调，部分华为手机无法获取到照片数据，最后各种分析，各种网上搜索资料折腾了好久，最后终于把问题解决，当看到问题的最终原因时，我也是醉了，简直就是坑爹坑大发了。</p>
-<p>最开始用红米手机调用系统相机的时，当我拍照完成点击那个勾勾始终无法返回到前面的界面上，也就是无法调用onActivityResult函数取到拍照的照片，在网上搜索了一圈，没找到解决办法，都说是红米的系统问题，无法解决，项目比较紧张，刚好客户的手机全部是统一型号的华为荣耀6Plus，这个问题丢着暂时没管了。<br>后来现场同事批量测试机器时，发现有3台手机可以拍照，但是在onActivityResult回调中获取到的照片数据为null，但是其他的同型号手机又没这个问题，这问题看着真是坑爹啊。</p>
-<a id="more"></a>
-<p>远程调试代码后发现，我在调用系统相机时设置的照片存放目录无法创建成功，我调用系统相机的代码如下：<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">takePicture</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">    <span class="hljs-comment">//照片存放目录</span></span><br><span class="line">    File file = <span class="hljs-keyword">new</span> File(mPicDirectory);</span><br><span class="line">    <span class="hljs-keyword">if</span>(!file.exists()) &#123;<span class="hljs-comment">//目录不存在则创建该目录及其不存在的父目录</span></span><br><span class="line">        file.mkdirs();</span><br><span class="line">    &#125;</span><br><span class="line">    Intent intent = <span class="hljs-keyword">new</span> Intent(MediaStore.ACTION_IMAGE_CAPTURE);</span><br><span class="line">    mPicName = getPictureName();<span class="hljs-comment">//获取照片名称</span></span><br><span class="line">    mPicPath = mPicDirectory + mPicName;<span class="hljs-comment">//照片存储路径</span></span><br><span class="line">    <span class="hljs-comment">//将照片保存到mPicPath位置</span></span><br><span class="line">    intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(<span class="hljs-keyword">new</span> File(mPicPath)));</span><br><span class="line">    startActivityForResult(intent, CODE_RESULT_TAKE_PHOTO);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>我调试的时候在onActivityResult回调里通过照片路径获取Bitmap对象的时候发现获取到的Bitmap对象一直为null，所以就猜想是不是照片没保存成功，我在文件管理系统里去找这个照片的时候发现，连照片存储目录mPicDirectory都不存在，我再次跟踪代码发现file.mkdirs()始终返回的都是false。看来问题的最终原因是这个：无法创建目录和文件(华为手机系统在拍照输出的时候，如果输出文件路径不存在时竟然没有任何提示和异常，这点对于发现问题的根源有点困难)。然后我又去检查了权限、手机设置里面的权限等所有有可能涉及的问题，结果依然没有效果。既然这些都不是导致目录创建失败的原因，那会不会是目录路径本身不正确呢，我的目录路径是这样获取的：</p>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">String mPicDirectory = FileManager.getPath() + Configuration.SYS_PHOTO_PATH;</span><br><span class="line"> </span><br><span class="line"><span class="hljs-comment">//FileManager的部分代码是这样的，这个代码是以前的同事写的，没有细看过：</span></span><br><span class="line"> </span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String <span class="hljs-title">getPath</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="line"> </span><br><span class="line"><span class="hljs-keyword">boolean</span> sdCardExist = Environment.getExternalStorageState()</span><br><span class="line">        .equals(android.os.Environment.MEDIA_MOUNTED); <span class="hljs-comment">//判断sd卡是否存在 </span></span><br><span class="line"><span class="hljs-keyword">return</span> !sdCardExist ? MOBILE_PATH : SD_PATH;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="hljs-comment">//sdcard路径</span></span><br><span class="line"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span>  String SD_PATH = Environment.getExternalStorageDirectory().getAbsolutePath();</span><br><span class="line"> </span><br><span class="line"><span class="hljs-comment">//应用数据路径</span></span><br><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String MOBILE_PATH = Environment.getDataDirectory().getAbsolutePath();</span><br><span class="line"> </span><br><span class="line"><span class="hljs-comment">//这里有一段静态代码块</span></span><br><span class="line"><span class="hljs-keyword">static</span>&#123;</span><br><span class="line">    File f = <span class="hljs-keyword">new</span> File(<span class="hljs-string">"/storage/sdcard1"</span>);</span><br><span class="line">    <span class="hljs-keyword">if</span>(f.exists())&#123;</span><br><span class="line">        <span class="hljs-keyword">long</span> size = getFreeSize(<span class="hljs-string">"/storage/sdcard1"</span>);</span><br><span class="line">        <span class="hljs-keyword">long</span> sd0Size =  getFreeSize(<span class="hljs-string">"/storage/sdcard0"</span>);</span><br><span class="line">        <span class="hljs-keyword">if</span>(size &gt; sd0Size)&#123;</span><br><span class="line">            SD_PATH = <span class="hljs-string">"/storage/sdcard1"</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>当我看到上面的静态代码块的时候，我立马就知道了问题的原因，静态代码块中做了一个剩余空间判断，选取的是空间比较大的那个sdcard路径，而且代码都是写死的<br><code>Environment.getExternalStorageDirectory().getAbsolutePath()</code>系统这个代码是获取手机里的内置SDCard的路径，我的红米手机自己又额外插了一张内存卡，这个是手机的外接SDCard，用<code>Environment.getExternalStorageDirectory()</code>获取到只是手机自带的外置SDCard路径，不能获取自己插入的内存卡路径，我的手机通过<code>Environment.getExternalStorageDirectory()</code>方式获取的路径是<code>/storage/sdcard0</code>（我手机内置的SDCard），而通过可用空间比较之后发现该卡的可用空间少于<code>/storage/sdcard1</code>（我自己插入的SDCard），所以最终路径变成了<code>/storage/sdcard1</code>，而在Android4.4以上后，不允许三方App对外接的SDCard进行操作，因此我们队最后得到的这个目录是没有写入权限的，所以我创建照片存储目录的时候一直失败，所以拍照的时候照片数据没有地方可以输出，华为手机是直接体现在照片数据无法获取，而红米手机则是直接不允许返回到前面的调用界面。</p>
-<p>Google在Android中限制三方App操作外接SDCard的原文如下：</p>
-<blockquote>
-<p>The WRITE_EXTERNAL_STORAGE permission must only grant write access to the primary external storage on a device. Apps must not be allowed to write to secondary external storage devices, except in their package-specific directories as allowed by synthesized permissions.</p>
-</blockquote>
-<p>后来想了想，调用相机这么简单的一个功能，红米的系统应该不可能给阉割掉，所以出了问题还是老老实实的先找自己代码的问题吧。至于那个外接SDCard的写入权限还有待寻找答案。</p>
-<p>系统内置SDCard写入、删除、读写权限：</p>
-<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//文件创建、删除权限</span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">uses-permission</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"android.permission.MOUNT_UNMOUNT_FILESYSTEMS"</span> /&gt;</span></span><br><span class="line">//文件读写权限，只针对于手机内存的SDCard，对外接SDCard无效</span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">uses-permission</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"android.permission.WRITE_EXTERNAL_STORAGE"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+            <h3 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h3><ol>
+<li>项目由多个模块组成</li>
+<li>每个模块都是一个独立的Feature或组件</li>
+<li>业务模块间解耦不相互直接依赖</li>
+<li>业务模块与公共组件模块通过aar依赖</li>
+<li>每个模块独立开发，独立运行调试</li>
+</ol>
+<h3 id="模块化的好处"><a href="#模块化的好处" class="headerlink" title="模块化的好处"></a>模块化的好处</h3><p>当一个项目越来越大，越来越复杂后，代码量就会变得越来大，难以阅读难以维护，业务之间出现耦合的可能性也会越来越大，同时整个APP编译调试的时间也会越来越长。</p>
+<p>而使用模块化开发则可以解决以上问题：</p>
+<ol>
+<li>项目代码结构清晰，每个Feature和公共组件都是一个独立的Library模块</li>
+<li>避免每个Library模块间的直接耦合</li>
+<li>提升模块的复用性</li>
+<li>单个模块独立编译调试速度更快，节省开发时间</li>
+<li>只关注自己所在的模块，从而避免其他Feature的异常block自己的Feature开发</li>
+</ol>
+<p>但是…这篇文章不是教你如何进行模块化开发，而是介绍如何进行模块化开发的工程配置，以满足模块化开发过程中的多团队协作问题。<br><a id="more"></a></p>
+<h3 id="模块化开发配置"><a href="#模块化开发配置" class="headerlink" title="模块化开发配置"></a>模块化开发配置</h3><p>我们先创建一个Android工程，这个工程除了有一个app的主module之外，还有两个library类型的module，工程结构如下图：<br><img src="/img/android-modul-code.png" width="200" hegiht="300"></p>
+<p>上图中module1和module2就代表了两个不同的业务module</p>
+<p><strong>模块化开发配置需要解决哪些问题呢？</strong></p>
+<h4 id="module配置参数化"><a href="#module配置参数化" class="headerlink" title="module配置参数化"></a>module配置参数化</h4><p>大家都知道一个项目的主module存在一个build.gradle文件，里面有如下内容：<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">apply plugin: &apos;com.android.application&apos;</span><br><span class="line">apply plugin: &apos;kotlin-android&apos;</span><br><span class="line">apply plugin: &apos;kotlin-android-extensions&apos;</span><br><span class="line"></span><br><span class="line">android &#123;</span><br><span class="line">    compileSdkVersion 28</span><br><span class="line">    defaultConfig &#123;</span><br><span class="line">        applicationId &quot;xxxxxxxxx&quot;</span><br><span class="line">        minSdkVersion 21</span><br><span class="line">        targetSdkVersion 28</span><br><span class="line">        versionCode 1</span><br><span class="line">        versionName &quot;1.0&quot;</span><br><span class="line">    &#125;</span><br><span class="line">    ....</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>而工程中的library类型的moudle也有一个build.gradle文件，它的内容如下：<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">apply plugin: &apos;com.android.library&apos;</span><br><span class="line">apply plugin: &apos;kotlin-android&apos;</span><br><span class="line">apply plugin: &apos;kotlin-android-extensions&apos;</span><br><span class="line"></span><br><span class="line">android &#123;</span><br><span class="line">    compileSdkVersion 28</span><br><span class="line"></span><br><span class="line">    defaultConfig &#123;</span><br><span class="line">        minSdkVersion 21</span><br><span class="line">        targetSdkVersion 28</span><br><span class="line">        versionCode 1</span><br><span class="line">        versionName &quot;1.0&quot;</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>通过上面的配置内容可以发现主module和library类型的module除了plugin不一样之外，主module会比library类型module只多一个applicationId。 </p>
+<p>所以如果我们想让某个library类型的module能独立运行调试，我们可以通过参数控制，动态的为该module添加相关配置，具体脚本如下：<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">//common-build.gradle</span><br><span class="line">project.ext &#123;</span><br><span class="line">    mainModuleType = &quot;mainModule&quot;//主module</span><br><span class="line">    debugLibraryModuleType = &quot;debugLibraryModule&quot;//可单独运行的library module</span><br><span class="line">    libraryModuleType = &quot;libraryModule&quot;</span><br><span class="line"></span><br><span class="line">    //根据module类型动态添加对应的配置</span><br><span class="line">    configModuleGradleScript = &#123; moduleType -&gt;</span><br><span class="line">        applyPlugin(moduleType)</span><br><span class="line">        applyAndroidDefaultConfig()</span><br><span class="line">        applyApplicationId(moduleType)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //配置module的编译版本相关配置</span><br><span class="line">    applyAndroidDefaultConfig = &#123;</span><br><span class="line">        project.android.compileSdkVersion compileSdkVersion</span><br><span class="line">        project.android.defaultConfig.targetSdkVersion targetSdkVersion</span><br><span class="line">        project.android.defaultConfig.minSdkVersion minSdkVersion</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    //根据module类型动态添加对应plugin</span><br><span class="line">    applyPlugin = &#123; moduleType -&gt;</span><br><span class="line">        if(moduleType == libraryModuleType) &#123;</span><br><span class="line">            project.apply plugin: &apos;com.android.library&apos;</span><br><span class="line">            project.description &quot;library&quot;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            project.apply plugin: &apos;com.android.application&apos;</span><br><span class="line">            project.description &quot;app&quot;</span><br><span class="line">        &#125;</span><br><span class="line">        project.apply plugin: &apos;kotlin-android&apos;</span><br><span class="line">        project.apply plugin: &apos;kotlin-android-extensions&apos;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //根据module类型动态添加对应的applicationId</span><br><span class="line">    applyApplicationId = &#123; moduleType -&gt;</span><br><span class="line">        if(moduleType == mainModuleType) &#123;</span><br><span class="line">            project.android.defaultConfig.applicationId applicationId</span><br><span class="line">        &#125; else if(moduleType == debugLibraryModuleType) &#123;</span><br><span class="line">            project.android.defaultConfig.applicationId applicationId + &quot;.&quot; + project.name</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>可以看到所有的动态配置脚本我都是通过在<code>project.ext</code>中添加闭包实现的，这样做的好处是在其他脚本文件中也可以引用project.ext中定义的闭包和变量</p>
+<p>另外上面的配置中，在配置可单独调试library module时，我对其<code>applicationId</code>添加一个工程名称作为后缀，这样可以对主app的<code>applicationId</code>进行区分。</p>
+<p>上面脚本里的注释提到了<code>可单独运行的library module</code>，那这是什么意思呢？<br>我们每个工程打包为apk时只能有唯一一个plugin为<code>com.android.application</code>的主module，而其他需要集成的moudle的plugin均为<code>com.android.library</code>，当开发某个业务module(library类型)时，我们需要该module能单独运行以方便我们调试同时节省编译时间，这时我们就需要通过gradle参数控制，将其plugin暂时变为<code>com.android.application</code>以便使其能独立运行，所以这个时候该module也是一个主module，但为了与apk的主module进行区分，所以我把它叫做可单独运行的library module</p>
+<p>那具体如何通过参数控制将某个library module暂时变为可单独编译运行的module，而在集成的时候又设置为library类型的module呢？我们可以在工程根目录的<code>gradle.properties</code>文件中添加参数进行控制<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//gradle.properties文件</span><br><span class="line">debugLibraryModules=[module1]</span><br></pre></td></tr></table></figure></p>
+<p>上面的<code>debugLibraryModules</code>参数将module名称为<code>module1</code>的module设置为可单独运行的library module，这个参数是一个数组，可以配置多个module。当这个数组为空的时候就代表不设置任何library module。</p>
+<p>通过这个参数我们就可以在每个module工程加载脚本时判断当前module是否为可单独编译运行的module，判断方法如下：<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">project.ext &#123;</span><br><span class="line">    //通过module的名称进行判断</span><br><span class="line">    isDebugLibraryModule = &#123; projectName -&gt;</span><br><span class="line">        def debugLibraryModuleList = debugLibraryModules</span><br><span class="line">        return project.hasProperty(&apos;debugLibraryModules&apos;) &amp;&amp; debugLibraryModuleList.indexOf(projectName) != -1</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>到这里，我们的参数化动态配置脚本的基础已经完成了，接着要针对主module和library module进行具体的工程配置。</p>
+<h4 id="配置app的主module"><a href="#配置app的主module" class="headerlink" title="配置app的主module"></a>配置app的主module</h4><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//main-module-build.gradle</span><br><span class="line">configModuleGradleScript(mainModuleType)</span><br><span class="line"></span><br><span class="line">getRootProject().getSubprojects().each &#123;item -&gt;</span><br><span class="line">    if(item.name != project.name &amp;&amp; !isDebugLibraryModule(item.name)) &#123;</span><br><span class="line">        project.dependencies.add(&quot;implementation&quot;, project(&quot;:$item.name&quot;))</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>因为app的主module是不可能变的，所以该module的moduleType肯定是<code>mainModuleType</code></p>
+<p>另外app在集成其他library module时必须要将其他library module添加为主module的工程依赖，所以上述脚本中使用<code>getRootProject().getSubprojects()</code>先找到工程的所有module,然后将library module都动态添加为主module的工程依赖</p>
+<p>主module的<code>build.gradle</code>内容如下：<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">apply from: &quot;$&#123;rootProject.rootDir&#125;/buildScript/common-build.gradle&quot;</span><br><span class="line">apply from: &quot;$&#123;rootProject.rootDir&#125;/buildScript/main-module-build.gradle&quot;</span><br><span class="line"></span><br><span class="line">android &#123;</span><br><span class="line">    defaultConfig &#123;</span><br><span class="line">        versionCode 1</span><br><span class="line">        versionName &quot;1.0&quot;</span><br><span class="line">        testInstrumentationRunner &quot;android.support.test.runner.AndroidJUnitRunner&quot;</span><br><span class="line">    &#125;</span><br><span class="line">    buildTypes &#123;</span><br><span class="line">        release &#123;</span><br><span class="line">            minifyEnabled false</span><br><span class="line">            proguardFiles getDefaultProguardFile(&apos;proguard-android-optimize.txt&apos;), &apos;proguard-rules.pro&apos;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在该工程的主module动态添加工程源码依赖时，也可以通过参数来控制某个module到底是采用工程源码依赖，还是采用远程仓库的aar依赖，以此来满足不同的业务需要。这篇文章就不介绍了，相信看懂这篇文章的同学应该能自己实现这个需求。</p>
+<h4 id="配置library-module"><a href="#配置library-module" class="headerlink" title="配置library module"></a>配置library module</h4><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//library-module-build.gradle</span><br><span class="line">def getModuleType() &#123;</span><br><span class="line">    if(isDebugLibraryModule(project.name)) &#123;</span><br><span class="line">        return debugLibraryModuleType</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        return libraryModuleType</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">configModuleGradleScript(getModuleType())</span><br></pre></td></tr></table></figure>
+<p>在配置library module时，要先判断当前library moduel是否已经通过参数设置为可单独运行的module，如果是的话则该module调用闭包<code>configModuleGradleScript</code>的参数为<code>debugLibraryModuleType</code>，否则则为<code>libraryModuleType</code></p>
+<p>library module的<code>build.gradle</code>内容如下<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">apply from: &quot;$&#123;rootProject.rootDir&#125;/buildScript/common-build.gradle&quot;</span><br><span class="line">apply from: &quot;$&#123;rootProject.rootDir&#125;/buildScript/library-module-build.gradle&quot;</span><br><span class="line"></span><br><span class="line">android &#123;</span><br><span class="line">    defaultConfig &#123;</span><br><span class="line">        versionCode 1</span><br><span class="line">        versionName &quot;1.0&quot;</span><br><span class="line"></span><br><span class="line">        testInstrumentationRunner &quot;android.support.test.runner.AndroidJUnitRunner&quot;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    buildTypes &#123;</span><br><span class="line">        release &#123;</span><br><span class="line">            minifyEnabled false</span><br><span class="line">            proguardFiles getDefaultProguardFile(&apos;proguard-android-optimize.txt&apos;), &apos;proguard-rules.pro&apos;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    sourceSets &#123;</span><br><span class="line">        main &#123;</span><br><span class="line">            if(isDebugLibraryModule(project.name)) &#123;</span><br><span class="line">                manifest.srcFile &apos;src/debug/AndroidManifest.xml&apos;</span><br><span class="line">                java.srcDirs = [&apos;src/debug/java&apos;, &apos;src/main/java&apos;]</span><br><span class="line">                res.srcDirs = [&apos;src/debug/res&apos;,&apos;src/main/res&apos;]</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                manifest.srcFile &apos;src/main/AndroidManifest.xml&apos;</span><br><span class="line">                resources &#123;</span><br><span class="line">                    //排除java/debug文件夹下的所有文件</span><br><span class="line">                    exclude &apos;src/debug/*&apos;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>上述脚本在配置可单独运行的library module时，虽然已经动态将其plugin设置为<code>com.android.application</code>也添加了<code>applicationId</code>，但是该module依旧还不能单独运行，因为我们一开始创建的library module中的<code>AndroidManifest.xml</code>文件没有配置也不能配置启动<code>Activity</code>,所以需要在library module的<code>buld.gradle</code>脚本中添加如下脚本：<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">sourceSets &#123;</span><br><span class="line">        main &#123;</span><br><span class="line">            if(isDebugLibraryModule(project.name)) &#123;</span><br><span class="line">                manifest.srcFile &apos;src/debug/AndroidManifest.xml&apos;</span><br><span class="line">                java.srcDirs = [&apos;src/debug/java&apos;, &apos;src/main/java&apos;]</span><br><span class="line">                res.srcDirs = [&apos;src/debug/res&apos;,&apos;src/main/res&apos;]</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                manifest.srcFile &apos;src/main/AndroidManifest.xml&apos;</span><br><span class="line">                resources &#123;</span><br><span class="line">                    //排除java/debug文件夹下的所有文件</span><br><span class="line">                    exclude &apos;src/debug/*&apos;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>上面的脚本先检查当前module是否为可单独运行的library module，如果是则采用<code>src/debug/AndroidManifest.xml</code>文件。要注意的是该文件必须要包含’src/main/AndroidManifest.xml’文件的所有内容，同时还要设置启动<code>Activity</code>。</p>
+<p>到这里，模块化开发的工程配置介绍完了，有兴趣的同学可以在这<a href="https://github.com/huyongli/AndroidModuleDesign" target="_blank" rel="noopener">https://github.com/huyongli/AndroidModuleDesign</a>查看完整代码</p>
 <hr>
 <p>原创文章，严禁随意转载。欢迎大家添加个人微信讨论交流，添加时请备注：博客。<br><img src="/img/weixinCode.jpeg" width="200" height="200" alt></p>
 
@@ -266,17 +294,10 @@ var _hmt = _hmt || [];
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/Android基础之点击两次返回键退出程序.html">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">Android基础之点击两次返回键退出程序</span>
-            </a>
-        </div>
-        
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/Android基础之解压zip中文乱码处理.html">
-                <span class="level-item">Android基础之解压zip中文乱码处理</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/Kotlin-Coroutine-For-Android-Network.html">
+                <span class="level-item">Android中用Kotlin Coroutine(协程)和Retrofit进行网络请求和取消请求</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -330,7 +351,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        65
+                        66
                     </p>
                 </div>
             </div>
@@ -402,7 +423,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">Android</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">35</span>
+                <span class="level-item tag">36</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/Blog/">
@@ -554,6 +575,19 @@ var _hmt = _hmt || [];
             
             <div class="media-content">
                 <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-10T13:16:13.000Z">2019-05-10</time></div>
+                    <a href="/android-module-develop-config.html" class="has-link-black-ter is-size-6">Android模块化开发配置</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Android/">Android</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-22T09:25:05.000Z">2019-04-22</time></div>
                     <a href="/Kotlin-Coroutine-For-Android-Network.html" class="has-link-black-ter is-size-6">Android中用Kotlin Coroutine(协程)和Retrofit进行网络请求和取消请求</a>
                     <p class="is-size-7 is-uppercase">
@@ -602,19 +636,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-11-05T03:21:17.000Z">2018-11-05</time></div>
-                    <a href="/Flutter-Row-Column-Container.html" class="has-link-black-ter is-size-6">Flutter入门之Row、Column、Container布局</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Flutter/">Flutter</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -626,6 +647,17 @@ var _hmt = _hmt || [];
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2019/04/">
@@ -896,7 +928,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Android/">
                         <span class="tag">Android</span>
-                        <span class="tag is-grey">37</span>
+                        <span class="tag is-grey">38</span>
                     </a>
                 </div>
                 
@@ -1116,6 +1148,19 @@ var _hmt = _hmt || [];
             
             <div class="media-content">
                 <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-10T13:16:13.000Z">2019-05-10</time></div>
+                    <a href="/android-module-develop-config.html" class="has-link-black-ter is-size-6">Android模块化开发配置</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Android/">Android</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-22T09:25:05.000Z">2019-04-22</time></div>
                     <a href="/Kotlin-Coroutine-For-Android-Network.html" class="has-link-black-ter is-size-6">Android中用Kotlin Coroutine(协程)和Retrofit进行网络请求和取消请求</a>
                     <p class="is-size-7 is-uppercase">
@@ -1164,19 +1209,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-11-05T03:21:17.000Z">2018-11-05</time></div>
-                    <a href="/Flutter-Row-Column-Container.html" class="has-link-black-ter is-size-6">Flutter入门之Row、Column、Container布局</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Flutter/">Flutter</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1188,6 +1220,17 @@ var _hmt = _hmt || [];
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2019/04/">
@@ -1458,7 +1501,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Android/">
                         <span class="tag">Android</span>
-                        <span class="tag is-grey">37</span>
+                        <span class="tag is-grey">38</span>
                     </a>
                 </div>
                 
@@ -1668,7 +1711,7 @@ var _hmt = _hmt || [];
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/football.svg" alt="Android调用相机无法执行onActivityResult或data为null" height="28">
+                    <img src="/images/football.svg" alt="Android模块化开发配置" height="28">
                 
                 </a>
                 <p class="is-size-7">

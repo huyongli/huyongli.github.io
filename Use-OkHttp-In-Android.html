@@ -2,24 +2,24 @@
 <html lang="zh">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>UC浏览器首页滑动动画实现 - 老胡</title>
+<title>Android中OkHttp的使用 - 老胡</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta name="description" content="实现效果">
-<meta name="keywords" content="Android">
+    <meta name="description" content="前段时间研究了下Android里面非常火爆的网络请求库OkHttp，这篇文章主要来介绍下OkHttp的常用请求的使用方式，后面一篇文章会介绍本人基于OkHttp封装的一个操作更简单、更适用于项目的网络请求库TigerOkHttp，其源码及Demo地址为：https://github.com/huyongli/TigerOkHttp 一、说明对于OkHttp的基本介绍，以及为什么要使用OkHttp而">
+<meta name="keywords" content="Android,OkHttp">
 <meta property="og:type" content="article">
-<meta property="og:title" content="UC浏览器首页滑动动画实现">
-<meta property="og:url" content="http://ittiger.cn/UC浏览器首页滑动动画实现.html">
+<meta property="og:title" content="Android中OkHttp的使用">
+<meta property="og:url" content="http://ittiger.cn/Use-OkHttp-In-Android.html">
 <meta property="og:site_name" content="老胡">
-<meta property="og:description" content="实现效果">
+<meta property="og:description" content="前段时间研究了下Android里面非常火爆的网络请求库OkHttp，这篇文章主要来介绍下OkHttp的常用请求的使用方式，后面一篇文章会介绍本人基于OkHttp封装的一个操作更简单、更适用于项目的网络请求库TigerOkHttp，其源码及Demo地址为：https://github.com/huyongli/TigerOkHttp 一、说明对于OkHttp的基本介绍，以及为什么要使用OkHttp而">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://ittiger.cn/images/og_image.png">
-<meta property="og:updated_time" content="2019-05-09T01:56:40.907Z">
+<meta property="og:updated_time" content="2019-05-10T13:24:44.953Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="UC浏览器首页滑动动画实现">
-<meta name="twitter:description" content="实现效果">
+<meta name="twitter:title" content="Android中OkHttp的使用">
+<meta name="twitter:description" content="前段时间研究了下Android里面非常火爆的网络请求库OkHttp，这篇文章主要来介绍下OkHttp的常用请求的使用方式，后面一篇文章会介绍本人基于OkHttp封装的一个操作更简单、更适用于项目的网络请求库TigerOkHttp，其源码及Demo地址为：https://github.com/huyongli/TigerOkHttp 一、说明对于OkHttp的基本介绍，以及为什么要使用OkHttp而">
 <meta name="twitter:image" content="http://ittiger.cn/images/og_image.png">
 
 
@@ -108,7 +108,7 @@ var _hmt = _hmt || [];
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/football.svg" alt="UC浏览器首页滑动动画实现" height="28">
+                <img src="/images/football.svg" alt="Android中OkHttp的使用" height="28">
             
             </a>
         </div>
@@ -159,7 +159,7 @@ var _hmt = _hmt || [];
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2016-05-26T12:58:03.000Z">2016-05-26</time>
+                <time class="level-item has-text-grey" datetime="2016-01-05T05:51:25.000Z">2016-01-05</time>
                 
                 <div class="level-item">
                 <a class="has-link-grey -link" href="/categories/Android/">Android</a>
@@ -169,7 +169,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    14 分钟 读完 (大约 2150 个字)
+                    13 分钟 读完 (大约 1962 个字)
                 </span>
                 
                 
@@ -183,72 +183,71 @@ var _hmt = _hmt || [];
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                UC浏览器首页滑动动画实现
+                Android中OkHttp的使用
             
         </h1>
         <div class="content">
-            <h3 id="实现效果"><a href="#实现效果" class="headerlink" title="实现效果"></a>实现效果</h3><p><img src="/img/20160526232223237.gif" alt><br><a id="more"></a><br><img src="/img/20160526232223238.gif" alt></p>
-<p><img src="/img/20160526232403427.gif" alt></p>
-<h3 id="UC浏览器首页效果"><a href="#UC浏览器首页效果" class="headerlink" title="UC浏览器首页效果"></a>UC浏览器首页效果</h3><p>我们先来看下UC浏览器首页的滑动动画和我最终实现的动画效果<br><img src="/img/20160526232024470.gif" alt></p>
-<h3 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h3><figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">cn.ittiger.ucpage.view.UCIndexView</span></span></span><br><span class="line"><span class="hljs-tag">    <span class="hljs-attr">xmlns:android</span>=<span class="hljs-string">"http://schemas.android.com/apk/res/android"</span></span></span><br><span class="line"><span class="hljs-tag">    <span class="hljs-attr">xmlns:ucindexview</span>=<span class="hljs-string">"http://schemas.android.com/apk/res-auto"</span></span></span><br><span class="line"><span class="hljs-tag">    <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/ucindexview"</span></span></span><br><span class="line"><span class="hljs-tag">    <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span></span></span><br><span class="line"><span class="hljs-tag">    <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"match_parent"</span></span></span><br><span class="line"><span class="hljs-tag">    <span class="hljs-attr">ucindexview:pageHeadViewHeight</span>=<span class="hljs-string">"@dimen/dp_40"</span></span></span><br><span class="line"><span class="hljs-tag">    <span class="hljs-attr">ucindexview:isPageHeadViewFixed</span>=<span class="hljs-string">"false"</span></span></span><br><span class="line"><span class="hljs-tag">    <span class="hljs-attr">ucindexview:isContentHeadViewEnable</span>=<span class="hljs-string">"true"</span></span></span><br><span class="line"><span class="hljs-tag">    <span class="hljs-attr">ucindexview:isPullRestoreEnable</span>=<span class="hljs-string">"false"</span></span></span><br><span class="line"><span class="hljs-tag">    <span class="hljs-attr">ucindexview:contentHeadViewHeight</span>=<span class="hljs-string">"@dimen/dp_40"</span></span></span><br><span class="line"><span class="hljs-tag">    <span class="hljs-attr">ucindexview:pageNavigationViewHeight</span>=<span class="hljs-string">"@dimen/dp_200"</span></span></span><br><span class="line"><span class="hljs-tag">    <span class="hljs-attr">ucindexview:pageHeadViewLayoutId</span>=<span class="hljs-string">"@layout/page_head_view_layout"</span></span></span><br><span class="line"><span class="hljs-tag">    <span class="hljs-attr">ucindexview:pageNavigationViewLayoutId</span>=<span class="hljs-string">"@layout/page_navigation_view_layout"</span></span></span><br><span class="line"><span class="hljs-tag">    <span class="hljs-attr">ucindexview:contentHeadViewLayoutId</span>=<span class="hljs-string">"@layout/content_head_view_layout"</span></span></span><br><span class="line"><span class="hljs-tag">    <span class="hljs-attr">ucindexview:contentViewLayoutId</span>=<span class="hljs-string">"@layout/content_view_layout"</span>&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">cn.ittiger.ucpage.view.UCIndexView</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>使用方式只需要如此布局即可，没有其他的任何代码操作，非常简单。几个重要属性如下：</p>
+            <p>前段时间研究了下Android里面非常火爆的网络请求库OkHttp，这篇文章主要来介绍下OkHttp的常用请求的使用方式，后面一篇文章会介绍本人基于OkHttp封装的一个操作更简单、更适用于项目的网络请求库TigerOkHttp，其源码及Demo地址为：<a href="https://github.com/huyongli/TigerOkHttp" target="_blank" rel="noopener">https://github.com/huyongli/TigerOkHttp</a></p>
+<h3 id="一、说明"><a href="#一、说明" class="headerlink" title="一、说明"></a>一、说明</h3><p>对于OkHttp的基本介绍，以及为什么要使用OkHttp而不再使用HttpURLConnection或者是HttpClient，各位自己找度娘去，我这里就不再废话了。</p>
+<p>使用OkHttp之前，需要先下载OkHttp.jar包，大家可以在<a href="https://github.com/square/okhttp去下载OkHttp的最新jar包以及源码，" target="_blank" rel="noopener">https://github.com/square/okhttp去下载OkHttp的最新jar包以及源码，</a></p>
+<p>同时因为OkHttp内部依赖okio，所以大家还要自行下载okio.jar包，下载地址在这里<a href="https://github.com/square/okio" target="_blank" rel="noopener">https://github.com/square/okio</a></p>
+<a id="more"></a>
+<h3 id="二、使用教程"><a href="#二、使用教程" class="headerlink" title="二、使用教程"></a>二、使用教程</h3><h4 id="1-Get请求"><a href="#1-Get请求" class="headerlink" title="1.Get请求"></a>1.Get请求</h4><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">//创建OkHttpClient对象，用于稍后发起请求</span></span><br><span class="line">OkHttpClient client = <span class="hljs-keyword">new</span> OkHttpClient();</span><br><span class="line"><span class="hljs-comment">//根据请求URL创建一个Request对象</span></span><br><span class="line">Request request = <span class="hljs-keyword">new</span> Request.Builder().url(<span class="hljs-string">"https://github.com/huyongli/TigerOkHttp"</span>).build();</span><br><span class="line"> </span><br><span class="line"><span class="hljs-comment">//根据Request对象发起Get同步Http请求</span></span><br><span class="line">Response response = client.newCall(request).execute();</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="hljs-comment">//根据Request对象发起Get异步Http请求，并添加请求回调</span></span><br><span class="line">client.newCall(request).enqueue(<span class="hljs-keyword">new</span> Callback() &#123;</span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onResponse</span><span class="hljs-params">(<span class="hljs-keyword">final</span> Response response)</span> <span class="hljs-keyword">throws</span> IOException </span>&#123;</span><br><span class="line">       <span class="hljs-comment">//请求成功，此处对请求结果进行处理</span></span><br><span class="line">       <span class="hljs-comment">//String result = response.body().string();</span></span><br><span class="line">       <span class="hljs-comment">//InputStream is = response.body().byteStream();</span></span><br><span class="line">       <span class="hljs-comment">//byte[] bytes = response.body().bytes();</span></span><br><span class="line">    &#125;</span><br><span class="line">			</span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onFailure</span><span class="hljs-params">(Request request, IOException e)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-comment">//请求失败</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>上面的代码示例演示了OkHttp中一个普通的Http  get请求是如何实现的，对于上面的代码，作一下简单的说明</p>
 <ol>
-<li><code>isPageHeadViewFixed：</code>设置<code>PageHeadView</code>是否固定显示(效果如上图2)</li>
-<li><code>isContentHeadViewEnable：</code>设置<code>ContentHeadView</code>是否启用(效果如上图3)</li>
-<li><code>isPullRestoreEnable：</code>设置是否可以通过下拉手势恢复到初始状态，UC首页下拉不能恢复初始状态</li>
-<li><code>contentHeadViewHeight：</code>设置<code>contentHeadView</code>视图的高度</li>
-<li><code>pageNavigationViewHeight：</code>设置<code>PageNavigationView</code>视图的高度</li>
-<li><code>pageHeadViewLayoutId：</code>设置<code>PagetHeadView</code>视图的内容布局，如图中的文字UC头条布局</li>
-<li><code>pageNavigationViewLayoutId：</code>设置<code>PageNavigationView</code>视图的内容布局，如图中的文字网址导航布局</li>
-<li><code>contentHeadViewLayoutId：</code>设置<code>ContentHeadViev</code>视图的内容布局，如图中的文字新闻头部导航布局</li>
-<li><code>contentViewLayoutId：</code>设置<code>ContentView</code>视图的内容布局，如图中的文字新闻内容区布局</li>
-</ol>
-<h3 id="github地址"><a href="#github地址" class="headerlink" title="github地址"></a>github地址</h3><p>实现及Demo地址：<a href="https://github.com/huyongli/UCIndexAnimation" target="_blank" rel="noopener">https://github.com/huyongli/UCIndexAnimation</a></p>
-<h3 id="实现过程"><a href="#实现过程" class="headerlink" title="实现过程"></a>实现过程</h3><p>下面来讲讲我的实现过程：</p>
-<p><font color="red">首先来分析下UC首页这个动画中涉及到的元素和要点</font></p>
-<ol>
-<li>向上滑动过程顶部的UC头条会慢慢的显示出来，我把这部分视图称为：<code>PageHeadView(页面头部视图)</code>，很明显其初始化时是在屏幕外部的</li>
-<li>向上滑动过程中UC漫站上面会有个新闻Tab菜单头部慢慢的显示出来，我把这部分视图称为：<code>ContentHeadView(新闻头部视图)</code>，初始时是被<code>ContentView</code>遮盖，而后慢慢滑出，显然它的滑动速度是比<code>ContentView</code>快的</li>
-<li>向上滑动过程中天气、搜索、网站导航会稍微往上滑动一段距离最终隐藏，我把这部分视图称为：<code>PageNavigationView(页面导航视图)</code>，随着不断的滑动，会慢慢的被其余三个视图共同遮盖掉</li>
-<li>UC漫站整个新闻内容视图慢慢的向上滑动直至跟UC头条相接，我把这部分称为：<code>ContentView(新闻内容视图)</code></li>
-<li>根据动画效果来看，上面所说的四个不同的视图部分都是同时停止滑动，但是他们滑动的距离明显是不相同的</li>
-<li><code>PageHeadView</code>滑动的距离为其自身高度，</li>
-<li><code>ContentHeadView</code>的滑动距离为其自身高度与<code>ContentView</code>滑动的距离之和，而其相对<code>ContentView</code>视图的滑动距离为其自身高度</li>
-<li><code>ContentView</code>滑动距离为其自身初始距离顶部的边距减去 <code>PageHeadView</code>和<code>ContentHeadView</code>两者的高度</li>
-<li><code>PageNavigationView</code>的滑动距离很小</li>
-<li>上面的分析把UC首页整体划分成四个不同的View部分，另外其首页中只有<code>ContentView、PageNavigationView</code>两个视图会处理滑动事件<h3 id="实现技术点和细节"><a href="#实现技术点和细节" class="headerlink" title="实现技术点和细节"></a>实现技术点和细节</h3>根据上面的分析我们知道有三个视图是从被遮盖到显示或者是从显示到遮盖，剩下的<code>ContentView</code>一直是遮盖其他的视图。根据视图遮盖很容易联想到<code>FrameLayout</code>布局，多个<code>FrameLayout</code>布局叠加在一起就类似PS中的图层叠加，滑动可以看成是不同层级的<code>FrameLayout</code>的<code>marginTop</code>不断变化的过程。</li>
-</ol>
-<h3 id="实现类结构图"><a href="#实现类结构图" class="headerlink" title="实现类结构图"></a>实现类结构图</h3><p>我的实现中先要说明两点：</p>
-<ol>
-<li>我把上滑称为展示状态或者叫Show状态</li>
-<li>下滑称为恢复初始化状态或者叫Hide状态<br>下图是我的实现类结构图：<br><img src="/img/20160527182733173.png" alt></li>
-</ol>
-<h3 id="主要类实现解析"><a href="#主要类实现解析" class="headerlink" title="主要类实现解析"></a>主要类实现解析</h3><ol>
-<li><code>UCIndexView：</code>模仿UC首页的最终实现，使用时在布局文件中使用此类即可</li>
-<li><code>PageHeadView、PageNavigationView、ContentView、ContentHeadView：</code>这四个类的作用见我上面的分析</li>
-<li><code>MoveView：</code>页面四个视图的基类，主要包含滑动过程中的一些基本属性和方法</li>
-<li><code>mNeedMoveHeight：</code>视图需要滑动的距离(<code>ContentHeadView</code>的此属性设置为相对<code>ContentView</code>的滑动距离)，此属性主要用来计算各自视图在滑动过程中的步长</li>
-<li><code>mShowStopMarginTop：</code>视图进行Show操作时，当视图的<code>marginTop</code>值等于该值时，结束Show操作。此值用来确定上滑过程中，视图滑动结束时的位置。</li>
-<li><code>mHideStopMarginTop：</code>视图进行Hide操作时，当视图的<code>marginTop</code>值等于该值时，结束Hide操作。此值用来确定下滑过程中，视图滑动结束时的位置。通常此值为视图初始化成功后的<code>marginTop</code>值。</li>
-<li><code>getMarginTop()：</code>获取视图当前的<code>marginTop</code>值</li>
-<li><code>updateMarginTop(flaot step)：</code>根据当前的滑动步长更新视图的<code>marginTop</code>值</li>
-<li><code>isHideFinish()：</code>判断当前视图的Hide操作是否完成</li>
-<li><code>isShowFinish()：</code>判断当前视图的Show操作是否完成</li>
-<li><code>getShowMoveStep(float step)：</code>获取视图<code>Show</code>过程中的实际可滑动步长，有可能计算得到的滑动步长超过了视图的可滑动距离</li>
-<li><code>getHideMoveStep(float step)：</code>获取视图Hide过程中的实际可滑动步长，有可能计算得到的滑动步长超过了视图的可滑动距离</li>
-<li><code>TouchMoveView：</code>用来处理手指触摸事件从而滑动的视图基类<h3 id="滑动事件处理"><a href="#滑动事件处理" class="headerlink" title="滑动事件处理"></a>滑动事件处理</h3>直接上代码：<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">@Override</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onTouchMoveEvent</span><span class="hljs-params">(MotionEvent event)</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="hljs-keyword">switch</span> (event.getAction()) &#123;</span><br><span class="line">        <span class="hljs-keyword">case</span> MotionEvent.ACTION_DOWN:</span><br><span class="line">            mLastTouchY = event.getRawY();</span><br><span class="line">            <span class="hljs-keyword">break</span>;</span><br><span class="line">        <span class="hljs-keyword">case</span> MotionEvent.ACTION_MOVE:</span><br><span class="line">            <span class="hljs-comment">//手指滑动过程中的滑动步长</span></span><br><span class="line">            mDelY = event.getRawY() - mLastTouchY;</span><br><span class="line">            viewMove(mDelY, mIsPullRestoreEnable);</span><br><span class="line">            mLastTouchY = event.getRawY();</span><br><span class="line">            <span class="hljs-keyword">break</span>;</span><br><span class="line">        <span class="hljs-keyword">case</span> MotionEvent.ACTION_UP:</span><br><span class="line">            <span class="hljs-keyword">int</span> offset = <span class="hljs-number">0</span>;</span><br><span class="line">            <span class="hljs-keyword">if</span>(mDelY &gt; <span class="hljs-number">0</span>) &#123;<span class="hljs-comment">//hide，下拉</span></span><br><span class="line">                <span class="hljs-keyword">if</span>(!mIsPullRestoreEnable) &#123;<span class="hljs-comment">//当前不允许下拉恢复</span></span><br><span class="line">                    <span class="hljs-keyword">return</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                offset = mContentView.getHideOffset();</span><br><span class="line">            &#125; <span class="hljs-keyword">else</span> &#123;<span class="hljs-comment">//show， 上拉</span></span><br><span class="line">                offset = mContentView.getShowOffset();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="hljs-keyword">if</span>(offset &lt;= mPageHeadView.getNeedMoveHeight() / <span class="hljs-number">2</span>) &#123;<span class="hljs-comment">//没有滑过二分之一高度</span></span><br><span class="line">                slip(-mDelY, mIsPullRestoreEnable);</span><br><span class="line">            &#125; <span class="hljs-keyword">else</span> &#123;</span><br><span class="line">                slip(mDelY, mIsPullRestoreEnable);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="hljs-keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li><p>既然是get请求，当然得先构造好你要请求的URL</p>
+</li>
+<li><p>有了请求URL，紧接着就是需要通过这个URL构造一个请求对象Request</p>
+</li>
+<li><p>当然有时候可能你需要对这个Http请求添加一些自定义的请求头信息header，这时你在构造Request对象之前通过<code>Request.Builder builder = new Request.Builder()</code>创建的builder 对象来添加自己需要添加的请求头信息<code>builder.addHeader(key, value)</code></p>
+</li>
+<li><p>OkHttp是自带请求缓存控制策略的，如果你想改变某个请求的缓存控制策略，你也可以通过builder对象来修改缓存策略<code>builder.cacheControl()</code></p>
+</li>
+<li><p>通过上述步骤构造好请求对象Request之后，通过OkHttpClient创建一个Call任务对象，这个对象有execute()和cancel()等方法对Call任务对象进行执行和取消</p>
+</li>
+<li><p>如果是同步阻塞请求的话，直接执行Call对象的<code>execute()</code>方法即可得到请求结果。</p>
+</li>
+<li><p>如果是异步请求的话，就需要执行Call对象的<code>enqueue(new Callback(){})</code>方法，将任务对象添加到任务请求调度队列中，同时添加请求回调接口。</p>
+</li>
+<li><p>请求成功之后，可以得到一个Response对象，如果想获得返回的字符串结果则可以通过<code>response.body().string()</code>，如果想获得返回结果的二进制数据的话可以通过<code>response.body().bytes()</code>，如果想获得返回的InputStream的话可以通过<code>response.body().byteStream()</code></p>
+</li>
+<li><p>通过上面我们可以发现在Response对象中我们可以获取InputStream对象，所以从此处我们可以看出在异步请求<code>onResponse(Response response)</code>回调方法中我们可以通过IO方式来进行写文件，所以在此回调中我们可以进行大文件的下载处理，同时也说明此回调并不是在UI线程中执行的，所以此处如果要进行UI操作的话各位需要自行处理下。</p>
 </li>
 </ol>
-<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment"> * 对所有视图进行滑动操作</span></span><br><span class="line"><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> delY                  当前的滑动步长</span></span><br><span class="line"><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> isPullRestoreEnable   是否允许下拉恢复</span></span><br><span class="line"><span class="hljs-comment"> */</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">viewMove</span><span class="hljs-params">(<span class="hljs-keyword">float</span> delY, <span class="hljs-keyword">boolean</span> isPullRestoreEnable)</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="hljs-keyword">float</span> step = Math.abs(delY);</span><br><span class="line">    <span class="hljs-comment">//根据滑动距离的比例计算PageHeadView的滑动步长</span></span><br><span class="line">    <span class="hljs-keyword">float</span> pageHeadViewStep = step * mPageHeadView.getNeedMoveHeight() / mContentView.getNeedMoveHeight();</span><br><span class="line">    <span class="hljs-comment">//手指滑动距离作为ContentView的滑动步长</span></span><br><span class="line">    <span class="hljs-keyword">float</span> contentViewStep = step;</span><br><span class="line">    <span class="hljs-comment">//ContentHeadView初始不固定显示时，其实际滑动步长为ContentView的滑动步长加上其相对ContentView的滑动步长</span></span><br><span class="line">    <span class="hljs-keyword">float</span> contentHeadViewStep = mIsContentHeadViewEnable ? step + step * mContentHeadView.getNeedMoveHeight() / mContentView.getNeedMoveHeight() : <span class="hljs-number">0</span>;</span><br><span class="line">    <span class="hljs-keyword">float</span> pageNavigationViewStep = step * mPageNavigationView.getNeedMoveHeight() / mContentView.getNeedMoveHeight();</span><br><span class="line"> </span><br><span class="line">    <span class="hljs-keyword">if</span>(delY &gt; <span class="hljs-number">0</span>) &#123;<span class="hljs-comment">//下滑</span></span><br><span class="line">        <span class="hljs-keyword">if</span>(!isPullRestoreEnable) &#123;<span class="hljs-comment">//当前不允许下拉恢复</span></span><br><span class="line">            <span class="hljs-keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">if</span>(!isHideFinish()) &#123;<span class="hljs-comment">//恢复状态是否已完成</span></span><br><span class="line">            <span class="hljs-keyword">if</span>(mIsPageHeadViewFixed == <span class="hljs-keyword">false</span>) &#123;</span><br><span class="line">                mPageHeadView.onHideAnimation(pageHeadViewStep);</span><br><span class="line">            &#125;</span><br><span class="line">            mContentView.onHideAnimation(contentViewStep);</span><br><span class="line">            <span class="hljs-keyword">if</span>(mIsContentHeadViewEnable) &#123;</span><br><span class="line">                mContentHeadView.onHideAnimation(contentHeadViewStep);</span><br><span class="line">            &#125;</span><br><span class="line">            mPageNavigationView.onHideAnimation(pageNavigationViewStep);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="hljs-keyword">else</span> &#123;<span class="hljs-comment">//上滑</span></span><br><span class="line">        <span class="hljs-keyword">if</span>(!isShowFinish()) &#123;<span class="hljs-comment">//展示状态是否已完成</span></span><br><span class="line">            <span class="hljs-keyword">if</span>(mIsPageHeadViewFixed == <span class="hljs-keyword">false</span>) &#123;<span class="hljs-comment">//PageHeadView没有被固定时才进行滑动</span></span><br><span class="line">                mPageHeadView.onShowAnimation(pageHeadViewStep);</span><br><span class="line">            &#125;</span><br><span class="line">            mContentView.onShowAnimation(contentViewStep);</span><br><span class="line">            <span class="hljs-keyword">if</span>(mIsContentHeadViewEnable) &#123;<span class="hljs-comment">//ContentHeadView启用时才进行滑动</span></span><br><span class="line">                mContentHeadView.onShowAnimation(contentHeadViewStep);</span><br><span class="line">            &#125;</span><br><span class="line">            mPageNavigationView.onShowAnimation(pageNavigationViewStep);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">``` </span><br><span class="line">```java</span><br><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment"> * 手指松开屏幕后，视图自动滑动</span></span><br><span class="line"><span class="hljs-comment"> * 每隔 mAutoSlipTimeStep 长时间滑动 mAutoSlipStep 距离</span></span><br><span class="line"><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> delY  当前的滑动距离</span></span><br><span class="line"><span class="hljs-comment"> *  <span class="hljs-doctag">@param</span> isPullRestoreEnable   是否允许下拉恢复</span></span><br><span class="line"><span class="hljs-comment"> */</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">slip</span><span class="hljs-params">(<span class="hljs-keyword">float</span> delY, <span class="hljs-keyword">final</span> <span class="hljs-keyword">boolean</span> isPullRestoreEnable)</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="hljs-keyword">if</span>(delY &gt; <span class="hljs-number">0</span>) &#123;<span class="hljs-comment">//当前滑动为向下滑动，即处于恢复状态</span></span><br><span class="line">        <span class="hljs-keyword">if</span>(isHideFinish()) &#123;<span class="hljs-comment">//已经恢复结束</span></span><br><span class="line">            <span class="hljs-keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        postDelayed(<span class="hljs-keyword">new</span> Runnable() &#123;</span><br><span class="line">            <span class="hljs-meta">@Override</span></span><br><span class="line">            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">                viewMove(mAutoSlipStep, isPullRestoreEnable);</span><br><span class="line">                slip(mAutoSlipStep, isPullRestoreEnable);<span class="hljs-comment">//准备下一次滑动</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;, mAutoSlipTimeStep);</span><br><span class="line">    &#125; <span class="hljs-keyword">else</span> &#123;<span class="hljs-comment">//当前滑动为向上滑动，即处于展示状态</span></span><br><span class="line">        <span class="hljs-keyword">if</span>(isShowFinish()) &#123;<span class="hljs-comment">//已经展示结束</span></span><br><span class="line">            <span class="hljs-keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        postDelayed(<span class="hljs-keyword">new</span> Runnable() &#123;</span><br><span class="line">            <span class="hljs-meta">@Override</span></span><br><span class="line">            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">                viewMove(-mAutoSlipStep, isPullRestoreEnable);</span><br><span class="line">                slip(-mAutoSlipStep, isPullRestoreEnable);<span class="hljs-comment">//准备下一次滑动</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;, mAutoSlipTimeStep);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>上面的代码中我把手指每次的滑动距离当做<code>ContentView</code>的滑动步长，再根据<code>ContentView</code>的滑动步长计算其他视图的当前滑动步长，计算具体方式可以看代码中的注释。</p>
-<p>其实上面代码里的实现步骤还是比较清晰简单的，主要是如下几个步骤：</p>
+<h4 id="2-Post请求"><a href="#2-Post请求" class="headerlink" title="2.Post请求"></a>2.Post请求</h4><p>上面对OkHttp的Get请求分析完之后，OkHttp的整个请求流程和处理流程就清晰，Post请求和Get请求的流程都是一样，区别只是在于Request对象构造上有区别。<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">//创建OkHttpClient对象</span></span><br><span class="line">OkHttpClient client = <span class="hljs-keyword">new</span> OkHttpClient();</span><br><span class="line"><span class="hljs-comment">//通过FormEncodingBuilder对象添加多个请求参数键值对</span></span><br><span class="line">FormEncodingBuilder builder = <span class="hljs-keyword">new</span> FormEncodingBuilder();</span><br><span class="line">builder.add(<span class="hljs-string">"method"</span>, <span class="hljs-string">"post"</span>).add(<span class="hljs-string">"param"</span>, value);</span><br><span class="line"><span class="hljs-comment">//通过FormEncodingBuilder对象构造Post请求体</span></span><br><span class="line">RequestBody body = builder.build();</span><br><span class="line"><span class="hljs-comment">//通过请求地址和请求体构造Post请求对象Request</span></span><br><span class="line">Request request = <span class="hljs-keyword">new</span> Request.Builder().url(url).post(body).build();</span><br></pre></td></tr></table></figure></p>
+<p>上面的代码演示了如何构造普通Post请求(不包含文件上传)的请求体和请求对象，请求对象构造成功之后，后面的请求过程和处理流程就和Get请求是一样的了。</p>
+<h4 id="3-文件上传"><a href="#3-文件上传" class="headerlink" title="3.文件上传"></a>3.文件上传</h4><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">//多个图片文件列表 </span></span><br><span class="line">List&lt;File&gt; list = <span class="hljs-keyword">new</span> ArrayList&lt;File&gt;();</span><br><span class="line"><span class="hljs-comment">//多文件表单上传构造器</span></span><br><span class="line">MultipartBuilder multipartBuilder = <span class="hljs-keyword">new</span> MultipartBuilder().type(MultipartBuilder.FORM);</span><br><span class="line"><span class="hljs-comment">//添加一个文本表单参数</span></span><br><span class="line">multipartBuilder.addFormDataPart(<span class="hljs-string">"method"</span>, <span class="hljs-string">"upload上传"</span>);</span><br><span class="line"><span class="hljs-keyword">for</span>(File file : list) &#123;</span><br><span class="line">    <span class="hljs-keyword">if</span>(file.exists()) &#123;</span><br><span class="line">        multipartBuilder.addFormDataPart(file.getName(), file.getName(), RequestBody.create(MediaType.parse(<span class="hljs-string">"image/png"</span>), file));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-comment">//构造文件上传时的请求对象Request</span></span><br><span class="line">Request request = <span class="hljs-keyword">new</span> Request.Builder().url(url).post(multipartBuilder.build()).build();</span><br></pre></td></tr></table></figure>
+<p>文件上传时的重点是通过<code>MultipartBuilder</code>构造器添加要上传的文件和表单参数，OkHttp中文件上传时，没有可以直接实现上传进度显示的接口，这个需要手动对OkHttp中的请求体进行扩展，这篇文章中就不写了，在下篇文章介绍<code>TigerOkHttp</code>时我会进行介绍。</p>
+<h4 id="4-文件下载"><a href="#4-文件下载" class="headerlink" title="4.文件下载"></a>4.文件下载</h4><p>文件下载功能在第一点Get请求的几点说明中已经介绍过了，无论你是通过Get请求还是Post请求，只需要从请求结果对象Response中获取到结果输入流InputStream，然后通过IO操作进行写文件即可实现文件下载功能。在通过IO操作写文件时，也可以自行实现下载进度显示的功能。</p>
+<h4 id="5-编码问题"><a href="#5-编码问题" class="headerlink" title="5.编码问题"></a>5.编码问题</h4><p>在OkHttp中，无论是Get请求还是Post请求所有参数的编码方式都是默认采用UTF-8的编码方式进行编码。</p>
+<p>所以在进行Get请求或Post请求时，文本参数都不需要我们进行手动编码，但是在服务端进行参数解析时，需要做简单的处理，这里我只说明tomcat下运行的Java后台服务的处理方式：</p>
 <ol>
-<li>在<code>MotionEvent.MOVE</code>中先得到当前手指滑动的距离，此距离作为<code>ContentView</code>的此次滑动步长</li>
-<li>根据<code>ContentView</code>的滑动步长计算其他三个视图的滑动步长</li>
-<li>根据当前是上滑还是下滑，判断是否滑动结束，没有结束则按照计算得到的步长继续对View进行滑动处理</li>
-<li>当手指松开后，在<code>MotionEvent.UP</code>中判断<code>ContentView</code>的滑动距离是否达到了<code>PageHeadView</code>高度的一半，从而决定是继续同方向滑动至结束还是恢复到原状态</li>
-<li>手指松开后，最终调用slip方法开始自动循环滑动处理，直至滑动结束</li>
+<li><p>针对Get请求，我们只需要在tomcat的server.xml文件中设置默认编码方式<code>(URIEncoding=”UTF-8″ )</code>为UTF-8即可，注意此编码设置只对Get请求有效。</p>
+</li>
+<li><p>针对Post请求，我们在解析获取参数值之前需要手动设置请求的编码方式为UTF-8，如：<code>req.setCharacterEncoding(“UTF-8”);</code></p>
+</li>
 </ol>
+<h3 id="OkHttp封装框架–TigerOkHttp"><a href="#OkHttp封装框架–TigerOkHttp" class="headerlink" title="OkHttp封装框架–TigerOkHttp"></a>OkHttp封装框架–TigerOkHttp</h3><p>以上就是OkHttp最基本的用法，下篇文章我会介绍我自己基于OkHttp更进一步封装的网络请求库TigerOkHttp，它主要包含了如下功能特点：</p>
+<ol>
+<li><p>一般的get同步阻塞请求和异步请求</p>
+</li>
+<li><p>一般的post同步阻塞请求和异步请求</p>
+</li>
+<li><p>实现了文件上传功能（包含文件上传进度回调显示）</p>
+</li>
+<li><p>实现了大文件下载功能，只需要指定文件下载路径即可，也包含了下载进度的回调显示</p>
+</li>
+<li><p>实现了请求结果的自动解析，用户也可以根据需求扩展自定义结果解析类</p>
+</li>
+<li><p>对所有请求都支持直接将结果解析转换为JavaBean对象或集合</p>
+</li>
+<li><p>支持对返回结果结构的自定义，例如设置返回结果结构为：{flag：1|0，error：错误信息，result：请求结果}，结果解析的时候会按照此结构进行结果解析</p>
+</li>
+<li><p>支持取消某个请求</p>
+</li>
+</ol>
+<p>write by laohu</p>
+<p>2016-1-5 </p>
 <hr>
 <p>原创文章，严禁随意转载。欢迎大家添加个人微信讨论交流，添加时请备注：博客。<br><img src="/img/weixinCode.jpeg" width="200" height="200" alt></p>
 
@@ -258,7 +257,7 @@ var _hmt = _hmt || [];
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/Android/">Android</a>
+                    <a class="has-link-grey -link" href="/tags/Android/">Android</a>, <a class="has-link-grey -link" href="/tags/OkHttp/">OkHttp</a>
                 </div>
             </div>
         </div>
@@ -315,16 +314,16 @@ var _hmt = _hmt || [];
     <div class="level post-navigation is-flex-wrap is-mobile">
         
         <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/AndroidStudio使用技巧.html">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/基于OkHttp的封装库TigerOkHttp的使用.html">
                 <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">AndroidStudio使用技巧</span>
+                <span class="level-item">基于OkHttp的封装库TigerOkHttp的使用</span>
             </a>
         </div>
         
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/RecyclerView绘制原理.html">
-                <span class="level-item">RecyclerView绘制原理</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/problem-of-baiduMap-navigation-android.html">
+                <span class="level-item">Android百度地图导航功能的那些坑</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -378,7 +377,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        65
+                        66
                     </p>
                 </div>
             </div>
@@ -450,7 +449,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">Android</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">35</span>
+                <span class="level-item tag">36</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/Blog/">
@@ -602,6 +601,19 @@ var _hmt = _hmt || [];
             
             <div class="media-content">
                 <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-10T13:16:13.000Z">2019-05-10</time></div>
+                    <a href="/android-module-develop-config.html" class="has-link-black-ter is-size-6">Android模块化开发配置</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Android/">Android</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-22T09:25:05.000Z">2019-04-22</time></div>
                     <a href="/Kotlin-Coroutine-For-Android-Network.html" class="has-link-black-ter is-size-6">Android中用Kotlin Coroutine(协程)和Retrofit进行网络请求和取消请求</a>
                     <p class="is-size-7 is-uppercase">
@@ -650,19 +662,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-11-05T03:21:17.000Z">2018-11-05</time></div>
-                    <a href="/Flutter-Row-Column-Container.html" class="has-link-black-ter is-size-6">Flutter入门之Row、Column、Container布局</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Flutter/">Flutter</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -674,6 +673,17 @@ var _hmt = _hmt || [];
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2019/04/">
@@ -944,7 +954,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Android/">
                         <span class="tag">Android</span>
-                        <span class="tag is-grey">37</span>
+                        <span class="tag is-grey">38</span>
                     </a>
                 </div>
                 
@@ -1164,6 +1174,19 @@ var _hmt = _hmt || [];
             
             <div class="media-content">
                 <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-10T13:16:13.000Z">2019-05-10</time></div>
+                    <a href="/android-module-develop-config.html" class="has-link-black-ter is-size-6">Android模块化开发配置</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Android/">Android</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-22T09:25:05.000Z">2019-04-22</time></div>
                     <a href="/Kotlin-Coroutine-For-Android-Network.html" class="has-link-black-ter is-size-6">Android中用Kotlin Coroutine(协程)和Retrofit进行网络请求和取消请求</a>
                     <p class="is-size-7 is-uppercase">
@@ -1212,19 +1235,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-11-05T03:21:17.000Z">2018-11-05</time></div>
-                    <a href="/Flutter-Row-Column-Container.html" class="has-link-black-ter is-size-6">Flutter入门之Row、Column、Container布局</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Flutter/">Flutter</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1236,6 +1246,17 @@ var _hmt = _hmt || [];
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2019/04/">
@@ -1506,7 +1527,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Android/">
                         <span class="tag">Android</span>
-                        <span class="tag is-grey">37</span>
+                        <span class="tag is-grey">38</span>
                     </a>
                 </div>
                 
@@ -1716,7 +1737,7 @@ var _hmt = _hmt || [];
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/football.svg" alt="UC浏览器首页滑动动画实现" height="28">
+                    <img src="/images/football.svg" alt="Android中OkHttp的使用" height="28">
                 
                 </a>
                 <p class="is-size-7">

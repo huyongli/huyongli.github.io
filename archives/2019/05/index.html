@@ -2,24 +2,19 @@
 <html lang="zh">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>Lucene近实时搜索应用总结 - 老胡</title>
+<title>归档: 2019/5 - 老胡</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta name="description" content="最近因工作需要，用到了Lucene，在需求中，需要对生成的索引文件不断的更新、新增、删除等操作，同时还要实时的看到索引改动后的数据，在使用过程中碰到了Lucene里几个比较常见的问题，特来总结记录下。 我使用的是Lucene4.3，本来是想使用最高的版本Lucene4.9的(不知道现在又有么有新的版本出现)，但是因为公司项目的JDK都是JDK6的，而Lucene4.9的支持的最低JDK版本是7+的">
-<meta name="keywords" content="Java">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Lucene近实时搜索应用总结">
-<meta property="og:url" content="http://ittiger.cn/Lucene近实时搜索应用总结.html">
+    <meta property="og:type" content="website">
+<meta property="og:title" content="老胡">
+<meta property="og:url" content="http://ittiger.cn/archives/2019/05/index.html">
 <meta property="og:site_name" content="老胡">
-<meta property="og:description" content="最近因工作需要，用到了Lucene，在需求中，需要对生成的索引文件不断的更新、新增、删除等操作，同时还要实时的看到索引改动后的数据，在使用过程中碰到了Lucene里几个比较常见的问题，特来总结记录下。 我使用的是Lucene4.3，本来是想使用最高的版本Lucene4.9的(不知道现在又有么有新的版本出现)，但是因为公司项目的JDK都是JDK6的，而Lucene4.9的支持的最低JDK版本是7+的">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://ittiger.cn/images/og_image.png">
-<meta property="og:updated_time" content="2019-05-09T09:18:27.607Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Lucene近实时搜索应用总结">
-<meta name="twitter:description" content="最近因工作需要，用到了Lucene，在需求中，需要对生成的索引文件不断的更新、新增、删除等操作，同时还要实时的看到索引改动后的数据，在使用过程中碰到了Lucene里几个比较常见的问题，特来总结记录下。 我使用的是Lucene4.3，本来是想使用最高的版本Lucene4.9的(不知道现在又有么有新的版本出现)，但是因为公司项目的JDK都是JDK6的，而Lucene4.9的支持的最低JDK版本是7+的">
+<meta name="twitter:title" content="老胡">
 <meta name="twitter:image" content="http://ittiger.cn/images/og_image.png">
 
 
@@ -108,7 +103,7 @@ var _hmt = _hmt || [];
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/football.svg" alt="Lucene近实时搜索应用总结" height="28">
+                <img src="/images/football.svg" alt="老胡" height="28">
             
             </a>
         </div>
@@ -153,152 +148,37 @@ var _hmt = _hmt || [];
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2014-12-11T11:12:55.000Z">2014-12-11</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Java/">Java</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    17 分钟 读完 (大约 2569 个字)
-                </span>
-                
-                
-                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
-                    <i class="far fa-eye"></i>
-                    <span id="busuanzi_value_page_pv">0</span>次访问
-                </span>
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                Lucene近实时搜索应用总结
-            
-        </h1>
-        <div class="content">
-            <p>最近因工作需要，用到了Lucene，在需求中，需要对生成的索引文件不断的更新、新增、删除等操作，同时还要实时的看到索引改动后的数据，在使用过程中碰到了Lucene里几个比较常见的问题，特来总结记录下。</p>
-<p>我使用的是Lucene4.3，本来是想使用最高的版本Lucene4.9的(不知道现在又有么有新的版本出现)，但是因为公司项目的JDK都是JDK6的，而Lucene4.9的支持的最低JDK版本是7+的，所以最后选择了这个版本。第一次碰这个东东，也是在网上搜罗各种资料，当然官网是少不了的，还有一个网址，这个里面的版本更全面，包含了Lucene所有的版本，有需要的可以去下载自己想要的版本。</p>
-<p>OK，进入正题。</p>
-<ol>
-<li><p>在读取索引文件内容时，索引文件的打开操作 <code>new IndexSearcher(DirectoryReader.open(FSDirectory.open(new File(indexPath))))</code> 是个非常耗时耗资源的操作，所以在搜索索引数据时把<code>IndexSearcher</code>对象给缓存起来可以提高搜索性能，这个地方可以将索引目录对应的<code>IndexSearcher</code>对象做成一个单例模式进行获取。</p>
-</li>
-<li><p>在问题1的操作基础上，我对索引进行了更新操作，紧接着我就发现了一个问题，索引更新后我查询出来的结果和我更新后的结果对不上号。再网上查了半天没找到原因，后来在一个群里请教之后，才知道更新完索引之后，索引文件需要重新打开，否则搜索得到的还是原来索引的数据，Lucene里面的这个原理非常重要。</p>
-</li>
-<li><p>因为当时对<code>Lucene</code>了解的不是很多，所以为了每次更新后能搜索到正确的数据，我的做法是每次更新完索引就将我之前缓存的<code>IndexSearcher</code>对象和<code>Reader</code>对象给移除掉，下次搜索时重新打开索引，这样来保证搜索结果的正确性。</p>
-</li>
-</ol>
-<a id="more"></a>
-<p>索引的更新代码大致如下：<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">//获取索引的写对象</span></span><br><span class="line">  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> IndexWriter <span class="hljs-title">getIndexWriter</span><span class="hljs-params">(String indexPath)</span> <span class="hljs-keyword">throws</span> Exception </span>&#123;</span><br><span class="line">      Directory dir = FSDirectory.open(<span class="hljs-keyword">new</span> File(indexPath));</span><br><span class="line">      <span class="hljs-keyword">if</span>(IndexWriter.isLocked(dir)) &#123;</span><br><span class="line">          IndexWriter.unlock(dir);</span><br><span class="line">      &#125;</span><br><span class="line">      IndexWriterConfig iwriterConfig = <span class="hljs-keyword">new</span> IndexWriterConfig(Version.LUCENE_43, <span class="hljs-keyword">new</span> ComplexAnalyzer());</span><br><span class="line">      IndexWriter indexWriter=<span class="hljs-keyword">new</span> IndexWriter(dir, iwriterConfig);</span><br><span class="line">     <span class="hljs-keyword">return</span> indexWriter;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="hljs-comment">//索引更新操作，索引中的更新逻辑是将旧的文档删除，再将新的文档新增进去</span></span><br><span class="line">  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">updateLucene</span><span class="hljs-params">(String indexPath，要更新的数据参数)</span> </span>&#123;</span><br><span class="line">      IndexSearcher indexSearcher = getIndexSearcher(indexPath);</span><br><span class="line">      Document oldDoc = ....<span class="hljs-comment">//根据IndexSearcher查询得到被更新的旧文档--1处</span></span><br><span class="line">      Document newDoc = ....<span class="hljs-comment">//根据旧文档和要更新的具体数据得到要更新的新文档</span></span><br><span class="line">      indexWriter.updateDocument(doc);<span class="hljs-comment">//更新操作--3处</span></span><br><span class="line">      removeReader(indexPath);<span class="hljs-comment">//移除IndexSearcher缓存对象--2处</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<ol start="4">
-<li>问题3中的这个跟新操作写完之后实际应用的时候，出了好几个问题，都是Lucene里面比较常见，容易犯错的问题。<br>异常1：org.apache.lucene.store.AlreadyClosedException: this IndexReader is closed<br>经过分析之后发现是因为多并发情况下时，同一个索引文件对应的Reader对象别多个线程持有，在我这个代码里存在线程1刚好执行完2处代码将Reader缓存清理掉(同时关掉了该Reader对象)，而刚好，线程2在执行代码1处的查询操作，这个时候就会出现这个异常。在我这个代码里的更新操作总共分3部，首先查询出旧的文档，紧接着构造新文档并执行更新操作，第三步是移除缓存，所以这三步应该归结为一个原子操作，所以我很自然的就想到了同步锁synchronized，在该方法上添加Class级的同步锁，由于我的代码里有多个这种更新索引的方法，所以每个方法都加一个同步锁，后来证明这种方式也不行仍然出现了该异常，具体代码的问题出在哪我现在真记不起来了，而且这种多个静态方法都加Class级的同步锁性能注定不怎么样，后续的解决办法下面问题中继续说。<br>异常2：LockObtainFailedException<br>经过查询资料知道这是因为在IndexWriter的构造函数在试图获取另外一个IndexWriter已经加锁的索引目录时抛出的错误，这是因为在Lucene中只能允许一个线程去进行写操作，当该线程获取到这个写对象后，会在索引目录中生成一个write.lock文件，所以在这个线程没有释放该索引目录的锁对象前，其他线程无法获取该目录的写对象，根据这个write.lock文件，我们可以很方便的判断当前索引目录有没有被写对象占用，改造后的代码如下： <figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">private</span> Object synchronized_w = <span class="hljs-keyword">new</span> Object();</span><br><span class="line">      <span class="hljs-function"><span class="hljs-keyword">private</span> IndexWriter <span class="hljs-title">getIndexWriter</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">          <span class="hljs-keyword">synchronized</span> (synchronized_w) &#123;</span><br><span class="line">              <span class="hljs-keyword">try</span> &#123;</span><br><span class="line">                  Directory dir = <span class="hljs-keyword">null</span>;</span><br><span class="line">                  <span class="hljs-keyword">while</span> (<span class="hljs-keyword">true</span>) &#123;</span><br><span class="line">                      dir = FSDirectory.open(<span class="hljs-keyword">new</span> File(indexPath));</span><br><span class="line">                      <span class="hljs-keyword">if</span>(!IndexWriter.isLocked(dir)) &#123;</span><br><span class="line">                          <span class="hljs-keyword">if</span>(indexWriter == <span class="hljs-keyword">null</span>) &#123;</span><br><span class="line">                              indexWriter = <span class="hljs-keyword">new</span> IndexWriter(dir, <span class="hljs-keyword">new</span> IndexWriterConfig(Version.LUCENE_43, LuceneManager.getAnalyzer()));</span><br><span class="line">                          &#125;</span><br><span class="line">                          <span class="hljs-keyword">break</span>;</span><br><span class="line">                      &#125; <span class="hljs-keyword">else</span> &#123;</span><br><span class="line">                          <span class="hljs-keyword">try</span> &#123;</span><br><span class="line">                              dir.close();</span><br><span class="line">                              Thread.sleep(<span class="hljs-number">100</span>);</span><br><span class="line">                              Thread.yield();</span><br><span class="line">                          &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                              logger.error(<span class="hljs-string">"获取索引"</span> + indexPath + <span class="hljs-string">"写对象IndexWriter失败"</span>, e);</span><br><span class="line">                          &#125;</span><br><span class="line">                      &#125;</span><br><span class="line">                  &#125;</span><br><span class="line">              &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                  logger.error(<span class="hljs-string">"获取索引"</span> + indexPath + <span class="hljs-string">"写对象IndexWriter失败"</span>, e);</span><br><span class="line">              &#125;</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="hljs-keyword">return</span> indexWriter;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>获取索引写对象的代码经过如此改造之后，成功运行，没有出现问题。</p>
-<ol start="5">
-<li>继续问题4中的第一个异常，分析之后觉得问题出现的最终原因还是在第三步移除缓存时关闭Reader对象这里，所以如果Lucene能不需要手动关闭Reader对象就可以解决这个问题，带着这个问题我重新去查看了Lucene4.3的API文档，看了之后发现了两个个比较重要的API，DirectoryReader.openIfChanged(dirReader)和DirectoryReader.isCurrent()，前者是个静态方法，可以判断当前Reader对象的索引有没有被修改过，如果索引文件被更新过则重新加载该索引目录，但是这个时候的重新加载则比单纯的open(indexPath)要高效很多，它只是重新加载被更新过的文档，而单纯的open则是加载全部的文档，重新加载后我们查询的时候就可以查询到最新的数据结果了。而第二个API是个实例方法，用来判断当前Reader对象所代表的索引文件是不是最开始那个，即判断当前索引文件有没有被更新过，有更新则返回false，否则返回true，则两个API结合在一起刚好可以解决我之前的Reader关闭问题。有了这种重新加载机制，我就不需要每次更新索引之后清除缓存关掉旧的Reader对象并打开新的对象。改造的代码如下： <figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> IndexSearcher <span class="hljs-title">getIndexSearcher</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">          <span class="hljs-keyword">synchronized</span> (lock_r) &#123;</span><br><span class="line">              <span class="hljs-keyword">try</span> &#123;</span><br><span class="line">                  <span class="hljs-keyword">if</span>(indexSearcher == <span class="hljs-keyword">null</span> &amp;&amp; dirReader == <span class="hljs-keyword">null</span>) &#123;</span><br><span class="line">                      dirReader = DirectoryReader.open(FSDirectory.open(<span class="hljs-keyword">new</span> File(indexPath)));</span><br><span class="line">                      indexSearcher = <span class="hljs-keyword">new</span> IndexSearcher(dirReader);</span><br><span class="line">                  &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(indexSearcher != <span class="hljs-keyword">null</span> &amp;&amp; dirReader != <span class="hljs-keyword">null</span> &amp;&amp; !dirReader.isCurrent()) &#123;</span><br><span class="line">                      <span class="hljs-comment">//判断有没有更新过，有更新则重新加载更新过的文档</span></span><br><span class="line">                      DirectoryReader newDirReader = DirectoryReader.openIfChanged(dirReader);</span><br><span class="line">                      indexSearcher = <span class="hljs-keyword">new</span> IndexSearcher(newDirReader);</span><br><span class="line">                      dirReader = newDirReader;</span><br><span class="line">                  &#125;</span><br><span class="line">              &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                  logger.error(<span class="hljs-string">"获取索引"</span> + indexPath + <span class="hljs-string">"搜索对象IndexSearcher失败"</span>, e);</span><br><span class="line">              &#125;</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="hljs-keyword">return</span> indexSearcher;</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>这个代码里面有个问题就是旧的Reader对象没有关闭掉，如果加上这reader.close()这句话又会出现那个异常，不加的话运行没有问题，但是我总觉得不关掉不太好，感觉占着资源。然后继续查看API文档，发现了SearcherManager这个类，这个是Lucene里面提供的工具类，主要是用来了管理IndexSearcher对象的，仔细阅读了该类的说明及其源代码后觉得用这个工具类更靠谱，所以最后毫不犹豫的重新写了一个IndexSearcher对象的获取方式，代码如下：<br>        <figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">private</span> IndexSearcher <span class="hljs-title">getIndexSearcher</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> IOException </span>&#123;</span><br><span class="line">    IndexSearcher indexSearcher = <span class="hljs-keyword">null</span>;</span><br><span class="line">    <span class="hljs-keyword">synchronized</span> (synchronized_r) &#123;</span><br><span class="line">        <span class="hljs-keyword">if</span>(searcherManager == <span class="hljs-keyword">null</span>) &#123;</span><br><span class="line">            searcherManager = <span class="hljs-keyword">new</span> SearcherManager(FSDirectory.open(<span class="hljs-keyword">new</span> File(indexPath)), <span class="hljs-keyword">new</span> SearcherFactory());</span><br><span class="line">        &#125;</span><br><span class="line">        searcherManager.maybeRefresh();<span class="hljs-comment">//这个方法同DirectoryReader.openIfChanged(dirReader)效果一样，其实底层还是调用的该方法实现的</span></span><br><span class="line">        indexSearcher = searcherManager.acquire();<span class="hljs-comment">//借用一个IndexSearcher对象的引用，记住该对象用完之后要归还的，有借有还再借不难</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">return</span> indexSearcher;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">closeIndexSearcher</span><span class="hljs-params">(IndexSearcher indexSearcher)</span> <span class="hljs-keyword">throws</span> IOException </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">if</span>(indexSearcher != <span class="hljs-keyword">null</span>) &#123;</span><br><span class="line">        searcherManager.release(indexSearcher);<span class="hljs-comment">//归还从SearcherManager处借来的IndexSearcher对象</span></span><br><span class="line">    &#125;</span><br><span class="line">    indexSearcher = <span class="hljs-keyword">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>如此实现之后，就不需要我们自己管理这个旧的Reader对象，而是交由Lucene本身自己去进行管理，而且此种实现方式更简洁明了，也完美解决了我的问题。</p>
-<p>实现了索引更新后的数据的读取实时性就可以实现一个简单的实时搜索功能。</p>
-<p>最后为了保证项目中Lucene使用的稳定性，我对索引文件的更新和查询都添加了读写锁ReentrantReadWriteLock来进行控制，更新的时候添加写锁，查询的时候添加读锁，这样更加的保证了Lucene使用的安全性。</p>
-<hr>
-<p>简单介绍下读写锁ReentrantReadWriteLock的机制(多线程并发的时候很有用)：</p>
-<ol>
-<li>在某个线程获取到读锁时，其他线程不能获取写锁，但是可以获取读锁</li>
-<li>在某个线程获取到写锁时，其他线程既不能获取写锁也不能获取读锁</li>
-<li>给个示例代码：<pre><code><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">private</span> ReentrantReadWriteLock  w_lock = <span class="hljs-keyword">new</span> ReentrantReadWriteLock();<span class="hljs-comment">//读写锁</span></span><br><span class="line">   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">updateDocument</span><span class="hljs-params">(Term term, Document doc)</span> <span class="hljs-keyword">throws</span> Exception </span>&#123;</span><br><span class="line">       <span class="hljs-keyword">try</span> &#123;</span><br><span class="line">           w_lock.writeLock().lock();<span class="hljs-comment">//获得写锁</span></span><br><span class="line">           getIndexWriter();</span><br><span class="line">           indexWriter.updateDocument(term, doc);</span><br><span class="line">           indexWriter.commit();</span><br><span class="line">       &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;</span><br><span class="line">           <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> Exception(e);</span><br><span class="line">       &#125; <span class="hljs-keyword">finally</span> &#123;</span><br><span class="line">           closeIndexWriter();</span><br><span class="line">           w_lock.writeLock().unlock();释放写锁</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-</code></pre></li>
-</ol>
-<p>OK，到这里我的问题基本上就写完了，有时间再去研究研究Lucene的其他的特性。</p>
-<hr>
-<p>write by laohu<br>2014年12月11日19:12:55</p>
-<hr>
-<p>原创文章，严禁随意转载。欢迎大家添加个人微信讨论交流，添加时请备注：博客。<br><img src="/img/weixinCode.jpeg" width="200" height="200" alt></p>
-
-        </div>
-        
-        <div class="level is-size-7 is-uppercase">
-            <div class="level-start">
-                <div class="level-item">
-                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/Java/">Java</a>
-                </div>
-            </div>
-        </div>
-        
-        
-        
-        <div class="bdsharebuttonbox">
-    <a href="#" class="bds_more" data-cmd="more"></a>
-    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
-    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-    <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
-    <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
-    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
-</div>
-<script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "2", "bdPic": "", "bdStyle": "0", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];</script>
-        
-    </div>
-</div>
-
-
-
-<div class="card">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+<div class="card widget">
     <div class="card-content">
-        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
-        <div class="buttons is-centered">
-            
+        <h3 class="tag is-link">
+        五月 2019
+        </h3>
+        <div class="timeline">
+        
+            <article class="media">
                 
-<a class="button is-info donate">
-    <span class="icon is-small">
-        <i class="fab fa-alipay"></i>
-    </span>
-    <span>支付宝</span>
-    <div class="qrcode"><img src="/img/alipay.png" alt="支付宝"></div>
-</a>
-
-                
-                
-<a class="button is-success donate">
-    <span class="icon is-small">
-        <i class="fab fa-weixin"></i>
-    </span>
-    <span>微信</span>
-    <div class="qrcode"><img src="/img/weixinpay.png" alt="微信"></div>
-</a>
-
-                
+                <div class="media-content">
+                    <div class="content">
+                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-05-10T13:16:13.000Z">2019-05-10</time>
+                        <a href="/android-module-develop-config.html" class="has-link-black-ter is-size-6">Android模块化开发配置</a>
+                        <div class="level article-meta is-mobile">
+                            <div class="level-left">
+                                
+                                <div class="level-item is-size-7 is-uppercase">
+                                <a class="has-link-grey -link" href="/categories/Android/">Android</a>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        
         </div>
     </div>
 </div>
 
-
-
-<div class="card card-transparent">
-    <div class="level post-navigation is-flex-wrap is-mobile">
-        
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/浅谈JSONP跨域请求.html">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">浅谈JSONP跨域请求</span>
-            </a>
-        </div>
-        
-        
-    </div>
-</div>
 
 
 </div>
@@ -346,7 +226,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        65
+                        66
                     </p>
                 </div>
             </div>
@@ -418,7 +298,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">Android</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">35</span>
+                <span class="level-item tag">36</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/Blog/">
@@ -570,6 +450,19 @@ var _hmt = _hmt || [];
             
             <div class="media-content">
                 <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-10T13:16:13.000Z">2019-05-10</time></div>
+                    <a href="/android-module-develop-config.html" class="has-link-black-ter is-size-6">Android模块化开发配置</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Android/">Android</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-22T09:25:05.000Z">2019-04-22</time></div>
                     <a href="/Kotlin-Coroutine-For-Android-Network.html" class="has-link-black-ter is-size-6">Android中用Kotlin Coroutine(协程)和Retrofit进行网络请求和取消请求</a>
                     <p class="is-size-7 is-uppercase">
@@ -618,19 +511,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-11-05T03:21:17.000Z">2018-11-05</time></div>
-                    <a href="/Flutter-Row-Column-Container.html" class="has-link-black-ter is-size-6">Flutter入门之Row、Column、Container布局</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Flutter/">Flutter</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -642,6 +522,17 @@ var _hmt = _hmt || [];
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2019/04/">
@@ -912,7 +803,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Android/">
                         <span class="tag">Android</span>
-                        <span class="tag is-grey">37</span>
+                        <span class="tag is-grey">38</span>
                     </a>
                 </div>
                 
@@ -1132,6 +1023,19 @@ var _hmt = _hmt || [];
             
             <div class="media-content">
                 <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-10T13:16:13.000Z">2019-05-10</time></div>
+                    <a href="/android-module-develop-config.html" class="has-link-black-ter is-size-6">Android模块化开发配置</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Android/">Android</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-22T09:25:05.000Z">2019-04-22</time></div>
                     <a href="/Kotlin-Coroutine-For-Android-Network.html" class="has-link-black-ter is-size-6">Android中用Kotlin Coroutine(协程)和Retrofit进行网络请求和取消请求</a>
                     <p class="is-size-7 is-uppercase">
@@ -1180,19 +1084,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-11-05T03:21:17.000Z">2018-11-05</time></div>
-                    <a href="/Flutter-Row-Column-Container.html" class="has-link-black-ter is-size-6">Flutter入门之Row、Column、Container布局</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Flutter/">Flutter</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1204,6 +1095,17 @@ var _hmt = _hmt || [];
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2019/04/">
@@ -1474,7 +1376,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Android/">
                         <span class="tag">Android</span>
-                        <span class="tag is-grey">37</span>
+                        <span class="tag is-grey">38</span>
                     </a>
                 </div>
                 
@@ -1684,7 +1586,7 @@ var _hmt = _hmt || [];
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/football.svg" alt="Lucene近实时搜索应用总结" height="28">
+                    <img src="/images/football.svg" alt="老胡" height="28">
                 
                 </a>
                 <p class="is-size-7">
