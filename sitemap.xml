@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://ittiger.cn/Java-Memory-Model.html</loc>
+    
+    <lastmod>2019-05-29T14:39:08.858Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://ittiger.cn/about/index.html</loc>
     
     <lastmod>2019-05-24T02:29:44.192Z</lastmod>
@@ -471,14 +478,14 @@
   </url>
   
   <url>
-    <loc>http://ittiger.cn/Header-Footer-scroll-hide.html</loc>
+    <loc>http://ittiger.cn/Custom-Behavior-to-fast-back.html</loc>
     
     <lastmod>2019-05-09T01:56:40.903Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://ittiger.cn/Custom-Behavior-to-fast-back.html</loc>
+    <loc>http://ittiger.cn/Header-Footer-scroll-hide.html</loc>
     
     <lastmod>2019-05-09T01:56:40.903Z</lastmod>
     

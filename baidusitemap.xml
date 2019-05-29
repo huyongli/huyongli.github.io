@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://ittiger.cn/Java-Memory-Model.html</loc>
+    <lastmod>2019-05-29</lastmod>
+  </url>  <url>
     <loc>http://ittiger.cn/talk-jsonp-cross-domain-request.html</loc>
     <lastmod>2019-05-10</lastmod>
   </url>  <url>
@@ -193,10 +196,10 @@
     <loc>http://ittiger.cn/Retrofit-Source-Design-Pattern.html</loc>
     <lastmod>2019-05-09</lastmod>
   </url>  <url>
-    <loc>http://ittiger.cn/Header-Footer-scroll-hide.html</loc>
+    <loc>http://ittiger.cn/Custom-Behavior-to-fast-back.html</loc>
     <lastmod>2019-05-09</lastmod>
   </url>  <url>
-    <loc>http://ittiger.cn/Custom-Behavior-to-fast-back.html</loc>
+    <loc>http://ittiger.cn/Header-Footer-scroll-hide.html</loc>
     <lastmod>2019-05-09</lastmod>
   </url>
 </urlset>
