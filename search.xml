@@ -4,6 +4,69 @@
   
     
     <entry>
+      <title><![CDATA[Java多线程之先行发生原则(happens-before)]]></title>
+      <url>http://ittiger.cn/Java-Happends-Before.html</url>
+      <content type="html"><![CDATA[<p>前面介绍了Java内存模型及内存屏障相关概念，这篇文章接着介绍多线程编程另外一个比较重要的概念：先行发生原则（happens-before）。</p>
+<h3 id="重要性"><a href="#重要性" class="headerlink" title="重要性"></a>重要性</h3><p>happens-before是判断数据是否存在竞争，线程是否安全的主要依据，通过这个原则，我们可以解决并发环境下两个操作之间是否可能存在冲突的所有问题。</p>
+<h3 id="happens-before是什么"><a href="#happens-before是什么" class="headerlink" title="happens-before是什么"></a>happens-before是什么</h3><p>它Java内存模型中针对两项操作定义的偏序关系。例如操作A先行于操作B发生，那么操作B可以观察到操作A所产生的所有影响，这些影响包括修改内存中共享变量的值、发送的消息，调用的方法等。</p>
+<a id="more"></a>
+<p>举个例子：<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">//该操作在线程1中执行</span></span><br><span class="line">i = <span class="hljs-number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">//该操作在线程2中执行</span></span><br><span class="line">j = i;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">//该操作在线程3中执行</span></span><br><span class="line">i = <span class="hljs-number">2</span></span><br></pre></td></tr></table></figure></p>
+<p>上述例子中有共享变量i和j，假设线程1中执行的操作“i=1”先于线程2中的操作“j=i”发生，那共享变量j的值肯定为1。</p>
+<p>得出这个结论是因为根据happens-before原则：“i=1”操作可以被观察到，而线程3还没有开始。</p>
+<p>如果依旧假定操作“i=1”和操作“j=i”的先行发生关系，而线程3开始于线程1和线程2之间，线程3与线程2之间没有先行发生关系，最后变量j的值是多少呢？结果可能是1也可能是2。这种情况线程3对变量i的影响可能会被线程B观察到，也可能不会被观察到，当没有被线程B观察到的时候，线程B就会读取到过期的旧数据，这个时候就出现了多线程安全性问题。</p>
+<h3 id="happens-before的8条规则"><a href="#happens-before的8条规则" class="headerlink" title="happens-before的8条规则"></a>happens-before的8条规则</h3><p>Java内存模型中已经存在8条定义好的先行发生规则，这些先行发生规则不需要任何同步操作就已经存在，如果两个操作之间的关系不在这几天规则或则无法通过这几条规则推导出来，那这两个操作就没有顺序保障，虚拟机就可以对他们进行重排。</p>
+<p>具体操作如下：</p>
+<ol>
+<li>程序次序规则：在同一个线程中，按照程序代码顺序，写在前面的操作先行发生与写在后面操作(控制流顺序：分支、循环等)。</li>
+<li>锁规则：一个unlock操作先行发生于后面(时间上)对同一个锁的lock操作</li>
+<li>volatile变量规则：对一个volatile变量的写操作先行发生于后面对这个变量的读操作</li>
+<li>线程启动规则：Thread对象的start()方法先行发生于此线程的每个操作</li>
+<li>线程终止规则：线程中的所有操作都先行发生于对此线程的终止检测(可以通过Thread.join()等待线程结束、Thread.isAlive()返回值)。</li>
+<li>线程中断规则：对线程interrupt()方法的调用先行发生于被中断线程的检测到中断事件的代码</li>
+<li>对象终结规则：一个对象的初始化完成先行发生于对象的finalize()方法的开始</li>
+<li>传递性规则：如果操作A先行发生于操作B，操作B先行发生于操作C，那操作A就先行发生于操作C</li>
+</ol>
+<h4 id="happens-before规则示例"><a href="#happens-before规则示例" class="headerlink" title="happens-before规则示例"></a>happens-before规则示例</h4><p>下面通过一个示例来看看如何通过这些规则来判断操作之间是否具有顺序性，而对于读写共享变量的操作来说，就是现场是否安全。<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> value = <span class="hljs-number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setValue</span><span class="hljs-params">(<span class="hljs-keyword">int</span> value)</span> </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">this</span>.value = value;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getValue</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这个例子是一段很简单的代码，假定有线程1和线程2，线程1先（时间上先）调用”setValue(1)”，然后线程2调用”getValue()”，最后线程2得到的值是多少？</p>
+<p>我们根据前面提到的8个规则来分析下：</p>
+<ul>
+<li>因为两个方法分别在线程1和线程2中执行，不是同一个线程，因此程序次序规则不适用</li>
+<li>代码中没有任何同步代码块(锁)，因此锁规则也不适用</li>
+<li>代码中value变量为非volatile变量，因此volatile变量规则也不适用</li>
+<li>整个执行过程很明显和线程启动、终止、中断、对象终结规则也没有关系</li>
+<li>因为没有任何先行发生关系，所以传递性规则也不适用</li>
+</ul>
+<p>根据上面的分析，虽然线程1在操作时机上先于线程2，但是因为没有任何先行发生关系，所以无法确定线程2中”getValue()”的值，因此这两个线程的操作放在一起是不安全的。</p>
+<p>要解决这个问题也很简单，一种是将setValue和getValue两个方法都定义为synchronized方法，这样就可以套用锁规则，另外一种是将value变量定义为volatile变量，而且这里修改value值的时候不依赖value的原值，所以就可以套用volatile变量规则。</p>
+<p>通过上面的分析，我们可以知道一个操作“时间上的先发生”不代表这个操作会“先行发生”。</p>
+<p>那一个操作“先行发生”是不是“时间上也是先发生”呢，这个其实也是不能保证的，典型的例子就是指令重排，例如下面的例子：<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">//下面两个操作在同一个线程中执行</span></span><br><span class="line"><span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>;  <span class="hljs-comment">//操作1</span></span><br><span class="line"><span class="hljs-keyword">int</span> j = <span class="hljs-number">2</span>;  <span class="hljs-comment">//操作2</span></span><br></pre></td></tr></table></figure></p>
+<p>上面的示例中，按照线程次序规则，操作1先行发生于操作2，但是操作2在实际执行过程中很可能因为重排序而被处理器先执行，这样也没有影响先行发生原则的正确性，因为在这个线程中我们无法感知到这种变化。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>时间上的先后顺序与先行发生原则之间没有基本的关系，因此我们在衡量线程安全与否时不要关注时间顺序，而是应该关注先行发生原则。</p>
+<hr>
+<p>原创文章，严禁随意转载。   </p>
+<p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
+]]></content>
+      
+        <categories>
+            
+            <category> Java </category>
+            
+            <category> 多线程 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> 多线程 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Java多线程之volatile关键字及内存屏障]]></title>
       <url>http://ittiger.cn/Java-volatile-memory-barrier.html</url>
       <content type="html"><![CDATA[<p>前面一篇文章在介绍Java内存模型的三大特性(原子性、可见性、有序性)时，在可见性和有序性中都提到了volatile关键字，那这篇文章就来介绍volatile关键字的内存语义以及实现其特性的内存屏障。</p>

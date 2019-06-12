@@ -169,6 +169,60 @@ var _hmt = _hmt || [];
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-06-12T14:06:19.000Z">2019-06-12</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Java/">Java</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Java/多线程/">多线程</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    11 分钟 读完 (大约 1662 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/Java-Happends-Before.html">Java多线程之先行发生原则(happens-before)</a>
+            
+        </h1>
+        <div class="content">
+            <p>前面介绍了Java内存模型及内存屏障相关概念，这篇文章接着介绍多线程编程另外一个比较重要的概念：先行发生原则（happens-before）。</p>
+<h3 id="重要性"><a href="#重要性" class="headerlink" title="重要性"></a>重要性</h3><p>happens-before是判断数据是否存在竞争，线程是否安全的主要依据，通过这个原则，我们可以解决并发环境下两个操作之间是否可能存在冲突的所有问题。</p>
+<h3 id="happens-before是什么"><a href="#happens-before是什么" class="headerlink" title="happens-before是什么"></a>happens-before是什么</h3><p>它Java内存模型中针对两项操作定义的偏序关系。例如操作A先行于操作B发生，那么操作B可以观察到操作A所产生的所有影响，这些影响包括修改内存中共享变量的值、发送的消息，调用的方法等。</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/Java-Happends-Before.html#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2019-05-31T02:55:32.000Z">2019-05-31</time>
                 
                 <div class="level-item">
@@ -679,68 +733,25 @@ var _hmt = _hmt || [];
 
 
 
-    <div class="card">
+
     
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2014-12-11T11:12:55.000Z">2014-12-11</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Java/">Java</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    17 分钟 读完 (大约 2569 个字)
-                </span>
-                
-                
-            </div>
+<div class="card card-transparent">
+    <nav class="pagination is-centered" role="navigation" aria-label="pagination">
+        <div class="pagination-previous is-invisible is-hidden-mobile">
+            <a class="is-flex-grow has-text-black-ter" href="/categories/Java/page/0/">上一页</a>
         </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+        <div class="pagination-next">
+            <a class="is-flex-grow has-text-black-ter" href="/categories/Java/page/2/">下一页</a>
+        </div>
+        <ul class="pagination-list is-hidden-mobile">
             
-                <a class="has-link-black-ter" href="/lucene-search-in-action.html">Lucene近实时搜索应用总结</a>
+            <li><a class="pagination-link is-current" href="/categories/Java/">1</a></li>
             
-        </h1>
-        <div class="content">
-            <p>最近因工作需要，用到了Lucene，在需求中，需要对生成的索引文件不断的更新、新增、删除等操作，同时还要实时的看到索引改动后的数据，在使用过程中碰到了Lucene里几个比较常见的问题，特来总结记录下。</p>
-<p>我使用的是Lucene4.3，本来是想使用最高的版本Lucene4.9的(不知道现在又有么有新的版本出现)，但是因为公司项目的JDK都是JDK6的，而Lucene4.9的支持的最低JDK版本是7+的，所以最后选择了这个版本。第一次碰这个东东，也是在网上搜罗各种资料，当然官网是少不了的，还有一个网址，这个里面的版本更全面，包含了Lucene所有的版本，有需要的可以去下载自己想要的版本。</p>
-<p>OK，进入正题。</p>
-<ol>
-<li><p>在读取索引文件内容时，索引文件的打开操作 <code>new IndexSearcher(DirectoryReader.open(FSDirectory.open(new File(indexPath))))</code> 是个非常耗时耗资源的操作，所以在搜索索引数据时把<code>IndexSearcher</code>对象给缓存起来可以提高搜索性能，这个地方可以将索引目录对应的<code>IndexSearcher</code>对象做成一个单例模式进行获取。</p>
-</li>
-<li><p>在问题1的操作基础上，我对索引进行了更新操作，紧接着我就发现了一个问题，索引更新后我查询出来的结果和我更新后的结果对不上号。再网上查了半天没找到原因，后来在一个群里请教之后，才知道更新完索引之后，索引文件需要重新打开，否则搜索得到的还是原来索引的数据，Lucene里面的这个原理非常重要。</p>
-</li>
-<li><p>因为当时对<code>Lucene</code>了解的不是很多，所以为了每次更新后能搜索到正确的数据，我的做法是每次更新完索引就将我之前缓存的<code>IndexSearcher</code>对象和<code>Reader</code>对象给移除掉，下次搜索时重新打开索引，这样来保证搜索结果的正确性。</p>
-</li>
-</ol>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/lucene-search-in-action.html#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
+            <li><a class="pagination-link has-text-black-ter" href="/categories/Java/page/2/">2</a></li>
+            
+        </ul>
+    </nav>
 </div>
-
-
-
-
-
-
-
-
 </div>
                 
 
@@ -786,7 +797,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        68
+                        69
                     </p>
                 </div>
             </div>
@@ -882,7 +893,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">Java</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">10</span>
+                <span class="level-item tag">11</span>
             </span>
         </a><ul><li>
         <a class="level is-marginless" href="/categories/Java/多线程/">
@@ -890,7 +901,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">多线程</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">2</span>
+                <span class="level-item tag">3</span>
             </span>
         </a></li></ul></li><li>
         <a class="level is-marginless" href="/categories/JavaScript/">
@@ -999,7 +1010,7 @@ var _hmt = _hmt || [];
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/AndroidStudio/" style="font-size: 10px;">AndroidStudio</a> <a href="/tags/Behavior/" style="font-size: 13.33px;">Behavior</a> <a href="/tags/Coroutine/" style="font-size: 13.33px;">Coroutine</a> <a href="/tags/DB/" style="font-size: 10px;">DB</a> <a href="/tags/Flutter/" style="font-size: 15px;">Flutter</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IM/" style="font-size: 16.67px;">IM</a> <a href="/tags/JSONP/" style="font-size: 10px;">JSONP</a> <a href="/tags/Java/" style="font-size: 18.33px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/Kotlin/" style="font-size: 13.33px;">Kotlin</a> <a href="/tags/Linux/" style="font-size: 16.67px;">Linux</a> <a href="/tags/Material-Design/" style="font-size: 13.33px;">Material Design</a> <a href="/tags/Media/" style="font-size: 10px;">Media</a> <a href="/tags/OkHttp/" style="font-size: 11.67px;">OkHttp</a> <a href="/tags/RN/" style="font-size: 10px;">RN</a> <a href="/tags/RecyclerView/" style="font-size: 15px;">RecyclerView</a> <a href="/tags/Retrofit/" style="font-size: 13.33px;">Retrofit</a> <a href="/tags/RxJava/" style="font-size: 10px;">RxJava</a> <a href="/tags/Shape/" style="font-size: 10px;">Shape</a> <a href="/tags/SpannableStringBuilder/" style="font-size: 10px;">SpannableStringBuilder</a> <a href="/tags/Thinking/" style="font-size: 10px;">Thinking</a> <a href="/tags/View/" style="font-size: 11.67px;">View</a> <a href="/tags/WordPress/" style="font-size: 11.67px;">WordPress</a> <a href="/tags/多线程/" style="font-size: 13.33px;">多线程</a> <a href="/tags/小程序/" style="font-size: 13.33px;">小程序</a> <a href="/tags/百度地图/" style="font-size: 10px;">百度地图</a>
+        <a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/AndroidStudio/" style="font-size: 10px;">AndroidStudio</a> <a href="/tags/Behavior/" style="font-size: 13.33px;">Behavior</a> <a href="/tags/Coroutine/" style="font-size: 13.33px;">Coroutine</a> <a href="/tags/DB/" style="font-size: 10px;">DB</a> <a href="/tags/Flutter/" style="font-size: 15px;">Flutter</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IM/" style="font-size: 16.67px;">IM</a> <a href="/tags/JSONP/" style="font-size: 10px;">JSONP</a> <a href="/tags/Java/" style="font-size: 18.33px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/Kotlin/" style="font-size: 13.33px;">Kotlin</a> <a href="/tags/Linux/" style="font-size: 16.67px;">Linux</a> <a href="/tags/Material-Design/" style="font-size: 13.33px;">Material Design</a> <a href="/tags/Media/" style="font-size: 10px;">Media</a> <a href="/tags/OkHttp/" style="font-size: 11.67px;">OkHttp</a> <a href="/tags/RN/" style="font-size: 10px;">RN</a> <a href="/tags/RecyclerView/" style="font-size: 15px;">RecyclerView</a> <a href="/tags/Retrofit/" style="font-size: 13.33px;">Retrofit</a> <a href="/tags/RxJava/" style="font-size: 10px;">RxJava</a> <a href="/tags/Shape/" style="font-size: 10px;">Shape</a> <a href="/tags/SpannableStringBuilder/" style="font-size: 10px;">SpannableStringBuilder</a> <a href="/tags/Thinking/" style="font-size: 10px;">Thinking</a> <a href="/tags/View/" style="font-size: 11.67px;">View</a> <a href="/tags/WordPress/" style="font-size: 11.67px;">WordPress</a> <a href="/tags/多线程/" style="font-size: 15px;">多线程</a> <a href="/tags/小程序/" style="font-size: 13.33px;">小程序</a> <a href="/tags/百度地图/" style="font-size: 10px;">百度地图</a>
     </div>
 </div>
 
@@ -1013,6 +1024,19 @@ var _hmt = _hmt || [];
         <h3 class="menu-label">
             最新文章
         </h3>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-12T14:06:19.000Z">2019-06-12</time></div>
+                    <a href="/Java-Happends-Before.html" class="has-link-black-ter is-size-6">Java多线程之先行发生原则(happens-before)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Java/">Java</a> / <a class="has-link-grey -link" href="/categories/Java/多线程/">多线程</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -1066,19 +1090,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-14T08:41:36.000Z">2019-04-14</time></div>
-                    <a href="/Kotlin-Coroutine-Basic-Knowledge.html" class="has-link-black-ter is-size-6">Kotlin Coroutine(协程) 基本知识</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Kotlin/">Kotlin</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1090,6 +1101,17 @@ var _hmt = _hmt || [];
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/06/">
+                <span class="level-start">
+                    <span class="level-item">六月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2019/05/">
@@ -1434,7 +1456,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Java/">
                         <span class="tag">Java</span>
-                        <span class="tag is-grey">10</span>
+                        <span class="tag is-grey">11</span>
                     </a>
                 </div>
                 
@@ -1546,7 +1568,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/多线程/">
                         <span class="tag">多线程</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag is-grey">4</span>
                     </a>
                 </div>
                 
@@ -1591,6 +1613,19 @@ var _hmt = _hmt || [];
             
             <div class="media-content">
                 <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-12T14:06:19.000Z">2019-06-12</time></div>
+                    <a href="/Java-Happends-Before.html" class="has-link-black-ter is-size-6">Java多线程之先行发生原则(happens-before)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Java/">Java</a> / <a class="has-link-grey -link" href="/categories/Java/多线程/">多线程</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-31T02:55:32.000Z">2019-05-31</time></div>
                     <a href="/Java-volatile-memory-barrier.html" class="has-link-black-ter is-size-6">Java多线程之volatile关键字及内存屏障</a>
                     <p class="is-size-7 is-uppercase">
@@ -1639,19 +1674,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-14T08:41:36.000Z">2019-04-14</time></div>
-                    <a href="/Kotlin-Coroutine-Basic-Knowledge.html" class="has-link-black-ter is-size-6">Kotlin Coroutine(协程) 基本知识</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Kotlin/">Kotlin</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1663,6 +1685,17 @@ var _hmt = _hmt || [];
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/06/">
+                <span class="level-start">
+                    <span class="level-item">六月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2019/05/">
@@ -2007,7 +2040,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Java/">
                         <span class="tag">Java</span>
-                        <span class="tag is-grey">10</span>
+                        <span class="tag is-grey">11</span>
                     </a>
                 </div>
                 
@@ -2119,7 +2152,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/多线程/">
                         <span class="tag">多线程</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag is-grey">4</span>
                     </a>
                 </div>
                 
