@@ -192,7 +192,7 @@ var _hmt = _hmt || [];
 <p>在WordPress配置文件 <code>wp-config.php</code>最后加上如下代码：</p>
 <figure class="highlight php hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">//-----无法定位WordPress Content目录(wp-content)  解决方案---------begin  </span></span><br><span class="line"><span class="hljs-keyword">if</span>(is_admin()) &#123;add_filter(<span class="hljs-string">'filesystem_method'</span>, create_function(<span class="hljs-string">'$a'</span>, <span class="hljs-string">'return "direct";'</span> ));define( <span class="hljs-string">'FS_CHMOD_DIR'</span>, <span class="hljs-number">0751</span> );&#125;  </span><br><span class="line"><span class="hljs-comment">//-----无法定位WordPress Content目录(wp-content)  解决方案---------end</span></span><br></pre></td></tr></table></figure>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 
         </div>

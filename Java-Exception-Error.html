@@ -221,7 +221,7 @@ var _hmt = _hmt || [];
 <p>产生上述问题的原因是因为JVM会保证在return语句执行之前，先执行finally语句</p>
 <h3 id="性能问题"><a href="#性能问题" class="headerlink" title="性能问题"></a>性能问题</h3><p>另外一个使用<code>try-catch</code>要注意的点是<code>try-catch</code>代码段会产生额外的性能开销，它往往会影响JVM对代码进行优化，所以建议仅捕获有必要的代码段，不要一个<code>try-catch</code>包住大段的代码。因此使用异常控制代码流程也不是一个好注意，它远比通常意义上的条件语句(<code>if/else</code>,<code>swich</code>)要低效</p>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 
         </div>

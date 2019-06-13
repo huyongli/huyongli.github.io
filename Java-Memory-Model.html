@@ -246,7 +246,7 @@ var _hmt = _hmt || [];
 <p>上面介绍了Java内存模型的3中特性，我们可以发现synchronized可以说是万能的，它能实现Java多线程中的这3大特性，所以这也早就了很多人在遇到多线程并发操作事都是直接使用synchronized完成，但使用synchronized内置锁会阻塞需要而又没有获取该内置锁的线程，而Java中的线程与操作系统中的原生线程是一一对应的，所以当synchronized内置锁导致某个线程阻塞后，会导致系统从用户态切换到内核态执行阻塞操作，这个操作是非常耗时的。</p>
 <p>关于Java内存模型就暂时介绍到这里，接下来的一篇文章会接着介绍更加轻量级的同步实现：volatile关键字，同时还会介绍volatile实现中涉及到的内存屏障。</p>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 
         </div>

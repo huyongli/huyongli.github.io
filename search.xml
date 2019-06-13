@@ -43,7 +43,7 @@
 <p>上面的示例中，按照线程次序规则，操作1先行发生于操作2，但是操作2在实际执行过程中很可能因为重排序而被处理器先执行，这样也没有影响先行发生原则的正确性，因为在这个线程中我们无法感知到这种变化。</p>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>时间上的先后顺序与先行发生原则之间没有基本的关系，因此我们在衡量线程安全与否时不要关注时间顺序，而是应该关注先行发生原则。</p>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -172,7 +172,7 @@
 </table>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>volatile实现了Java内存模型中的可见性和有序性，它的这两大特性则是通过内存屏障来实现的，同时volatile无法保证原子性。</p>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -257,7 +257,7 @@
 <p>上面介绍了Java内存模型的3中特性，我们可以发现synchronized可以说是万能的，它能实现Java多线程中的这3大特性，所以这也早就了很多人在遇到多线程并发操作事都是直接使用synchronized完成，但使用synchronized内置锁会阻塞需要而又没有获取该内置锁的线程，而Java中的线程与操作系统中的原生线程是一一对应的，所以当synchronized内置锁导致某个线程阻塞后，会导致系统从用户态切换到内核态执行阻塞操作，这个操作是非常耗时的。</p>
 <p>关于Java内存模型就暂时介绍到这里，接下来的一篇文章会接着介绍更加轻量级的同步实现：volatile关键字，同时还会介绍volatile实现中涉及到的内存屏障。</p>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -326,7 +326,7 @@
 <p>上面的脚本先检查当前module是否为可单独运行的library module，如果是则采用<code>src/debug/AndroidManifest.xml</code>文件。要注意的是该文件必须要包含’src/main/AndroidManifest.xml’文件的所有内容，同时还要设置启动<code>Activity</code>。</p>
 <p>到这里，模块化开发的工程配置介绍完了，有兴趣的同学可以在这<a href="https://github.com/huyongli/AndroidModuleDesign" target="_blank" rel="noopener">https://github.com/huyongli/AndroidModuleDesign</a>查看完整代码</p>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -374,7 +374,7 @@
 <p>上面的第三种写法看起来更简洁，也是并行请求，耗时为请求时间最长的那个请求的时间，和第二种差不多。</p>
 <p>具体实现demo的地址见文章开头，有兴趣的可以看看。</p>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -460,7 +460,7 @@
 <p>调用该方法不会创建新的协程，同时是一个挂起函数</p>
 <p>该方法会有一个返回值，其返回值为<code>withContext</code>中lambda表达式的返回值</p>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -535,7 +535,7 @@
 </ol>
 <p>代码地址：<a href="https://github.com/huyongli/AndroidKotlinCoroutine" target="_blank" rel="noopener">https://github.com/huyongli/AndroidKotlinCoroutine</a></p>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -574,7 +574,7 @@
 <h3 id="LinearLayout使用"><a href="#LinearLayout使用" class="headerlink" title="LinearLayout使用"></a>LinearLayout使用</h3><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">class LinearLayoutSampleWidget extends StatefulWidget &#123;</span><br><span class="line">  @override</span><br><span class="line">  State&lt;StatefulWidget&gt; createState() &#123;</span><br><span class="line">    return LinearLayoutSampleState();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class LinearLayoutSampleState extends State&lt;LinearLayoutSampleWidget&gt; &#123;</span><br><span class="line">  GlobalKey&lt;LinearLayoutState&gt; _key = GlobalKey&lt;LinearLayoutState&gt;();</span><br><span class="line"></span><br><span class="line">  @override</span><br><span class="line">  Widget build(BuildContext context) &#123;</span><br><span class="line">    return Scaffold(</span><br><span class="line">      appBar: AppBar(</span><br><span class="line">        title: Text(&apos;LinearLayout Sample&apos;),</span><br><span class="line">      ),</span><br><span class="line">      body:</span><br><span class="line">        LinearLayout(</span><br><span class="line">          background: BoxDecoration(color: Colors.blue),</span><br><span class="line">          orientation: LayoutOrientation.vertical,</span><br><span class="line">          children: &lt;Widget&gt;[</span><br><span class="line">            LinearLayout(</span><br><span class="line">              key: _key,</span><br><span class="line">              background: BoxDecoration(color: Colors.red),</span><br><span class="line">              orientation: LayoutOrientation.horizontal,</span><br><span class="line">              mainAxisSize: MainAxisSize.min,</span><br><span class="line">              children: &lt;Widget&gt;[</span><br><span class="line">                Icon(Icons.list),</span><br><span class="line">                Text(&apos;线性布局&apos;)</span><br><span class="line">              ],</span><br><span class="line">            ),</span><br><span class="line">            FlatButton(</span><br><span class="line">              onPressed: () &#123;</span><br><span class="line">                bool isVisible = _key.currentState.isVisible();</span><br><span class="line">                _key.currentState.setVisible(!isVisible);</span><br><span class="line">              &#125;,</span><br><span class="line">              child: Text(&apos;切换显示&apos;),</span><br><span class="line">            )</span><br><span class="line">          ],</span><br><span class="line">        )  </span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这里重点说一下Demo中的<code>GlobalKey&lt;LinearLayoutState&gt; _key = GlobalKey&lt;LinearLayoutState&gt;()</code>这段代码，这个就是用来给<code>LinearLayout</code>设定一个唯一标识符，这样才能在后面点击按钮的时候调用<code>setVisible</code>方法来显示和隐藏。而泛型<code>LinearLayoutState</code>则是我封装的代码中的一个类，因为我的<code>setVisible</code>方法暴露在此State中。</p>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -637,7 +637,7 @@
 <li><code>children</code>: 子元素列表</li>
 </ol>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -684,7 +684,7 @@
 <p>Demo代码地址<a href="https://github.com/huyongli/FlutterGank" target="_blank" rel="noopener">请戳这这这</a></p>
 <p>Demo效果如如下：<br><img src="/img/Flutter/gank-demo1" width="240" height="480" alt><img src="/img/Flutter/gank-demo2" width="240" height="480" alt><br><img src="/img/Flutter/gank-demo3" width="240" height="480" alt><img src="/img/Flutter/gank-demo4" width="240" height="480" alt></p>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -720,7 +720,7 @@
 <p>我使用这种方式解决了编译错误的问题，当然还有个前提条件是你的网络可以成功访问google。我没有试过国内网络的环境，不过按照这种方式国内网络环境可以将仓库地址改为国内镜像地址，至于具体镜像地址，大家可以在网上找。</p>
 <p>我代码中使用的flutter版本为：<code>sdk: &quot;&gt;=2.0.0-dev.68.0 &lt;3.0.0&quot;</code></p>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -790,7 +790,7 @@
 <li><code>ReentrantLock</code>提供了一个<code>newCondition</code>的方法，以便用户在同一锁的情况下可以根据不同的情况执行等待或唤醒的动作。</li>
 </ol>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -836,7 +836,7 @@
 </li>
 </ol>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -931,7 +931,7 @@
 </ol>
 <h4 id="避免急于求成"><a href="#避免急于求成" class="headerlink" title="避免急于求成"></a>避免急于求成</h4><p>编码的时候先按照思路实现，然后再斟酌打磨，按照规则打磨出整洁的代码。要想一次就写出完美的代码是不太可能的。先按思路实现，等你实现完可能就会发现有更好的实现方式，或者是更好的命名，这时慢慢的斟酌，慢慢的修改。</p>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -1013,7 +1013,7 @@
 <li>还有一种说法是因为安全性。因为构造哈希冲突的数据难度不大，会有人利用恶意代码产生大量这种数据与服务器交互，导致服务器CPU资源被大量占用，这样就会导致哈希碰撞拒绝服务器攻击。</li>
 </ul>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -1092,7 +1092,7 @@
 <h5 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h5><p>链地址法的指针需要额外的空间</p>
 <h3 id="建立公共溢出区"><a href="#建立公共溢出区" class="headerlink" title="建立公共溢出区"></a>建立公共溢出区</h3><p>这种方法的原理是将哈希表分为基本表和溢出表两部分，凡是和基本表中元素发生冲突的元素均存入溢出表</p>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -1135,7 +1135,7 @@
 <p>因为我们要确保回收资源就是因为资源都是有限的，垃圾收集的时间不可预测，可能会极大加剧资源占用。所以对于消耗非常高频的资源，千万不要指望finalize去承担资源释放的职责。</p>
 <p>资源用完立刻显示释放，或者利用资源池尽量重用</p>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -1191,7 +1191,7 @@
 <p>产生上述问题的原因是因为JVM会保证在return语句执行之前，先执行finally语句</p>
 <h3 id="性能问题"><a href="#性能问题" class="headerlink" title="性能问题"></a>性能问题</h3><p>另外一个使用<code>try-catch</code>要注意的点是<code>try-catch</code>代码段会产生额外的性能开销，它往往会影响JVM对代码进行优化，所以建议仅捕获有必要的代码段，不要一个<code>try-catch</code>包住大段的代码。因此使用异常控制代码流程也不是一个好注意，它远比通常意义上的条件语句(<code>if/else</code>,<code>swich</code>)要低效</p>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -1229,7 +1229,7 @@
 <p>程序可以通过判断引用队列中是否已经加入了虚引用，来了解被引用的对象是否将要被垃圾回收。如果程序发现某个虚引用已经被加入到引用队列，那么就可以在所引用的对象的内存被回收之前采取一些程序行动。</p>
 <h4 id="应用场景-2"><a href="#应用场景-2" class="headerlink" title="应用场景"></a>应用场景</h4><p>可用来跟踪对象被垃圾回收器回收的活动，当一个虚引用关联的对象被垃圾收集器回收之前会收到一条系统通知。</p>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -1278,7 +1278,7 @@
 <li>在频繁进行字符串的运算（如拼接、替换、删除等），并且运行在单线程环境下，建议使用StringBuilder，例如SQL语句拼装、JSON封装等。</li>
 </ul>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -1326,7 +1326,7 @@
 <figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">onItemClick: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">event</span>) </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">var</span> video = event.currentTarget.dataset.video;</span><br><span class="line">    <span class="hljs-keyword">var</span> url = video.url;</span><br><span class="line">    <span class="hljs-keyword">var</span> title = video.title;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 <p>没错，就像代码中写的，在点击事件中我们可以通过<code>event.currentTarget.dataset</code>获取传过来的<code>video</code>信息，这个参数在调试的时候也是可以通过event对象看到的</p>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -1358,7 +1358,7 @@
 <h4 id="js代码"><a href="#js代码" class="headerlink" title="js代码"></a>js代码</h4><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> tabs = [</span><br><span class="line">  &#123;</span><br><span class="line">    name: <span class="hljs-string">"热门视频"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    name: <span class="hljs-string">"比赛集锦"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    name: <span class="hljs-string">"你懂专栏"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    name: <span class="hljs-string">"天下足球"</span></span><br><span class="line">  &#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line">Page(&#123;</span><br><span class="line"></span><br><span class="line">  <span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">   * 页面的初始数据</span></span><br><span class="line"><span class="hljs-comment">   */</span></span><br><span class="line">  data: &#123;</span><br><span class="line">    tabs: tabs,     <span class="hljs-comment">//展示的数据</span></span><br><span class="line">    slideOffset: <span class="hljs-number">0</span>,<span class="hljs-comment">//指示器每次移动的距离</span></span><br><span class="line">    activeIndex: <span class="hljs-number">0</span>,<span class="hljs-comment">//当前展示的Tab项索引</span></span><br><span class="line">    sliderWidth: <span class="hljs-number">96</span>,<span class="hljs-comment">//指示器的宽度,计算得到</span></span><br><span class="line">    contentHeight: <span class="hljs-number">0</span><span class="hljs-comment">//页面除去头部Tabbar后，内容区的总高度，计算得到</span></span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">   * 生命周期函数--监听页面加载</span></span><br><span class="line"><span class="hljs-comment">   */</span></span><br><span class="line">  onLoad: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">options</span>) </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">var</span> that = <span class="hljs-keyword">this</span>;</span><br><span class="line">    wx.getSystemInfo(&#123;</span><br><span class="line">      success: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">res</span>) </span>&#123;</span><br><span class="line">        that.setData(&#123;</span><br><span class="line">        <span class="hljs-comment">//计算相关宽度</span></span><br><span class="line">          sliderWidth: res.windowWidth / that.data.tabs.length,</span><br><span class="line">          sliderOffset: res.windowWidth / that.data.tabs.length * that.data.activeIndex,</span><br><span class="line">          contentHeight: res.windowHeight - res.windowWidth / <span class="hljs-number">750</span> * <span class="hljs-number">68</span><span class="hljs-comment">//计算内容区高度，rpx -&gt; px计算</span></span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  bindChange: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">var</span> current = e.detail.current;</span><br><span class="line">    <span class="hljs-keyword">this</span>.setData(&#123;</span><br><span class="line">      activeIndex: current,</span><br><span class="line">      sliderOffset: <span class="hljs-keyword">this</span>.data.sliderWidth * current</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"bindChange:"</span> + current);</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  navTabClick: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">this</span>.setData(&#123;</span><br><span class="line">      sliderOffset: e.currentTarget.offsetLeft,</span><br><span class="line">      activeIndex: e.currentTarget.id</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"navTabClick:"</span> + e.currentTarget.id);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>上面的布局代码和js代码其实写起来都不难，关键在于css样式的编写，对于不熟悉CSS的人来说调样式太痛苦了。这个效果也是我调了好半天，参考了好多代码之后写出来的，真o(╯□╰)o，看来想写好小程序还得好好学学CSS样式。</p>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -1390,7 +1390,7 @@
 <p>当然写小程序最重要的一点是必须要熟悉CSS样式的编写，对于我这种对CSS不熟的人来说真是太困难了。一个界面效果都需要调上半天。</p>
 <p>项目代码地址如下：<br><a href="https://github.com/huyongli/WXSoccerVideo" target="_blank" rel="noopener">https://github.com/huyongli/WXSoccerVideo</a></p>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -1440,7 +1440,7 @@
 <p>通过源码实现我们可以知道<code>mTextSwitcher.setFactory(mFactory)</code>设置完成之后，<code>ViewSwitcher</code>会立刻生成两个视图作为其子视图作为切换显示用。</p>
 <p>示例代码在这里：<a href="https://github.com/huyongli/AndroidDemo/blob/master/app/src/main/java/cn/ittiger/demo/activity/TextSwitcherActivity.java" target="_blank" rel="noopener">https://github.com/huyongli/AndroidDemo</a></p>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -1493,7 +1493,7 @@
 <h3 id="MediaControllerCompat"><a href="#MediaControllerCompat" class="headerlink" title="MediaControllerCompat"></a>MediaControllerCompat</h3><p>媒体控制器在上面已经介绍了其创建和关联方式，而它控制播放器状态的方式在上面的代码注释中已经说明了，基本上都是通过<code>MediaControllerCompat.getTransportControls()</code>来进行控制的。</p>
 <p>到这里媒体服务的相关使用和注意点已经介绍完了，使用这套api来实现音乐APP还是很方便很快捷的，而且我们可以很方便的切换播放器，如<code>MediaPlayer</code>,<code>ExoPlayer</code>等，如有建议和问题欢迎在博客关于页中扫码加QQ群交流。</p>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -1549,7 +1549,7 @@
 </ol>
 <h4 id="UCViewTitleBehavior实现"><a href="#UCViewTitleBehavior实现" class="headerlink" title="UCViewTitleBehavior实现"></a>UCViewTitleBehavior实现</h4><p><code>UCViewTitle</code>在初始时是不可见的，我采用设置其<code>TopMargin</code>让其不可见，然后在滑动过程中再慢慢滑动到可见，当前完全可见时滑动结束，此时其<code>translationY</code>为0，当滑动未开始时其<code>translationY</code>为<code>-height</code><br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UCViewTitleBehavior</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">ViewOffsetBehavior</span>&lt;<span class="hljs-title">View</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    ...</span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">onLayoutChild</span><span class="hljs-params">(CoordinatorLayout parent, View child, <span class="hljs-keyword">int</span> layoutDirection)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-comment">//因为UCViewTitle默认是在屏幕外不可见，所以在UCViewTitle进行布局的时候设置其topMargin让其不可见</span></span><br><span class="line">        ((CoordinatorLayout.LayoutParams) child.getLayoutParams()).topMargin = -child.getMeasuredHeight();</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">super</span>.onLayoutChild(parent, child, layoutDirection);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">layoutDependsOn</span><span class="hljs-params">(CoordinatorLayout parent, View child, View dependency)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> isDependOn(dependency);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">onDependentViewChanged</span><span class="hljs-params">(CoordinatorLayout parent, View child, View dependency)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">int</span> headerOffsetRange = -child.getMeasuredHeight();<span class="hljs-comment">//</span></span><br><span class="line">        <span class="hljs-keyword">int</span> titleOffsetRange = child.getMeasuredHeight();<span class="hljs-comment">//滑动总距离</span></span><br><span class="line">        <span class="hljs-keyword">if</span> (dependency.getTranslationY() == headerOffsetRange) &#123;<span class="hljs-comment">//滑动初始位置</span></span><br><span class="line">            child.setTranslationY(titleOffsetRange);</span><br><span class="line">        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (dependency.getTranslationY() == <span class="hljs-number">0</span>) &#123;<span class="hljs-comment">//滑动结束位置</span></span><br><span class="line">            child.setTranslationY(<span class="hljs-number">0</span>);</span><br><span class="line">        &#125; <span class="hljs-keyword">else</span> &#123;<span class="hljs-comment">//滑动过程中</span></span><br><span class="line">            child.setTranslationY((<span class="hljs-keyword">int</span>) (dependency.getTranslationY() / (headerOffsetRange * <span class="hljs-number">1.0f</span>) * titleOffsetRange));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isDependOn</span><span class="hljs-params">(View dependency)</span> </span>&#123;</span><br><span class="line">	    <span class="hljs-comment">//确定UCViewHeader作为依赖</span></span><br><span class="line">        <span class="hljs-keyword">return</span> dependency != <span class="hljs-keyword">null</span> &amp;&amp; dependency.getId() == R.id.news_view_header_layout;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -1597,7 +1597,7 @@
 <p>对于布局中的<code>ToolBar</code>和<code>BottomNavigationView</code>也可以换成其他任意<code>View</code>来实现滑动隐藏效果。</p>
 <p>Demo的完整代码在这 <a href="https://github.com/huyongli/StickyNavigation" target="_blank" rel="noopener">github地址</a></p>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -1654,7 +1654,7 @@
 <p>剩下的布局和Activity代码如下：<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BackTopBehaviorActivity</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AppCompatActivity</span> </span>&#123;</span><br><span class="line">    CommonRecyclerView mRecyclerView;</span><br><span class="line">    LinearLayoutManager mLayoutManager;</span><br><span class="line">    FloatingActionButton mFloatingActionButton;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onCreate</span><span class="hljs-params">(@Nullable Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_backtop_behavior);</span><br><span class="line">        mFloatingActionButton = (FloatingActionButton) findViewById(R.id.floatingActionButton);</span><br><span class="line">        mFloatingActionButton.setOnClickListener(<span class="hljs-keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">            <span class="hljs-meta">@Override</span></span><br><span class="line">            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onClick</span><span class="hljs-params">(View v)</span> </span>&#123;</span><br><span class="line">                mLayoutManager.smoothScrollToPosition(mRecyclerView, <span class="hljs-keyword">null</span> , <span class="hljs-number">0</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        initRecyclerView();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">initRecyclerView</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        mRecyclerView = (CommonRecyclerView) findViewById(R.id.recyclerView);</span><br><span class="line">        mLayoutManager = <span class="hljs-keyword">new</span> LinearLayoutManager(<span class="hljs-keyword">this</span>);</span><br><span class="line">        mRecyclerView.setLayoutManager(mLayoutManager);</span><br><span class="line">        mRecyclerView.addItemDecoration(<span class="hljs-keyword">new</span> SpacesItemDecoration(<span class="hljs-number">5</span>));</span><br><span class="line"></span><br><span class="line">        List&lt;String&gt; data = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">30</span>; i ++) &#123;</span><br><span class="line">            data.add(<span class="hljs-string">"数据"</span> + (i + <span class="hljs-number">1</span>));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        StringListAdapter mAdapter = <span class="hljs-keyword">new</span> StringListAdapter(<span class="hljs-keyword">this</span>, data);</span><br><span class="line">        mRecyclerView.setAdapter(mAdapter);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">android.support.design.widget.CoordinatorLayout</span></span></span><br><span class="line"><span class="hljs-tag">    <span class="hljs-attr">xmlns:android</span>=<span class="hljs-string">"http://schemas.android.com/apk/res/android"</span></span></span><br><span class="line"><span class="hljs-tag">    <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span></span></span><br><span class="line"><span class="hljs-tag">    <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"match_parent"</span></span></span><br><span class="line"><span class="hljs-tag">    <span class="hljs-attr">xmlns:app</span>=<span class="hljs-string">"http://schemas.android.com/apk/res-auto"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">android.support.design.widget.AppBarLayout</span></span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span></span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"wrap_content"</span></span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">android:theme</span>=<span class="hljs-string">"@style/ThemeOverlay.AppCompat.Dark.ActionBar"</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">android.support.v7.widget.Toolbar</span></span></span><br><span class="line"><span class="hljs-tag">            <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/toolbar"</span></span></span><br><span class="line"><span class="hljs-tag">            <span class="hljs-attr">app:title</span>=<span class="hljs-string">"@string/app_name"</span></span></span><br><span class="line"><span class="hljs-tag">            <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span></span></span><br><span class="line"><span class="hljs-tag">            <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"?attr/actionBarSize"</span></span></span><br><span class="line"><span class="hljs-tag">            <span class="hljs-attr">app:titleTextColor</span>=<span class="hljs-string">"@android:color/white"</span>/&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;/<span class="hljs-name">android.support.design.widget.AppBarLayout</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">cn.ittiger.demo.ui.CommonRecyclerView</span></span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/recyclerView"</span></span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span></span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"match_parent"</span></span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">app:layout_behavior</span>=<span class="hljs-string">"@string/appbar_scrolling_view_behavior"</span></span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">app:layout_collapseMode</span>=<span class="hljs-string">"pin"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">android.support.design.widget.FloatingActionButton</span></span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/floatingActionButton"</span></span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"wrap_content"</span></span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"wrap_content"</span></span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">android:layout_gravity</span>=<span class="hljs-string">"bottom|end"</span></span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">android:layout_margin</span>=<span class="hljs-string">"@dimen/d_15"</span></span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">android:src</span>=<span class="hljs-string">"@android:drawable/stat_sys_upload_done"</span></span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">app:layout_behavior</span>=<span class="hljs-string">"cn.ittiger.demo.behavior.BackTopBehavior"</span></span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">app:layout_scrollFlags</span>=<span class="hljs-string">"scroll|enterAlways|snap"</span></span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">android:visibility</span>=<span class="hljs-string">"gone"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">android.support.design.widget.CoordinatorLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h4 id="Demo的完整代码戳这里"><a href="#Demo的完整代码戳这里" class="headerlink" title="Demo的完整代码戳这里"></a>Demo的完整代码<a href="https://github.com/huyongli/AndroidDemo/blob/master/app/src/main/java/cn/ittiger/demo/behavior/BackTopBehaviorActivity.java" target="_blank" rel="noopener">戳这里</a></h4><hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -1743,7 +1743,7 @@
 <p>喜欢的同学欢迎Star和fork</p>
 <p>write by laohu<br>2016年12月30日</p>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -2023,7 +2023,7 @@
 </blockquote>
 <p>write by laohu<br>2016年11月19日</p>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -2094,7 +2094,7 @@
 <p>另外大家在使用<code>9-Patch</code>图的时候一定要注意其内容区域，如果<code>9-Patch</code>图制作不合适会产生一些莫名其妙的布局问题。</p>
 <p>write by laohu<br>2016年11月18日</p>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -2154,7 +2154,7 @@
 <p>具体使用示例代码请参考：<a href="https://github.com/huyongli/AndroidDemo/blob/master/app/src/main/java/cn/ittiger/demo/StyleTextViewActivity.java" target="_blank" rel="noopener">https://github.com/huyongli/AndroidDemo</a></p>
 <p>write by laohu<br>2016年11月5日21:45:48</p>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -2196,7 +2196,7 @@
 <p>大家伙别急，原因且待下篇分解。。。</p>
 <p>write by laohu<br>2016年11月5日15:14:09</p>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -2264,7 +2264,7 @@
 <p>write by 老胡<br>    2016年10月30日</p>
 <p>本文章发表在 <a href="ittiger.cn">独立博客 ittiger.cn</a> 和 <a href="http://blog.csdn.net/huyongl1989" target="_blank" rel="noopener">个人CSDN博客</a></p>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -2455,7 +2455,7 @@
 <p>到这里，<code>Retrofit</code>的实现原理、实现流程以及其源码实现过程中用到的设计模式就介绍完了。</p>
 <p>内容好长，时间好长~~~~</p>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -2497,7 +2497,7 @@
 <h2 id="github地址"><a href="#github地址" class="headerlink" title="github地址"></a>github地址</h2><p><a href="https://github.com/huyongli/TigerVideo" target="_blank" rel="noopener">猛戳这里</a></p>
 <p>感兴趣的朋友欢迎去我的<a href="https://github.com/huyongli/TigerVideo" target="_blank" rel="noopener">github</a>上<code>star</code>和<code>fork</code></p>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -2549,7 +2549,7 @@
 <p>至于<code>next</code>主题的具体配置参考该主题的详细使用介绍吧<a href="http://theme-next.iissnan.com/" target="_blank" rel="noopener">http://theme-next.iissnan.com/</a></p>
 <p>到此，整个Hexo的安装部署就结束了</p>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -2588,7 +2588,7 @@
 <h6 id="直接在回调中进行进度更新"><a href="#直接在回调中进行进度更新" class="headerlink" title="直接在回调中进行进度更新"></a>直接在回调中进行进度更新</h6><p>上面介绍了通过扩展ResponseBody同时设置OkHttp拦截器来实现进度条更新显示，另外也可以直接在请求回调onSuccess中将流转换成文件时实现进度更新，下面给出大致实现<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">RetrofitCallback&lt;ResponseBody&gt; callback = <span class="hljs-keyword">new</span> RetrofitCallback&lt;ResponseBody&gt;() &#123;</span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">(Call&lt;ResponseBody&gt; call, Response&lt;ResponseBody&gt; response)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-keyword">try</span> &#123;</span><br><span class="line">            InputStream is = response.body().byteStream();</span><br><span class="line">			<span class="hljs-comment">//获取文件总长度</span></span><br><span class="line">            <span class="hljs-keyword">long</span> totalLength = is.available();</span><br><span class="line">            </span><br><span class="line">            String path = Util.getSdCardPath();</span><br><span class="line">            File file = <span class="hljs-keyword">new</span> File(path, <span class="hljs-string">"download.jpg"</span>);</span><br><span class="line">            FileOutputStream fos = <span class="hljs-keyword">new</span> FileOutputStream(file);</span><br><span class="line">            BufferedInputStream bis = <span class="hljs-keyword">new</span> BufferedInputStream(is);</span><br><span class="line">            <span class="hljs-keyword">byte</span>[] buffer = <span class="hljs-keyword">new</span> <span class="hljs-keyword">byte</span>[<span class="hljs-number">1024</span>];</span><br><span class="line">            <span class="hljs-keyword">int</span> len;</span><br><span class="line">            <span class="hljs-keyword">while</span> ((len = bis.read(buffer)) != -<span class="hljs-number">1</span>) &#123;</span><br><span class="line">                fos.write(buffer, <span class="hljs-number">0</span>, len);</span><br><span class="line">                <span class="hljs-comment">//此处进行更新操作</span></span><br><span class="line">                <span class="hljs-comment">//len即可理解为已下载的字节数</span></span><br><span class="line">                <span class="hljs-comment">//onLoading(len, totalLength);</span></span><br><span class="line">            &#125;</span><br><span class="line">            fos.flush();</span><br><span class="line">            fos.close();</span><br><span class="line">            bis.close();</span><br><span class="line">            is.close();</span><br><span class="line">            <span class="hljs-comment">//此处就代表更新结束</span></span><br><span class="line">        &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onFailure</span><span class="hljs-params">(Call&lt;ResponseBody&gt; call, Throwable t)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        runOnUIThread(activity, t.getMessage());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 <p>以上就是Retrofit中文件上传下载及其进度更新显示的实现，有疑问的可以加我微信和QQ与我联系，联系方式在这<a href="http://ittiger.cn/about/">关于</a></p>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -2644,7 +2644,7 @@
 <p>Post请求的服务接口声明完成之后，讲得到的<code>Call</code>对象调用<code>execute</code>或者<code>enqueue</code>即可发起同步或异步的Post请求</p>
 <p>以上就是Retrofit2的基本使用，下一篇文章我讲接着介绍Retrofit2中的文件上传和文件下载，以及如何实现文件上传和下载过程中的进度条</p>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -2693,7 +2693,7 @@
 <h3 id="自动加载更多"><a href="#自动加载更多" class="headerlink" title="自动加载更多"></a>自动加载更多</h3><p>自动加载更多也是列表显示中比较常见的一个功能，我们可以为<code>RecyclerView</code>设置<code>ScrollListener</code>监听来进行实现，具体实现的关键代码如下；<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">super</span>.setOnScrollListener(<span class="hljs-keyword">new</span> OnScrollListener() &#123;</span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onScrollStateChanged</span><span class="hljs-params">(RecyclerView recyclerView, <span class="hljs-keyword">int</span> newState)</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">        <span class="hljs-keyword">super</span>.onScrollStateChanged(recyclerView, newState);</span><br><span class="line">        <span class="hljs-keyword">if</span>(newState == SCROLL_STATE_IDLE &amp;&amp; mIsAutoLoadMore &amp;&amp; mLoadMoreListener != <span class="hljs-keyword">null</span>) &#123;</span><br><span class="line">            <span class="hljs-keyword">if</span>(mLastVisiblePosition + <span class="hljs-number">1</span> == getAdapter().getItemCount()) &#123;</span><br><span class="line">                mLoadMoreListener.onLoadMore();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">if</span>(mOnScrollListener != <span class="hljs-keyword">null</span>) &#123;</span><br><span class="line">            mOnScrollListener.onScrollStateChanged(recyclerView, newState);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onScrolled</span><span class="hljs-params">(RecyclerView recyclerView, <span class="hljs-keyword">int</span> dx, <span class="hljs-keyword">int</span> dy)</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">        <span class="hljs-keyword">super</span>.onScrolled(recyclerView, dx, dy);</span><br><span class="line">        <span class="hljs-keyword">if</span>(mIsAutoLoadMore &amp;&amp; mLoadMoreListener != <span class="hljs-keyword">null</span>) &#123;</span><br><span class="line">            mLastVisiblePosition = getLastVisiblePosition();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">if</span>(mOnScrollListener != <span class="hljs-keyword">null</span>) &#123;</span><br><span class="line">            mOnScrollListener.onScrolled(recyclerView, dx, dy);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
 <p>文章相关的完整代码和Demo：<a href="https://github.com/huyongli/AndroidDemo" target="_blank" rel="noopener">https://github.com/huyongli/AndroidDemo</a></p>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -2721,7 +2721,7 @@
 <p>必须要换成下面的构造方式把parent带进去：<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LayoutInflater.from(mContext).inflate(R.layout.item_layout, parent, <span class="hljs-keyword">false</span>);</span><br></pre></td></tr></table></figure></p>
 <p>而我的<code>Adapter</code>中刚好就使用的是第一种方式，于是立马换成下面的第二种方式实现，运行看效果，果然充满了屏幕~~~这个问题还真是奇葩啊~<br><a id="more"></a></p>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -2780,7 +2780,7 @@
 <p>整个<code>Demo</code>的<code>Activity</code>的实现如下：<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MainActivity</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AppCompatActivity</span> </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">private</span> RecyclerView mRecyclerView;</span><br><span class="line">    <span class="hljs-keyword">private</span> SwipeRefreshLayout mSwipeRefreshLayout;</span><br><span class="line">    <span class="hljs-keyword">private</span> DemoAdapter mAdapter;</span><br><span class="line">    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> mLastVisibleItemPosition = <span class="hljs-number">0</span>;</span><br><span class="line">    <span class="hljs-keyword">private</span> LinearLayoutManager mLayoutManager;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-meta">@Override</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onCreate</span><span class="hljs-params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line">        mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);</span><br><span class="line">        mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeRefreshLayout);</span><br><span class="line"></span><br><span class="line">mLayoutManager = <span class="hljs-keyword">new</span> LinearLayoutManager(<span class="hljs-keyword">this</span>);</span><br><span class="line">        mRecyclerView.setLayoutManager(mLayoutManager);</span><br><span class="line">        mRecyclerView.setItemAnimator(<span class="hljs-keyword">new</span> DefaultItemAnimator());</span><br><span class="line"> </span><br><span class="line">        mAdapter = <span class="hljs-keyword">new</span> DemoAdapter(<span class="hljs-keyword">this</span>, getData(<span class="hljs-string">"init"</span>));</span><br><span class="line">        mRecyclerView.setAdapter(mAdapter);</span><br><span class="line">        mSwipeRefreshLayout.setOnRefreshListener(<span class="hljs-keyword">new</span> SwipeRefreshLayout.OnRefreshListener() &#123;</span><br><span class="line">            <span class="hljs-meta">@Override</span></span><br><span class="line">            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onRefresh</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">                <span class="hljs-keyword">new</span> Thread() &#123;</span><br><span class="line">                    <span class="hljs-meta">@Override</span></span><br><span class="line">                    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">                        <span class="hljs-keyword">try</span> &#123;</span><br><span class="line">                            Thread.sleep(<span class="hljs-number">3000</span>);</span><br><span class="line">                            <span class="hljs-keyword">final</span> List&lt;String&gt; list = getData(<span class="hljs-string">"refresh"</span>);</span><br><span class="line">                            runOnUiThread(<span class="hljs-keyword">new</span> Runnable() &#123;</span><br><span class="line">                                <span class="hljs-meta">@Override</span></span><br><span class="line">                                <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">                                    mAdapter.reSetData(list);</span><br><span class="line">                                    mSwipeRefreshLayout.setRefreshing(<span class="hljs-keyword">false</span>);</span><br><span class="line">                                &#125;</span><br><span class="line">                            &#125;);</span><br><span class="line">                        &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                            e.printStackTrace();</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;.start();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"> </span><br><span class="line">        mRecyclerView.setOnScrollListener(<span class="hljs-keyword">new</span> RecyclerView.OnScrollListener() &#123;</span><br><span class="line">            <span class="hljs-meta">@Override</span></span><br><span class="line">            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onScrollStateChanged</span><span class="hljs-params">(RecyclerView recyclerView, <span class="hljs-keyword">int</span> newState)</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">                <span class="hljs-keyword">super</span>.onScrollStateChanged(recyclerView, newState);</span><br><span class="line">                <span class="hljs-keyword">if</span> (newState == RecyclerView.SCROLL_STATE_IDLE</span><br><span class="line">                        &amp;&amp; mLastVisibleItemPosition + <span class="hljs-number">1</span> == mAdapter.getItemCount()) &#123;</span><br><span class="line"> </span><br><span class="line">                    loadMore();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"> </span><br><span class="line">            <span class="hljs-meta">@Override</span></span><br><span class="line">            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onScrolled</span><span class="hljs-params">(RecyclerView recyclerView, <span class="hljs-keyword">int</span> dx, <span class="hljs-keyword">int</span> dy)</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">                <span class="hljs-keyword">super</span>.onScrolled(recyclerView, dx, dy);</span><br><span class="line">                mLastVisibleItemPosition = mLayoutManager.findLastVisibleItemPosition();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">loadMore</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">        mAdapter.setLoadStatus(LoadStatus.LOADING_MORE);</span><br><span class="line">        <span class="hljs-keyword">new</span> Thread() &#123;</span><br><span class="line">            <span class="hljs-meta">@Override</span></span><br><span class="line">            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">                <span class="hljs-keyword">try</span> &#123;</span><br><span class="line">                    Thread.sleep(<span class="hljs-number">3000</span>);</span><br><span class="line">                    <span class="hljs-keyword">final</span> List&lt;String&gt; list = getData(<span class="hljs-string">"load more"</span>);</span><br><span class="line">                    runOnUiThread(<span class="hljs-keyword">new</span> Runnable() &#123;</span><br><span class="line">                        <span class="hljs-meta">@Override</span></span><br><span class="line">                        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">                            mAdapter.addAll(list);</span><br><span class="line">                            mAdapter.setLoadStatus(LoadStatus.CLICK_LOAD_MORE);</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;);</span><br><span class="line">                &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;.start();</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;String&gt; <span class="hljs-title">getData</span><span class="hljs-params">(String flag)</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">        <span class="hljs-keyword">int</span> idx = <span class="hljs-number">1</span>;</span><br><span class="line">        <span class="hljs-keyword">if</span>(mAdapter != <span class="hljs-keyword">null</span>) &#123;</span><br><span class="line">            idx = mAdapter.getItemCount();</span><br><span class="line">        &#125;</span><br><span class="line">        List&lt;String&gt; list = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;(<span class="hljs-number">10</span>);</span><br><span class="line">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++) &#123;</span><br><span class="line">            list.add(flag + <span class="hljs-string">":"</span> + (idx + i));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>以上就是我针对<code>RecyclerView</code>的下拉刷新上拉加载的实现方式。</p>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -2873,7 +2873,7 @@
 <li>持续更新…</li>
 </ol>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -2960,7 +2960,7 @@
 <li>手指松开后，最终调用slip方法开始自动循环滑动处理，直至滑动结束</li>
 </ol>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -3015,7 +3015,7 @@
 <p>到这里，RecyclerView使用过程中比较常用的几个类(<code>LayoutManager, ItemDecoration, ItemAnimation</code>)的主要作用及使用场景有了个大概的了解。</p>
 <p>在RecyclerView中是没有为我们内置Item的单击和长按事件监听接口的，一般为Item设置单击和长按监听都是是直接在Adapter初始化Item视图时，为我们的Item视图直接设置单击监听和长按监听，这种方式与Adapter的耦合度比较高，而且频繁的为view设置监听对象，感觉不太好。其实RecyclerView中为我们提供了一个类<code>OnItemTouchListener</code>通过这个类再结合手势<code>GestureDetector</code>完全可以实现一个耦合度更低复用度更高的单击和长按监听。我们再来看看<code>OnItemTouchListener</code>的实现方式：<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">@Override</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">onTouchEvent</span><span class="hljs-params">(MotionEvent e)</span> </span>&#123;</span><br><span class="line">    ......</span><br><span class="line">    <span class="hljs-keyword">if</span> (dispatchOnItemTouch(e)) &#123;</span><br><span class="line">        cancelTouch();</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    ......</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">dispatchOnItemTouch</span><span class="hljs-params">(MotionEvent e)</span> </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> action = e.getAction();</span><br><span class="line">    <span class="hljs-keyword">if</span> (mActiveOnItemTouchListener != <span class="hljs-keyword">null</span>) &#123;</span><br><span class="line">        <span class="hljs-keyword">if</span> (action == MotionEvent.ACTION_DOWN) &#123;</span><br><span class="line">            <span class="hljs-comment">// Stale state from a previous gesture, we're starting a new one. Clear it.</span></span><br><span class="line">            mActiveOnItemTouchListener = <span class="hljs-keyword">null</span>;</span><br><span class="line">        &#125; <span class="hljs-keyword">else</span> &#123;</span><br><span class="line">            <span class="hljs-comment">//此处即调用OnItemTouchListener的方法</span></span><br><span class="line">            mActiveOnItemTouchListener.onTouchEvent(<span class="hljs-keyword">this</span>, e);</span><br><span class="line">            <span class="hljs-keyword">if</span> (action == MotionEvent.ACTION_CANCEL || action == MotionEvent.ACTION_UP) &#123;</span><br><span class="line">                <span class="hljs-comment">// Clean up for the next gesture.</span></span><br><span class="line">                mActiveOnItemTouchListener = <span class="hljs-keyword">null</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">// Listeners will have already received the ACTION_DOWN via dispatchOnItemTouchIntercept</span></span><br><span class="line">    <span class="hljs-comment">// as called from onInterceptTouchEvent; skip it.</span></span><br><span class="line">    <span class="hljs-keyword">if</span> (action != MotionEvent.ACTION_DOWN) &#123;</span><br><span class="line">        <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> listenerCount = mOnItemTouchListeners.size();</span><br><span class="line">        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; listenerCount; i++) &#123;</span><br><span class="line">            <span class="hljs-keyword">final</span> OnItemTouchListener listener = mOnItemTouchListeners.get(i);</span><br><span class="line">            <span class="hljs-comment">//此处即调用OnItemTouchListener的方法</span></span><br><span class="line">            <span class="hljs-keyword">if</span> (listener.onInterceptTouchEvent(<span class="hljs-keyword">this</span>, e)) &#123;</span><br><span class="line">                mActiveOnItemTouchListener = listener;</span><br><span class="line">                <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-meta">@Override</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">onInterceptTouchEvent</span><span class="hljs-params">(MotionEvent e)</span> </span>&#123;</span><br><span class="line">    ......</span><br><span class="line">    <span class="hljs-keyword">if</span> (dispatchOnItemTouchIntercept(e)) &#123;</span><br><span class="line">        cancelTouch();</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    ......</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">dispatchOnItemTouchIntercept</span><span class="hljs-params">(MotionEvent e)</span> </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> action = e.getAction();</span><br><span class="line">    <span class="hljs-keyword">if</span> (action == MotionEvent.ACTION_CANCEL || action == MotionEvent.ACTION_DOWN) &#123;</span><br><span class="line">        mActiveOnItemTouchListener = <span class="hljs-keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> listenerCount = mOnItemTouchListeners.size();</span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; listenerCount; i++) &#123;</span><br><span class="line">        <span class="hljs-keyword">final</span> OnItemTouchListener listener = mOnItemTouchListeners.get(i);</span><br><span class="line">        <span class="hljs-keyword">if</span> (listener.onInterceptTouchEvent(<span class="hljs-keyword">this</span>, e) &amp;&amp; action != MotionEvent.ACTION_CANCEL) &#123;</span><br><span class="line">            mActiveOnItemTouchListener = listener;</span><br><span class="line">            <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -3126,7 +3126,7 @@
 <p>write by laohu</p>
 <p>2016-1-6 </p>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -3212,7 +3212,7 @@
 <p>write by laohu</p>
 <p>2016-1-5 </p>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -3255,7 +3255,7 @@
 <a id="more"></a>
 <h3 id="关键代码"><a href="#关键代码" class="headerlink" title="关键代码"></a>关键代码</h3><p>相关代码如下：<br><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br></pre></td><td class="code"><pre><span class="line">   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">launchNavi</span><span class="hljs-params">(<span class="hljs-keyword">final</span> Activity activity, List points )</span></span>&#123;</span><br><span class="line">    	<span class="hljs-keyword">if</span>(points.size() &lt; <span class="hljs-number">2</span>) &#123;</span><br><span class="line">    		Toast.makeText(activity, <span class="hljs-string">"数据不合法，暂时无法导航"</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">    		<span class="hljs-keyword">return</span>;</span><br><span class="line">    	&#125;</span><br><span class="line">    	BaiduNaviManager.getInstance().launchNavigator(activity,</span><br><span class="line">            points,                                          <span class="hljs-comment">//路线点列表</span></span><br><span class="line">            NE_RoutePlan_Mode.ROUTE_PLAN_MOD_MIN_TIME,       <span class="hljs-comment">//算路方式</span></span><br><span class="line">            <span class="hljs-keyword">false</span>,                                            <span class="hljs-comment">//真实导航</span></span><br><span class="line">            BaiduNaviManager.STRATEGY_FORCE_ONLINE_PRIORITY, <span class="hljs-comment">//在离线策略</span></span><br><span class="line">            <span class="hljs-keyword">new</span> OnStartNavigationListener() &#123;                <span class="hljs-comment">//跳转监听</span></span><br><span class="line">                <span class="hljs-meta">@Override</span></span><br><span class="line">                <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onJumpToNavigator</span><span class="hljs-params">(Bundle configParams)</span> </span>&#123;</span><br><span class="line">                    Intent intent = <span class="hljs-keyword">new</span> Intent(activity, NaviBdMapActivity.class);</span><br><span class="line">                    intent.putExtras(configParams);</span><br><span class="line">                    activity.startActivityForResult(intent,REQUESTCODE_NAVI_FINISH);</span><br><span class="line">                &#125;</span><br><span class="line">                </span><br><span class="line">                <span class="hljs-meta">@Override</span></span><br><span class="line">                <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onJumpToDownloader</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">     * 初始化导航引擎</span></span><br><span class="line"><span class="hljs-comment">     * Author: hyl</span></span><br><span class="line"><span class="hljs-comment">     * Time: 2015-7-9下午4:56:18</span></span><br><span class="line"><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> activity</span></span><br><span class="line"><span class="hljs-comment">     */</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">initNaviEngine</span><span class="hljs-params">(<span class="hljs-keyword">final</span> Activity activity)</span> </span>&#123;</span><br><span class="line">    	BaiduNaviManager.getInstance().initEngine(activity, Utils.getRootPath(),</span><br><span class="line">            <span class="hljs-keyword">new</span> SPMNaviEngineInitListener(), <span class="hljs-keyword">new</span> LBSAuthManagerListener() &#123;</span><br><span class="line">                <span class="hljs-meta">@Override</span></span><br><span class="line">                <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onAuthResult</span><span class="hljs-params">(<span class="hljs-keyword">int</span> status, String msg)</span> </span>&#123;</span><br><span class="line">                    String str = <span class="hljs-keyword">null</span>;</span><br><span class="line">                    <span class="hljs-keyword">if</span> (<span class="hljs-number">0</span> == status) &#123;</span><br><span class="line">                        str = <span class="hljs-string">"key校验成功!"</span>;</span><br><span class="line">                    &#125; <span class="hljs-keyword">else</span> &#123;</span><br><span class="line">                        str = <span class="hljs-string">"key校验失败, "</span> + msg;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">    	);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SPMNaviEngineInitListener</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">NaviEngineInitListener</span> </span>&#123;</span><br><span class="line">    	</span><br><span class="line">		<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">engineInitSuccess</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">			Log.i(<span class="hljs-string">"Navi"</span>, <span class="hljs-string">"导航初始化成功"</span>);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">engineInitStart</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">engineInitFail</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">			Log.i(<span class="hljs-string">"Navi"</span>, <span class="hljs-string">"导航初始化失败"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">    &#125;;</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NaviBdMapActivity</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Activity</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onCreate</span><span class="hljs-params">(Bundle savedInstanceState)</span></span>&#123;</span><br><span class="line">		<span class="hljs-keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">		requestWindowFeature(Window.FEATURE_NO_TITLE);</span><br><span class="line">		<span class="hljs-comment">// 创建NmapView</span></span><br><span class="line">		<span class="hljs-keyword">if</span> (Build.VERSION.SDK_INT &lt; <span class="hljs-number">14</span>) &#123;</span><br><span class="line">			BaiduNaviManager.getInstance().destroyNMapView();</span><br><span class="line">		&#125;</span><br><span class="line">		MapGLSurfaceView nMapView = BaiduNaviManager.getInstance().createNMapView(<span class="hljs-keyword">this</span>);</span><br><span class="line"></span><br><span class="line">		<span class="hljs-comment">// 创建导航视图</span></span><br><span class="line">		View navigatorView = BNavigator.getInstance().init(</span><br><span class="line">				NaviBdMapActivity.<span class="hljs-keyword">this</span>, getIntent().getExtras(),</span><br><span class="line">				nMapView);</span><br><span class="line"></span><br><span class="line">		<span class="hljs-comment">// 填充视图</span></span><br><span class="line">		setContentView(navigatorView);</span><br><span class="line">		BNavigator.getInstance().setListener(mBNavigatorListener);</span><br><span class="line">		BNavigator.getInstance().startNav();</span><br><span class="line"></span><br><span class="line">		<span class="hljs-comment">// 初始化TTS. 开发者也可以使用独立TTS模块，不用使用导航SDK提供的TTS</span></span><br><span class="line">		BNTTSPlayer.initPlayer();</span><br><span class="line">		<span class="hljs-comment">// 设置TTS播放回调</span></span><br><span class="line">		BNavigatorTTSPlayer.setTTSPlayerListener(<span class="hljs-keyword">new</span> IBNTTSPlayerListener() &#123;</span><br><span class="line"></span><br><span class="line">			<span class="hljs-meta">@Override</span></span><br><span class="line">			<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">playTTSText</span><span class="hljs-params">(String arg0, <span class="hljs-keyword">int</span> arg1)</span> </span>&#123;</span><br><span class="line">				<span class="hljs-comment">// 开发者可以使用其他TTS的API</span></span><br><span class="line">				<span class="hljs-keyword">return</span> BNTTSPlayer.playTTSText(arg0, arg1);</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			<span class="hljs-meta">@Override</span></span><br><span class="line">			<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">phoneHangUp</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">				<span class="hljs-comment">// 手机挂断</span></span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			<span class="hljs-meta">@Override</span></span><br><span class="line">			<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">phoneCalling</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">				<span class="hljs-comment">// 通话中</span></span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			<span class="hljs-meta">@Override</span></span><br><span class="line">			<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getTTSState</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">				<span class="hljs-comment">// 开发者可以使用其他TTS的API,</span></span><br><span class="line">				<span class="hljs-keyword">return</span> BNTTSPlayer.getTTSState();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);</span><br><span class="line"></span><br><span class="line">		BNRoutePlaner.getInstance().setObserver(</span><br><span class="line">				<span class="hljs-keyword">new</span> RoutePlanObserver(<span class="hljs-keyword">this</span>, <span class="hljs-keyword">new</span> IJumpToDownloadListener() &#123;</span><br><span class="line">					<span class="hljs-meta">@Override</span></span><br><span class="line">					<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onJumpToDownloadOfflineData</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">					&#125;</span><br><span class="line">				&#125;));</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="hljs-keyword">private</span> IBNavigatorListener mBNavigatorListener = <span class="hljs-keyword">new</span> IBNavigatorListener() &#123;</span><br><span class="line"></span><br><span class="line">		<span class="hljs-meta">@Override</span></span><br><span class="line">		<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onYawingRequestSuccess</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">			<span class="hljs-comment">// TODO 偏航请求成功</span></span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="hljs-meta">@Override</span></span><br><span class="line">		<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onYawingRequestStart</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">			<span class="hljs-comment">// TODO 开始偏航请求</span></span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="hljs-meta">@Override</span></span><br><span class="line">		<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onPageJump</span><span class="hljs-params">(<span class="hljs-keyword">int</span> jumpTiming, Object arg)</span> </span>&#123;</span><br><span class="line">			<span class="hljs-comment">// TODO 页面跳转回调</span></span><br><span class="line">			<span class="hljs-keyword">if</span> (IBNavigatorListener.PAGE_JUMP_WHEN_GUIDE_END == jumpTiming) &#123;</span><br><span class="line">				finishActivity();</span><br><span class="line">			&#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (IBNavigatorListener.PAGE_JUMP_WHEN_ROUTE_PLAN_FAIL == jumpTiming) &#123;</span><br><span class="line">				finishActivity();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="hljs-meta">@Override</span></span><br><span class="line">		<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">notifyGPSStatusData</span><span class="hljs-params">(<span class="hljs-keyword">int</span> arg0)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="hljs-meta">@Override</span></span><br><span class="line">		<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">notifyLoacteData</span><span class="hljs-params">(LocData arg0)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="hljs-meta">@Override</span></span><br><span class="line">		<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">notifyNmeaData</span><span class="hljs-params">(String arg0)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="hljs-meta">@Override</span></span><br><span class="line">		<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">notifySensorData</span><span class="hljs-params">(SensorData arg0)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="hljs-meta">@Override</span></span><br><span class="line">		<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">notifyStartNav</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">			BaiduNaviManager.getInstance().dismissWaitProgressDialog();</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="hljs-meta">@Override</span></span><br><span class="line">		<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">notifyViewModeChanged</span><span class="hljs-params">(<span class="hljs-keyword">int</span> arg0)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;;</span><br><span class="line"></span><br><span class="line">	<span class="hljs-meta">@Override</span></span><br><span class="line">	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onResume</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">		BNavigator.getInstance().resume();</span><br><span class="line">		<span class="hljs-keyword">super</span>.onResume();</span><br><span class="line">		BNMapController.getInstance().onResume();</span><br><span class="line">	&#125;;</span><br><span class="line"></span><br><span class="line">	<span class="hljs-meta">@Override</span></span><br><span class="line">	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onPause</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">		BNavigator.getInstance().pause();</span><br><span class="line">		<span class="hljs-keyword">super</span>.onPause();</span><br><span class="line">		BNMapController.getInstance().onPause();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="hljs-meta">@Override</span></span><br><span class="line">	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onConfigurationChanged</span><span class="hljs-params">(Configuration newConfig)</span> </span>&#123;</span><br><span class="line">		BNavigator.getInstance().onConfigurationChanged(newConfig);</span><br><span class="line">		<span class="hljs-keyword">super</span>.onConfigurationChanged(newConfig);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onBackPressed</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">		BNavigator.getInstance().onBackPressed();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="hljs-meta">@Override</span></span><br><span class="line">	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onDestroy</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">		BNavigator.destory();</span><br><span class="line">		BNRoutePlaner.getInstance().setObserver(<span class="hljs-keyword">null</span>);</span><br><span class="line">		<span class="hljs-keyword">super</span>.onDestroy();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">finishActivity</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">		finish();</span><br><span class="line">		overridePendingTransition(R.anim.in_from_right,R.anim.out_to_left);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -3292,7 +3292,7 @@
 <p>write by laohu</p>
 <p>2015-10-30 </p>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -3360,7 +3360,7 @@
 <p>write by laohu</p>
 <p>2015-10-30 </p>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -3412,7 +3412,7 @@
 <p>write by laohu</p>
 <p>2015-10-30 </p>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -3463,7 +3463,7 @@
 <p>write by laohu</p>
 <p>2015-10-30 </p>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -3519,7 +3519,7 @@
 <p>write by laohu</p>
 <p>2015-10-30 15:59:54</p>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -3578,7 +3578,7 @@
 <li>TextView通过代码设置字体大小要使用如下方式<code>textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimensionPixelSize(R.dimen.dp_10));</code>必须要使用该方法设置单位类型，否则设置的字体效果会和你预期的不一样</li>
 </ol>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -3637,7 +3637,7 @@
 <p>write by laohu</p>
 <p>2015年10月22日</p>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -3671,7 +3671,7 @@
 <p>另外<code>TableLayout</code>还有个属性<code>stretchColumns</code>是用来设置子布局的宽度进行拉伸适应容器大小的</p>
 <p>这两个属性的具体用法，大家自行去补脑吧。</p>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -3778,7 +3778,7 @@
 <p>write by laohu</p>
 <p>2015年10月8日21:56:06</p>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -3829,7 +3829,7 @@
 <p>write by  laohu</p>
 <p>2015年9月28日</p>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -3858,7 +3858,7 @@
 <p>在WordPress配置文件 <code>wp-config.php</code>最后加上如下代码：</p>
 <figure class="highlight php hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">//-----无法定位WordPress Content目录(wp-content)  解决方案---------begin  </span></span><br><span class="line"><span class="hljs-keyword">if</span>(is_admin()) &#123;add_filter(<span class="hljs-string">'filesystem_method'</span>, create_function(<span class="hljs-string">'$a'</span>, <span class="hljs-string">'return "direct";'</span> ));define( <span class="hljs-string">'FS_CHMOD_DIR'</span>, <span class="hljs-number">0751</span> );&#125;  </span><br><span class="line"><span class="hljs-comment">//-----无法定位WordPress Content目录(wp-content)  解决方案---------end</span></span><br></pre></td></tr></table></figure>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -3905,7 +3905,7 @@
 </ul>
 <p>如果WordPress上传多媒体文件(图片)时提示无法建立目录<code>wp-content/uploads…</code>，则可以将目录 <code>/var/www/html/wp-contents</code>的权限也赋予为读写权限</p>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -3951,7 +3951,7 @@
 </ol>
 <p>配置到这里，就可以远程用FTP客户端登录并上传文件，文件会保存在ftpuser的主目录，也就是<code>/home/ftp</code></p>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -3992,7 +3992,7 @@
 <p><code>update user set host=’localhost’ where user=’root’;</code></p>
 <p>可以参考阿里云的官方bbs: <a href="https://bbs.aliyun.com/read.php?spm=5176.775973948.2.5.1ZxyGR&amp;tid=130069" target="_blank" rel="noopener">阿里云服务器新手入门</a></p>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -4018,7 +4018,7 @@
 <p>启动过程中如果出现<code>Could not reliably determine the server&#39;s fully qualified domain name, using 10.161.94.31 for ServerName</code>提示，则将Apache安装目录<code>/etc/httpd/conf/</code>下的<code>httpd.conf</code>文件中的<code>#ServerName localhost:80</code>注释去掉即可，或是添加一行<code>ServerName localhost:80</code></p>
 <p>阿里云上Apache安装路径为<code>/etc/httpd/</code></p>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -4052,7 +4052,7 @@
 </ul>
 <p>我个人认为第二种实现方式更简单，更好理解，推荐使用这种实现方式。</p>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -4089,7 +4089,7 @@
 <p>系统内置SDCard写入、删除、读写权限：</p>
 <figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//文件创建、删除权限</span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">uses-permission</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"android.permission.MOUNT_UNMOUNT_FILESYSTEMS"</span> /&gt;</span></span><br><span class="line">//文件读写权限，只针对于手机内存的SDCard，对外接SDCard无效</span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">uses-permission</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"android.permission.WRITE_EXTERNAL_STORAGE"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -4120,7 +4120,7 @@
 <hr>
 <p>write by laohu<br>2015-09-26 21:34:09</p>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -4182,7 +4182,7 @@
 <p>一般比较常用的是边线，填充色，背景色这三个标签</p>
 <p>如果要为某个控件设置背景边框、渐变色、填充色或者是通过View设置控件间的分割线，都可以使用shape配合selector来进行实现</p>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -4243,7 +4243,7 @@
 <p>OK，JSONP的实现方式及实现原理基本上介绍演示完了，至于jQuery中对于JSONP的实现封装方式等我有时间研究下了再继续吧<del>~</del><del>~</del></p>
 <p>write by laohu<br>2015年3月20日</p>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
@@ -4305,7 +4305,7 @@
 <hr>
 <p>write by laohu<br>2014年12月11日19:12:55</p>
 <hr>
-<p>原创文章，严禁随意转载。   </p>
+<p>原创文章，转载请出处注明。   </p>
 <p>下面是我的个人公众号，欢迎关注交流<br><img src="/img/qrcode/weixinGzhQrcode.jpg" width="200" height="200" alt></p>
 ]]></content>
       
