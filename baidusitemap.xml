@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://ittiger.cn/Room-Coroutines.html</loc>
+    <lastmod>2019-08-24</lastmod>
+  </url>  <url>
     <loc>http://ittiger.cn/Java-Happends-Before.html</loc>
     <lastmod>2019-06-12</lastmod>
   </url>  <url>
@@ -202,10 +205,10 @@
     <loc>http://ittiger.cn/Retrofit-Source-Design-Pattern.html</loc>
     <lastmod>2019-05-09</lastmod>
   </url>  <url>
-    <loc>http://ittiger.cn/Custom-Behavior-to-fast-back.html</loc>
+    <loc>http://ittiger.cn/Header-Footer-scroll-hide.html</loc>
     <lastmod>2019-05-09</lastmod>
   </url>  <url>
-    <loc>http://ittiger.cn/Header-Footer-scroll-hide.html</loc>
+    <loc>http://ittiger.cn/Custom-Behavior-to-fast-back.html</loc>
     <lastmod>2019-05-09</lastmod>
   </url>
 </urlset>
